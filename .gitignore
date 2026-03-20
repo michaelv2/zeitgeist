@@ -204,3 +204,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Testing stuff
+.eval_data/
+.eval_results/

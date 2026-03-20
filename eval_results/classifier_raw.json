@@ -1,0 +1,108 @@
+[
+  {
+    "model": "gpt-5-mini (baseline)",
+    "batch_idx": 0,
+    "selected_ids": [
+      "pm-540816",
+      "pm-540843",
+      "pm-540844",
+      "pm-546612",
+      "pm-556062",
+      "pm-556063",
+      "pm-556108",
+      "pm-540820"
+    ],
+    "elapsed_s": 18.390391523978906,
+    "success": true,
+    "error": ""
+  },
+  {
+    "model": "gpt-5-mini (baseline)",
+    "batch_idx": 1,
+    "selected_ids": [
+      "pm-559651",
+      "pm-560317",
+      "pm-559652",
+      "pm-561230",
+      "pm-561243",
+      "pm-561229",
+      "pm-561258"
+    ],
+    "elapsed_s": 29.863421332993312,
+    "success": true,
+    "error": ""
+  },
+  {
+    "model": "gemma3:27b",
+    "batch_idx": 0,
+    "selected_ids": [],
+    "elapsed_s": 0.10038452298613265,
+    "success": false,
+    "error": "status_code: 400, model_name: gemma3:27b, body: {'message': 'registry.ollama.ai/library/gemma3:27b does not support tools', 'type': 'api_error', 'param': None, 'code': None}"
+  },
+  {
+    "model": "gemma3:27b",
+    "batch_idx": 1,
+    "selected_ids": [],
+    "elapsed_s": 0.07610514300176874,
+    "success": false,
+    "error": "status_code: 400, model_name: gemma3:27b, body: {'message': 'registry.ollama.ai/library/gemma3:27b does not support tools', 'type': 'api_error', 'param': None, 'code': None}"
+  },
+  {
+    "model": "qwen3.5:27b",
+    "batch_idx": 0,
+    "selected_ids": [],
+    "elapsed_s": 87.62550046699471,
+    "success": true,
+    "error": ""
+  },
+  {
+    "model": "qwen3.5:27b",
+    "batch_idx": 1,
+    "selected_ids": [],
+    "elapsed_s": 63.253925099998014,
+    "success": true,
+    "error": ""
+  },
+  {
+    "model": "llama3.3:70b-q3_K_M",
+    "batch_idx": 0,
+    "selected_ids": [],
+    "elapsed_s": 64.74449086599634,
+    "success": false,
+    "error": "Exceeded maximum retries (2) for result validation"
+  },
+  {
+    "model": "llama3.3:70b-q3_K_M",
+    "batch_idx": 1,
+    "selected_ids": [],
+    "elapsed_s": 32.237300397013314,
+    "success": false,
+    "error": "Exceeded maximum retries (2) for result validation"
+  },
+  {
+    "model": "claude-haiku",
+    "batch_idx": 0,
+    "selected_ids": [
+      "pm-540816",
+      "pm-540820",
+      "pm-540843",
+      "pm-540844",
+      "pm-546612"
+    ],
+    "elapsed_s": 1.9404447599954437,
+    "success": true,
+    "error": ""
+  },
+  {
+    "model": "claude-haiku",
+    "batch_idx": 1,
+    "selected_ids": [
+      "pm-559651",
+      "pm-560317"
+    ],
+    "elapsed_s": 1.1902689719863702,
+    "success": true,
+    "error": ""
+  }
+]
