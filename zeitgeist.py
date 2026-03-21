@@ -301,6 +301,8 @@ async def main():
     output_dir.mkdir(parents=True, exist_ok=True)
     html = templates.get_template("index.html.mako").render(today=today, report=report)
     output_file.write_text(html, encoding="utf-8")
+    redirect = f'<meta http-equiv="refresh" content="0;url={today.strftime("%Y/%m/%d/")}"><a href="{today.strftime("%Y/%m/%d/")}">Latest report</a>'
+    Path(".reports/index.html").write_text(redirect, encoding="utf-8")
     log.info("Done!")
     if IS_DEV:
         import webbrowser
