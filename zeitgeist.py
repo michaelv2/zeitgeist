@@ -31,7 +31,7 @@ RETRIES = 3
 
 CLASSIFYING_MODEL = "anthropic:claude-haiku-4-5-20251001"
 EVENTS_MODEL = "openai:gpt-5.1-2025-11-13"
-SYNTHESIS_MODEL = "openai:gpt-4.1-2025-04-14"
+SYNTHESIS_MODEL = "anthropic:claude-sonnet-4-6"
 
 
 today = date.today()

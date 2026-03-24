@@ -16,7 +16,6 @@ Score each report on the following criteria (1-5 scale):
    - Title must be "Daily Memo (DD-Mon-YYYY)"
    - Structure: broad (macro) → narrow (sectors) → individual names
    - "Upcoming Catalysts" section must be AT THE BOTTOM, sorted by date
-   - Must NOT mention prediction markets, exact probabilities, or broad ETF tickers ($SPY, $QQQ, $XLV etc.)
    - Must NOT include generic advice like "review quarterly" or "keep an eye on"
    - Must NOT hallucinate numbers, quotes, or sources not in the input data
    - 1: Multiple violations; 3: Minor issues; 5: Fully compliant

@@ -60,13 +60,13 @@ The application uses three specialized pydantic-ai agents:
    - Template: `templates/events_prompt.mako`
 
 3. **Synthesizing Agent** (`synthesizing_agent`)
-   - Model: `gpt-4.1-2025-04-14` (most capable for report writing)
+   - Model: `claude-sonnet-4-6` (best synthesis quality and actionability per eval)
    - Consolidates all inputs into investment memo
    - Writes in succinct investment analyst style
    - Template: `templates/synthesizing_prompt.mako`
 
 4. **Citation Agent** (inline, no dedicated variable)
-   - Model: `gpt-4.1-2025-04-14`
+   - Model: `claude-sonnet-4-6` (shares SYNTHESIS_MODEL)
    - Post-processes report to insert markdown citations
    - Template: `templates/citation_prompt.mako`
 

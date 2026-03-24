@@ -40,9 +40,6 @@ RESULTS_DIR = Path("eval/results")
 templates = TemplateLookup(directories=["templates"])
 today = date.today()
 
-FORBIDDEN_TICKERS = [
-    "$SPY", "$QQQ", "$XLV", "$XAR", "$IAU", "$DBC", "$ZROZ", "$TIPZ", "$VNQ",
-]
 
 
 # ── Structural metrics (no LLM needed) ──────────────────────────────────────
@@ -69,11 +66,6 @@ def compute_structural_metrics(report: str) -> dict:
         pos = report.lower().rfind("upcoming catalysts")
         catalysts_at_bottom = pos > len(report) * 0.7
 
-    # Forbidden ticker mentions
-    ticker_violations = sum(
-        1 for t in FORBIDDEN_TICKERS if t in report or t.lstrip("$") in report
-    )
-
     return {
         "word_count": len(words),
         "line_count": len(non_empty),
@@ -84,7 +76,6 @@ def compute_structural_metrics(report: str) -> dict:
         "has_daily_memo_title": has_daily_memo,
         "has_catalysts_section": has_catalysts,
         "catalysts_at_bottom": catalysts_at_bottom,
-        "ticker_violations": ticker_violations,
         "h2_header_names": [h.lstrip("#").strip() for h in h2_headers],
     }
 
@@ -187,7 +178,7 @@ async def run_eval(models: list[str], num_runs: int, fixture_path: Path | None):
     print()
 
     metric_keys = ["word_count", "bullet_density", "has_daily_memo_title",
-                   "has_catalysts_section", "catalysts_at_bottom", "ticker_violations"]
+                   "has_catalysts_section", "catalysts_at_bottom"]
     for key in metric_keys:
         print(f"  {key:<28}", end="")
         for model in models:
@@ -252,18 +243,45 @@ async def run_judge(judge_models: list[str], results_path: Path | None):
     fixture_path = FIXTURES_DIR / results["fixture"]
     input_data = fixture_path.read_text() if fixture_path.exists() else "(fixture not available)"
 
-    # Use first run of each model
-    report_a_model = model_names[0]
-    report_b_model = model_names[1]
-    report_a_text = results["models"][report_a_model][0]["output"]
-    report_b_text = results["models"][report_b_model][0]["output"]
+    model_a_name = model_names[0]
+    model_b_name = model_names[1]
+    runs_a = results["models"][model_a_name]
+    runs_b = results["models"][model_b_name]
+    num_pairs = min(len(runs_a), len(runs_b))
 
-    # Randomize A/B assignment to prevent position bias
-    if random.random() < 0.5:
-        report_a_model, report_b_model = report_b_model, report_a_model
-        report_a_text, report_b_text = report_b_text, report_a_text
+    system_prompt = templates.get_template("synthesis_judge_prompt.mako").render(
+        input_data=input_data
+    )
 
-    user_message = f"""## Report A
+    all_judgments = {}
+
+    for judge_model in judge_models:
+        print(f"\n{'='*60}")
+        print(f"Judge: {judge_model}")
+        print(f"{'='*60}")
+
+        agent = Agent(
+            model=judge_model,
+            output_type=Judgment,
+            system_prompt=system_prompt,
+            retries=3,
+        )
+
+        pair_results = []
+
+        for pair_idx in range(num_pairs):
+            report_a_text = runs_a[pair_idx]["output"]
+            report_b_text = runs_b[pair_idx]["output"]
+
+            # Randomize A/B assignment per pair to prevent position bias
+            swapped = random.random() < 0.5
+            if swapped:
+                report_a_text, report_b_text = report_b_text, report_a_text
+                label_a, label_b = model_b_name, model_a_name
+            else:
+                label_a, label_b = model_a_name, model_b_name
+
+            user_message = f"""## Report A
 
 {report_a_text}
 
@@ -273,60 +291,82 @@ async def run_judge(judge_models: list[str], results_path: Path | None):
 
 {report_b_text}"""
 
-    system_prompt = templates.get_template("synthesis_judge_prompt.mako").render(
-        input_data=input_data[:15000]  # Truncate to avoid blowing context
-    )
+            print(f"\n  ── Pair {pair_idx+1}/{num_pairs} (A={label_a.split(':')[-1][:20]}, B={label_b.split(':')[-1][:20]}) ──")
 
-    all_judgments = {}
+            result = await agent.run(user_message)
+            judgment = result.output
 
-    for judge_model in judge_models:
-        print(f"\n── Judge: {judge_model} ──")
-        print(f"  Report A = {report_a_model}")
-        print(f"  Report B = {report_b_model}")
+            # Display scores
+            print(f"  {'Criterion':<25} {'A':>5} {'B':>5}")
+            print(f"  {'-'*35}")
+            for c in judgment.criteria:
+                print(f"  {c.criterion:<25} {c.score_a:>5} {c.score_b:>5}")
 
-        agent = Agent(
-            model=judge_model,
-            output_type=Judgment,
-            system_prompt=system_prompt,
-            retries=3,
-        )
+            avg_a = sum(c.score_a for c in judgment.criteria) / len(judgment.criteria)
+            avg_b = sum(c.score_b for c in judgment.criteria) / len(judgment.criteria)
+            print(f"  {'Average':<25} {avg_a:>5.1f} {avg_b:>5.1f}")
 
-        result = await agent.run(user_message)
-        judgment = result.output
+            # Map preference back to real model name
+            if judgment.preferred == "A":
+                preferred_model = label_a
+            elif judgment.preferred == "B":
+                preferred_model = label_b
+            else:
+                preferred_model = "tie"
 
-        # Display results
-        print(f"\n  {'Criterion':<25} {'A':>5} {'B':>5}")
-        print(f"  {'-'*35}")
-        for c in judgment.criteria:
-            print(f"  {c.criterion:<25} {c.score_a:>5} {c.score_b:>5}")
-            print(f"    A: {c.rationale_a}")
-            print(f"    B: {c.rationale_b}")
+            print(f"  Preferred: {preferred_model} — {judgment.preference_reason}")
 
-        avg_a = sum(c.score_a for c in judgment.criteria) / len(judgment.criteria)
-        avg_b = sum(c.score_b for c in judgment.criteria) / len(judgment.criteria)
-        print(f"\n  {'Average':<25} {avg_a:>5.1f} {avg_b:>5.1f}")
-        print(f"\n  Preferred: Report {judgment.preferred} ({report_a_model if judgment.preferred == 'A' else report_b_model if judgment.preferred == 'B' else 'tie'})")
-        print(f"  Reason: {judgment.preference_reason}")
+            pair_results.append({
+                "pair": pair_idx,
+                "label_a": label_a,
+                "label_b": label_b,
+                "criteria": [c.model_dump() for c in judgment.criteria],
+                "preferred": judgment.preferred,
+                "preferred_model": preferred_model,
+                "preference_reason": judgment.preference_reason,
+            })
+
+        # Aggregate across pairs for this judge
+        pref_counts: dict[str, int] = {}
+        score_totals: dict[str, list[float]] = {model_a_name: [], model_b_name: []}
+        for pr in pair_results:
+            pref_counts[pr["preferred_model"]] = pref_counts.get(pr["preferred_model"], 0) + 1
+            for c in pr["criteria"]:
+                # Map scores back to real model names
+                if pr["label_a"] == model_a_name:
+                    score_totals[model_a_name].append(c["score_a"])
+                    score_totals[model_b_name].append(c["score_b"])
+                else:
+                    score_totals[model_b_name].append(c["score_a"])
+                    score_totals[model_a_name].append(c["score_b"])
+
+        print(f"\n  ── {judge_model} Summary ({num_pairs} pairs) ──")
+        for model in [model_a_name, model_b_name]:
+            scores = score_totals[model]
+            avg = sum(scores) / len(scores) if scores else 0
+            wins = pref_counts.get(model, 0)
+            print(f"  {model.split(':')[-1][:25]}: avg score {avg:.2f}, preferred {wins}/{num_pairs}")
+        ties = pref_counts.get("tie", 0)
+        if ties:
+            print(f"  Ties: {ties}/{num_pairs}")
 
         all_judgments[judge_model] = {
-            "report_a_model": report_a_model,
-            "report_b_model": report_b_model,
-            "criteria": [c.model_dump() for c in judgment.criteria],
-            "preferred": judgment.preferred,
-            "preferred_model": report_a_model if judgment.preferred == "A" else report_b_model if judgment.preferred == "B" else "tie",
-            "preference_reason": judgment.preference_reason,
+            "model_a": model_a_name,
+            "model_b": model_b_name,
+            "pairs": pair_results,
+            "preference_counts": pref_counts,
         }
 
     # Cross-judge agreement
     if len(judge_models) > 1:
-        print(f"\n── Judge Agreement ──")
-        prefs = [all_judgments[j]["preferred_model"] for j in judge_models]
-        if len(set(prefs)) == 1:
-            print(f"  Both judges prefer: {prefs[0]}")
-        else:
-            for j in judge_models:
-                short = j.split(":")[-1][:25]
-                print(f"  {short}: prefers {all_judgments[j]['preferred_model']}")
+        print(f"\n{'='*60}")
+        print("Cross-judge agreement")
+        print(f"{'='*60}")
+        for j in judge_models:
+            counts = all_judgments[j]["preference_counts"]
+            short = j.split(":")[-1][:25]
+            summary = ", ".join(f"{m.split(':')[-1][:20]}={c}" for m, c in sorted(counts.items()))
+            print(f"  {short}: {summary}")
 
     # Save
     outfile = RESULTS_DIR / f"synthesis_judge_{today.isoformat()}.json"
@@ -361,8 +401,6 @@ def print_report(results_path: Path | None):
                 print("    ⚠ Missing 'Upcoming Catalysts' section")
             if not m["catalysts_at_bottom"]:
                 print("    ⚠ Catalysts not at bottom")
-            if m["ticker_violations"]:
-                print(f"    ⚠ {m['ticker_violations']} forbidden ticker mentions")
         print()
 
     # Check for judge results

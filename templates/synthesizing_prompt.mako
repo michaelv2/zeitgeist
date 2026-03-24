@@ -29,10 +29,7 @@ Consolidate all events and upcoming catalysts into a single 'Upcoming Catalysts'
   - Don't mention sorting or anything else; title for this section should just be 'Upcoming Catalysts'
 This is intended to be consumed daily by a PM as a news memo, so just use the title: Daily Memo (${today.strftime('%d-%b-%Y')})
 Things to avoid:
-  - Don't mention that your input was prediction markets or the FRED; the reader is aware of that and frankly does not care
-  - Avoid putting the exact probabilities from the input; just use plain English to describe the prospects
   - Avoid general guidelines like 'review this quarterly' or 'keep an eye'
-  - NEVER mention broad ETF tickers as I can figure that out from the sector or bond duration etc.
   - Avoid any generic or broad statements; be succinct and specific.
   - No hallucinations: never fabricate nor use illustrative numbers, metrics, quotes, or sources
 Writing style:
