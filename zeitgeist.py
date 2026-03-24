@@ -124,11 +124,12 @@ async def fetch_from_polymarket() -> pl.DataFrame:
         bets = []
         for prompt, probability in zip(json.loads(p["outcomes"]), json.loads(p.get("outcomePrices", "[]"))):
             bets.append({"prompt": prompt, "probability": float(probability)})
+        event_slug = p["events"][0]["slug"] if p.get("events") else p["slug"]
         return {
             "id": f"pm-{p['id']}",
             "title": p["question"],
             "bets": bets,
-            "url": f"https://polymarket.com/event/{p['slug']}"
+            "url": f"https://polymarket.com/event/{event_slug}"
         }
 
     async with httpx.AsyncClient() as client:
@@ -268,6 +269,10 @@ async def main():
         "upcoming_catalysts": events.select("title", "when", "topics").to_dicts(),
         "fred_data_points": fred_data.select("title", "data").to_dicts() if fred_data is not None else None
     }
+    if os.environ.get("ZEITGEIST_DUMP_FIXTURE"):
+        Path("eval/synthesis_fixtures").mkdir(parents=True, exist_ok=True)
+        Path(f"eval/synthesis_fixtures/{today}.json").write_text(json.dumps(report_input, indent=2))
+        log.info(f"Dumped synthesis fixture to eval/synthesis_fixtures/{today}.json")
     log.info("Generating report...")
     report = await synthesizing_agent.run(json.dumps(report_input))
     report = report.output
