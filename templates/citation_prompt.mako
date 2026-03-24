@@ -4,16 +4,21 @@ You are given the following markdown memo generated from various sources like pr
 ${memo}
 ```
 
-Your goal is add citations to EXISTING phrases in the above memo from the provided list of titles and urls.
-Use your best guess to appropriately insert the citations as markdown inline urls when appropriate into the original markdown document
-to hyperlink to relevant sources of information based on the given list of titles
-DO NOT MODIFY the text of the markdown (besides adding the citations where appropriate)
-DO NOT ADD new text for the link i.e. you should only hyperlink an existing phrase or number etc
-i.e. your ONLY additions to the input text of the form "word1 word2 word3 word4" should be "word1 [word2 word3](url) word4"
-Note how I DID NOT CHANGE the original word1 word2 etc and how DID NOT ADD any new words and nor did I delete any text from the input
-I just inserted in the citation in a SHORT subsection of the input using [relevant phrase](url) markdown syntax
-By SHORT - I meant LITERALLY 1 or 2 word max that should be put inside the phrase in [phrase](url)
-Do not modify the phrase - it should be from given document. Do not insert text about the URL like the site etc.
-DO NOT ADD link for a whole sentence - your citation should be for 1-3 word phrases or key numbers only
-Return JUST the original markdown (with citations) and say nothing else
-Make sure to return without the leading and ending backticks i.e. the output should just be the valid markdown WITHOUT any enclosing backticks
+Your goal is to add citations to the memo by hyperlinking SHORT existing phrases to relevant source URLs.
+
+## Rules
+
+1. **Hyperlink existing words only** — pick 1-2 words already in the text and wrap them: `[existing words](url)`
+2. **NEVER insert the article title, site name, or any new text** — the only characters you may add are `[`, `](url)`, and nothing else
+3. **Keep links short** — 1-2 words max inside the brackets. Never link a full clause or sentence.
+4. **One link per source per paragraph** — do not cluster multiple citation links back-to-back. Spread them naturally across the text.
+5. **Preserve all original text exactly** — no additions, deletions, or rewordings beyond the markdown link syntax
+
+## Example
+
+BEFORE: Senate close to DHS funding deal; ICE remains sticking point, causing major airport disruptions with 6+ hour TSA waits.
+AFTER:  Senate close to [DHS funding](url1) deal; ICE remains sticking point, causing major airport disruptions with 6+ hour [TSA waits](url2).
+
+Notice: only existing words are linked, links are 1-2 words each, and the original text is otherwise identical.
+
+Return JUST the markdown with citations added. No backticks, no commentary.

@@ -32,7 +32,8 @@ This will:
 The script automatically runs in "quick test" mode when `GITHUB_ACTIONS` is not set. This limits data fetching to first few batches for faster iteration during development.
 
 ### Required environment variables
-- `OPENAI_API_KEY` (required) - For LLM agents
+- `OPENAI_API_KEY` (required) - For LLM agents (events, synthesis, citations)
+- `ANTHROPIC_API_KEY` (required) - For classifier (Haiku)
 - `FRED_API_KEY` (optional) - For economic data; script continues without it
 
 Create a `.env` file with these keys for local development.
@@ -44,11 +45,12 @@ Create a `.env` file with these keys for local development.
 The application uses three specialized pydantic-ai agents:
 
 1. **Relevant Prediction Agent** (`relevant_prediction_agent`)
-   - Model: `gpt-5-mini-2025-08-07` (fast classifier)
+   - Model: `claude-haiku-4-5-20251001` (fast coarse filter)
    - Processes prediction markets in batches of 100
-   - Filters for investment-relevant predictions
+   - Coarse filter: removes obvious noise (sports, celebrity, memes) and keeps anything plausibly relevant
+   - Contextual relevance judgment is deferred to the synthesizing agent which sees news/FRED/events
    - Tags each with affected topics/sectors
-   - Template: `templates/relevant_prediction_prompt.mako`
+   - Template: `templates/classifier_coarse_filter_prompt.mako`
 
 2. **Events Agent** (`events_agent`)
    - Model: `gpt-5.1-2025-11-13`
@@ -134,3 +136,10 @@ Both Kalshi and Polymarket are normalized to:
 
 ### Output Directory Structure
 Reports are organized as `.reports/YYYY/MM/DD/index.html` for GitHub Pages hosting with date-based navigation.
+
+## Ecosystem
+
+Zeitgeist is part of a broader personal investment research stack:
+
+- **Oracle** (downstream): Oracle maps strategic macro questions to scenario analyses with economic indicators and decision rules. Zeitgeist's daily news discovery and market synthesis will feed into oracle's AI assessments, providing richer narrative context for scenario monitoring.
+- **Fintools** (planned upstream): Fintools is building a comprehensive financial data library (SEC EDGAR, Yahoo Finance, FRED, NASDAQ). Once mature, it will broaden the set of indicators zeitgeist can track beyond its current FRED-only economic data — enabling coverage of earnings, positioning, factor dynamics, and company-level fundamentals.

@@ -205,9 +205,11 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-# Testing stuff
+# Eval
+eval/
 eval_data/
 eval_results/
+eval_harness.py
 
 # Plans
 EMAIL_SPEC.md

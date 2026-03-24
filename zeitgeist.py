@@ -21,7 +21,7 @@ IS_DEV = not IS_PROD
 
 QUICK_TEST = IS_DEV # If True, run quickly on first few predictions; useful for smoke-testing
 
-ENABLE_CITATIONS = False
+ENABLE_CITATIONS = True
 
 BATCH_REQUEST_DELAY_SECONDS = 5
 RATE_LIMIT_WAIT_SECONDS = 10
@@ -29,7 +29,7 @@ RATE_LIMIT_WAIT_SECONDS = 10
 BATCH_SIZE = 100
 RETRIES = 3
 
-CLASSIFYING_MODEL = "openai:gpt-5-mini-2025-08-07"
+CLASSIFYING_MODEL = "anthropic:claude-haiku-4-5-20251001"
 EVENTS_MODEL = "openai:gpt-5.1-2025-11-13"
 SYNTHESIS_MODEL = "openai:gpt-4.1-2025-04-14"
 
@@ -187,7 +187,7 @@ class RelevantPrediction(BaseModel):
 relevant_prediction_agent = Agent(
     model=CLASSIFYING_MODEL,
     output_type=list[RelevantPrediction],
-    system_prompt=templates.get_template("relevant_prediction_prompt.mako").render(today=today),
+    system_prompt=templates.get_template("classifier_coarse_filter_prompt.mako").render(),
     retries=RETRIES,
 )
 
@@ -290,8 +290,8 @@ async def main():
             retries=RETRIES
         )
         try:
-            report = await citation_agent.run(citations.write_json())
-            report = report.removesuffix("```").removeprefix("```md").removeprefix("```markdown").removeprefix("```")
+            result = await citation_agent.run(citations.write_json())
+            report = result.output.removesuffix("```").removeprefix("```md").removeprefix("```markdown").removeprefix("```")
         except Exception as e:
             log.error(f"Failed to insert citations: {e}")
 
