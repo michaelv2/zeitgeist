@@ -22,6 +22,7 @@ IS_DEV = not IS_PROD
 QUICK_TEST = IS_DEV # If True, run quickly on first few predictions; useful for smoke-testing
 
 ENABLE_CITATIONS = True
+ENABLE_EMAIL_BRIEFING = True
 
 BATCH_REQUEST_DELAY_SECONDS = 5
 RATE_LIMIT_WAIT_SECONDS = 10
@@ -42,6 +43,8 @@ log.getLogger().setLevel(log.INFO)
 templates = TemplateLookup(directories=["templates"])
 
 FRED_API_KEY=os.getenv("FRED_API_KEY")
+GMAIL_USER = os.getenv("GMAIL_USER")
+GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD")
 NUM_FRED_DATAPOINTS = 10
 
 FRED_CODES = {
@@ -244,6 +247,15 @@ async def get_events() -> pl.DataFrame:
     res = await events_agent.run()
     return pl.DataFrame(res.output)
 
+def get_email_briefing() -> str | None:
+    if not ENABLE_EMAIL_BRIEFING:
+        return None
+    from email_briefing import fetch_briefing
+    if not GMAIL_USER or not GMAIL_APP_PASSWORD:
+        log.warning("No Gmail credentials found; skipping email briefing ...")
+        return None
+    return fetch_briefing(GMAIL_USER, GMAIL_APP_PASSWORD, target_date=today)
+
 def get_news() -> pl.DataFrame | None:
     from gnews import GNews
     try:
@@ -258,18 +270,20 @@ async def main():
     predictions = pl.concat(await asyncio.gather(fetch_from_kalshi(), fetch_from_polymarket()))
     log.info(f"Total = {len(predictions)} predictions")
 
-    tagged_predictions, events, news, fred_data = await asyncio.gather(
+    tagged_predictions, events, news, fred_data, email_briefing = await asyncio.gather(
         tag_predictions(predictions),
         get_events(),
         asyncio.to_thread(get_news),
         asyncio.to_thread(get_fred_data),
+        asyncio.to_thread(get_email_briefing),
     )
 
     report_input = {
         "prediction_markets": tagged_predictions.select("title", "bets", "topics").to_dicts(),
         "news_headlines": news.select("title", "description").to_dicts() if news is not None else None,
         "upcoming_catalysts": events.select("title", "when", "topics").to_dicts(),
-        "fred_data_points": fred_data.select("title", "data").to_dicts() if fred_data is not None else None
+        "fred_data_points": fred_data.select("title", "data").to_dicts() if fred_data is not None else None,
+        "external_briefings": [{"source": "DataTrek Morning Briefing", "content": email_briefing}] if email_briefing else None
     }
     if os.environ.get("ZEITGEIST_DUMP_FIXTURE"):
         Path("eval/synthesis_fixtures").mkdir(parents=True, exist_ok=True)

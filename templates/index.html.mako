@@ -16,7 +16,7 @@
     <a href="https://michaelv2.github.io/zeitgeist/" style="float: right; text-decoration: none; font-size: 28px; margin-right: 10px;">
         🔄
     </a>
-    ${MarkdownIt().render(report) | n}
+    ${MarkdownIt('commonmark').enable('table').render(report) | n}
 </main>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
