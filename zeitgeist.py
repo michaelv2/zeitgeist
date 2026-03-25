@@ -32,6 +32,7 @@ RETRIES = 3
 CLASSIFYING_MODEL = "anthropic:claude-haiku-4-5-20251001"
 EVENTS_MODEL = "openai:gpt-5.1-2025-11-13"
 SYNTHESIS_MODEL = "anthropic:claude-sonnet-4-6"
+COMPARISON_MODEL = "openai:gpt-4.1-2025-04-14"  # Parallel A/B comparison; set to None to disable
 
 
 today = date.today()
@@ -220,7 +221,7 @@ async def tag_predictions(predictions: pl.DataFrame) -> pl.DataFrame:
 class Event(BaseModel):
     title: str = Field(description="title of macro event or catalyst")
     when: str = Field(description="approximately when; either specific date or stringy like '2025 Q2' or 'next month'")
-    url: str | None = Field(description="web url linking to a page with details about the event - okay to skip if url is not available or too generic")
+    url: str = Field(description="web url linking to the source page for this event (e.g. bea.gov, bls.gov, federalreserve.gov, company IR pages)")
     topics: str = Field(description="Very short phrase (1-3 words): public companies or investment sectors or broad alternatives impacted")
 
 events_agent = Agent(
@@ -236,6 +237,7 @@ synthesizing_agent = Agent(
     output_type=str,
     system_prompt=templates.get_template("synthesizing_prompt.mako").render(today=today),
     retries=RETRIES,
+    model_settings={"max_tokens": 32768, "timeout": 600},
 )
 
 async def get_events() -> pl.DataFrame:
@@ -274,8 +276,25 @@ async def main():
         Path(f"eval/synthesis_fixtures/{today}.json").write_text(json.dumps(report_input, indent=2))
         log.info(f"Dumped synthesis fixture to eval/synthesis_fixtures/{today}.json")
     log.info("Generating report...")
-    report = await synthesizing_agent.run(json.dumps(report_input))
-    report = report.output
+    input_json = json.dumps(report_input)
+    synthesis_tasks = [synthesizing_agent.run(input_json)]
+    if COMPARISON_MODEL:
+        comparison_agent = Agent(
+            model=COMPARISON_MODEL,
+            output_type=str,
+            system_prompt=templates.get_template("synthesizing_prompt.mako").render(today=today),
+            retries=RETRIES,
+        )
+        synthesis_tasks.append(comparison_agent.run(input_json))
+    synthesis_results = await asyncio.gather(*synthesis_tasks, return_exceptions=True)
+    report = synthesis_results[0].output if not isinstance(synthesis_results[0], Exception) else None
+    if report is None:
+        raise synthesis_results[0]
+    comparison_report = None
+    if COMPARISON_MODEL and len(synthesis_results) > 1 and not isinstance(synthesis_results[1], Exception):
+        comparison_report = synthesis_results[1].output
+    elif COMPARISON_MODEL and len(synthesis_results) > 1 and isinstance(synthesis_results[1], Exception):
+        log.error(f"Comparison model failed: {synthesis_results[1]}")
 
     if ENABLE_CITATIONS:
         citations = [
@@ -292,7 +311,8 @@ async def main():
             model=SYNTHESIS_MODEL,
             output_type=str,
             system_prompt=templates.get_template("citation_prompt.mako").render(memo=report),
-            retries=RETRIES
+            retries=RETRIES,
+            model_settings={"max_tokens": 32768, "timeout": 600},
         )
         try:
             result = await citation_agent.run(citations.write_json())
@@ -306,6 +326,10 @@ async def main():
     output_dir.mkdir(parents=True, exist_ok=True)
     html = templates.get_template("index.html.mako").render(today=today, report=report)
     output_file.write_text(html, encoding="utf-8")
+    if comparison_report:
+        comparison_html = templates.get_template("index.html.mako").render(today=today, report=comparison_report)
+        (output_dir / "index2.html").write_text(comparison_html, encoding="utf-8")
+        log.info(f"Wrote comparison report to {output_dir / 'index2.html'}")
     redirect = f'<meta http-equiv="refresh" content="0;url={today.strftime("%Y/%m/%d/")}"><a href="{today.strftime("%Y/%m/%d/")}">Latest report</a>'
     Path(".reports/index.html").write_text(redirect, encoding="utf-8")
     log.info("Done!")

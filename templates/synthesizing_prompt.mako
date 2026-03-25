@@ -18,7 +18,10 @@ or ground it with the actuals from the FRED data (note that the FRED data is usu
 </task>
 
 <output_format>
-Present in a markdown format with sections and sub-sections
+Present in a markdown format using this heading hierarchy:
+  - Use ## (h2) for major top-level sections only (e.g. Key News, Macro, Geopolitics, Sectors, Upcoming Catalysts)
+  - Use #### (h4) for sub-topics within a section (e.g. Rates & Yields, Labor, Consumer)
+  - Do NOT use ### (h3) — this keeps sub-topics visually subordinate to their parent section
 Go from broad (e.g. macro) to narrow (e.g. sector) and finally individual names as top-level sections
 Consolidate any important or relevant news items into simple bullets at the top in a separate news section
 Consolidate all events and upcoming catalysts into a single 'Upcoming Catalysts' section AT THE BOTTOM of the final report:
