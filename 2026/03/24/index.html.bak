@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css">
+    <title>Report 24-Mar-2026</title>
+</head>
+<body>
+<main>
+    <a href="https://github.com/michaelv2/zeitgeist" target="_blank" rel="noopener" style="float: right;">
+        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" width="30" height="30">
+    </a>
+    <a href="https://michaelv2.github.io/zeitgeist/" style="float: right; text-decoration: none; font-size: 28px; margin-right: 10px;">
+        🔄
+    </a>
+    <h1>Daily Memo (24-Mar-2026)</h1>
+<hr />
+<h2>Key News Summary</h2>
+<ul>
+<li>
+<p><strong>Middle East Tensions Escalate</strong></p>
+<ul>
+<li>US deploying <a href="https://news.google.com/rss/articles/CBMijAFBVV95cUxON2xxaTY4WFBDbHBRTTgxd1dUVFlLMnZEQm1ocFNmV0tWQmRoTmRpbDVtNURaUkpManJmci1EcDg0WTZRTlZVYlJ2ZkZ2dHlLdHRpamVPem00ZHBjZ3BGMjNNSmQtWUlBaGl3YUhPRnVwa2RpMkFYbG54QjBGUjU5R2QzR01WNFBLQ3ZIQQ?oc=5&amp;hl=en-US&amp;gl=US&amp;ceid=US:en">3,000+</a> additional troops to the region; Trump asserts negotiations with Iran, but Iran denies “prize” deal. Brent crude rises above $100 as war premium returns.</li>
+<li>Iran claims non-hostile ships may transit <a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxNRkpBQVZSQ2dMLTBIeGpQeEdMemNaRThGaGl2TkFzMmpETzc1MUplQWFaSVNjbmpfcmNWb040azdZdUVGY0hBY2hjQ1BHRjVzMWEyTjJaODY0Y1dMYW8tT3p3SUJmcG9EZnFpWmktWHRlMlJVVjJPQTFmR0lFNW9TU2swdl8?oc=5&amp;hl=en-US&amp;gl=US&amp;ceid=US:en">Strait of Hormuz</a>, but reopening risks high. Energy, fertilizer, shipping costs threatened by any disruption.</li>
+</ul>
+</li>
+<li>
+<p><strong>US Domestic Politics &amp; Policy</strong></p>
+<ul>
+<li>Senate GOP seeking deal to end <a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxQWkkxTks5Nk9SOF9SZkt5dEI1Uk04djBYbGYzczhNNHgwVXpRdlhiZkJqZHdUR2xFaHY2RHhROUFfN2Q5cjUtRkRYUVZ0enFhdnpBbjc4djFXeTI0WUNQUkthV2hfS2FQZWM0Sk1HME9YRUh0MXVRdnlpcjF0R3NmdE5hOFV6QW5hRC1SNU5QaTRTXzJ6aVNLZi12dVlydFZ6S1RoNmRJaVFyZw?oc=5&amp;hl=en-US&amp;gl=US&amp;ceid=US:en">DHS shutdown</a>; continued risk of budget/funding standoffs.</li>
+<li>Supreme Court weighs Trump-era <a href="https://news.google.com/rss/articles/CBMid0FVX3lxTE1QVlkxWjA2ZmNLa21ZZ3lXcHFKU0liemtrSm1WSzUyZTNKZlV5aXdKTzlYSXVoaHZQMUdGS1d4QzlfNmJkNDJPN2xTU05DelNpQkcxR05QMElxZ0RsSk1NY3FaU1pJS0QxVGdvZHNqV3J4a1B4Rm1j?oc=5&amp;hl=en-US&amp;gl=US&amp;ceid=US:en">asylum policy</a>; possible implications for immigration/geopolitical rhetoric.</li>
+<li>Minnesota sues over federal <a href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxQUFhyRGdOTzFoaWozalU5eUtyVE03NjRpenhfTWV0TGJaUEdiUGd6X09HbVRGeDZfQzNIdmVVQ0pJX3RYREwyVGRHODV3eW5NMktkcFlIckxNYm92QVlfTlFYXzFaN2ZwQXlZT0pvVUE3TngtR2J2VV83ZkFXMTE4clVidHZOYldZTGNCZzZtb3MxZ0R0SmYzSkVRUGhrOTFvWWtOVzQxZTPSAa4BQVVfeXFMTzJYalI3QTdCYkh4clRDOEFzdnc5VVBGOU8xYm1RYkUtZ09WNmxfbTZmTExjRXFMdDRSMThrTi1kV2FRd2VwemlqbDlaanVXMzBjNXV4cnc4akdwZFU5dTUyZzNpUWdTMWNxXzd4WkE3TGthTWZ0OFJOWDFYWHlLRnV5cWVnNnp4MXV6NEIwWFFFdE0tWGpjVnk1TGhRTnU1U05CdElpaWxsc2xCMjZR?oc=5&amp;hl=en-US&amp;gl=US&amp;ceid=US:en">transparency</a> in agent-involved shootings.</li>
+</ul>
+</li>
+<li>
+<p><strong>Russia, Europe, and China</strong></p>
+<ul>
+<li>Israel eyes occupation of southern <a href="https://news.google.com/rss/articles/CBMingFBVV95cUxNVVlkMW5RWHd3cEtuaEpTLXYwT1ljcUh1eWxwM1BPbHU4VnFWOWRHMWNCYTlhQ0VESGgxTTBuSFdOa3U2Qmo2bHRfV2FDQy00NDl4NE9MN2Y3LV85Mm5JaUVXZFJNaFk5SVNoWVZXbXZVNkU0U2VvRG5xanBFTi1iS0hud21KZHBsYzlPSUFIdVk2bnYwRlFfc2NqODdXUQ?oc=5&amp;hl=en-US&amp;gl=US&amp;ceid=US:en">Lebanon</a> as conflict widens; Russian/Ukraine ceasefire prospects remain up for debate, <a href="https://polymarket.com/event/russia-ukraine-ceasefire-before-gta-vi-554">betting markets</a> suggest no clear outcome.</li>
+<li>Denmark’s ruling party on <a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxNR19rQ1pRY0UyU0k3UjVvczFNLVQ4UEx0Y2pFQ0lkeE5HbUxhV0VLbXBNZEhfTDl1dmRkbGFyQS1GTGw5VVZQMHIyNVhvODhfY2JKbU44YWJuSEtXWE1BMEEzMkQ0dnBLTVFCTDhSTHdneXB2d2JCZDcwT3JDM3RQdnlpNmZkUmJzRDJMSUd2Y1d4VkRCdGF6WEliSFRzemhBU1E?oc=5&amp;hl=en-US&amp;gl=US&amp;ceid=US:en">track</a> after Trump-related diplomatic tensions; EU/US relations sensitive.</li>
+</ul>
+</li>
+<li>
+<p><strong>Market &amp; Macro</strong></p>
+<ul>
+<li><a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxQR0dUb2Y2ZW85M1Vlb0tINy0wTmdkODhlLVdyY2JDUHBjWkpRR0t0UTFqSTNqLUxuS3F4SlVlbGNHclkyVU04c0tWbmhMN3U3Zm5pQ3Y4bTdlalVTcExxa2p3dUFOcVVXTGZYZzJfb3hLQ2hINGJSTExSWkhmMjZ4YzVWRVV4SjVVX3hQRjNRTFQ2c0NobmFZVnROT0xkdF9QZFhxYXNYZHdfUjVnQ1JSOVFfemJkRl90dksxSHk4SVRBc0k?oc=5&amp;hl=en-US&amp;gl=US&amp;ceid=US:en">Bond market</a> approaches 5% 10y yield, with inflation and Middle East conflict driving rates higher; Fed less likely to cut amid oil-induced uncertainty. <a href="https://fred.stlouisfed.org/series/T10Y3M">10y–3m yield spread</a> at +65bp, out of inversion but suggesting steeper curve on risk.</li>
+<li>Nasdaq <a href="https://news.google.com/rss/articles/CBMihwFBVV95cUxNQXNNY1pVSUZNekl5bnZCQzRKbUgxczdCWnRiaVNtUWszQVZTeTcyRUgtdmVncFlrOVZPZkc0a0V1UUhLRHRsNmg0aUVVeDJPSWVLT3ZlVkhxOHhBSkZTS3dVSk1LSHFZY2xYU0VJdnZjaThvcmNua3dWZGVJRnBpRnFzYnloOFk?oc=5&amp;hl=en-US&amp;gl=US&amp;ceid=US:en">underperforms</a>; energy and commodity equities see renewed strength.</li>
+</ul>
+</li>
+<li>
+<p><strong>Tech &amp; Crypto</strong></p>
+<ul>
+<li>Apple, Anthropic, and Epic: No near-term breakthroughs in <a href="https://polymarket.com/event/will-openai-launch-a-new-consumer-hardware-product-by-march-31-2026">AI hardware</a> from OpenAI; Apple launches OS updates, but no paradigm-shifting features.</li>
+<li><a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxQMjZrTVpjS0ZHbGR1b1M4bFpFRHhRREVjMnFLWEdSanFVOVlueVppWjA5aWdPZ3N2T2wtYU52Zmp0VzlFVVNEUnlBdktfa3g5bjI2MU4zNkswcEJidkFGeHByV3BDdjJud0p6emQ1bGh4NS16VjBtMlVJbWxrMnd1NFlKVjJ5OGhpbDhMZEk3bXBFSnJKVXkwZWY2SlJfMDlKclU0?oc=5&amp;hl=en-US&amp;gl=US&amp;ceid=US:en">Epic Games</a> lays off 1,000 staff amid Fortnite weakness.</li>
+<li><a href="https://polymarket.com/event/will-bitcoin-hit-1m-before-gta-vi-872">Bitcoin</a> price targets increasingly speculative; crypto tokens (i.e., MegaETH) not seen achieving supercap status <a href="https://polymarket.com/event/megaeth-market-cap-fdv-6b-one-day-after-launch-365-559-334-815-776-488-224-766">post-launch</a> by market consensus.</li>
+<li>Marco <a href="https://news.google.com/rss/articles/CBMijAFBVV95cUxNRmNkbkZnVG4wOGNjYkJ4TUYxX3ZqTlEzZkFtRTdkR19yeTBHeE40dzVRNkUxbWN4elBlYUpvTW02azVkM3BRSFlyS25lV3pXNjhDd0hmRXYtZUctSDdfeV9nS1pGRmZ3U1ktdjJ4OGlYQVJaTktrZXRfZThHUTkxSEs3ZWhuNkJFbWd4OQ?oc=5&amp;hl=en-US&amp;gl=US&amp;ceid=US:en">Rubio</a> testifies in Miami corruption trial, adding to Congressional noise.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>Macro</h2>
+<ul>
+<li>
+<p><strong>Employment/Labor Market</strong></p>
+<ul>
+<li>February <a href="https://fred.stlouisfed.org/series/UNRATE">unemployment</a> 4.4% (stable uptrend); continuing <a href="https://fred.stlouisfed.org/series/CCSA">jobless claims</a> persist &gt;1.8M but off recent highs, suggesting a cooling but not severe labor market.</li>
+<li>Job <a href="https://fred.stlouisfed.org/series/JTSJOL">openings</a> (JOLTS) ticked up in January to 6.95M after Q4 weakness, but still tracking below 2025H1 levels.</li>
+<li>Consumer confidence and jobs/wages data this week will be key for short-cycle names.</li>
+</ul>
+</li>
+<li>
+<p><strong>Growth &amp; Inflation</strong></p>
+<ul>
+<li><a href="https://fred.stlouisfed.org/series/RSAFS">Retail sales</a> stable, slightly softer in Jan; momentum decelerating from late ‘25 peaks.</li>
+<li>Industrial <a href="https://fred.stlouisfed.org/series/INDPRO">production</a> up sequentially in Jan, Feb; <a href="https://fred.stlouisfed.org/series/M2SL">M2</a> money supply rebounding after prior stagnation—watch for renewed inflationary pressures.</li>
+<li>Brent at $100+ is a clear upside inflation risk. PCE, CPI, and PPI prints in coming weeks will shape near-term Fed outlook and growth/value rotation.</li>
+<li><a href="https://fred.stlouisfed.org/series/DGS10">10Y Treasury yield</a> 4.34%, yield curve upward sloping (steeper than earlier in cycle), indicating market pricing for both inflation and recession risk premium.</li>
+</ul>
+</li>
+<li>
+<p><strong>USD &amp; Rates</strong></p>
+<ul>
+<li><a href="https://fred.stlouisfed.org/series/DTWEXBGS">Trade-weighted USD</a> at ~120 remains near multi-year highs; supportive for US capital inflows, but a headwind to non-dollar earners and emerging markets.</li>
+<li>No signs of imminent rate cut with current inflation/energy backdrop.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>Geopolitics</h2>
+<ul>
+<li>
+<p><strong>Russia/Ukraine</strong></p>
+<ul>
+<li>Ceasefire by <a href="https://polymarket.com/event/russia-ukraine-ceasefire-before-gta-vi-554">“GTA VI” timeframe</a> remains uncertain; no clear progress—energy, grains, defense exports, and food commodity volatility persist.</li>
+</ul>
+</li>
+<li>
+<p><strong>Middle East</strong></p>
+<ul>
+<li>Troop build-up + Iranian naval diplomacy = risk of energy market shock. Expect short-term tailwind for oil/energy, commodities, defense, and shipping stocks.</li>
+<li>Regional escalation would further tighten global supply chains.</li>
+</ul>
+</li>
+<li>
+<p><strong>China/Taiwan</strong></p>
+<ul>
+<li>Invasion risk viewed close to <a href="https://polymarket.com/event/will-china-invades-taiwan-before-gta-vi-716">coin-flip</a> by markets—any real movement would cause acute disruption in semis, global tech, and EM assets.</li>
+<li>Xi stable, <a href="https://polymarket.com/event/xi-jinping-out-before-2027">regime risk</a> low; but rhetoric remains closely monitored ahead of trade/tariff review mid-year.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>Sector &amp; Thematic Highlights</h2>
+<ul>
+<li>
+<p><strong>Energy &amp; Commodities</strong></p>
+<ul>
+<li>Brent crude back above $100, pricing in war risk. Fertilizer, helium, and general commodity logistics in focus as Hormuz bottleneck dominates.</li>
+<li><a href="https://www.opec.org/opec_web/en/press_room/28.htm">OPEC meeting</a> in May remains critical—bullish energy bias as long as hostilities drag on.</li>
+</ul>
+</li>
+<li>
+<p><strong>Tech/AI</strong></p>
+<ul>
+<li>Consumer AI hardware from <a href="https://polymarket.com/event/will-openai-launch-a-new-consumer-hardware-product-by-march-31-2026">OpenAI</a> not expected; little immediate read-across.</li>
+<li>Layoffs at <a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxQMjZrTVpjS0ZHbGR1b1M4bFpFRHhRREVjMnFLWEdSanFVOVlueVppWjA5aWdPZ3N2T2wtYU52Zmp0VzlFVVNEUnlBdktfa3g5bjI2MU4zNkswcEJidkFGeHByV3BDdjJud0p6emQ1bGh4NS16VjBtMlVJbWxrMnd1NFlKVjJ5OGhpbDhMZEk3bXBFSnJKVXkwZWY2SlJfMDlKclU0?oc=5&amp;hl=en-US&amp;gl=US&amp;ceid=US:en">Epic</a> signal softness in gaming; risk to digital advertising and creator economy. <a href="https://news.google.com/rss/articles/CBMitwFBVV95cUxNbFJzN3dHamFLX2NBUy1JbnNueDQtaGpzNGdnX2wwSGhZcEVvOXRqSzVYbkVHUmRYek9CSTY1bDI5N3czdVJoZUhyNjJ2WU5jR2U2OWVkNU52V1JiTDVLbkJ4VTI4eWhzUDRBS2xONUtCMVJlX3Q1ZjhKcV83TzgyNUlhOHhRalVXakRQcGd0WDRWMl9vbkxjQmhKeHowTEZ5M0pzMElydWdYcWhMdFlYdGF0WHlld2M?oc=5&amp;hl=en-US&amp;gl=US&amp;ceid=US:en">Apple update</a> evolutionary, not disruptive.</li>
+<li>Anthropic/Claude’s <a href="https://news.google.com/rss/articles/CBMid0FVX3lxTE4wWmNjQ0ZmZGo3Y3BPeGpRb2xDb0RXbkYwOEpycEJfNDh6S1JDdzN3Q1plYkRUclJ3Y0FhN1pMRzZnTlVHRWRkaC1xMnhUMkx1U0dIaVVVckNybjFSanZGaldLamtkTlBwM2hUMHZWdDFtZkhvb3pn?oc=5&amp;hl=en-US&amp;gl=US&amp;ceid=US:en">“agent”</a> features suggest continued enterprise AI investment, but no near-term mass adoption catalyst.</li>
+</ul>
+</li>
+<li>
+<p><strong>Financials &amp; Rates</strong></p>
+<ul>
+<li>Rising rates/steeper curve positive for net <a href="https://fred.stlouisfed.org/series/T10Y3M">interest margins (NIM)</a> at banks, but headwind to rate-sensitive sectors (REITs, housing).</li>
+<li>Debt ceiling/funding risk in late April–May could spark volatility, but not an immediate driver.</li>
+</ul>
+</li>
+<li>
+<p><strong>Crypto</strong></p>
+<ul>
+<li><a href="https://polymarket.com/event/will-bitcoin-hit-1m-before-gta-vi-872">Bitcoin</a> moonshot $1M thesis looking increasingly speculative, not consensus. Crypto token launches might offer tactical volatility but no sectoral shift.</li>
+</ul>
+</li>
+<li>
+<p><strong>Defense/Industrials</strong></p>
+<ul>
+<li>Troop deployments, Israel/Lebanon/Ukraine tension underpin defense primes. Possible pop in defense and related cyclicals as contracts, aid, and geopolitical risk premium expand.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>Idiosyncratic / Single-Name</h2>
+<ul>
+<li><strong>No concrete takeaways for mega-caps</strong> from today’s Apple update or <a href="https://polymarket.com/event/will-openai-launch-a-new-consumer-hardware-product-by-march-31-2026">AI rumor</a> mill.</li>
+<li><a href="https://news.google.com/rss/articles/CBMijAFBVV95cUxNRmNkbkZnVG4wOGNjYkJ4TUYxX3ZqTlEzZkFtRTdkR19yeTBHeE40dzVRNkUxbWN4elBlYUpvTW02azVkM3BRSFlyS25lV3pXNjhDd0hmRXYtZUctSDdfeV9nS1pGRmZ3U1ktdjJ4OGlYQVJaTktrZXRfZThHUTkxSEs3ZWhuNkJFbWd4OQ?oc=5&amp;hl=en-US&amp;gl=US&amp;ceid=US:en">Rubio</a> in the Miami trial elevates political noise, but little investment read-through presently.</li>
+</ul>
+<hr />
+<h2>Upcoming Catalysts</h2>
+<ul>
+<li><strong>Mar 26:</strong> Jan S&amp;P CoreLogic <a href="https://www.spglobal.com/spdji/en/indices/indicators/sp-corelogic-case-shiller-us-national-home-price-nsa-index/">Case-Shiller Home Price Index</a> (impacts homebuilders, REITs, rates)</li>
+<li><strong>Mar 26:</strong> Mar Conference Board <a href="https://www.conference-board.org/topics/consumer-confidence">Consumer Confidence</a> (consumer discretionary, retail)</li>
+<li><strong>Mar 27:</strong> Feb <a href="https://www.bea.gov/news/2026/personal-income-and-outlays-february-2026">Personal Income/Spending &amp; PCE Inflation</a> (Treasuries, growth vs value, tech)</li>
+<li><strong>Apr 1:</strong> Mar ISM <a href="https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/pmi/">Manufacturing PMI</a> (industrial cyclicals, commodities)</li>
+<li><strong>Apr 3:</strong> Mar <a href="https://www.bls.gov/schedule/news_release/empsit.htm">Employment Situation</a> (Nonfarm Payrolls, Unemployment) (rates, financials)</li>
+<li><strong>Apr 10:</strong> Mar <a href="https://www.bls.gov/schedule/news_release/cpi.htm">CPI Inflation Report</a> (inflation, Treasuries, growth stocks)</li>
+<li><strong>Apr 14:</strong> Mar <a href="https://www.bls.gov/schedule/news_release/ppi.htm">PPI</a> (industrial margins/cost pressures)</li>
+<li><strong>Apr 15:</strong> Mar <a href="https://www.census.gov/economic-indicators/">Retail Sales</a> (retail, e-commerce)</li>
+<li><strong>Apr 15:</strong> Apr <a href="https://www.newyorkfed.org/survey/empire">Empire State Manufacturing</a> (cyclicals, small caps)</li>
+<li><strong>Apr 16:</strong> Mar <a href="https://www.federalreserve.gov/releases/g17/">Industrial Production</a> &amp; Utilization (industrials, materials, energy)</li>
+<li><strong>Apr 22:</strong> Mar <a href="https://www.nar.realtor/research-and-statistics/housing-statistics/existing-home-sales">Existing Home Sales</a> (housing, mortgage REITs)</li>
+<li><strong>Apr 24:</strong> Q1 2026 <a href="https://www.bea.gov/news/schedule">Advance GDP</a> (broad indices, cyclicals)</li>
+<li><strong>Late Apr–May:</strong> US <a href="https://crsreports.congress.gov/">Debt Ceiling/Federal Funding</a> deadlines (rates, defense, healthcare, volatility risk)</li>
+<li><strong>Apr 27–30:</strong> Q1 Tech Mega-Cap Earnings (cloud, AI, semis)</li>
+<li><strong>May:</strong> <a href="https://www.opec.org/opec_web/en/press_room/28.htm">OPEC+ Ministerial Meeting</a> (oil, energy equities)</li>
+<li><strong>May:</strong> US-China <a href="https://www.state.gov/">Strategic and Economic Dialogue</a> (trade, semiconductors, EMs)</li>
+<li><strong>June–July:</strong> Key US <a href="https://www.supremecourt.gov/opinions/slipopinion/25">Supreme Court Term Decisions</a> (sector/regulatory risk across tech/finance/healthcare/energy)</li>
+<li><strong>Mid-June:</strong> <a href="https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm">FOMC Meeting</a> (rate/dollar risk)</li>
+<li><strong>Late June:</strong> Fed <a href="https://www.federalreserve.gov/supervisionreg/dfa-stress-tests.htm">Bank Stress Tests</a> (financials)</li>
+<li><strong>June–July:</strong> Major Tech/AI industry events (AI/semis/cloud)</li>
+<li><strong>Spring–Summer:</strong> US FY2026 <a href="https://www.congress.gov/">Budget Milestones</a>, G7/EU <a href="https://www.g7germany.de/g7-en">Summits</a> (defense, healthcare, global policy)</li>
+</ul>
+
+</main>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // Force all markdown-generated links to open in a new tab
+    // TODO: In the future, experiment with CSS target-new once browser support improves.
+    document.querySelectorAll("a[href]").forEach(a => {
+        a.setAttribute("target", "_blank");
+        a.setAttribute("rel", "noopener noreferrer");
+    });
+});
+</script>
+</body>
+</html>
