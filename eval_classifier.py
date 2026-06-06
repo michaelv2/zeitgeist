@@ -144,7 +144,7 @@ async def snapshot_fixtures(n: int = 50):
     FIXTURES_PATH.parent.mkdir(parents=True, exist_ok=True)
     FIXTURES_PATH.write_text(json.dumps(fixtures, indent=2))
     print(f"Saved {len(fixtures)} predictions to {FIXTURES_PATH}")
-    print(f"Next step: run 'uv run python eval_classifier.py label' to label them.")
+    print("Next step: run 'uv run python eval_classifier.py label' to label them.")
 
 
 # ── Label: interactive labeling CLI ──────────────────────────────────────────
@@ -336,7 +336,7 @@ async def compare_strategies(model: str, strategies: list[str], num_runs: int):
     """Run multiple classification strategies against the same predictions and compare."""
     fixtures = load_fixtures()
 
-    print(f"Fetching news headlines for context...")
+    print("Fetching news headlines for context...")
     headlines = fetch_news_headlines()
 
     batch_json = pl.DataFrame(fixtures).select("id", "title", "bets").write_json()
@@ -386,7 +386,7 @@ async def compare_strategies(model: str, strategies: list[str], num_runs: int):
             print(f"  Stability (avg Jaccard): {sum(jaccards)/len(jaccards):.3f}")
 
         # Show what was selected (using first run)
-        print(f"\n  Selected predictions (run 1):")
+        print("\n  Selected predictions (run 1):")
         for pred_id in sorted(run_selections[0]):
             title = titles.get(pred_id, "?")
             print(f"    {pred_id}: {title[:90]}")
@@ -420,7 +420,7 @@ async def compare_strategies(model: str, strategies: list[str], num_runs: int):
     # Show news headlines for reference
     if headlines:
         print(f"\n{'='*60}")
-        print(f"Today's news headlines (for reference)")
+        print("Today's news headlines (for reference)")
         print(f"{'='*60}")
         for h in headlines[:15]:
             print(f"  - {h[:100]}")

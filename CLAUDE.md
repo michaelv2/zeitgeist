@@ -42,7 +42,7 @@ Create a `.env` file with these keys for local development.
 
 ### Multi-stage LLM Pipeline
 
-The application uses three specialized pydantic-ai agents:
+The application uses these specialized pydantic-ai agents:
 
 1. **Relevant Prediction Agent** (`relevant_prediction_agent`)
    - Model: `claude-haiku-4-5-20251001` (fast coarse filter)
@@ -65,7 +65,15 @@ The application uses three specialized pydantic-ai agents:
    - Writes in succinct investment analyst style
    - Template: `templates/synthesizing_prompt.mako`
 
-4. **Citation Agent** (inline, no dedicated variable)
+4. **Puzzle Agent** (`puzzle_agent`)
+   - Model: `claude-opus-4-8` (Opus "red team" for deep cross-cutting reasoning)
+   - Runs after synthesis: re-reads the raw source data **and** the draft memo
+   - Surfaces cross-cutting tensions, confounders, and the extra datapoints that would resolve them
+   - Output is spliced in as a "Cross-Currents" section directly under the memo title (before citations)
+   - Gated by `ENABLE_PUZZLE_SYNTHESIS`; failures are logged and skipped (report continues uncut)
+   - Template: `templates/puzzle_synthesis_prompt.mako`
+
+5. **Citation Agent** (inline, no dedicated variable)
    - Model: `claude-sonnet-4-6` (shares SYNTHESIS_MODEL)
    - Post-processes report to insert markdown citations
    - Template: `templates/citation_prompt.mako`
@@ -81,6 +89,8 @@ Batched through Relevant Prediction Agent → tagged_predictions
                     ├─ Events Agent → upcoming catalysts
 Synthesizing Agent ─┤─ GNews → news headlines
                     └─ FRED API → macro data points
+        ↓
+Puzzle Agent (Opus) → prepends 'Cross-Currents' section to the draft memo
         ↓
 Citation Agent → final markdown report → HTML (via Mako template)
 ```
@@ -99,6 +109,7 @@ Citation Agent → final markdown report → HTML (via Mako template)
 - `relevant_prediction_prompt.mako`: Filters prediction markets for investment relevance
 - `events_prompt.mako`: Instructs agent to find upcoming catalysts via web search
 - `synthesizing_prompt.mako`: Main report generation instructions (structure, style, format)
+- `puzzle_synthesis_prompt.mako`: Opus "red team" — finds cross-cutting tensions/confounders, suggests disambiguating data
 - `citation_prompt.mako`: Adds markdown citations to the final report
 - `index.html.mako`: HTML wrapper for the final report
 
@@ -108,7 +119,8 @@ At the top of `zeitgeist.py`:
 - `QUICK_TEST`: Set to `True` in dev mode to limit data fetching
 - `BATCH_SIZE`: Number of predictions per LLM batch (100)
 - `BATCH_REQUEST_DELAY_SECONDS`: Delay between batches (5s) to avoid rate limits
-- `CLASSIFYING_MODEL`, `EVENTS_MODEL`, `SYNTHESIS_MODEL`: OpenAI model selection per agent
+- `CLASSIFYING_MODEL`, `EVENTS_MODEL`, `SYNTHESIS_MODEL`, `PUZZLE_MODEL`: model selection per agent (mix of Anthropic + OpenAI)
+- `ENABLE_PUZZLE_SYNTHESIS`, `PUZZLE_SECTION_TITLE`: toggle and heading for the Opus cross-cutting section
 - `FRED_CODES`: Dict mapping FRED series codes to human-readable names
 - `NUM_FRED_DATAPOINTS`: How many recent datapoints to fetch per FRED series (10)
 

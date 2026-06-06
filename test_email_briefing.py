@@ -3,7 +3,7 @@
 Run: uv run python -m pytest test_email_briefing.py -v
 """
 
-from email_briefing import strip_pii, _extract_briefing_content, _FOOTER_MARKERS
+from email_briefing import strip_pii, _extract_briefing_content
 
 
 class TestStripPii:

@@ -12,7 +12,6 @@ import imaplib
 import logging as log
 import re
 from datetime import date
-from email.header import decode_header
 from html.parser import HTMLParser
 
 
