@@ -23,7 +23,6 @@ QUICK_TEST = IS_DEV # If True, run quickly on first few predictions; useful for 
 
 ENABLE_CITATIONS = True
 ENABLE_EMAIL_BRIEFING = True
-ENABLE_PUZZLE_SYNTHESIS = True
 
 BATCH_REQUEST_DELAY_SECONDS = 5
 RATE_LIMIT_WAIT_SECONDS = 10
@@ -32,11 +31,10 @@ BATCH_SIZE = 100
 RETRIES = 3
 
 CLASSIFYING_MODEL = "anthropic:claude-haiku-4-5-20251001"
-EVENTS_MODEL = "openai:gpt-5.1-2025-11-13"
-SYNTHESIS_MODEL = "anthropic:claude-sonnet-4-6"
-COMPARISON_MODEL = "openai:gpt-4.1-2025-04-14"  # Parallel A/B comparison; set to None to disable
-PUZZLE_MODEL = "anthropic:claude-opus-4-8"  # Opus: deep cross-cutting "red team" synthesis
-PUZZLE_SECTION_TITLE = "Cross-Currents"  # H2 heading for the Opus puzzle section
+EVENTS_MODEL = "openai-responses:gpt-5.1-2025-11-13"  # Responses API: required for native web_search in pydantic-ai 1.x
+SYNTHESIS_MODEL = "anthropic:claude-opus-4-8"  # Opus 4.8 single-pass deep synthesis (adaptive thinking + effort)
+CITATION_MODEL = "anthropic:claude-sonnet-4-6"  # mechanical link-insertion; cheaper than the synthesis model
+COMPARISON_MODEL = "openai-chat:gpt-4.1-2025-04-14"  # Parallel A/B comparison; set to None to disable
 
 
 today = date.today()
@@ -234,7 +232,7 @@ events_agent = Agent(
     model=EVENTS_MODEL,
     output_type=list[Event],
     system_prompt=templates.get_template("events_prompt.mako").render(today=today),
-    model_settings={"tools": [{"type": "web_search", "search_context_size": "high"}]},
+    model_settings={"openai_native_tools": [{"type": "web_search", "search_context_size": "high"}]},
     retries=RETRIES,
 )
 
@@ -243,39 +241,9 @@ synthesizing_agent = Agent(
     output_type=str,
     system_prompt=templates.get_template("synthesizing_prompt.mako").render(today=today),
     retries=RETRIES,
-    model_settings={"max_tokens": 32768, "timeout": 600},
+    model_settings={"max_tokens": 32768, "timeout": 600,
+                    "anthropic_thinking": {"type": "adaptive"}, "anthropic_effort": "high"},
 )
-
-# Opus "red team" that re-reads the source data + the draft memo and surfaces
-# cross-cutting tensions, confounders, and the extra datapoints that would resolve them.
-puzzle_agent = Agent(
-    model=PUZZLE_MODEL,
-    output_type=str,
-    system_prompt=templates.get_template("puzzle_synthesis_prompt.mako").render(
-        today=today, section_title=PUZZLE_SECTION_TITLE
-    ),
-    retries=RETRIES,
-    model_settings={"max_tokens": 16384, "timeout": 600},
-)
-
-def insert_puzzle_section(report: str, section: str) -> str:
-    """Splice the Opus cross-cutting section in directly under the memo's H1 title.
-
-    Falls back to prepending if no top-level (``# ``) title line is found. Strips any
-    stray code fences the model may have wrapped the section in.
-    """
-    section = section.strip()
-    section = section.removeprefix("```markdown").removeprefix("```md").removeprefix("```").strip()
-    section = section.removesuffix("```").strip()
-    if not section:
-        return report
-    lines = report.splitlines()
-    for i, line in enumerate(lines):
-        if line.lstrip().startswith("# "):  # first H1 = the "Daily Memo (...)" title
-            head = "\n".join(lines[: i + 1])
-            rest = "\n".join(lines[i + 1:]).lstrip("\n")
-            return f"{head}\n\n{section}\n\n{rest}"
-    return f"{section}\n\n{report.lstrip()}"
 
 async def get_events() -> pl.DataFrame:
     res = await events_agent.run()
@@ -344,16 +312,6 @@ async def main():
     elif COMPARISON_MODEL and len(synthesis_results) > 1 and isinstance(synthesis_results[1], Exception):
         log.error(f"Comparison model failed: {synthesis_results[1]}")
 
-    if ENABLE_PUZZLE_SYNTHESIS:
-        log.info("Running Opus cross-cutting synthesis...")
-        try:
-            puzzle_input = json.dumps({"source_data": report_input, "draft_memo": report})
-            puzzle_result = await puzzle_agent.run(puzzle_input)
-            report = insert_puzzle_section(report, puzzle_result.output)
-            log.info(f"Added '{PUZZLE_SECTION_TITLE}' section to report")
-        except Exception as e:
-            log.error(f"Puzzle synthesis failed: {e}")
-
     if ENABLE_CITATIONS:
         citations = [
             tagged_predictions.select("title", "url"),
@@ -366,7 +324,7 @@ async def main():
         log.info(f"Adding citations from {len(citations)} sources ...")
 
         citation_agent = Agent(
-            model=SYNTHESIS_MODEL,
+            model=CITATION_MODEL,
             output_type=str,
             system_prompt=templates.get_template("citation_prompt.mako").render(memo=report),
             retries=RETRIES,

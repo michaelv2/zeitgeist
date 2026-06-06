@@ -60,21 +60,14 @@ The application uses these specialized pydantic-ai agents:
    - Template: `templates/events_prompt.mako`
 
 3. **Synthesizing Agent** (`synthesizing_agent`)
-   - Model: `claude-sonnet-4-6` (best synthesis quality and actionability per eval)
-   - Consolidates all inputs into investment memo
-   - Writes in succinct investment analyst style
+   - Model: `claude-opus-4-8` (Opus 4.8, single-pass deep synthesis) with **adaptive thinking + high effort**
+   - Consolidates all inputs into one coherent memo, reasoning through cross-cutting tensions/confounders and **resolving them into a decisive call** rather than listing both sides
+   - Surfaces the disambiguating datapoints as an integrated **Key Tells** block in the Positioning Summary (the forward "what would change this view" tells) — replaces the earlier separate two-pass "Cross-Currents" red-team
+   - Writes in a succinct, opinionated investment-analyst style
    - Template: `templates/synthesizing_prompt.mako`
 
-4. **Puzzle Agent** (`puzzle_agent`)
-   - Model: `claude-opus-4-8` (Opus "red team" for deep cross-cutting reasoning)
-   - Runs after synthesis: re-reads the raw source data **and** the draft memo
-   - Surfaces cross-cutting tensions, confounders, and the extra datapoints that would resolve them
-   - Output is spliced in as a "Cross-Currents" section directly under the memo title (before citations)
-   - Gated by `ENABLE_PUZZLE_SYNTHESIS`; failures are logged and skipped (report continues uncut)
-   - Template: `templates/puzzle_synthesis_prompt.mako`
-
-5. **Citation Agent** (inline, no dedicated variable)
-   - Model: `claude-sonnet-4-6` (shares SYNTHESIS_MODEL)
+4. **Citation Agent** (inline, no dedicated variable)
+   - Model: `claude-sonnet-4-6` (`CITATION_MODEL`, decoupled from synthesis — mechanical link-insertion doesn't need Opus)
    - Post-processes report to insert markdown citations
    - Template: `templates/citation_prompt.mako`
 
@@ -89,8 +82,6 @@ Batched through Relevant Prediction Agent → tagged_predictions
                     ├─ Events Agent → upcoming catalysts
 Synthesizing Agent ─┤─ GNews → news headlines
                     └─ FRED API → macro data points
-        ↓
-Puzzle Agent (Opus) → prepends 'Cross-Currents' section to the draft memo
         ↓
 Citation Agent → final markdown report → HTML (via Mako template)
 ```
@@ -108,8 +99,7 @@ Citation Agent → final markdown report → HTML (via Mako template)
 - `about_me.mako`: Shared context about the investor persona (US equities, macro focus)
 - `relevant_prediction_prompt.mako`: Filters prediction markets for investment relevance
 - `events_prompt.mako`: Instructs agent to find upcoming catalysts via web search
-- `synthesizing_prompt.mako`: Main report generation instructions (structure, style, format)
-- `puzzle_synthesis_prompt.mako`: Opus "red team" — finds cross-cutting tensions/confounders, suggests disambiguating data
+- `synthesizing_prompt.mako`: Main report generation — deep single-pass synthesis that resolves cross-cutting tensions into a decisive call, plus an integrated "Key Tells" block (structure, style, format)
 - `citation_prompt.mako`: Adds markdown citations to the final report
 - `index.html.mako`: HTML wrapper for the final report
 
@@ -119,8 +109,8 @@ At the top of `zeitgeist.py`:
 - `QUICK_TEST`: Set to `True` in dev mode to limit data fetching
 - `BATCH_SIZE`: Number of predictions per LLM batch (100)
 - `BATCH_REQUEST_DELAY_SECONDS`: Delay between batches (5s) to avoid rate limits
-- `CLASSIFYING_MODEL`, `EVENTS_MODEL`, `SYNTHESIS_MODEL`, `PUZZLE_MODEL`: model selection per agent (mix of Anthropic + OpenAI)
-- `ENABLE_PUZZLE_SYNTHESIS`, `PUZZLE_SECTION_TITLE`: toggle and heading for the Opus cross-cutting section
+- `CLASSIFYING_MODEL`, `EVENTS_MODEL`, `SYNTHESIS_MODEL` (Opus 4.8), `CITATION_MODEL`, `COMPARISON_MODEL`: model selection per agent (mix of Anthropic + OpenAI)
+- Synthesis runs adaptive thinking + `anthropic_effort: "high"` (set in `synthesizing_agent` `model_settings`)
 - `FRED_CODES`: Dict mapping FRED series codes to human-readable names
 - `NUM_FRED_DATAPOINTS`: How many recent datapoints to fetch per FRED series (10)
 
@@ -135,7 +125,7 @@ At the top of `zeitgeist.py`:
 ## Critical Implementation Notes
 
 ### Citation System
-The citation agent receives the full report and a list of sources (title + URL). It must insert citations inline without fabricating sources. If citations fail, the report falls back to the uncited version (see zeitgeist.py:273-278).
+The citation agent receives the full report and a list of sources (title + URL). It must insert citations inline without fabricating sources. The citation step is wrapped in try/except, so a failure is logged and the report falls back to the uncited version.
 
 ### FRED Data Structure
 FRED data is stored as `{"title": str, "data": [{"date": str, "value": float}], "url": str}`. Only the last `NUM_FRED_DATAPOINTS` are kept per series.
