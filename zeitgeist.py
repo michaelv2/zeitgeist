@@ -34,7 +34,7 @@ CLASSIFYING_MODEL = "anthropic:claude-haiku-4-5-20251001"
 EVENTS_MODEL = "openai-responses:gpt-5.1-2025-11-13"  # Responses API: required for native web_search in pydantic-ai 1.x
 SYNTHESIS_MODEL = "anthropic:claude-opus-4-8"  # Opus 4.8 single-pass deep synthesis (adaptive thinking + effort)
 CITATION_MODEL = "anthropic:claude-sonnet-4-6"  # mechanical link-insertion; cheaper than the synthesis model
-COMPARISON_MODEL = "openai-chat:gpt-4.1-2025-04-14"  # Parallel A/B comparison; set to None to disable
+COMPARISON_MODEL = None  # Parallel A/B disabled; set a model string (e.g. "openai-chat:gpt-4.1-2025-04-14") to re-enable index2.html
 
 
 today = date.today()
