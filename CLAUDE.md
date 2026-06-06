@@ -24,7 +24,7 @@ uv run python zeitgeist.py
 
 This will:
 - Fetch data from prediction markets, FRED, and news sources
-- Generate a report using OpenAI models
+- Generate a report using LLM agents (mix of Anthropic + OpenAI models)
 - Save HTML output to `.reports/YYYY/MM/DD/index.html`
 - Open the report in your browser (dev mode only)
 
@@ -32,8 +32,8 @@ This will:
 The script automatically runs in "quick test" mode when `GITHUB_ACTIONS` is not set. This limits data fetching to first few batches for faster iteration during development.
 
 ### Required environment variables
-- `OPENAI_API_KEY` (required) - For LLM agents (events, synthesis, citations)
-- `ANTHROPIC_API_KEY` (required) - For classifier (Haiku)
+- `OPENAI_API_KEY` (required) - For the events agent (gpt-5.1 via the Responses API)
+- `ANTHROPIC_API_KEY` (required) - For classifier (Haiku), synthesis (Opus), and citations (Sonnet)
 - `FRED_API_KEY` (optional) - For economic data; script continues without it
 
 Create a `.env` file with these keys for local development.
@@ -62,7 +62,9 @@ The application uses these specialized pydantic-ai agents:
 3. **Synthesizing Agent** (`synthesizing_agent`)
    - Model: `claude-opus-4-8` (Opus 4.8, single-pass deep synthesis) with **adaptive thinking + high effort**
    - Consolidates all inputs into one coherent memo, reasoning through cross-cutting tensions/confounders and **resolving them into a decisive call** rather than listing both sides
+   - Opens with a **Key Themes** lede at the very top: at most 2-3 variant-perception bullets surfacing what may NOT be priced in or what a headline reading would miss (risk-reversals, narrative shifts, thematic inflections); genuine leaps flag a concrete confirm/refute tell
    - Surfaces the disambiguating datapoints as an integrated **Key Tells** block in the Positioning Summary (the forward "what would change this view" tells) — replaces the earlier separate two-pass "Cross-Currents" red-team
+   - **Calibrates confidence to evidence** (decisive ≠ certain): grounds every claim in the provided inputs (no fabricated numbers, mechanisms, or historical precedents), separates what the data shows from inference vs. speculation, and labels genuine leaps with what would confirm or refute them
    - Writes in a succinct, opinionated investment-analyst style
    - Template: `templates/synthesizing_prompt.mako`
 
@@ -99,7 +101,7 @@ Citation Agent → final markdown report → HTML (via Mako template)
 - `about_me.mako`: Shared context about the investor persona (US equities, macro focus)
 - `relevant_prediction_prompt.mako`: Filters prediction markets for investment relevance
 - `events_prompt.mako`: Instructs agent to find upcoming catalysts via web search
-- `synthesizing_prompt.mako`: Main report generation — deep single-pass synthesis that resolves cross-cutting tensions into a decisive call, plus an integrated "Key Tells" block (structure, style, format)
+- `synthesizing_prompt.mako`: Main report generation — deep single-pass synthesis that resolves cross-cutting tensions into a decisive call, opens with a "Key Themes" variant-perception lede, and applies a confidence-calibration discipline (ground claims in inputs, label inference vs. speculation, tether leaps to a confirm/refute tell) surfaced via the integrated "Key Tells" block (structure, style, format)
 - `citation_prompt.mako`: Adds markdown citations to the final report
 - `index.html.mako`: HTML wrapper for the final report
 
