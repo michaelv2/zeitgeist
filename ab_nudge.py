@@ -1,14 +1,17 @@
-"""Controlled A/B for the frequency-vs-trend nudge.
+"""Controlled A/B for a single prompt-line change.
 
-Runs N synthesis draws on the SAME fixture with the current prompt (nudged)
-vs the prompt with the nudge line stripped (old). FRED tool off so only the
-prompt varies. Prints the retail/consumer passage from each draw.
+Renders the current synthesis prompt (with the change) vs the same prompt with
+the anchored line stripped (without), runs N draws each on ONE fixture (FRED
+tool off, so the only variable is the line), and prints the passage matching
+--extract from each draw.
 
-Usage: uv run python ab_nudge.py [fixture.json] [draws_per_arm]
+Usage:
+  uv run python ab_nudge.py [--fixture F] [--draws N] [--anchor PHRASE] [--extract REGEX]
+Defaults reproduce the frequency-vs-trend nudge check on today's fixture.
 """
+import argparse
 import asyncio
 import re
-import sys
 from datetime import date
 from pathlib import Path
 
@@ -18,19 +21,25 @@ from pydantic_ai import Agent
 
 load_dotenv()
 
-FIXTURE = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("eval/synthesis_fixtures/2026-06-06.json")
-N = int(sys.argv[2]) if len(sys.argv) > 2 else 2
+DEFAULT_ANCHOR = "Weigh a single high-frequency print against the trend"
+DEFAULT_EXTRACT = r"(?:retail|real spend|real income|consumer (?:crack|spend|squeez|fragil|demand)|income squeeze|stagflation)"
 MODEL = "anthropic:claude-opus-4-8"
 SETTINGS = {"max_tokens": 32768, "timeout": 600,
             "anthropic_thinking": {"type": "adaptive"}, "anthropic_effort": "high"}
-ANCHOR = "Weigh a single high-frequency print against the trend"
+
+ap = argparse.ArgumentParser()
+ap.add_argument("--fixture", default="eval/synthesis_fixtures/2026-06-06.json")
+ap.add_argument("--draws", type=int, default=2)
+ap.add_argument("--anchor", default=DEFAULT_ANCHOR, help="unique phrase in the prompt line to strip for the OLD arm")
+ap.add_argument("--extract", default=DEFAULT_EXTRACT, help="regex selecting the passage to compare in each memo")
+args = ap.parse_args()
 
 templates = TemplateLookup(directories=["templates"])
-fixture = FIXTURE.read_text()
+fixture = Path(args.fixture).read_text()
 new_prompt = templates.get_template("synthesizing_prompt.mako").render(today=date.today())  # fred_tool default False
-assert ANCHOR in new_prompt, "nudge line not found in rendered prompt"
-old_prompt = "\n".join(l for l in new_prompt.split("\n") if ANCHOR not in l)
-assert ANCHOR not in old_prompt and old_prompt != new_prompt
+assert args.anchor in new_prompt, f"anchor not found in rendered prompt: {args.anchor!r}"
+old_prompt = "\n".join(l for l in new_prompt.split("\n") if args.anchor not in l)
+assert old_prompt != new_prompt and args.anchor not in old_prompt
 
 sem = asyncio.Semaphore(2)
 
@@ -38,19 +47,17 @@ sem = asyncio.Semaphore(2)
 async def draw(prompt: str, label: str):
     async with sem:
         agent = Agent(model=MODEL, output_type=str, system_prompt=prompt, retries=3, model_settings=SETTINGS)
-        r = await agent.run(fixture)
-        return label, r.output
+        return label, (await agent.run(fixture)).output
 
 
-def retail_lines(text: str) -> str:
-    pat = r"(?:retail|real spend|real income|consumer (?:crack|spend|squeez|fragil|demand)|income squeeze|stagflation)"
-    hits = [l.strip() for l in text.splitlines() if re.search(pat, l, re.I)]
-    return "\n".join(dict.fromkeys(hits)) or "(no retail/consumer line matched)"
+def extract(text: str) -> str:
+    hits = [l.strip() for l in text.splitlines() if re.search(args.extract, l, re.I)]
+    return "\n".join("  " + h for h in dict.fromkeys(hits)) or "  (no match)"
 
 
 async def main():
-    tasks = [draw(old_prompt, f"OLD#{i+1}") for i in range(N)]
-    tasks += [draw(new_prompt, f"NEW#{i+1}") for i in range(N)]
+    tasks = [draw(old_prompt, f"OLD#{i+1}") for i in range(args.draws)]
+    tasks += [draw(new_prompt, f"NEW#{i+1}") for i in range(args.draws)]
     Path("eval/results").mkdir(parents=True, exist_ok=True)
     for fut in asyncio.as_completed(tasks):
         try:
@@ -60,7 +67,7 @@ async def main():
             continue
         Path(f"eval/results/ab_{label.replace('#','_')}.md").write_text(out)
         print(f"\n{'='*72}\n{label}  ({len(out.split())} words)\n{'='*72}")
-        print(retail_lines(out))
+        print(extract(out))
     print("\n[full memos written to eval/results/ab_*.md]")
 
 
