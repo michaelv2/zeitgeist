@@ -428,7 +428,7 @@ def main():
     run_parser = sub.add_parser("run", help="Generate reports from multiple models")
     run_parser.add_argument(
         "--models", nargs="+",
-        default=["openai:gpt-4.1-2025-04-14", "anthropic:claude-sonnet-4-6"],
+        default=["anthropic:claude-opus-4-8", "openai-chat:gpt-4.1-2025-04-14", "anthropic:claude-sonnet-4-6"],
     )
     run_parser.add_argument("--runs", type=int, default=3)
     run_parser.add_argument("--fixture", type=Path, default=None)
@@ -436,7 +436,7 @@ def main():
     judge_parser = sub.add_parser("judge", help="Run LLM-as-judge scoring")
     judge_parser.add_argument(
         "--judge-models", nargs="+",
-        default=["openai:o3-2025-04-16", "anthropic:claude-opus-4-6"],
+        default=["openai-chat:o3-2025-04-16", "anthropic:claude-opus-4-6"],
     )
     judge_parser.add_argument("--results", type=Path, default=None)
 

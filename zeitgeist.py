@@ -1,5 +1,6 @@
 import asyncio
 from datetime import date
+from dataclasses import dataclass, field
 import json
 from pathlib import Path
 import os
@@ -7,7 +8,7 @@ import logging as log
 
 import polars as pl
 from pydantic import BaseModel, Field
-from pydantic_ai import Agent
+from pydantic_ai import Agent, RunContext
 import httpx
 
 from mako.lookup import TemplateLookup
@@ -23,12 +24,14 @@ QUICK_TEST = IS_DEV # If True, run quickly on first few predictions; useful for 
 
 ENABLE_CITATIONS = True
 ENABLE_EMAIL_BRIEFING = True
+ENABLE_FRED_TOOL = True  # give synthesis a bounded FRED search/fetch tool to ground claims on demand
 
 BATCH_REQUEST_DELAY_SECONDS = 5
 RATE_LIMIT_WAIT_SECONDS = 10
 
 BATCH_SIZE = 100
 RETRIES = 3
+MAX_FRED_TOOL_CALLS = 8  # per-synthesis cap on on-demand FRED fetches (bounds cost/latency)
 
 CLASSIFYING_MODEL = "anthropic:claude-haiku-4-5-20251001"
 EVENTS_MODEL = "openai-responses:gpt-5.1-2025-11-13"  # Responses API: required for native web_search in pydantic-ai 1.x
@@ -49,6 +52,7 @@ GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD")
 NUM_FRED_DATAPOINTS = 10
 
 FRED_CODES = {
+    "CPIAUCSL": "CPI (Headline)",
     "CPILFESL": "CPI (Core)",
     "PCEPILFE": "PCE Price Index (Core)",
     "PAYEMS": "Nonfarm Payrolls",
@@ -236,14 +240,76 @@ events_agent = Agent(
     retries=RETRIES,
 )
 
+@dataclass
+class FredToolkit:
+    """Deps for the synthesis agent's bounded FRED tool: a client, a fetch budget, and a provenance log."""
+    client: object | None
+    remaining: int = MAX_FRED_TOOL_CALLS
+    fetched: list[dict] = field(default_factory=list)
+
+def _fred_search(client, query: str, top_k: int = 8) -> str:
+    df = client.search(query)
+    if df is None or len(df) == 0:
+        return json.dumps({"query": query, "results": []})
+    if "popularity" in df.columns:
+        df = df.sort_values("popularity", ascending=False)
+    rows = [
+        {"series_id": str(idx), "title": str(r.get("title", "")), "units": str(r.get("units", "")),
+         "frequency": str(r.get("frequency", "")), "last_obs": str(r.get("observation_end", ""))}
+        for idx, r in df.head(top_k).iterrows()
+    ]
+    return json.dumps({"query": query, "results": rows})
+
+def _fred_series(client, series_id: str, n: int = NUM_FRED_DATAPOINTS):
+    series_id = series_id.strip().upper()
+    info = client.get_series_info(series_id)
+    s = client.get_series_latest_release(series_id)
+    obs = [{"date": d.date().isoformat(), "value": float(v)} for d, v in zip(s.index, s.values) if v == v][-n:]
+    title = str(info.get("title", series_id))
+    url = f"https://fred.stlouisfed.org/series/{series_id}"
+    payload = {"series_id": series_id, "title": title, "units": str(info.get("units", "")),
+               "frequency": str(info.get("frequency", "")), "observations": obs, "url": url}
+    return json.dumps(payload), {"title": f"{title} (FRED {series_id})", "url": url}
+
 synthesizing_agent = Agent(
     model=SYNTHESIS_MODEL,
     output_type=str,
-    system_prompt=templates.get_template("synthesizing_prompt.mako").render(today=today),
+    deps_type=FredToolkit,
+    system_prompt=templates.get_template("synthesizing_prompt.mako").render(today=today, fred_tool=ENABLE_FRED_TOOL),
     retries=RETRIES,
     model_settings={"max_tokens": 32768, "timeout": 600,
                     "anthropic_thinking": {"type": "adaptive"}, "anthropic_effort": "high"},
 )
+
+@synthesizing_agent.tool
+async def fred_search(ctx: RunContext[FredToolkit], query: str) -> str:
+    """Search FRED for economic data series by keyword. Returns candidate series ids with titles, units, frequency, and latest observation date — use it to locate the right series before fetching it with fred_series."""
+    tk = ctx.deps
+    if tk.client is None:
+        return "FRED tool unavailable (no FRED_API_KEY configured); proceed with the data already provided."
+    if tk.remaining <= 0:
+        return "FRED fetch budget exhausted; proceed with the data already provided."
+    tk.remaining -= 1
+    try:
+        return await asyncio.to_thread(_fred_search, tk.client, query)
+    except Exception as e:
+        return f"FRED search failed for {query!r}: {e}"
+
+@synthesizing_agent.tool
+async def fred_series(ctx: RunContext[FredToolkit], series_id: str) -> str:
+    """Fetch the most recent observations for a specific FRED series id (e.g. 'CPIAUCSL'), with metadata and source URL — for grounding a calculation in real data rather than estimating it."""
+    tk = ctx.deps
+    if tk.client is None:
+        return "FRED tool unavailable (no FRED_API_KEY configured); proceed with the data already provided."
+    if tk.remaining <= 0:
+        return "FRED fetch budget exhausted; proceed with the data already provided."
+    tk.remaining -= 1
+    try:
+        payload, source = await asyncio.to_thread(_fred_series, tk.client, series_id)
+    except Exception as e:
+        return f"FRED fetch failed for {series_id!r}: {e}"
+    tk.fetched.append(source)
+    return payload
 
 async def get_events() -> pl.DataFrame:
     res = await events_agent.run()
@@ -293,7 +359,10 @@ async def main():
         log.info(f"Dumped synthesis fixture to eval/synthesis_fixtures/{today}.json")
     log.info("Generating report...")
     input_json = json.dumps(report_input)
-    synthesis_tasks = [synthesizing_agent.run(input_json)]
+    from fredapi import Fred
+    fred_client = Fred(api_key=FRED_API_KEY) if (ENABLE_FRED_TOOL and FRED_API_KEY) else None
+    fred_toolkit = FredToolkit(client=fred_client)
+    synthesis_tasks = [synthesizing_agent.run(input_json, deps=fred_toolkit)]
     if COMPARISON_MODEL:
         comparison_agent = Agent(
             model=COMPARISON_MODEL,
@@ -306,6 +375,8 @@ async def main():
     report = synthesis_results[0].output if not isinstance(synthesis_results[0], Exception) else None
     if report is None:
         raise synthesis_results[0]
+    if fred_toolkit.fetched:
+        log.info(f"FRED tool fetched {len(fred_toolkit.fetched)} on-demand series: {[f['title'] for f in fred_toolkit.fetched]}")
     comparison_report = None
     if COMPARISON_MODEL and len(synthesis_results) > 1 and not isinstance(synthesis_results[1], Exception):
         comparison_report = synthesis_results[1].output
@@ -317,7 +388,8 @@ async def main():
             tagged_predictions.select("title", "url"),
             events.select("title", "url"),
             news.select("title", "url") if news is not None else None,
-            fred_data.select("title", "url") if fred_data is not None else None
+            fred_data.select("title", "url") if fred_data is not None else None,
+            pl.DataFrame(fred_toolkit.fetched).select("title", "url") if fred_toolkit.fetched else None,
         ]
         citations = [c for c in citations if c is not None]
         citations = pl.concat(citations).filter(pl.col("url").is_not_null())

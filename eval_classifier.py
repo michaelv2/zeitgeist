@@ -13,7 +13,7 @@ Usage:
     uv run python eval_classifier.py run
 
   # Run with custom settings:
-    uv run python eval_classifier.py run --models openai:gpt-5-mini-2025-08-07 anthropic:claude-sonnet-4-6 --runs 5
+    uv run python eval_classifier.py run --models openai-chat:gpt-5-mini-2025-08-07 anthropic:claude-sonnet-4-6 --runs 5
 
   # Compare classification strategies (news-aware vs coarse-filter):
     uv run python eval_classifier.py compare
@@ -456,14 +456,14 @@ def main():
     run_parser = sub.add_parser("run", help="Run eval against labeled fixtures")
     run_parser.add_argument(
         "--models", nargs="+",
-        default=["openai:gpt-5-mini-2025-08-07", "anthropic:claude-sonnet-4-6"],
+        default=["openai-chat:gpt-5-mini-2025-08-07", "anthropic:claude-sonnet-4-6"],
         help="Models to evaluate",
     )
     run_parser.add_argument("--runs", type=int, default=3, help="Number of runs per model")
 
     cmp_parser = sub.add_parser("compare", help="Compare classification strategies side-by-side")
     cmp_parser.add_argument(
-        "--model", default="openai:gpt-5-mini-2025-08-07",
+        "--model", default="openai-chat:gpt-5-mini-2025-08-07",
         help="Model to use for comparison",
     )
     cmp_parser.add_argument(
