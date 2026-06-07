@@ -25,6 +25,7 @@ QUICK_TEST = IS_DEV # If True, run quickly on first few predictions; useful for 
 ENABLE_CITATIONS = True
 ENABLE_EMAIL_BRIEFING = True
 ENABLE_FRED_TOOL = True  # give synthesis a bounded FRED search/fetch tool to ground claims on demand
+ENABLE_VERIFIER = True  # post-synthesis flag-then-revise pass to catch over-reach before shipping
 
 BATCH_REQUEST_DELAY_SECONDS = 5
 RATE_LIMIT_WAIT_SECONDS = 10
@@ -37,6 +38,8 @@ CLASSIFYING_MODEL = "anthropic:claude-haiku-4-5-20251001"
 EVENTS_MODEL = "openai-responses:gpt-5.1-2025-11-13"  # Responses API: required for native web_search in pydantic-ai 1.x
 SYNTHESIS_MODEL = "anthropic:claude-opus-4-8"  # Opus 4.8 single-pass deep synthesis (adaptive thinking + effort)
 CITATION_MODEL = "anthropic:claude-sonnet-4-6"  # mechanical link-insertion; cheaper than the synthesis model
+VERIFIER_MODEL = "anthropic:claude-opus-4-8"  # adversarial flag pass; needs strong reasoning to catch over-reach
+REVISE_MODEL = "anthropic:claude-sonnet-4-6"  # applies the flagged fixes; targeted edits, cheaper than Opus
 COMPARISON_MODEL = None  # Parallel A/B disabled; set a model string (e.g. "openai-chat:gpt-4.1-2025-04-14") to re-enable index2.html
 
 
@@ -281,35 +284,70 @@ synthesizing_agent = Agent(
                     "anthropic_thinking": {"type": "adaptive"}, "anthropic_effort": "high"},
 )
 
-@synthesizing_agent.tool
-async def fred_search(ctx: RunContext[FredToolkit], query: str) -> str:
-    """Search FRED for economic data series by keyword. Returns candidate series ids with titles, units, frequency, and latest observation date — use it to locate the right series before fetching it with fred_series."""
-    tk = ctx.deps
-    if tk.client is None:
-        return "FRED tool unavailable (no FRED_API_KEY configured); proceed with the data already provided."
-    if tk.remaining <= 0:
-        return "FRED fetch budget exhausted; proceed with the data already provided."
-    tk.remaining -= 1
-    try:
-        return await asyncio.to_thread(_fred_search, tk.client, query)
-    except Exception as e:
-        return f"FRED search failed for {query!r}: {e}"
+def register_fred_tools(agent: Agent):
+    """Attach the bounded FRED search/fetch tools to an agent (synthesis or verifier)."""
+    @agent.tool
+    async def fred_search(ctx: RunContext[FredToolkit], query: str) -> str:
+        """Search FRED for economic data series by keyword. Returns candidate series ids with titles, units, frequency, and latest observation date — use it to locate the right series before fetching it with fred_series."""
+        tk = ctx.deps
+        if tk.client is None:
+            return "FRED tool unavailable (no FRED_API_KEY configured); proceed with the data already provided."
+        if tk.remaining <= 0:
+            return "FRED fetch budget exhausted; proceed with the data already provided."
+        tk.remaining -= 1
+        try:
+            return await asyncio.to_thread(_fred_search, tk.client, query)
+        except Exception as e:
+            return f"FRED search failed for {query!r}: {e}"
 
-@synthesizing_agent.tool
-async def fred_series(ctx: RunContext[FredToolkit], series_id: str) -> str:
-    """Fetch the most recent observations for a specific FRED series id (e.g. 'CPIAUCSL'), with metadata and source URL — for grounding a calculation in real data rather than estimating it."""
-    tk = ctx.deps
-    if tk.client is None:
-        return "FRED tool unavailable (no FRED_API_KEY configured); proceed with the data already provided."
-    if tk.remaining <= 0:
-        return "FRED fetch budget exhausted; proceed with the data already provided."
-    tk.remaining -= 1
-    try:
-        payload, source = await asyncio.to_thread(_fred_series, tk.client, series_id)
-    except Exception as e:
-        return f"FRED fetch failed for {series_id!r}: {e}"
-    tk.fetched.append(source)
-    return payload
+    @agent.tool
+    async def fred_series(ctx: RunContext[FredToolkit], series_id: str) -> str:
+        """Fetch the most recent observations for a specific FRED series id (e.g. 'CPIAUCSL'), with metadata and source URL — for grounding a calculation in real data rather than estimating it."""
+        tk = ctx.deps
+        if tk.client is None:
+            return "FRED tool unavailable (no FRED_API_KEY configured); proceed with the data already provided."
+        if tk.remaining <= 0:
+            return "FRED fetch budget exhausted; proceed with the data already provided."
+        tk.remaining -= 1
+        try:
+            payload, source = await asyncio.to_thread(_fred_series, tk.client, series_id)
+        except Exception as e:
+            return f"FRED fetch failed for {series_id!r}: {e}"
+        tk.fetched.append(source)
+        return payload
+
+register_fred_tools(synthesizing_agent)
+
+
+class Finding(BaseModel):
+    quote: str = Field(description="short verbatim phrase from the memo being flagged")
+    issue: str = Field(description="one of: overstatement, self-contradiction, ungrounded, cherry-picked")
+    why: str = Field(description="one-line explanation of the over-reach")
+    fix: str = Field(description="concrete, proportionate restatement the evidence supports")
+
+class VerifierFindings(BaseModel):
+    findings: list[Finding] = Field(description="over-reach to correct; empty list if the memo is sound")
+
+# Flag pass: re-reads the finished memo adversarially (with FRED grounding) and flags over-reach.
+verifier_agent = Agent(
+    model=VERIFIER_MODEL,
+    output_type=VerifierFindings,
+    deps_type=FredToolkit,
+    system_prompt=templates.get_template("verifier_prompt.mako").render(today=today),
+    retries=RETRIES,
+    model_settings={"max_tokens": 32768, "timeout": 600,
+                    "anthropic_thinking": {"type": "adaptive"}, "anthropic_effort": "high"},
+)
+register_fred_tools(verifier_agent)
+
+# Revise pass: applies the flagged fixes with a light touch; mechanical, so a cheaper model.
+revise_agent = Agent(
+    model=REVISE_MODEL,
+    output_type=str,
+    system_prompt=templates.get_template("revise_prompt.mako").render(today=today),
+    retries=RETRIES,
+    model_settings={"max_tokens": 32768, "timeout": 600},
+)
 
 async def get_events() -> pl.DataFrame:
     res = await events_agent.run()
@@ -382,6 +420,20 @@ async def main():
         comparison_report = synthesis_results[1].output
     elif COMPARISON_MODEL and len(synthesis_results) > 1 and isinstance(synthesis_results[1], Exception):
         log.error(f"Comparison model failed: {synthesis_results[1]}")
+
+    if ENABLE_VERIFIER:
+        try:
+            verify_toolkit = FredToolkit(client=Fred(api_key=FRED_API_KEY) if FRED_API_KEY else None)
+            findings = (await verifier_agent.run(report, deps=verify_toolkit)).output.findings
+            if findings:
+                log.info(f"Verifier flagged {len(findings)} claim(s): {[f.issue for f in findings]}")
+                revise_input = json.dumps({"memo": report, "findings": [f.model_dump() for f in findings]})
+                revised = (await revise_agent.run(revise_input)).output
+                report = revised.removesuffix("```").removeprefix("```md").removeprefix("```markdown").removeprefix("```")
+            else:
+                log.info("Verifier found no over-reach; shipping draft unchanged.")
+        except Exception as e:
+            log.error(f"Verifier/revise step failed; shipping unrevised draft: {e}")
 
     if ENABLE_CITATIONS:
         citations = [
