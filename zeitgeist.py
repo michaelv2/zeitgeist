@@ -424,7 +424,8 @@ async def main():
     if ENABLE_VERIFIER:
         try:
             verify_toolkit = FredToolkit(client=Fred(api_key=FRED_API_KEY) if FRED_API_KEY else None)
-            findings = (await verifier_agent.run(report, deps=verify_toolkit)).output.findings
+            verifier_input = json.dumps({"memo": report, "upcoming_catalysts": report_input["upcoming_catalysts"]})
+            findings = (await verifier_agent.run(verifier_input, deps=verify_toolkit)).output.findings
             if findings:
                 log.info(f"Verifier flagged {len(findings)} claim(s): {[f.issue for f in findings]}")
                 revise_input = json.dumps({"memo": report, "findings": [f.model_dump() for f in findings]})

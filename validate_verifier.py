@@ -39,7 +39,10 @@ async def main():
 
     # FLAG pass
     tk = zg.FredToolkit(client=Fred(api_key=zg.FRED_API_KEY) if zg.FRED_API_KEY else None)
-    findings = (await zg.verifier_agent.run(draft, deps=tk)).output.findings
+    fx = Path("eval/synthesis_fixtures/2026-06-06.json")
+    cat = json.loads(fx.read_text()).get("upcoming_catalysts", []) if fx.exists() else []
+    vin = json.dumps({"memo": draft, "upcoming_catalysts": cat})
+    findings = (await zg.verifier_agent.run(vin, deps=tk)).output.findings
     print(f"\n=== VERIFIER FINDINGS: {len(findings)} | FRED fetches used: {zg.MAX_FRED_TOOL_CALLS - tk.remaining} ===")
     for i, f in enumerate(findings, 1):
         print(f"\n[{i}] {f.issue.upper()}")

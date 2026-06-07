@@ -10,8 +10,9 @@ Zeitgeist is a Python application that generates daily investment macro reports 
 3. Gathering economic data from FRED API
 4. Collecting news headlines via GNews
 5. Finding upcoming market catalysts via web search
-6. Synthesizing everything into a markdown investment memo
-7. Adding citations and rendering to HTML
+6. Synthesizing everything into a markdown investment memo (the synthesizing agent has a bounded FRED tool for on-demand grounding)
+7. Verifying the finished draft for over-reach and revising it before it ships
+8. Adding citations and rendering to HTML
 
 The application runs daily via GitHub Actions and publishes reports to GitHub Pages.
 
@@ -30,6 +31,12 @@ This will:
 
 ### Quick smoke test
 The script automatically runs in "quick test" mode when `GITHUB_ACTIONS` is not set. This limits data fetching to first few batches for faster iteration during development.
+
+### Validation / eval harnesses
+- `ab_nudge.py`: controlled A/B of a single synthesis-prompt line (`--anchor`/`--extract`) on a fixture — strips the line for the "old" arm, runs N draws per arm, diffs a chosen passage
+- `validate_verifier.py`: runs the flag-then-revise verifier on a saved draft (e.g. a `.reports/.../index.html`) and prints findings + before/after
+- `prototype_fred_tool.py`: exercises the synthesis FRED tool on a fixture
+- `eval_synthesis.py` / `eval_classifier.py`: LLM-as-judge eval harnesses; fixtures live in `eval/synthesis_fixtures/` (gitignored). Dump today's inputs as a fixture with `ZEITGEIST_DUMP_FIXTURE=1`
 
 ### Required environment variables
 - `OPENAI_API_KEY` (required) - For the events agent (gpt-5.1 via the Responses API)
@@ -65,10 +72,18 @@ The application uses these specialized pydantic-ai agents:
    - Opens with a **Key Themes** lede at the very top: at most 2-3 variant-perception bullets surfacing what may NOT be priced in or what a headline reading would miss (risk-reversals, narrative shifts, thematic inflections); genuine leaps flag a concrete confirm/refute tell
    - Surfaces the disambiguating datapoints as an integrated **Key Tells** block in the Positioning Summary (the forward "what would change this view" tells) — replaces the earlier separate two-pass "Cross-Currents" red-team
    - **Calibrates confidence to evidence** (decisive ≠ certain): grounds every claim in the provided inputs (no fabricated numbers, mechanisms, or historical precedents), separates what the data shows from inference vs. speculation, and labels genuine leaps with what would confirm or refute them
-   - Writes in a succinct, opinionated investment-analyst style
+   - **Lands every material story on a tradeable implication**: a concrete expression (name/sector or cross-asset leg) plus a catalyst — but only one confirmably still upcoming in the events inputs, never a stale/assumed peg
+   - Has a **bounded FRED tool** (`fred_search`/`fred_series`, capped at `MAX_FRED_TOOL_CALLS`) to fetch an additional series on demand and *compute* a figure rather than estimate it; fetched series flow into the citation sources. Gated by `ENABLE_FRED_TOOL`
+   - Writes **claim-first and structured**: lead with the takeaway, subordinate the evidence; one claim per bullet; compress words, not logic
    - Template: `templates/synthesizing_prompt.mako`
 
-4. **Citation Agent** (inline, no dedicated variable)
+4. **Verifier + Revise** (`verifier_agent` → `revise_agent`) — a flag-then-revise quality gate, gated by `ENABLE_VERIFIER`
+   - **Verifier** (`VERIFIER_MODEL` = Opus 4.8, adaptive thinking): re-reads the finished memo adversarially for OVER-reach — overstatement, self-contradiction, ungrounded claims, cherry-picked framing, and stale/ungrounded catalysts. Has the same bounded FRED tool to ground numeric claims, and is given the Upcoming Catalysts list to flag timing pegs that aren't actually upcoming. Returns structured `Finding`s (or none)
+   - **Revise** (`REVISE_MODEL` = Sonnet): applies each fix and propagates it to every sibling sentence that restates the corrected claim, touching nothing else
+   - Catches over-reach the single-pass synthesis commits to but can't self-critique mid-generation; a failure is logged and the unrevised draft ships
+   - Templates: `templates/verifier_prompt.mako`, `templates/revise_prompt.mako`
+
+5. **Citation Agent** (inline, no dedicated variable)
    - Model: `claude-sonnet-4-6` (`CITATION_MODEL`, decoupled from synthesis — mechanical link-insertion doesn't need Opus)
    - Post-processes report to insert markdown citations
    - Template: `templates/citation_prompt.mako`
@@ -82,8 +97,10 @@ Batched through Relevant Prediction Agent → tagged_predictions
         ↓
                     ┌─ tagged_predictions
                     ├─ Events Agent → upcoming catalysts
-Synthesizing Agent ─┤─ GNews → news headlines
-                    └─ FRED API → macro data points
+Synthesizing Agent ─┤─ GNews → news headlines       (+ bounded FRED tool, on demand)
+(Opus 4.8)          └─ FRED API → macro data points
+        ↓
+Verifier → Revise  (flag over-reach: FRED-grounded + catalyst-checked → apply & propagate fixes)
         ↓
 Citation Agent → final markdown report → HTML (via Mako template)
 ```
@@ -101,7 +118,9 @@ Citation Agent → final markdown report → HTML (via Mako template)
 - `about_me.mako`: Shared context about the investor persona (US equities, macro focus)
 - `relevant_prediction_prompt.mako`: Filters prediction markets for investment relevance
 - `events_prompt.mako`: Instructs agent to find upcoming catalysts via web search
-- `synthesizing_prompt.mako`: Main report generation — deep single-pass synthesis that resolves cross-cutting tensions into a decisive call, opens with a "Key Themes" variant-perception lede, and applies a confidence-calibration discipline (ground claims in inputs, label inference vs. speculation, tether leaps to a confirm/refute tell) surfaced via the integrated "Key Tells" block (structure, style, format)
+- `synthesizing_prompt.mako`: Main report generation — single-pass synthesis that resolves tensions into a decisive call, opens with a "Key Themes" variant-perception lede, applies a confidence-calibration discipline + claim-first writing rules, lands every story on a tradeable/grounded-catalyst implication, and surfaces forward tells via the integrated "Key Tells" block. A `fred_tool` flag conditionally renders the bounded-FRED-tool instructions
+- `verifier_prompt.mako`: Adversarial over-reach review of the finished draft (flag pass) — sees `{memo, upcoming_catalysts}` with FRED grounding; returns structured findings
+- `revise_prompt.mako`: Applies the verifier's fixes (revise pass), propagating each correction to sibling claims while touching nothing else
 - `citation_prompt.mako`: Adds markdown citations to the final report
 - `index.html.mako`: HTML wrapper for the final report
 
@@ -111,20 +130,28 @@ At the top of `zeitgeist.py`:
 - `QUICK_TEST`: Set to `True` in dev mode to limit data fetching
 - `BATCH_SIZE`: Number of predictions per LLM batch (100)
 - `BATCH_REQUEST_DELAY_SECONDS`: Delay between batches (5s) to avoid rate limits
-- `CLASSIFYING_MODEL`, `EVENTS_MODEL`, `SYNTHESIS_MODEL` (Opus 4.8), `CITATION_MODEL`, `COMPARISON_MODEL`: model selection per agent (mix of Anthropic + OpenAI)
-- Synthesis runs adaptive thinking + `anthropic_effort: "high"` (set in `synthesizing_agent` `model_settings`)
-- `FRED_CODES`: Dict mapping FRED series codes to human-readable names
+- `CLASSIFYING_MODEL`, `EVENTS_MODEL`, `SYNTHESIS_MODEL` (Opus 4.8), `CITATION_MODEL`, `VERIFIER_MODEL` (Opus 4.8), `REVISE_MODEL` (Sonnet), `COMPARISON_MODEL`: model selection per agent (mix of Anthropic + OpenAI)
+- `ENABLE_FRED_TOOL`, `ENABLE_VERIFIER`, `ENABLE_CITATIONS`, `ENABLE_EMAIL_BRIEFING`: feature flags for the optional pipeline stages
+- `MAX_FRED_TOOL_CALLS`: per-run cap on on-demand FRED fetches, shared by the synthesis and verifier tools (8)
+- Synthesis (and the verifier) run adaptive thinking + `anthropic_effort: "high"` (set in `model_settings`)
+- `FRED_CODES`: Dict mapping FRED series codes to human-readable names (includes both headline and core CPI/PCE so real-spending reads aren't core-only)
 - `NUM_FRED_DATAPOINTS`: How many recent datapoints to fetch per FRED series (10)
 
 ### GitHub Actions Workflow
 
 `.github/workflows/daily_report.yml`:
-- Runs daily at 6am ET (11am UTC)
+- Runs daily at 11am UTC (6am ET in winter / 7am ET in summer)
 - Uses `uv` for Python dependency management
 - Secrets injected via `oNaiPs/secrets-to-env-action`
 - Output published to `gh-pages` branch with `keep_files: true`
 
 ## Critical Implementation Notes
+
+### Verifier (flag-then-revise)
+A post-synthesis quality gate for the single-pass synthesis's blind spot: it commits to a framing autoregressively and can't self-critique mid-generation. The **verifier** re-reads the finished memo adversarially (fresh call, draft-as-input — structurally separated, *not* an in-prompt self-check), grounding numeric claims via the FRED tool and checking catalyst pegs against the Upcoming Catalysts list; the **revise** pass applies the flagged fixes and propagates each to sibling claims. The whole step is wrapped in try/except — a failure logs and ships the unrevised draft. Verifier input is JSON `{"memo", "upcoming_catalysts"}`.
+
+### Bounded FRED Tool
+`register_fred_tools()` attaches `fred_search`/`fred_series` to both the synthesizing and verifier agents (shared `FredToolkit` deps: a `Fred` client, a fetch budget, and a provenance log). It lets an agent fetch an additional series on demand to *compute* a figure rather than estimate it; fetched series are appended to the citation sources. Capped at `MAX_FRED_TOOL_CALLS`; degrades gracefully (and the daily still runs) if `FRED_API_KEY` is absent.
 
 ### Citation System
 The citation agent receives the full report and a list of sources (title + URL). It must insert citations inline without fabricating sources. The citation step is wrapped in try/except, so a failure is logged and the report falls back to the uncited version.
