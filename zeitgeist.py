@@ -26,6 +26,7 @@ ENABLE_CITATIONS = True
 ENABLE_EMAIL_BRIEFING = True
 ENABLE_FRED_TOOL = True  # give synthesis a bounded FRED search/fetch tool to ground claims on demand
 ENABLE_VERIFIER = True  # post-synthesis flag-then-revise pass to catch over-reach before shipping
+ENABLE_LEDGER = True  # rolling multi-day themes ledger fed back into synthesis (phase 1: local-first)
 
 BATCH_REQUEST_DELAY_SECONDS = 5
 RATE_LIMIT_WAIT_SECONDS = 10
@@ -40,6 +41,7 @@ SYNTHESIS_MODEL = "anthropic:claude-opus-4-8"  # Opus 4.8 single-pass deep synth
 CITATION_MODEL = "anthropic:claude-sonnet-4-6"  # mechanical link-insertion; cheaper than the synthesis model
 VERIFIER_MODEL = "anthropic:claude-opus-4-8"  # adversarial flag pass; needs strong reasoning to catch over-reach
 REVISE_MODEL = "anthropic:claude-sonnet-4-6"  # applies the flagged fixes; targeted edits, cheaper than Opus
+LEDGER_MODEL = "anthropic:claude-sonnet-4-6"  # maintains the rolling themes ledger; mechanical extract + prune
 COMPARISON_MODEL = None  # Parallel A/B disabled; set a model string (e.g. "openai-chat:gpt-4.1-2025-04-14") to re-enable index2.html
 
 
@@ -53,6 +55,7 @@ FRED_API_KEY=os.getenv("FRED_API_KEY")
 GMAIL_USER = os.getenv("GMAIL_USER")
 GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD")
 NUM_FRED_DATAPOINTS = 10
+LEDGER_NAME = "themes_ledger.json"  # themes-ledger snapshot, co-located with each day's report under .reports/
 
 FRED_CODES = {
     "CPIAUCSL": "CPI (Headline)",
@@ -278,7 +281,7 @@ synthesizing_agent = Agent(
     model=SYNTHESIS_MODEL,
     output_type=str,
     deps_type=FredToolkit,
-    system_prompt=templates.get_template("synthesizing_prompt.mako").render(today=today, fred_tool=ENABLE_FRED_TOOL),
+    system_prompt=templates.get_template("synthesizing_prompt.mako").render(today=today, fred_tool=ENABLE_FRED_TOOL, ledger=ENABLE_LEDGER),
     retries=RETRIES,
     model_settings={"max_tokens": 32768, "timeout": 600,
                     "anthropic_thinking": {"type": "adaptive"}, "anthropic_effort": "high"},
@@ -328,6 +331,19 @@ class Finding(BaseModel):
 class VerifierFindings(BaseModel):
     findings: list[Finding] = Field(description="over-reach to correct; empty list if the memo is sound")
 
+class LedgerTheme(BaseModel):
+    id: str = Field(description="stable kebab-case slug for cross-day matching, e.g. 'ai-capex-durability'")
+    label: str = Field(description="short human-readable name")
+    first_seen: str = Field(description="YYYY-MM-DD the theme entered the ledger")
+    last_updated: str = Field(description="YYYY-MM-DD it was last reinforced")
+    status: str = Field(description="building | intact | inflecting | fading | resolved")
+    stance: str = Field(description="one-line current read")
+    tell: str = Field(description="forward signal that would confirm or refute it")
+
+class ThemesLedger(BaseModel):
+    as_of: str = Field(description="YYYY-MM-DD of this update")
+    themes: list[LedgerTheme] = Field(description="curated watchlist; at most ~8 active themes")
+
 # Flag pass: re-reads the finished memo adversarially (with FRED grounding) and flags over-reach.
 verifier_agent = Agent(
     model=VERIFIER_MODEL,
@@ -348,6 +364,30 @@ revise_agent = Agent(
     retries=RETRIES,
     model_settings={"max_tokens": 32768, "timeout": 600},
 )
+
+# Ledger pass: after the memo ships, update the rolling themes ledger (carry/inflect/prune) for tomorrow's run.
+ledger_agent = Agent(
+    model=LEDGER_MODEL,
+    output_type=ThemesLedger,
+    system_prompt=templates.get_template("ledger_update_prompt.mako").render(today=today),
+    retries=RETRIES,
+    model_settings={"max_tokens": 8192, "timeout": 300},
+)
+
+def load_ledger() -> list[dict]:
+    """Read the newest themes-ledger snapshot under .reports/ from a day STRICTLY BEFORE today
+    (so same-day re-runs read the prior day, not their own earlier write). [] if disabled/absent."""
+    if not ENABLE_LEDGER:
+        return []
+    today_dir = today.strftime("%Y/%m/%d")
+    snaps = sorted(p for p in Path(".reports").glob(f"*/*/*/{LEDGER_NAME}") if today_dir not in p.as_posix())
+    if not snaps:
+        return []
+    try:
+        return json.loads(snaps[-1].read_text()).get("themes", [])
+    except Exception as e:
+        log.warning(f"Could not read themes ledger {snaps[-1]}; starting fresh: {e}")
+        return []
 
 async def get_events() -> pl.DataFrame:
     res = await events_agent.run()
@@ -384,12 +424,14 @@ async def main():
         asyncio.to_thread(get_email_briefing),
     )
 
+    prior_themes = load_ledger()  # rolling multi-day theme state from prior runs ([] when disabled or first run)
     report_input = {
         "prediction_markets": tagged_predictions.select("title", "bets", "topics").to_dicts(),
         "news_headlines": news.select("title", "description").to_dicts() if news is not None else None,
         "upcoming_catalysts": events.select("title", "when", "topics").to_dicts(),
         "fred_data_points": fred_data.select("title", "data").to_dicts() if fred_data is not None else None,
-        "external_briefings": [{"source": "DataTrek Morning Briefing", "content": email_briefing}] if email_briefing else None
+        "external_briefings": [{"source": "DataTrek Morning Briefing", "content": email_briefing}] if email_briefing else None,
+        "prior_themes": prior_themes or None,
     }
     if os.environ.get("ZEITGEIST_DUMP_FIXTURE"):
         Path("eval/synthesis_fixtures").mkdir(parents=True, exist_ok=True)
@@ -435,6 +477,18 @@ async def main():
                 log.info("Verifier found no over-reach; shipping draft unchanged.")
         except Exception as e:
             log.error(f"Verifier/revise step failed; shipping unrevised draft: {e}")
+
+    if ENABLE_LEDGER:
+        try:
+            ledger_input = json.dumps({"prior_ledger": prior_themes, "memo": report})
+            new_ledger = (await ledger_agent.run(ledger_input)).output
+            ledger_path = Path(f".reports/{today.strftime('%Y/%m/%d')}") / LEDGER_NAME
+            ledger_path.parent.mkdir(parents=True, exist_ok=True)
+            ledger_path.write_text(new_ledger.model_dump_json(indent=2))
+            log.info(f"Themes ledger updated ({ledger_path}): {len(new_ledger.themes)} active "
+                     f"{[f'{t.label}:{t.status}' for t in new_ledger.themes]}")
+        except Exception as e:
+            log.error(f"Ledger update failed; prior ledger retained: {e}")
 
     if ENABLE_CITATIONS:
         citations = [
