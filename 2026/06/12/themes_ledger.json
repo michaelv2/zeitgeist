@@ -1,0 +1,77 @@
+{
+  "as_of": "2026-06-12",
+  "themes": [
+    {
+      "id": "bond-market-mispricing-disinflation",
+      "label": "2Y Mispricing Imminent Disinflation",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-12",
+      "status": "building",
+      "stance": "2Y at 4.13% — ~50bp above funds — prices a hawkish-hold-to-hikes path that an oil collapse (Iran deal) directly undercuts; core CPI benign at +0.21% MoM May; tactical long duration into July 14 CPI.",
+      "tell": "WTI sustained sub-90 + July 14 headline CPI soft print confirms; 2Y falling back toward/below 3.63% funds signals the market is pricing cuts. A core CPI re-acceleration above +0.3% MoM or WTI snap back above 100 kills the trade."
+    },
+    {
+      "id": "iran-oil-disinflation-channel",
+      "label": "Iran Deal → Oil Collapse → Disinflation",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-12",
+      "status": "building",
+      "stance": "Iran–US peace framework unconfirmed but already collapsing WTI to multi-month lows; Hormuz reopening + sanctions lift + OPEC+ Jun 22 creates double-bearish crude setup; energy reversal is the mechanism that flips headline CPI dovish into July.",
+      "tell": "Iran deal formally confirmed + WTI holds below 90 through OPEC+ Jun 22 meeting; deal collapse or OPEC+ production cut would negate."
+    },
+    {
+      "id": "asset-euphoria-confidence-gap",
+      "label": "Asset Euphoria vs. Collapsing Consumer Confidence",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-12",
+      "status": "building",
+      "stance": "SpaceX IPO (largest debut ever) and Barron's-flagged 'hopes and dreams' tape coexist with Michigan sentiment at 49.8 (from 56.6 in Feb); nominal spend holds but the divergence between consumer action and consumer feeling is widening — froth signal not yet a timing tool.",
+      "tell": "Michigan sentiment further deterioration below 47 or retail sales MoM turning negative would confirm the crack; SpaceX/IPO halo names holding gains sustains the froth narrative."
+    },
+    {
+      "id": "defense-rearmament-secular-bid",
+      "label": "Secular Defense Rearmament Bid",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-12",
+      "status": "building",
+      "stance": "Senate backs 'Department of War' rename + $750M Ukraine aid; UK defense secretary resigned over insufficient spending; structural rearmament demand is independent of Gulf de-escalation — Iran calm does not dent the secular bid.",
+      "tell": "NATO/EU defense budget commitments rising above 2.5% GDP targets or additional US supplemental defense appropriations confirm; a comprehensive peace settlement in Ukraine would be the key refutation signal."
+    },
+    {
+      "id": "el-nino-soft-commodity-risk",
+      "label": "El Niño Food & Cat-Insurance Risk",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-12",
+      "status": "building",
+      "stance": "'Very strong' El Niño officially declared; China warns of extreme floods threatening rice crop; soft-commodity and P&C catastrophe risk appearing underpriced by equity tape — small long DBA, trim P&C cat exposure.",
+      "tell": "USDA or FAO crop damage estimates for Asian rice/wheat; P&C reinsurer guidance cuts or cat-loss warnings in Q2 earnings would confirm the underpricing thesis."
+    },
+    {
+      "id": "ai-capex-durability",
+      "label": "AI Capex Durability After Oracle Stumble",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-12",
+      "status": "building",
+      "stance": "Oracle slid post-earnings — a crack in the AI-capex-beneficiary trade; Apple concedes AI lead to Google via Siri/Gemini rebuild (WWDC); the full read awaits late-July mega-cap/semi prints (MSFT/GOOGL/META, NVDA/AMD).",
+      "tell": "NVDA/MSFT/GOOGL late-July earnings capex guidance — sustained or raised AI spend confirms durability; a second miss or guidance cut after Oracle confirms the crack is spreading."
+    },
+    {
+      "id": "divided-government-fiscal-gridlock",
+      "label": "Divided Government → Fiscal Gridlock & Supply Risk",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-12",
+      "status": "building",
+      "stance": "2026 midterms prediction markets point to Dem House (82.5%) / R Senate (55.5%) — structural fiscal gridlock ahead, no fresh stimulus; late-July Treasury quarterly refunding is the near-term long-end supply risk that keeps the duration add tactical not structural.",
+      "tell": "Late-July Treasury refunding announcement size and 10Y/30Y auction tail; 10Y yield breaking above 4.75% on supply indigestion would confirm the long-end risk."
+    },
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory — Benign or Re-Accelerating",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-12",
+      "status": "building",
+      "stance": "Core CPI +0.21% MoM May (vs +0.38% April) is benign but one soft month is not a trend; core PCE +0.24% in April; the entire disinflation thesis hinges on Jun 26 core PCE and Jul 14 core CPI not re-accelerating.",
+      "tell": "Jun 26 core PCE print: another +0.3%+ MoM rebuts 'benign, not accelerating' and undercuts the disinflation lede; a second consecutive sub-0.25% read confirms the downtrend."
+    }
+  ]
+}
