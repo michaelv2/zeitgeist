@@ -1,0 +1,77 @@
+{
+  "as_of": "2026-06-15",
+  "themes": [
+    {
+      "id": "bond-market-mispricing-disinflation",
+      "label": "2Y Mispricing Imminent Disinflation",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-15",
+      "status": "building",
+      "stance": "2Y at 4.05% (~40bp above 3.63% funds) still prices few-to-no cuts; Iran deal confirmed and energy reversing mechanically into the July 14 CPI read; FOMC hawkish-hold (Warsh's first meeting) is the entry, not the exit — fade any front-end pop on a hawkish SEP. Core CPI +0.21% MoM May, core PCE +0.24% April remain benign.",
+      "tell": "2Y falling toward/below 3.63% funds confirms the market is pricing energy-disinflation and cuts; a break above ~4.20% on a hawkish Warsh SEP is near-term pain to fade. July 14 headline CPI soft print is the ultimate confirmation; a core PCE re-acceleration above +0.3% MoM (Jun 25) or WTI snap back above 100 kills the trade."
+    },
+    {
+      "id": "iran-oil-disinflation-channel",
+      "label": "Iran Deal → Oil Collapse → Disinflation",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-15",
+      "status": "inflecting",
+      "stance": "Iran–US ceasefire framework now formally confirmed — oil-sanctions waiver, nuclear limits, Hormuz reopening. WTI falling from ~95 pre-deal; the energy-driven headline CPI spike is mechanically reversing into the July 14 print. This is the dominant cross-asset macro driver today; the thesis has moved from 'unconfirmed but pricing' to 'confirmed and executing.'",
+      "tell": "WTI sustained sub-90 through OPEC+ and into July CPI validates the channel; a deal collapse or OPEC+ surprise production cut snapping WTI back above 100 negates. July 14 headline CPI is the clean adjudication."
+    },
+    {
+      "id": "asset-euphoria-confidence-gap",
+      "label": "Asset Euphoria vs. Collapsing Consumer Confidence",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-15",
+      "status": "intact",
+      "stance": "SpaceX record IPO debut (Musk first trillionaire) and Bitcoin ~coinflip to $1M coexist with Michigan sentiment at 49.8. Memo now adds a consumer-relief thesis (pump relief from Iran deal) as a partial offset — so the froth signal persists but the confidence gap may narrow if energy squeeze eases. Not yet a timing tool.",
+      "tell": "Michigan sentiment further deterioration below 47 or real retail turning negative would deepen the gap and refute the pump-relief offset; SpaceX/IPO halo names holding gains sustains the froth narrative."
+    },
+    {
+      "id": "defense-rearmament-secular-bid",
+      "label": "Secular Defense Rearmament Bid",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-15",
+      "status": "intact",
+      "stance": "Ukraine war ongoing (Kyiv struck again), G7 spending pressure continuing — secular rearmament bid intact and largely insulated from the Iran deal. Gulf calm acknowledged as a modest near-term sentiment headwind but does not dent the structural thesis. Positioning: hold XAR.",
+      "tell": "NATO/EU defense budget commitments rising above 2.5% GDP targets or additional US supplemental appropriations confirm; a comprehensive Ukraine peace settlement is the key refutation signal."
+    },
+    {
+      "id": "ai-capex-durability",
+      "label": "AI Capex Durability & Regulatory Overhang",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-15",
+      "status": "inflecting",
+      "stance": "A new regulatory dimension added today: White House froze Anthropic's flagship models (Mythos) on an Amazon export warning — Washington is now an active case-by-case chokepoint on AI deployment, landing on the highest-multiple cohort. Apple licensing Gemini for Siri signals model concentration narrowing. Capex-durability verdict still pending Micron (Jun 24) and mega-cap prints. Memo recommends trim/hedge high-multiple AI names.",
+      "tell": "Micron Q3 earnings (June 24) is the first confirmed AI-memory/semis demand tell; NVDA/MSFT/GOOGL late-July capex guidance sustaining or raising spend confirms durability. A second miss or guidance cut after Oracle, or escalating regulatory freezes beyond Anthropic, confirms the overhang is spreading."
+    },
+    {
+      "id": "divided-government-fiscal-gridlock",
+      "label": "Divided Government → Fiscal Gridlock & Supply Risk",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-15",
+      "status": "intact",
+      "stance": "2026 midterms prediction markets still point to Dem House (82.5%) / R Senate (55.5%) — structural fiscal gridlock ahead, no fresh stimulus. McConnell hospitalized; Section 702 spy authority lapsed (Trump tying renewal to voting bill) adds Senate margin uncertainty. Late-July Treasury quarterly refunding remains the near-term long-end supply risk keeping duration add tactical.",
+      "tell": "Late-July Treasury refunding announcement size and 10Y/30Y auction tail; 10Y yield breaking above 4.75% on supply indigestion confirms long-end risk. Senate margin shifts from McConnell-health headlines worth monitoring."
+    },
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory — Benign or Re-Accelerating",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-15",
+      "status": "intact",
+      "stance": "Core CPI +0.21% MoM May, core PCE +0.24% April — benign but one soft month is not a trend. Energy reversal (Iran deal) should suppress headline while core trajectory is the key unknown. June 25 core PCE is the next adjudication; the entire disinflation thesis depends on no re-acceleration.",
+      "tell": "June 25 core PCE: a +0.3%+ MoM print rebuts 'benign, not accelerating' and undercuts the disinflation lede; a second consecutive sub-0.25% read confirms the downtrend. July 14 core CPI is the following gate."
+    },
+    {
+      "id": "ai-regulatory-gatekeeping",
+      "label": "AI Regulatory Gatekeeping — Washington as Chokepoint",
+      "first_seen": "2026-06-15",
+      "last_updated": "2026-06-15",
+      "status": "building",
+      "stance": "White House froze Anthropic's flagship Mythos models on an Amazon export warning — a novel, case-by-case government veto over AI model deployment/export that is distinct from the capex-durability question. Anthropic flying staff to DC to resolve. This is a new regulatory tail layered on the highest-multiple AI cohort, not a one-day headline given the structural export-control trend.",
+      "tell": "Resolution or escalation of the Anthropic freeze; additional White House/Commerce Dept actions freezing or restricting other frontier models (OpenAI, Google DeepMind) would confirm the pattern is systemic; a legislative framework or clear safe-harbor for export would resolve the overhang."
+    }
+  ]
+}
