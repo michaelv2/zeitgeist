@@ -1,0 +1,77 @@
+{
+  "as_of": "2026-06-18",
+  "themes": [
+    {
+      "id": "fed-policy-error-curve-flattening",
+      "label": "Hawkish Fed Policy Error → Curve Flattening",
+      "first_seen": "2026-06-18",
+      "last_updated": "2026-06-18",
+      "status": "building",
+      "stance": "Warsh held but flagged hikes as the next move even as WTI cratered to $84.65 and core CPI ran +0.21% MoM. The long end is fading the hawkishness: 10Y–2Y bear-flattened to 0.29 on FOMC day, a textbook 'hikes-now-mean-growth-scare-later' read. Trade migrates from fading 2Y pops to owning long duration (ZROZ) tactically, capped by late-July refunding supply.",
+      "tell": "Further flattening or inversion of 10Y–2Y confirms the growth-scare/policy-error read and validates the duration add. Re-steepening alongside a core CPI re-acceleration above +0.3% MoM on July 14 refutes it. 10Y breaking above 4.75% on supply indigestion at the late-July refunding flips the trade."
+    },
+    {
+      "id": "iran-oil-disinflation-channel",
+      "label": "Iran Deal → Oil Collapse → Disinflation",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-18",
+      "status": "building",
+      "stance": "US–Iran deal signed; WTI at $84.65 and falling, well through the prior ~$95 level. Ukraine drone strike on Moscow oil refinery was shrugged off — Iran supply/demand dominates. Disinflation channel actively transmitting to real incomes and headlines. Netanyahu-out-by-end-2026 at 64.5% remains the single asymmetric snapback tail; watch, don't position for it.",
+      "tell": "WTI sustained sub-$90 through late-June OPEC+ and into July 14 CPI validates the channel. A Netanyahu-driven Iran-deal collapse or OPEC+ surprise cut snapping WTI above $100 negates it. July 14 headline CPI roll is the clean adjudication."
+    },
+    {
+      "id": "asset-euphoria-confidence-gap",
+      "label": "Asset Euphoria vs. Collapsing Consumer Confidence",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-18",
+      "status": "inflecting",
+      "stance": "May retail sales +0.88% MoM vs +0.47% CPI = ~+0.4% real — the first hard-data green shoot. Oil crash adds a fresh real-income boost. Gap is beginning to close from the hard-data side; consumer discretionary lifted to neutral from underweight. Michigan 49.8 (April) is now lagging the hard spending data. One-month print is tentative; core-deflated or second-month confirmation required.",
+      "tell": "A second consecutive positive real retail print (June data) confirms the consumer turn and could warrant discretionary overweight. A negative June retail print or Michigan sentiment falling below 47 re-opens the gap and reinstates the underweight."
+    },
+    {
+      "id": "defense-rearmament-secular-bid",
+      "label": "Secular Defense Rearmament Bid",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-18",
+      "status": "intact",
+      "stance": "Ukraine launched its largest drone strike on Moscow, hitting an oil refinery; no settlement in sight. G7 sanctions push on Russia ongoing. Defense bid structurally intact; XAR overweight maintained. Iran calm is a marginal sentiment headwind but does not dent the structural thesis.",
+      "tell": "NATO/EU defense budget commitments rising above 2.5% GDP targets or additional US supplemental appropriations confirm. A comprehensive Ukraine peace settlement is the key refutation signal."
+    },
+    {
+      "id": "ai-capex-durability",
+      "label": "AI Capex Durability & Regulatory/Fragmentation Overhang",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-18",
+      "status": "inflecting",
+      "stance": "JPMorgan, Goldman, and BNP all cut Anthropic/Claude access for Asia staff — the prior tell ('second freeze action beyond Anthropic') has tripped, signaling the data-security/fragmentation overhang is spreading across institutions. Simultaneously, Apple's iPhone price hike on DRAM scarcity (12GB Siri demand) validates AI-memory pricing power. Micron Q3 (tonight AMC) is the immediate demand read. Stay light into late-July MSFT/GOOGL/AAPL capex guidance.",
+      "tell": "Micron Q3 guidance tonight is the near-term AI-memory demand tell. MSFT/GOOGL/AAPL late-July capex guidance sustaining or raising spend confirms durability despite the access overhang. A Micron miss/guidance cut, or further institutional AI-access restrictions, confirms the overhang is a structural headwind."
+    },
+    {
+      "id": "divided-government-fiscal-gridlock",
+      "label": "Divided Government → Fiscal Gridlock & Supply Risk",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-18",
+      "status": "intact",
+      "stance": "Dem House ~80%, R Senate ~55% — gridlock thesis intact into the Sept 30 FY27 funding cliff. Late-July Treasury quarterly refunding is the near-term long-end supply risk capping the size of the tactical duration add.",
+      "tell": "Late-July Treasury refunding announcement size and 10Y/30Y auction tail; 10Y yield breaking above 4.75% on supply indigestion confirms long-end risk. Sept 30 government funding deadline is the gridlock crystallization event."
+    },
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory — Benign or Re-Accelerating",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-18",
+      "status": "intact",
+      "stance": "Core CPI +0.21% MoM May is the second consecutive benign print; core PCE +0.24% MoM April is parallel confirmation. Headline was distorted by war-energy spike (+0.47% MoM May) now mechanically reversing as oil collapses. Apple's DRAM-driven price hike is a small goods-inflation offset. July 14 CPI is the next clean adjudication gate; June 25 PCE is the parallel print.",
+      "tell": "July 14 core CPI sub-0.25% MoM confirms the downtrend and frames Warsh as too hawkish; a +0.3%+ MoM read vindicates the hike camp and undercuts the long-duration add. June 25 core PCE is the parallel gate."
+    },
+    {
+      "id": "boj-carry-unwind-risk",
+      "label": "BOJ Tightening → Yen Carry Unwind Risk",
+      "first_seen": "2026-06-16",
+      "last_updated": "2026-06-18",
+      "status": "building",
+      "stance": "BOJ at 1% (31-year high); USD broad index softening off ~120 to ~119.5. Hawkish Warsh Fed provides a partial offset to carry-unwind via front-end rate support, but positioning risk is accumulating. Trim JPY-funded crowded longs. A sharp JPY rally remains the classic forced-deleveraging trigger across high-beta risk assets.",
+      "tell": "USDJPY breaking sharply lower through ~142 is the carry-unwind trigger; watch for correlated selloffs in high-beta risk assets on JPY strength. A BOJ pause or dovish communication at the next meeting would delay the risk."
+    }
+  ]
+}
