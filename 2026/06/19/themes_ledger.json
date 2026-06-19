@@ -1,0 +1,77 @@
+{
+  "as_of": "2026-06-19",
+  "themes": [
+    {
+      "id": "fed-policy-error-curve-flattening",
+      "label": "Hawkish Fed Policy Error → Curve Flattening",
+      "first_seen": "2026-06-18",
+      "last_updated": "2026-06-19",
+      "status": "building",
+      "stance": "Flattening has deepened: 10Y–2Y tightened further to 0.27 (from 0.29 on FOMC day) and 10Y–3M compressed to 0.63 from 0.77 in two weeks. May housing starts hit a ~10-month low, the first rate-sensitive crack confirming the hikes-now/growth-scare-later read. Tactical duration add (ZROZ) remains valid; dollar call-option demand is a near-term headwind for the trade's size.",
+      "tell": "Further flattening or inversion of 10Y–2Y confirms the policy-error/growth-scare read. Re-steepening alongside a core CPI re-acceleration ≥+0.3% MoM on July 14 refutes it. 10Y breaking above 4.75% on early-August refunding supply indigestion flips the trade."
+    },
+    {
+      "id": "iran-oil-disinflation-channel",
+      "label": "Iran Deal → Oil Collapse → Disinflation",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-19",
+      "status": "inflecting",
+      "stance": "WTI at $84.65, gas below $4 for first time since March — channel transmitting clearly. But the deal is visibly fraying: Switzerland next-phase talks postponed, Vance pulled out, IDF active in Lebanon. Netanyahu-out-by-end-2026 market price slipped to 63.5% from 64.5%. Disinflation remains the base case; the snapback tail is fattening and is now the cheap asymmetric hedge, not just a watch item.",
+      "tell": "WTI sustained sub-$90 through late-June OPEC+ and into July 14 CPI validates the channel. A confirmed collapse of next-phase Iran talks or OPEC+ surprise cut snapping WTI above $100 negates it. July 14 headline CPI is the clean adjudication."
+    },
+    {
+      "id": "asset-euphoria-confidence-gap",
+      "label": "Asset Euphoria vs. Collapsing Consumer Confidence",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-19",
+      "status": "inflecting",
+      "stance": "Goods spending holding (~+0.67% real May retail using core CPI deflator), but Michigan sentiment at 49.8 and May housing starts at a ~10-month low argue against calling the gap closed. Consumer discretionary stays neutral. The rate-sensitive sector (housing) is cracking first, consistent with a partial — not full — confidence recovery.",
+      "tell": "A second consecutive positive real retail print (June data) confirms the consumer turn and could warrant discretionary overweight. A negative June retail print or Michigan sentiment below 47 re-opens the gap and reinstates the underweight. A second weak housing starts print would signal rate sensitivity spreading beyond housing."
+    },
+    {
+      "id": "defense-rearmament-secular-bid",
+      "label": "Secular Defense Rearmament Bid",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-19",
+      "status": "intact",
+      "stance": "Ukraine's largest drone strike on Moscow hit an oil refinery; no settlement in sight. Defense bid structurally intact; XAR overweight maintained. Iran relative calm is marginal sentiment noise; it does not dent the structural thesis.",
+      "tell": "NATO/EU defense budget commitments rising above 2.5% GDP targets or additional US supplemental appropriations confirm. A comprehensive Ukraine peace settlement is the key refutation signal."
+    },
+    {
+      "id": "ai-export-control-fragmentation",
+      "label": "AI Export-Control Fragmentation Overhang",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-19",
+      "status": "building",
+      "stance": "Escalated from institutional bank-access freezes to national policy: US export ban on Anthropic's Mythos models, straining allies (Korea telecom at center). The overhang on AI-cohort TAM is the open question heading into late-July megacap earnings. Stay light QQQ/megacap tech. Capex durability vs. access restriction is the unresolved tension.",
+      "tell": "MSFT/GOOGL/AAPL late-July capex guidance sustaining or raising spend confirms durability despite the access overhang. Further allied-country friction or additional model/chip export bans confirm the fragmentation is structural. A Micron guidance cut or further institutional AI-access restrictions add headwind."
+    },
+    {
+      "id": "divided-government-fiscal-gridlock",
+      "label": "Divided Government → Fiscal Gridlock & Supply Risk",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-19",
+      "status": "intact",
+      "stance": "Dem House ~80%, R Senate ~56% — gridlock thesis intact into the Sept 30 FY27 funding cliff. Early-August Treasury quarterly refunding is the near-term long-end supply risk and the cap on the tactical duration add.",
+      "tell": "Early-August Treasury refunding announcement size and 10Y/30Y auction tail; 10Y yield breaking above 4.75% on supply indigestion confirms long-end risk. Sept 30 government funding deadline is the gridlock crystallization event."
+    },
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory — Benign or Re-Accelerating",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-19",
+      "status": "intact",
+      "stance": "Core CPI +0.21% MoM May is the second consecutive benign print; core PCE +0.24% MoM April is parallel confirmation. Headline distortion from the war-energy spike is now mechanically reversing as oil collapses. Warsh's hawkishness is fighting a fading enemy. June 25 core PCE and July 14 CPI are the next adjudication gates.",
+      "tell": "July 14 core CPI sub-0.25% MoM confirms the downtrend and frames Warsh as too hawkish; a +0.3%+ MoM read vindicates the hike camp and undercuts the long-duration add. June 25 core PCE is the parallel gate."
+    },
+    {
+      "id": "boj-carry-unwind-risk",
+      "label": "BOJ Tightening → Yen Carry Unwind Risk",
+      "first_seen": "2026-06-16",
+      "last_updated": "2026-06-19",
+      "status": "building",
+      "stance": "BOJ at 1% (31-year high); USD broad index firming on Warsh hawkishness and dollar call-option demand, providing a partial offset to carry-unwind — but positioning risk is still accumulating. Dollar firming is a near-term headwind for gold, EM, and commodities. Trim JPY-funded crowded longs.",
+      "tell": "USDJPY breaking sharply lower through ~142 is the carry-unwind trigger; watch for correlated selloffs in high-beta risk assets on JPY strength. A BOJ pause or dovish communication at the next meeting would delay the risk."
+    }
+  ]
+}
