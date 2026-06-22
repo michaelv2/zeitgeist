@@ -1,0 +1,77 @@
+{
+  "as_of": "2026-06-22",
+  "themes": [
+    {
+      "id": "fed-policy-error-curve-flattening",
+      "label": "Hawkish Fed Policy Error → Curve Flattening",
+      "first_seen": "2026-06-18",
+      "last_updated": "2026-06-22",
+      "status": "building",
+      "stance": "10Y–2Y at 0.27 (from 0.40 at start of cycle), 10Y–3M at 0.63; the 2Y at 4.20% is pricing ~57bp of net tightening into Warsh's Jun 24–25 debut despite two consecutive benign core prints. May housing starts at a 10-month low confirm the rate-sensitive crack. Tactical ZROZ add valid but entry is into-strength post-FOMC, not chase — hawkish-hold surprise could push 2Y higher first.",
+      "tell": "July 14 core CPI <0.25% MoM + further 10Y–2Y compression confirms the policy-error/disinflation read. Core CPI ≥0.30% MoM vindicates the hike camp and kills the trade. 10Y breaking >4.75% on August refunding supply indigestion flips duration from long to defensive."
+    },
+    {
+      "id": "iran-oil-disinflation-channel",
+      "label": "Iran Deal → Oil Collapse → Disinflation",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-22",
+      "status": "inflecting",
+      "stance": "WTI at $84.65 (–15% in two weeks); oil slipped further on US–Iran talks progress despite Trump Hormuz threats — channel transmitting. Netanyahu-out-by-2026 odds fell sharply to 53.5% from 63.5%, signaling rising deal fragility. Disinflation is the base case; small Hormuz-snapback energy hedge is the cheap asymmetric tail. TIPS trim warranted as headline CPI distortion mechanically reverses.",
+      "tell": "WTI sustained sub-$90 through Jun 26 PCE and July 14 CPI validates the channel. Confirmed Iran-talks collapse or OPEC+ surprise cut snapping WTI above $100 negates it. July 14 headline and core CPI are the clean adjudication."
+    },
+    {
+      "id": "asset-euphoria-confidence-gap",
+      "label": "Asset Euphoria vs. Collapsing Consumer Confidence",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-22",
+      "status": "inflecting",
+      "stance": "May retail +0.88% MoM nominal (~+0.4% real even on the hot headline deflator) suggests real spending is holding better than sentiment implies — modestly constructive. But Michigan at 49.8 (vs. 56.6 in Feb) and housing starts at a 10-month low keep consumer discretionary neutral, not overweight. Gap is partially — not fully — closed.",
+      "tell": "A second consecutive positive real retail print (June data) confirms the consumer turn and could warrant discretionary overweight. Michigan sentiment below 47 or a negative June retail print re-opens the gap. A second weak housing starts print signals rate sensitivity spreading."
+    },
+    {
+      "id": "defense-rearmament-secular-bid",
+      "label": "Secular Defense Rearmament Bid",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-22",
+      "status": "building",
+      "stance": "Bid is broadening and deepening: German/French governments taking equal stakes in tankmaker KNDS, Australia–Canada $1.75B Arctic radar deal, Ukraine's deepest drone strike yet (~2,000km) hits a Russian oil refinery with no settlement in sight. New wrinkle: China rare-earth export curbs on US defense primes create an input-cost overhang — pair XAR overweight with ex-China rare-earth (MP Materials) to hedge the supply leg.",
+      "tell": "NATO/EU defense budget commitments rising above 2.5% GDP targets or further US/allied defense spending confirms. China rare-earth restrictions tightening further pressures prime margins — watch for guidance cuts at defense primes in earnings. A comprehensive Ukraine peace settlement is the key structural refutation."
+    },
+    {
+      "id": "ai-export-control-fragmentation",
+      "label": "AI Export-Control Fragmentation Overhang",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-22",
+      "status": "building",
+      "stance": "Fragmentation is now intersecting with the China rare-earth retaliation channel: AI/tech hardware supply chains face both access restrictions (Anthropic/Mythos ban, allied friction) and input-cost pressure from China export curbs. TAM overhang on megacap tech intact into late-July earnings. Stay light QQQ. AI for Good Summit (Jul 7–10) is a near-term policy headline risk.",
+      "tell": "MSFT/GOOGL/AAPL late-July capex guidance sustaining or raising spend confirms durability despite the access overhang. Further allied-country friction, additional model/chip export bans, or rare-earth-related guidance cuts from semis confirm structural fragmentation. NVIDIA Q2 FY27 (late Aug) is the demand-confirmation gate."
+    },
+    {
+      "id": "divided-government-fiscal-gridlock",
+      "label": "Divided Government → Fiscal Gridlock & Supply Risk",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-22",
+      "status": "intact",
+      "stance": "Dem House ~80%, R Senate ~58% — gridlock thesis intact into Sept 30 FY27 funding cliff. Early-August Treasury quarterly refunding is the near-term long-end supply risk and the binding cap on the tactical duration add. Supreme Court term-end rulings (by Jun 30) add sector-specific dispersion risk.",
+      "tell": "Early-August Treasury refunding announcement size and 10Y/30Y auction tail; 10Y breaking >4.75% on supply indigestion confirms long-end risk. Sept 30 government funding deadline is the gridlock crystallization event."
+    },
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory — Benign or Re-Accelerating",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-22",
+      "status": "intact",
+      "stance": "Core CPI +0.21% MoM May (after +0.38% April) and core PCE +0.24% April are two consecutive benign prints. Hot headline (+0.47% May) is purely the war-energy spike now mechanically reversing as oil collapses. Warsh is fighting a fading enemy. June 26 core PCE and July 14 CPI are the next adjudication gates. TIPS trim warranted as breakevens compress.",
+      "tell": "July 14 core CPI sub-0.25% MoM confirms the downtrend and frames Warsh as too hawkish. A +0.30%+ MoM read vindicates the hike camp and undercuts the long-duration add. June 26 core PCE is the parallel gate."
+    },
+    {
+      "id": "boj-carry-unwind-risk",
+      "label": "BOJ Tightening → Yen Carry Unwind Risk",
+      "first_seen": "2026-06-16",
+      "last_updated": "2026-06-22",
+      "status": "building",
+      "stance": "BOJ at 1% (31-year high); broad USD firm (~119.5) on Warsh hawkishness and dollar call-option demand, providing a partial offset to carry-unwind — but positioning risk accumulating. Firm USD is a near-term headwind for gold (IAU neutral), EM, and commodities. Trim JPY-funded crowded longs.",
+      "tell": "USDJPY breaking sharply lower through ~142 is the carry-unwind trigger; watch for correlated selloffs in high-beta risk assets on JPY strength. A BOJ pause or dovish communication at the next meeting would delay the risk."
+    }
+  ]
+}
