@@ -1,0 +1,77 @@
+{
+  "as_of": "2026-06-24",
+  "themes": [
+    {
+      "id": "fed-policy-error-curve-flattening",
+      "label": "Hawkish Fed Policy Error → Curve Flattening / Bull-Steepener Setup",
+      "first_seen": "2026-06-18",
+      "last_updated": "2026-06-24",
+      "status": "building",
+      "stance": "Hawkish FOMC event has now cleared (2Y moved 4.05→4.24, 10Y–2Y flattened to 0.27 on Jun 22 then steepened to 0.34 on Jun 23). Post-FOMC is the cleaner duration entry: core CPI +0.21% MoM May and Brent <$76 mean the Fed is fighting a fading enemy. ZROZ/long-duration add is valid but capped ahead of August refunding supply risk. 10Y >4.75% on auction indigestion flips duration to defensive.",
+      "tell": "Jul 10 core CPI (June) <0.25% MoM confirms disinflation and presses the bull-steepener; ≥0.30% vindicates the hike camp and kills the long-duration trade. August 10Y/30Y auction tail breaking 10Y above 4.75% is the supply-side kill switch."
+    },
+    {
+      "id": "iran-oil-disinflation-channel",
+      "label": "Iran Deal → Oil Collapse → Disinflation",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-24",
+      "status": "building",
+      "stance": "Channel is deepening: Brent now <$76 (WTI ~$84.65 as of Jun 15, down further per today's tape), the May hot headline CPI (+0.47%) is now mechanically reversing. Senate Iran war-powers resolution passed and US–Iran inspections dispute keeps deal fragile — Hormuz-snapback tail hedge remains cheap and live. Continue trimming TIPS as breakevens compress. Ukraine refinery strikes and Europe heatwave are supply-side premiums the market is discounting.",
+      "tell": "WTI sustained sub-$90 through Jun 26 PCE and Jul 10 CPI validates the disinflation channel. Confirmed Iran-talks collapse or OPEC+ surprise cut snapping WTI above $100 negates it."
+    },
+    {
+      "id": "asset-euphoria-confidence-gap",
+      "label": "Asset Euphoria vs. Collapsing Consumer Confidence",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-24",
+      "status": "inflecting",
+      "stance": "Gap is closing in demand's favor: May retail +0.88% MoM nominal (~+0.41% real) is now a second consecutive constructive real print, directly contradicting Michigan at 49.8. Memo edges toward — but does not yet overweight — consumer discretionary. Housing starts at a 10-month low remain the key rate-sensitive crack holding back a full upgrade.",
+      "tell": "June retail data (mid-July) confirming a third positive real print warrants discretionary overweight. Michigan below 47 or a negative June retail print re-opens the gap. A second consecutive weak housing starts print confirms rate sensitivity spreading to broader consumer."
+    },
+    {
+      "id": "defense-rearmament-secular-bid",
+      "label": "Secular Defense Rearmament Bid",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-24",
+      "status": "building",
+      "stance": "Intact and reinforced: Ukraine executing deepest-ever drone strikes (~2,000km) into Russian oil infrastructure with no settlement in sight. XAR overweight paired with MP Materials to hedge China rare-earth input-cost overhang on defense primes. China rare-earth export curbs are now an intersecting risk to both defense and AI supply chains.",
+      "tell": "NATO/EU defense budget commitments rising above 2.5% GDP targets confirm. Defense prime guidance cuts citing rare-earth cost pressure at upcoming earnings would introduce margin risk. A comprehensive Ukraine peace settlement is the structural refutation."
+    },
+    {
+      "id": "ai-export-control-fragmentation",
+      "label": "AI Export-Control Fragmentation & Valuation Rout",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-24",
+      "status": "building",
+      "stance": "The fragmentation overhang has now intersected with a live valuation correction: global tech rout (Micron, Asia semis, SpaceX post-IPO de-rate, Tesla lower) confirms the air is coming out. Two simultaneous pressures — access restrictions and China rare-earth input-cost retaliation — reinforce the stay-light-QQQ stance into late-July mega-cap earnings. The rout may be a dip or a multiple reset; capex guidance is the adjudicator.",
+      "tell": "MSFT/GOOGL/AAPL late-July capex guidance sustaining or raising spend = dip to buy. Guidance cuts or margin warnings citing rare-earth/supply-chain costs = multiple reset, stay underweight QQQ. NVIDIA Q2 FY27 (late Aug) remains the demand-confirmation gate."
+    },
+    {
+      "id": "divided-government-fiscal-gridlock",
+      "label": "Divided Government → Fiscal Gridlock & Supply Risk",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-24",
+      "status": "intact",
+      "stance": "Gridlock thesis intact. NYC progressive primary sweep (Mamdani-backed) signals Dem caucus shifting left, reinforcing fiscal stalemate into the Sept 30 FY27 funding cliff. SCOTUS term-end rulings (by Jun 30) add near-term sector-specific dispersion risk. August Treasury refunding remains the binding near-term cap on long-duration exposure.",
+      "tell": "August Treasury refunding announcement size and 10Y/30Y auction tails; 10Y >4.75% on supply indigestion confirms long-end risk. Sept 30 government funding deadline is the gridlock crystallization event."
+    },
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory — Benign or Re-Accelerating",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-24",
+      "status": "intact",
+      "stance": "Two consecutive benign core prints (May +0.21%, April +0.38% fading) with oil now collapsing below $76 Brent. Hot May headline (+0.47%) is a war-energy spike mechanically reversing. Jun 26 core PCE and Jul 10 CPI are the next adjudication gates. Continue trimming TIPS as breakevens compress under oil and disinflation pressure.",
+      "tell": "Jul 10 core CPI sub-0.25% MoM confirms the downtrend and frames Warsh as too hawkish. A +0.30%+ MoM print vindicates the hike camp and undercuts the long-duration add. Jun 26 core PCE is the parallel gate."
+    },
+    {
+      "id": "liquidity-easing-soft-landing",
+      "label": "Ample Liquidity Cushion Undermining Fed Hawkishness",
+      "first_seen": "2026-06-24",
+      "last_updated": "2026-06-24",
+      "status": "building",
+      "stance": "New thread elevated by the memo: M2 grew +1.1% MoM in May (accelerating) and Chicago Fed NFCI at –0.505 is among the loosest readings in recent years — financial conditions are easing even as the Fed talks tough. Hawkish hold into loose conditions and collapsing oil is a soft-landing setup, not a tightening-into-recession one. Supports buying risk dips, with the Fed itself as the only real wildcard.",
+      "tell": "NFCI tightening above 0 (restrictive territory) or M2 growth reversing negative would undercut the soft-landing cushion thesis. ISM Services (Jul 7) and June payrolls (Jul 2) are the cycle-confirmation checks; a soft payroll accelerates the Fed-pivot read."
+    }
+  ]
+}
