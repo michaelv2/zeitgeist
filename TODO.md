@@ -5,7 +5,7 @@ Follow-ups from the 2026-06-06/07 build-out (single-pass Opus synthesis → grou
 ## Pending
 
 - [ ] **Phase 1 ledger trial (live).** `ENABLE_LEDGER=True` as of 2026-06-11. Dated ledgers accumulate at `.reports/YYYY/MM/DD/themes_ledger.json` and publish to `gh-pages` with the memos. Watch over ~a week: do statuses differentiate (not everything stuck at `building`), does it sharpen multi-day framing / cut repetition, does the re-test-don't-defend guard hold? Then decide **phase 2** (give the verifier the ledger + a "claimed inflection the evidence doesn't carry" check). `/commit` phase 1 when satisfied.
-- [ ] **Housekeeping (optional):** clear stale gitignored artifacts in `eval/results/` (`v2_*.md`, `ab_*.md`, `verifier_revised.md`, `key_themes_smoke.md`, old run JSON).
+- [x] **Housekeeping (optional):** cleared stale gitignored artifacts from `eval/results/`.
 
 ## Watch-items (no action unless triggered)
 

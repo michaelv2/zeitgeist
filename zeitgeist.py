@@ -349,7 +349,7 @@ verifier_agent = Agent(
     model=VERIFIER_MODEL,
     output_type=VerifierFindings,
     deps_type=FredToolkit,
-    system_prompt=templates.get_template("verifier_prompt.mako").render(today=today),
+    system_prompt=templates.get_template("verifier_prompt.mako").render(today=today, ledger=ENABLE_LEDGER),
     retries=RETRIES,
     model_settings={"max_tokens": 32768, "timeout": 600,
                     "anthropic_thinking": {"type": "adaptive"}, "anthropic_effort": "high"},
@@ -466,7 +466,8 @@ async def main():
     if ENABLE_VERIFIER:
         try:
             verify_toolkit = FredToolkit(client=Fred(api_key=FRED_API_KEY) if FRED_API_KEY else None)
-            verifier_input = json.dumps({"memo": report, "upcoming_catalysts": report_input["upcoming_catalysts"]})
+            verifier_input = json.dumps({"memo": report, "upcoming_catalysts": report_input["upcoming_catalysts"],
+                                         **({"prior_themes": prior_themes} if prior_themes else {})})
             findings = (await verifier_agent.run(verifier_input, deps=verify_toolkit)).output.findings
             if findings:
                 log.info(f"Verifier flagged {len(findings)} claim(s): {[f.issue for f in findings]}")
