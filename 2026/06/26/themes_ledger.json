@@ -1,0 +1,77 @@
+{
+  "as_of": "2026-06-26",
+  "themes": [
+    {
+      "id": "fed-policy-error-curve-flattening",
+      "label": "Hawkish Fed Policy Error → Curve Flattening / Bull-Steepener Setup",
+      "first_seen": "2026-06-18",
+      "last_updated": "2026-06-26",
+      "status": "inflecting",
+      "stance": "Hot core PCE +0.32% MoM (May, ~3.9% annualized) vindicates the no-cut market pricing (2Y 4.11 vs funds 3.63; 10Y–2Y +0.30) and caps the bull-steepener add. Core CPI staying benign at +0.21% means the inflection bar is not yet cleared — long-duration add is capped, not closed, until Jul 14 CPI adjudicates. Two new supply-side inflation impulses (memory-cost goods hikes + SCOTUS immigrant-labor shock) compound the uncertainty. Hold TIPS/duration steady; do not extend ZROZ into this ambiguity.",
+      "tell": "Jul 14 core CPI <0.25% MoM reopens the bull-steepener and validates duration add; ≥0.30% (rhyming with hot core PCE) confirms re-acceleration and kills the trade. August 10Y/30Y auction tail breaking 10Y above 4.75% is the supply-side kill switch."
+    },
+    {
+      "id": "iran-oil-disinflation-channel",
+      "label": "Iran Deal → Oil Collapse → Disinflation",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-26",
+      "status": "inflecting",
+      "stance": "Channel is intact but the tail risk is now live: Iran struck a cargo vessel near Oman pausing UN escort ops, yet WTI still sliding (~$78.94 pre-attack). Oil disinflation trend continues, but Hormuz snapback hedge is now both cheaper and more justified. Hot core PCE +0.32% means breakeven compression is no longer clean — TIPS trim is paused. Keep a small energy/oil-vol tail; do not chase crude lower into live Strait risk.",
+      "tell": "WTI sustained sub-$90 through Jul 14 CPI validates the disinflation channel. Confirmed Iran-deal collapse or Hormuz closure spiking WTI above $100 negates it and flips the inflation and energy calls."
+    },
+    {
+      "id": "asset-euphoria-confidence-gap",
+      "label": "Asset Euphoria vs. Collapsing Consumer Confidence",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-26",
+      "status": "inflecting",
+      "stance": "Gap was closing in demand's favor (retail +0.88% MoM nominal, ~+0.41% real — second constructive print) but the consumer discretionary upgrade is now blocked by two new headwinds: memory-driven electronics price hikes compressing real incomes, and SCOTUS immigrant-labor supply shock tightening low-wage services wages. Consumer discretionary held at neutral — do not upgrade. Housing starts at a multi-month low (1,177k May) and a potential construction-labor tightening from SCOTUS are forward risks.",
+      "tell": "June retail data (mid-July) confirming a third positive real print despite electronics price hikes would re-open the upgrade path. Michigan below 47 or a negative June retail print re-opens the gap. A second consecutive weak housing starts print plus visible SCOTUS-driven wage pressure confirms rate-sensitivity and labor-cost cracks spreading."
+    },
+    {
+      "id": "defense-rearmament-secular-bid",
+      "label": "Secular Defense Rearmament Bid",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-26",
+      "status": "building",
+      "stance": "Intact and reinforced: Hormuz vessel strike and ongoing Iran fragility add a direct kinetic dimension to the rearmament bid. XAR overweight maintained; rare-earth input-cost overhang on defense primes remains the key margin risk to watch at upcoming earnings. SCOTUS immigration rulings could tighten construction/facility labor used in base-build programs — a secondary cost watch.",
+      "tell": "NATO/EU defense budget commitments rising above 2.5% GDP targets confirm secular bid. Defense prime guidance cuts citing rare-earth or labor cost pressure at upcoming earnings would introduce margin risk. A comprehensive Ukraine peace settlement is the structural refutation."
+    },
+    {
+      "id": "ai-export-control-fragmentation",
+      "label": "AI Export-Control Fragmentation & Valuation Rout",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-26",
+      "status": "building",
+      "stance": "The rout is now live, not merely an overhang: Kospi –8%, Asia semis down, Apple worst day in over a year, global tech selloff triggered by memory-cost squeeze (Micron +15% as bottleneck winner, everyone downstream squeezed on hardware margins). Memory cost is now simultaneously an inflation vector and a margin compression vector — two bad reads for QQQ. Stay underweight mega-cap tech into late-July earnings; capex + gross-margin guidance is the adjudicator for reset vs. dip.",
+      "tell": "Late-July AAPL/MSFT capex guidance sustained or raised = dip to buy. Gross-margin warnings citing memory/supply-chain costs = multiple reset, stay underweight QQQ. NVIDIA Q2 FY27 (August) remains the AI demand-confirmation gate. Jun core-goods CPI (Jul 14) will show whether memory-cost hikes are bleeding into the broader goods basket."
+    },
+    {
+      "id": "divided-government-fiscal-gridlock",
+      "label": "Divided Government → Fiscal Gridlock & Supply Risk",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-26",
+      "status": "intact",
+      "stance": "Gridlock thesis reinforced on two fronts: House paralyzed by Luna/SAVE Act voter-ID fight derailing the GOP agenda; midterm prediction markets show Dem House 82.5% / GOP Senate 57.5% — structural divided government locked in. Progressive fiscal advance at state level (NYC rent freeze, CA billionaire tax ballot). No demand-side fiscal stimulus to fear; bond supply risk persists into August refunding and Sept 30 FY27 funding cliff.",
+      "tell": "August Treasury refunding announcement size and 10Y/30Y auction tails; 10Y >4.75% on supply indigestion confirms long-end risk. Sept 30 government funding deadline is the gridlock crystallization event."
+    },
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory — Benign or Re-Accelerating",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-06-26",
+      "status": "inflecting",
+      "stance": "Trend is genuinely ambiguous: core CPI +0.21% MoM (May) is benign, but core PCE +0.32% MoM (Fed's preferred gauge, ~3.9% annualized) is hot. Two new forward inflation impulses not yet in data: (1) memory-cost goods price hikes flowing through Apple/Xbox hardware; (2) SCOTUS immigrant-labor supply shock tightening low-wage services/construction wages. No longer expect clean breakeven compression — TIPS trim is paused. Jul 14 core CPI is the decisive adjudicator; the divergence between PCE and CPI must resolve.",
+      "tell": "Jul 14 core CPI sub-0.25% MoM resolves the PCE/CPI divergence dovishly and reopens the disinflation trade. A ≥0.30% print confirms re-acceleration and vindicates hawkish hold — stay underweight duration and revisit TIPS adds. Jul 14 core-goods sub-component will show memory-cost passthrough."
+    },
+    {
+      "id": "liquidity-easing-soft-landing",
+      "label": "Ample Liquidity Cushion Undermining Fed Hawkishness",
+      "first_seen": "2026-06-24",
+      "last_updated": "2026-06-26",
+      "status": "intact",
+      "stance": "Cushion holds: M2 +1.1% MoM (May, accelerating), NFCI at –0.516 (loosest in years). Hawkish hold into loose conditions and still-falling oil is a soft-landing setup — supports buying non-tech risk dips. But hot core PCE +0.32% is the first live challenge: if inflation re-accelerates sustainably, the Fed may be forced to tighten into this liquidity cushion, converting a soft landing into a policy error. Size non-tech dip-buys modestly until Jul 14 CPI clears the ambiguity.",
+      "tell": "NFCI tightening above 0 (restrictive territory) or M2 growth reversing negative undercuts the thesis. Jul 2 payrolls and Jul 7 ISM Services are the near-term cycle-confirmation checks; a soft payroll + continued loose NFCI accelerates the Fed-pivot read and rescues duration."
+    }
+  ]
+}
