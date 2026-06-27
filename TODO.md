@@ -4,7 +4,7 @@ Follow-ups from the 2026-06-06/07 build-out (single-pass Opus synthesis → grou
 
 ## Pending
 
-- [ ] **Phase 1 ledger trial (live).** `ENABLE_LEDGER=True` as of 2026-06-11. Dated ledgers accumulate at `.reports/YYYY/MM/DD/themes_ledger.json` and publish to `gh-pages` with the memos. Watch over ~a week: do statuses differentiate (not everything stuck at `building`), does it sharpen multi-day framing / cut repetition, does the re-test-don't-defend guard hold? Then decide **phase 2** (give the verifier the ledger + a "claimed inflection the evidence doesn't carry" check). `/commit` phase 1 when satisfied.
+- [ ] **Phase 1 ledger trial (live).** `ENABLE_LEDGER=True` as of 2026-06-11. Dated ledgers accumulate at `.reports/YYYY/MM/DD/themes_ledger.json` and publish to `gh-pages` with the memos. Watch over ~a week: do statuses differentiate (not everything stuck at `building`), does it sharpen multi-day framing / cut repetition, does the re-test-don't-defend guard hold? `/commit` when satisfied. (The ledger-aware verifier — ledger input + the inflection check — is now built and validated; see Done.)
 - [x] **Housekeeping (optional):** cleared stale gitignored artifacts from `eval/results/`.
 
 ## Watch-items (no action unless triggered)
@@ -16,6 +16,7 @@ Follow-ups from the 2026-06-06/07 build-out (single-pass Opus synthesis → grou
 
 ## Done
 
+- [x] **2026-06-25** — Phase 2: **ledger-aware verifier**. The verifier now receives `prior_themes` and re-checks the memo's handling of carried themes — flagging inflections the evidence doesn't carry (and the inertia direction: a faded theme continued as `intact`), held to the same HIGH bar as the other over-reach checks. Gated by `ENABLE_LEDGER`; degrades to the prior behavior when the ledger is empty/disabled. False-positive property test (`validate_verifier_ledger.py`): the verifier flagged a manufactured labor "break" (4.5% tell untripped, FRED-grounded) while HOLDING a tell-warranted disinflation flip — PASS, and it cited the ledger tell in its reasoning.
 - [x] **2026-06-11** — Phase 1 multi-day **themes ledger**: rolling state at `.reports/YYYY/MM/DD/themes_ledger.json`, fed back into synthesis behind a re-test-don't-defend anchoring guard; a Sonnet update pass does carry/inflect/add/prune (cap 8, ~5-day stale prune). Validated mechanics (`validate_ledger.py`) + anchoring (`validate_anchoring.py` — refuted priors flip, supported ones hold); flipped `ENABLE_LEDGER=True` to start the trial. Documented in `CLAUDE.md`.
 - [x] **2026-06-11** — Docs: corrected the run model from "GitHub Actions" to the actual **local cron** (`run_cron.sh` + `gh-pages` worktree) across `CLAUDE.md`/`README`; dropped the now-moot "Confirm CI/Actions model access" item.
 - [x] **2026-06-07** — Verifier catalyst-grounding (thread c): the verifier now sees the Upcoming Catalysts list and flags timing pegs that aren't actually upcoming (e.g. "ahead of NVDA's print" when NVDA isn't on the calendar); validated. Full `CLAUDE.md` refresh (FRED tool, verifier, implication directive, writing rules, nudge removal, eval harnesses).
