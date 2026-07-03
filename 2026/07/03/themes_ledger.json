@@ -1,0 +1,77 @@
+{
+  "as_of": "2026-07-03",
+  "themes": [
+    {
+      "id": "fed-policy-error-curve-flattening",
+      "label": "Hawkish Fed Policy Error → Curve Flattening / Bull-Steepener Setup",
+      "first_seen": "2026-06-18",
+      "last_updated": "2026-07-03",
+      "status": "inflecting",
+      "stance": "Bull-steepener bias strengthening: 10Y–2Y widened to +0.35 (Jul 2), 10Y–3M to +0.67 as soft June payrolls (+57k) pull cuts forward. 2Y at 4.17 pre-print (Jul 1), still ~54bp above effective funds (3.63) — hold-higher not yet broken. Front-end duration favored over long-end; long-end supply risk (Q3 coupon supply + divided government) caps belly/long adds. FOMC minutes Jul 8 is the next near-term Fed-read.",
+      "tell": "2Y breaking below effective funds (3.63) post-jobs print confirms the tape is pricing cuts — extend the steepener. Jul 15 core CPI ≥0.30% keeps core sticky and caps how far the Fed can cut regardless of labor cooling. Aug 5 Treasury refunding size + 10Y/30Y auction tail; 10Y >4.75% on indigestion is the supply-side kill switch."
+    },
+    {
+      "id": "iran-oil-disinflation-channel",
+      "label": "Iran Deal → Oil Collapse → Disinflation",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-07-03",
+      "status": "intact",
+      "stance": "De-escalation holding despite Khamenei's death and defiant Iranian rhetoric — WTI has fallen further to ~$70 (down from ~$92 early June, ~$79 last week), validating the channel. July 15 headline CPI relief is mechanical if crude holds sub-$70–80 through print, but the key risk is tariff goods pass-through offsetting the oil relief. Keep small near-free Hormuz-snapback tail against crowded short-oil book. Refiners over crude beta (Russian fuel crisis supports crack spreads).",
+      "tell": "Jul 15 CPI headline sub-0.3% MoM confirms oil-driven disinflation beat tariff pass-through. ≥0.4% means pass-through won and dovish positioning is offside. Confirmed Hormuz closure or Iran-deal collapse spiking WTI above $100 negates the theme entirely."
+    },
+    {
+      "id": "asset-euphoria-confidence-gap",
+      "label": "Asset Euphoria vs. Collapsing Consumer Confidence",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-07-03",
+      "status": "inflecting",
+      "stance": "Gap evolving: Dow hit a record on soft jobs even as Nasdaq/semis fell — rotation into cyclicals, not broad risk-on. Bearish resolution creeping in at interest-sensitive edges: housing starts 1,177k (collapsed from 1,522k Mar), continuing claims near 1,814k (elevated but flat), Michigan at series-low 44.8. Real retail still positive (~+0.4% May) but April was slightly negative. Income-squeeze risk live, not confirmed. Homebuilders and discretionary underweight validated.",
+      "tell": "Jun retail sales (Jul 16) negative real print confirms bearish resolution and validates discretionary/homebuilder underweight. A third consecutive positive real print keeps the gap open. Michigan below 44 or Jun retail going negative real re-opens the gap decisively."
+    },
+    {
+      "id": "defense-rearmament-secular-bid",
+      "label": "Secular Defense Rearmament Bid",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-07-03",
+      "status": "building",
+      "stance": "Further reinforced: Trump calling current NATO support 'ridiculous' and demanding allies pay more accelerates the secular burden-shift toward European rearmament. Russia's largest Kyiv strike yet and deepening domestic fuel crisis (Novorossiysk dry, refinery drone strikes) eliminate any near-term peace-dividend risk. XAR overweight maintained. Rare-earth/input-cost margin risk for defense primes remains the key watch.",
+      "tell": "NATO/EU defense budget commitments rising above 2.5% GDP targets confirm secular bid. Defense prime earnings guidance cuts citing rare-earth or labor cost pressure introduce margin risk. A comprehensive Ukraine peace settlement is the structural refutation — currently off the table."
+    },
+    {
+      "id": "ai-capex-margin-squeeze",
+      "label": "AI Capex Bubble & Mega-Cap Margin Squeeze",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-07-03",
+      "status": "building",
+      "stance": "Rotation sharpening the thesis: semis and Nasdaq falling while Dow records reinforce the underweight-QQQ call into late-July megacap earnings. Cut hopes are rewarding cyclicals over high-multiple AI cohort. Capex-guidance gate (MSFT/GOOGL/AMZN/META late July) remains unresolved — sustained capex is a dip to buy, margin warnings extend the reset. NVIDIA mid-Aug is the AI demand-confirmation event.",
+      "tell": "Late-Jul AAPL/MSFT/GOOGL/META capex guidance sustained or raised = dip to buy. Gross-margin warnings or capex cuts = multiple reset, stay underweight QQQ. NVIDIA Q2 FY27 (mid-Aug) is the AI demand-confirmation gate."
+    },
+    {
+      "id": "divided-government-fiscal-gridlock",
+      "label": "Divided Government → Fiscal Gridlock & Supply Risk",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-07-03",
+      "status": "building",
+      "stance": "Gridlock reinforced structurally: McConnell hospitalized weeks after cardiac event thins already-tight Senate math; House GOP agenda previously collapsed over intra-party fractures. Markets pricing D House (83.5%) / R Senate (56.5%) post-midterms = persistent gridlock, no demand-side fiscal stimulus, deficit-driven supply story intact into FY27. Warsh hawkish-chair tail layers onto long-end supply risk.",
+      "tell": "Aug 5 Treasury refunding announcement size and 10Y/30Y auction tails; 10Y >4.75% on supply indigestion confirms long-end risk. Sep 30 government funding deadline is the gridlock crystallization event. Nov 3 midterm result confirming split government resolves the gridlock as base case."
+    },
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory — Benign or Re-Accelerating",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-07-03",
+      "status": "inflecting",
+      "stance": "Divergence intact and unresolved: core CPI +0.21% MoM (benign) vs core PCE +0.32% MoM (~3.9% annualized, sticky). Headline +0.47% MoM in May driven by goods/energy (tariff pass-through likely). Oil collapse hasn't hit CPI data yet — July 15 should ease mechanically unless tariff pass-through offsets. TIPS retain hedge value on headline re-acceleration risk; no duration add at long end. Jul 15 CPI is the decisive adjudicator for the entire inflation + duration + TIPS complex.",
+      "tell": "Jul 15 core CPI sub-0.25% MoM resolves the PCE/CPI divergence dovishly and reopens disinflation trades. ≥0.30% confirms re-acceleration — stay underweight duration. Jul 30 June PCE confirms whether core sticks at ~3.9% annualized."
+    },
+    {
+      "id": "labor-softening-cuts-repricing",
+      "label": "Labor Market Softening → Front-End Cuts Repricing",
+      "first_seen": "2026-07-03",
+      "last_updated": "2026-07-03",
+      "status": "building",
+      "stance": "New durable thread: June payrolls +57k (stall, not Goldilocks); unemployment 'fell' to 4.2% via labor-force exit, not hiring. Continuing claims near 1,814k — historically elevated, flat versus prior week but not deteriorating sharply. Market read this dovishly (Dow record, cuts pulled forward) but the driver is labor weakening, not soft-landing. Front-end should rally; 2Y at 4.17 pre-print should compress toward funds (3.63). FOMC minutes Jul 8 and Jul 28–29 decision are near-term gates. Private-credit stress ($14B gated) is a quiet tail — no transmission yet with CFCI at -0.50.",
+      "tell": "2Y breaking below effective funds (3.63) confirms cuts are being priced — extend front-end duration. 2Y staying above 3.90 post-jobs print means the market is skeptical. Jul 28–29 FOMC signaling a cut path (or not) is the confirmation gate. BDC discounts to NAV / credit spread widening is the first sign private-credit stress is transmitting."
+    }
+  ]
+}
