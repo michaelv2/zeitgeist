@@ -1,0 +1,77 @@
+{
+  "as_of": "2026-07-22",
+  "themes": [
+    {
+      "id": "hormuz-oil-stagflation-shock",
+      "label": "Hormuz Crisis → Oil Spike → Stagflation Impulse",
+      "first_seen": "2026-07-20",
+      "last_updated": "2026-07-22",
+      "status": "building",
+      "stance": "Now day 11 of US strikes; Iran hitting Gulf states; Rubio warning on Hormuz; WTI ~$79 (+~13% off $70 floor). A 10-day ceasefire push is genuinely on the table — the crisis is two-sided binary. Tropical Storm Bertha adds a marginal refinery/crack spread bid on top. Long energy/gold/TIPS positioning intact. Ceasefire landing WTI below $70 is the clean refutation; Hormuz closure drives toward $100 and the full stagflation trade.",
+      "tell": "WTI sustained above $100 on confirmed Hormuz closure = full stagflation trade. Ceasefire + WTI back below $70 = disinflation/duration book revived. Aug 12 July CPI ≥+0.4% MoM confirms energy pass-through has re-accelerated inflation."
+    },
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory — Benign or Re-Accelerating",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-07-22",
+      "status": "inflecting",
+      "stance": "June CPI headline -0.42% MoM and core -0.02% confirmed a disinflation trough, not a trend. Core PCE still +0.32% MoM in May (~3.9% annualized). Oil spike passes through in July print. Jul 30 June PCE is the pre-shock baseline; Aug 12 July CPI is the decisive adjudicator. Stay short nominal duration, long TIPS.",
+      "tell": "Aug 12 July CPI ≥+0.4% MoM confirms re-acceleration — hold short duration/long TIPS. A soft print despite the crude spike rebuts the re-acceleration thesis. Jul 30 June PCE confirms whether core was already sticky pre-shock."
+    },
+    {
+      "id": "fed-policy-error-curve-flattening",
+      "label": "Fed Boxed In — Stagflation-Lite Policy Trap",
+      "first_seen": "2026-06-18",
+      "last_updated": "2026-07-22",
+      "status": "inflecting",
+      "stance": "Labor isn't cracking fast enough to force cuts — JOLTS rebounded to 7,594k in May (from 6,550k trough), unemployment held at 4.2% in June, and the low-hire/low-fire pattern continues. The oil shock removes any remaining dovish cover. 2Y at ~4.23 (~60bp above 3.63 funds), holding above 4.20 confirms cut-skepticism. Hawkish hold Jul 29 is base case. A cut through the oil spike would be a genuine dovish shock. Q2 GDP advance also on Jul 29.",
+      "tell": "Jul 29 FOMC hawkish hold confirms boxed-in read; any cut-through-oil = dovish shock (buy gold/steepener). 2Y holding above 4.20 post-FOMC confirms cut-skepticism intact; break below 3.63 funds = market pricing recession, revisit front-end. Aug 5 refunding coupon sizes test long-end supply tolerance."
+    },
+    {
+      "id": "labor-softening-cuts-repricing",
+      "label": "Labor Market Softening → Cut Path Constrained",
+      "first_seen": "2026-07-03",
+      "last_updated": "2026-07-22",
+      "status": "inflecting",
+      "stance": "Labor softening direction is confirmed but pace is too slow to force cuts: JOLTS rebounded to 7,594k in May, unemployment 4.2% in June, payrolls +57k, continuing claims ~1.81M. Low-hire/low-fire — not deteriorating fast enough. Oil shock now overrides cut logic entirely. Mispricing is any residual front-end cut pricing. Aug 7 July payrolls is the next gate on whether this inflects to outright crack.",
+      "tell": "Aug 7 July payrolls: accelerating job losses alongside the oil shock hardens the stagflation narrative. 2Y staying above 4.20 post-FOMC confirms the market is not pricing cuts. BDC discounts to NAV / credit spread widening = first sign of private-credit stress."
+    },
+    {
+      "id": "asset-euphoria-confidence-gap",
+      "label": "Asset Euphoria vs. Collapsing Consumer Confidence",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-07-22",
+      "status": "inflecting",
+      "stance": "Gap continuing to resolve bearishly: Michigan at series-low 44.8; June real retail modestly positive (+0.22% nominal) but that print predates pump pass-through. An energy tax now lands on an already-depleted consumer. Homebuilder underweight confirmed (Case-Shiller -0.36% off Feb peak through April; starts noisy at 1,427k June). Discretionary underweight maintained.",
+      "tell": "Aug 15 July retail sales: negative real print confirms bearish gap resolution and validates discretionary/homebuilder underweight. Gas sustainably above $4.25/gal accelerates the squeeze. Michigan below 44 = confidence-collapse confirmation."
+    },
+    {
+      "id": "ai-capex-margin-squeeze",
+      "label": "AI Capex & Moat Risk — Mega-Cap Valuation Overhang",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-07-22",
+      "status": "building",
+      "stance": "GOOGL reporting this week is the near-term gate — Gemini 3.6 Flash out, 3.5 Pro/Gemini 4 teased, signaling fast shipping but capex verdict is pending. Kimi K3 moat-scare still live. High-multiple cohort faces dual headwind: geopolitical risk-off from Hormuz + moat-compression narrative. Sustained/raised capex = dip to buy; cuts or margin warnings = multiple reset, stay underweight QQQ. TSLA also this week. NVDA mid-Aug is AI demand confirmation gate.",
+      "tell": "GOOGL/TSLA this week + MSFT/META/AMZN capex guidance (late July/early Aug): sustained or raised = AI dip to buy; cuts or gross-margin warnings = multiple reset, stay underweight QQQ. NVIDIA Q2 FY27 (mid-Aug) is the AI demand-confirmation gate."
+    },
+    {
+      "id": "defense-rearmament-secular-bid",
+      "label": "Secular Defense Rearmament Bid",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-07-22",
+      "status": "building",
+      "stance": "Doubly reinforced and now with a new vector: two simultaneous hot wars (US-Iran day 11, Ukraine strain with Zelensky ousting his military chief), Pentagon flagged as 'running short on cash' raising odds of a defense supplemental, and the US-Saudi nuclear deal adding a proliferation-driven defense/nuclear-fuel-cycle bid. XAR overweight intact. Uranium/nuclear (CCJ, URA) added as tactical long on Saudi enrichment deal. Rare-earth/input-cost margin risk for primes remains the key watch.",
+      "tell": "Iran defense supplemental passing Congress = prime revenue tailwind, confirms XAR overweight. Defense prime earnings guidance cuts citing rare-earth or labor cost pressure = margin risk signal. A comprehensive Iran or Ukraine ceasefire is structural refutation — currently off the table."
+    },
+    {
+      "id": "fiscal-supply-risk-long-end",
+      "label": "Fiscal Supply Overhang — Long-End Pressure",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-07-22",
+      "status": "building",
+      "stance": "House-passed stopgap (funding government past midterms, pending Senate passage) reduces the Sep 30 shutdown crystallization event — modestly risk-on but conditional on Senate confirm. However, deficit-driven supply pressure simply shifts to the Aug 5 Treasury refunding as the next hard test. 10Y at 4.60, capped on both inflation premium and supply. Long-duration underweight intact. M2 one-month pickup ($23.05T in May, +$248B MoM) and loosening NFCI (-0.538) are mild liquidity tailwinds that argue against going flat.",
+      "tell": "Aug 5 Treasury refunding: heavy coupon sizes and weak auction tail = long-end supply risk live, 10Y toward 4.75. Senate stopgap passage before August recess confirms shutdown deferred, reducing one tail. Nov 3 midterm D House result resolves split-government as base case."
+    }
+  ]
+}
