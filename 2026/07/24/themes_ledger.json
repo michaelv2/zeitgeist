@@ -1,0 +1,77 @@
+{
+  "as_of": "2026-07-24",
+  "themes": [
+    {
+      "id": "hormuz-oil-stagflation-shock",
+      "label": "Hormuz/Red Sea Crisis → Oil Spike → Stagflation Impulse",
+      "first_seen": "2026-07-20",
+      "last_updated": "2026-07-24",
+      "status": "building",
+      "stance": "WTI has pushed to ~$100 as US-Iran war enters a new phase with a Houthi/Red Sea second front opening and Trump weighing a 'massive attack.' Supply-side stagflation impulse is intensifying, not fading. A new 10% tariff wave on 80+ nations stacks directly on the oil spike. Escalation side is the positioning tilt; long energy/gold/TIPS intact. Ceasefire landing WTI below $70 is the clean refutation; sustained >$100 on Hormuz/Red Sea closure confirms full stagflation trade.",
+      "tell": "WTI sustained above $100 on confirmed Hormuz/Red Sea closure = full stagflation trade, add energy/gold. Ceasefire + WTI back below $70 = flip to disinflation/duration book. Aug 12 July CPI ≥+0.4% MoM confirms oil+tariff pass-through has re-accelerated inflation."
+    },
+    {
+      "id": "tariff-cost-push-impulse",
+      "label": "New Tariff Wave — Second Cost-Push Inflation Engine",
+      "first_seen": "2026-07-24",
+      "last_updated": "2026-07-24",
+      "status": "building",
+      "stance": "A new 10% tariff on 80+ nations landed this week, stacking directly on the oil spike as a second simultaneous supply-side inflation shock. Combined with crude near $100, this creates a two-engine cost-push impulse that extends the TIPS-over-nominals trade, pressures the consumer, and removes remaining Fed dovish cover. Import price read in the Aug 14 release is the first hard data confirmation.",
+      "tell": "Aug 14 import/export prices: a material MoM rise in import prices confirms tariff pass-through is live. Aug 12 July CPI ≥+0.4% MoM shows both engines firing simultaneously. Any tariff pause/reversal announcement is structural refutation — currently off the table."
+    },
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory — Benign or Re-Accelerating",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-07-24",
+      "status": "inflecting",
+      "stance": "June CPI headline -0.42% MoM and core flat are a head-fake baseline, not a trend — printed before the oil spike and tariff wave. Core PCE still +0.32% MoM in May (~3.9% annualized). The July print (Aug 12) will show the turn from the two-engine cost-push impulse. Stay long TIPS over nominals. A soft July CPI despite $100 crude and new tariffs would be a genuine rebuke of the re-acceleration thesis.",
+      "tell": "Aug 12 July CPI ≥+0.4% MoM confirms re-acceleration — hold short duration/long TIPS. A soft print despite $100 crude and 10% tariff wave materially rebuts the re-acceleration thesis. Aug 13 PPI is the pipeline pressure read."
+    },
+    {
+      "id": "fed-policy-error-curve-flattening",
+      "label": "Fed Boxed In — Stagflation-Lite Policy Trap",
+      "first_seen": "2026-06-18",
+      "last_updated": "2026-07-24",
+      "status": "inflecting",
+      "stance": "Front-end repriced sharply: 2Y ripped +18bp to 4.31 (vs. 3.63 funds) and the curve flattened (10s2s 0.42→0.34) as WTI hit ~$100 and tariffs landed. Hike odds are rising at the margin — the risk skew is hawkish, not dovish. Two simultaneous supply-side shocks (oil + tariffs) strip all dovish cover into the Jul 28-29 FOMC. Hawkish hold is base case; an actual hike is the live tail. Do not fight the front-end or add duration ahead of FOMC.",
+      "tell": "Jul 28-29 FOMC: hawkish hold = base case confirmed; actual hike = sell duration harder, buy gold; any cut = dovish shock, buy steepener (low odds). 2Y holding above 4.20 post-FOMC confirms cut-skepticism intact; break below 3.63 funds = market pricing recession, revisit front-end."
+    },
+    {
+      "id": "labor-softening-cuts-repricing",
+      "label": "Labor Market Softening → Cut Path Constrained",
+      "first_seen": "2026-07-03",
+      "last_updated": "2026-07-24",
+      "status": "inflecting",
+      "stance": "Labor softening direction confirmed but pace too slow to force cuts: JOLTS rebounded to 7,594k in May, unemployment ticked down to 4.2% in June, payrolls +57k, continuing claims flat ~1.8M. Low-hire/low-fire persists. The oil+tariff shock now overrides cut logic entirely — no labor cover for the Fed. Aug 7 July payrolls is the next gate on whether this inflects to an outright crack that hardens the stagflation-lite narrative.",
+      "tell": "Aug 7 July payrolls: accelerating job losses alongside the oil+tariff shock hardens the stagflation narrative. 2Y staying above 4.20 post-FOMC confirms the market is not pricing cuts. BDC discounts to NAV / credit spread widening = first sign of private-credit stress."
+    },
+    {
+      "id": "asset-euphoria-confidence-gap",
+      "label": "Asset Euphoria vs. Collapsing Consumer Confidence",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-07-24",
+      "status": "inflecting",
+      "stance": "Gap continuing to resolve bearishly. Michigan at series-low 44.8. June real spending stayed modestly positive (+0.22% nominal deflated by soft June CPI) but that relief is borrowed time — oil+tariff pass-through has not hit the tape yet and the consumer squeeze is loading, not yet landed. Homebuilder underweight confirmed (Case-Shiller down three straight months off Feb peak). Discretionary underweight maintained. Aug 14 real retail print is the decisive test.",
+      "tell": "Aug 14 July retail sales: a negative real print confirms bearish gap resolution and validates discretionary/homebuilder underweight. Gas sustainably above $4.25/gal accelerates the squeeze. Michigan below 44 = confidence-collapse confirmation."
+    },
+    {
+      "id": "ai-capex-margin-squeeze",
+      "label": "AI Capex Cash-Burn → Mega-Cap Multiple Reset",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-07-24",
+      "status": "building",
+      "stance": "Alphabet's $205B spend plan was punished (stock fell) even with cloud revenue still +50% — the multiple-reset risk is arriving via the cost line, not a demand miss. This is a new and more insidious vector: unpriced cash-burn overhang on the highest-multiple cohort. Dual headwind: geopolitical risk-off + capex/margin compression. Not a dip to buy yet; wait for remaining late-July/early-Aug capex guides and NVDA earnings (typically late Aug), with Aug 12 CPI as first clean macro adjudicator.",
+      "tell": "MSFT/META/AMZN capex guidance (late July/early Aug): sustained or raised + gross-margin intact = AI dip to buy; cuts or margin warnings = multiple reset, stay underweight QQQ. NVIDIA Q2 FY27 (late Aug) is the AI demand-confirmation gate."
+    },
+    {
+      "id": "defense-rearmament-secular-bid",
+      "label": "Secular Defense Rearmament Bid",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-07-24",
+      "status": "building",
+      "stance": "Doubly reinforced: two simultaneous hot wars (US-Iran with Red Sea second front, Ukraine), force surge, Pentagon cash strain raising odds of a defense supplemental. Saudi nuclear deal upended within 24h (Trump made it contingent on Abraham Accords) — nuclear-fuel-cycle catalyst weakened but the broader proliferation/rearmament bid is intact. CCJ/URA position trimmed in conviction but held on power-demand story. XAR overweight intact. Rare-earth/input-cost margin risk for primes is the key crack to watch.",
+      "tell": "Iran defense supplemental passing Congress = prime revenue tailwind, confirms XAR overweight. Defense prime earnings guidance cuts citing rare-earth or labor cost pressure = margin risk signal. A comprehensive Iran ceasefire is structural refutation — currently off the table."
+    }
+  ]
+}
