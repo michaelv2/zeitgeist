@@ -1,0 +1,77 @@
+{
+  "as_of": "2026-07-31",
+  "themes": [
+    {
+      "id": "hormuz-oil-stagflation-shock",
+      "label": "Hormuz/Red Sea Crisis → Oil Spike → Stagflation Impulse",
+      "first_seen": "2026-07-20",
+      "last_updated": "2026-07-31",
+      "status": "inflecting",
+      "stance": "Stagflation conviction downgraded from full to hedge. WTI round-tripped $93→$84 as Saudi-led maritime coalition capped the shipping-lane risk premium without a ceasefire. June core PCE decelerated to +0.13% MoM (~1.6% annualized), undercutting the re-acceleration premise. Hormuz-closure tail stays live and Iran cyberattack on US infrastructure is the new asymmetric escalation channel. Energy trimmed from full overweight to core tail-hedge; TIPS held as moderate hedge, not high-conviction overweight. The 'both engines firing' setup is weaker, not stronger.",
+      "tell": "WTI back above $90 sustained = containment failed, re-arm energy/gold/TIPS. Sustained sub-$80 on genuine de-escalation = structural refutation, add front-end duration. Aug 12 July CPI ≥+0.4% MoM = stagflation book revived; ≤+0.2% = disinflation-resumption confirmed, cut TIPS."
+    },
+    {
+      "id": "tariff-cost-push-impulse",
+      "label": "New Tariff Wave — Second Cost-Push Inflation Engine",
+      "first_seen": "2026-07-24",
+      "last_updated": "2026-07-31",
+      "status": "fading",
+      "stance": "June core PCE +0.13% MoM and benign CPI undercut the two-engine cost-push thesis. Oil has reversed, removing the amplifier. Tariff/services-wage floor still present structurally, but the pipeline is not visibly firing into the data yet. Hold as a latent risk rather than an active overweight driver. Aug 12 CPI and Aug 14 import prices are the first hard test of whether pass-through is still alive.",
+      "tell": "Aug 12 July CPI ≥+0.4% MoM + Aug 14 import prices with material MoM rise = tariff pass-through live, reinstate both-engines thesis. Any tariff pause/reversal = structural refutation."
+    },
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory — Benign or Re-Accelerating",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-07-31",
+      "status": "inflecting",
+      "stance": "Re-acceleration thesis materially weakened. June core PCE +0.13% MoM (~1.6% annualized) and headline CPI -0.42% MoM are the freshest prints; trailing run-rate still ~3.7% but momentum is cooling, not building. Oil reversal removes the near-term amplifier. The disinflation-resumption path is now the live base case pending August data. Aug 12 July CPI is the adjudicating print.",
+      "tell": "Aug 12 July CPI ≥+0.4% MoM = re-acceleration confirmed, press TIPS/short duration. ≤+0.2% = disinflation resumption, add front-end and cut TIPS. Aug 13 PPI = upstream pipeline signal."
+    },
+    {
+      "id": "fed-policy-error-curve-flattening",
+      "label": "Fed Boxed In — Stagflation-Lite Policy Trap / Bear Steepener",
+      "first_seen": "2026-06-18",
+      "last_updated": "2026-07-31",
+      "status": "inflecting",
+      "stance": "Hike tail fading with oil reversal and benign core PCE. 2Y bled 15bps off 4.37 peak to 4.22, still +59bps over funds — no-cut path priced but the direction is down. The risk has migrated from front-end (hike tail) to long-end: 10Y rose to 4.67, 10Y-2Y steepened to 0.45 from 0.35 in two sessions — a supply/term-premium bear steepener into the Aug 5 refunding. Underweight long duration (ZROZ); do not add front-end until 2Y breaks below 4.20. NFCI -0.554 keeps financial conditions loose.",
+      "tell": "Aug 5 Treasury Quarterly Refunding: large new issuance sizes = bear steepener confirmed, hold duration underweight. 2Y sustained above 4.20 = no-cut path intact; break below 4.20 = market reads oil as growth-negative and prices cuts, re-examine stagflation positioning. Aug 12 CPI ≥+0.4% = hike tail revives."
+    },
+    {
+      "id": "labor-softening-cuts-repricing",
+      "label": "Labor Market Softening → Cut Path Constrained",
+      "first_seen": "2026-07-03",
+      "last_updated": "2026-07-31",
+      "status": "inflecting",
+      "stance": "No crack yet — continuing claims ticked down one week (1,782k Jul 18 from 1,821k Jun 27), too soon to call a reversal. Unemployment 4.2%, JOLTS rebounded to 7,594k. Labor gives the Fed no cover to cut hard, but no crisis either. With oil reversing and core PCE benign, a labor crack is now the more plausible trigger to reopen the cuts debate than inflation alone.",
+      "tell": "Aug 4 JOLTS drop below ~6,900k reopens cut debate. Aug 7 July payrolls: accelerating losses + continuing claims breaking >1.85M = first hard labor crack, forces cuts discussion despite inflation. BDC discounts to NAV / credit spread widening = first private-credit stress signal."
+    },
+    {
+      "id": "asset-euphoria-confidence-gap",
+      "label": "Asset Euphoria vs. Collapsing Consumer Confidence",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-07-31",
+      "status": "inflecting",
+      "stance": "June hard spending data held up (+0.22% MoM nominal retail) but the read is energy-flattered — the CPI dip that deflated the spend figure has reversed. Michigan series-low 44.8 has not yet translated into weaker spending; the income-squeeze thesis is unconfirmed, not refuted. Housing rollover intact: Case-Shiller down three straight months (331.02) vs 10Y at 4.67. August retail sales (Aug 14) is the real verdict. Avoid homebuilders.",
+      "tell": "Aug 14 July retail sales: negative real print confirms bearish resolution of the confidence-gap. Gas sustained above $4.25/gal re-accelerates income squeeze. Michigan below 44 = confidence-collapse confirmation. Case-Shiller stabilizing with 10Y above 4.60 = housing-bottom surprise."
+    },
+    {
+      "id": "ai-trade-bifurcation",
+      "label": "AI Trade Bifurcating — Moats vs. Vendor-Financed Spenders",
+      "first_seen": "2026-07-31",
+      "last_updated": "2026-07-31",
+      "status": "building",
+      "stance": "The AI trade is splitting, not breaking. MSFT +15% (largest single-day market-cap gain in history) vs META -8% on record losing streak; one forced-liquidation (Situational Awareness fund absorbed by Citadel) without visible contagion. Apple's 'hundred-year-flood' memory cost warning + Japan quake halting chip fabs = real memory pricing power (favor memory suppliers, Nvidia hiking RTX 20-30%); cost-push flows to device makers (underweight Apple). Circular-funding/CXMT risk unresolved for HBM. Barbell: long memory neutral-to-small-OW + MSFT-type moats; avoid META/vendor-financed and memory-squeezed device names; cut blunt QQQ beta.",
+      "tell": "NVDA earnings (date unconfirmed): revenue beat with no vendor-financing disclosure = AI demand real, add memory OW. Any circularity admission = structural demand impairment, stay neutral/underweight semis. MSFT/META/AMZN next capex guidance: raised + gross-margin intact = moat thesis holds; cuts or margin warnings = broader AI spending inflection. Aug 26 PCE/GDP = confirmed anchor for the demand/circularity verdict."
+    },
+    {
+      "id": "defense-rearmament-secular-bid",
+      "label": "Secular Defense Rearmament Bid",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-07-31",
+      "status": "building",
+      "stance": "Structural overweight at full conviction. Active US-force engagement against Iran-backed militias, Saudi maritime-defense alliance formed, live Houthi front, Egypt struck for first time, Iran cyberattack on US infrastructure (Minnesota water systems). Russia-sanctions bill (86 Senate votes) adds secondary reinforcement. The stagflation trade may be fading but the shooting-war backdrop fully supports XAR. Rare-earth input-cost pressure on prime margins remains the key crack to watch in guidance.",
+      "tell": "Iran defense supplemental passing Congress = prime revenue tailwind, confirms XAR structural overweight. Defense prime earnings guidance cuts citing rare-earth or labor cost = margin risk, reduce. A comprehensive Iran ceasefire with full Red Sea reopening is structural refutation — currently off the table with active US-force engagement and new Saudi alliance."
+    }
+  ]
+}
