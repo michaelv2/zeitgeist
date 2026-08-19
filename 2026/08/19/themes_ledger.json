@@ -1,0 +1,77 @@
+{
+  "as_of": "2026-08-19",
+  "themes": [
+    {
+      "id": "fed-policy-error-curve-flattening",
+      "label": "Fed Boxed In — Hold Narrative; Term Premium Rebuilding at Long End",
+      "first_seen": "2026-06-18",
+      "last_updated": "2026-08-19",
+      "status": "inflecting",
+      "stance": "Hold base case intact; 2Y at 4.19 remains anchored ~55bp over the 3.63% funds rate — neither hike nor cut is pricing in. The new signal is at the back end: 10Y–2Y at 0.53 (up from 0.44 two weeks ago) and 10Y–3M at 0.85 mark a fresh multi-month cycle high in steepness. Risk is term-premium rebuild at the long end, not front-end repricing. ZROZ UW is the cleanest expression into Nov 5 refunding.",
+      "tell": "Further 10Y–2Y widening / long-bond selloff = term-premium build confirmed, press ZROZ UW. 2Y breaking below ~3.75 = cut trade genuinely reviving, cover the fade. Sept 11 August core CPI ≥+0.4% = tariff passthrough revives duration UW. Sept 16–17 FOMC hold = base case confirmed. Nov 4–5 FOMC + Treasury refunding = ZROZ catalyst."
+    },
+    {
+      "id": "labor-softening-cuts-repricing",
+      "label": "Labor Market Softening — Crack Not Collapse",
+      "first_seen": "2026-07-03",
+      "last_updated": "2026-08-19",
+      "status": "intact",
+      "stance": "July payrolls essentially flat (–23k MoM), U-rate 4.1%, continuing claims 1,777k — still below the 1.85M stress threshold. U-rate drop against flat payrolls signals participation slipping, not strength. Crack, not collapse read unchanged. Sept 4 August payrolls is the composite adjudicator.",
+      "tell": "Aug payrolls (Sept 4) negative/weak + U-rate ≥4.2% + claims >1.85M = crack widens, press front-end/gold. Firm >100k + U-rate ≤4.1% = higher-for-longer/hike pricing validated. Oct 2 September payrolls = secondary confirmation."
+    },
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory — Warm but Shallow; Tariff Passthrough Unresolved",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-08-19",
+      "status": "inflecting",
+      "stance": "Core CPI +0.22% MoM July (~2.6% annualized) — firming but not hot enough to justify a hike or cool enough to justify a cut. Canada 50% tariff paused 3 days on a 'near' deal; memo explicitly flags not to fade the cost-push thesis on one bilateral pause — Q4 passthrough channel remains regime-wide. TIPS UW holds. Aug 28 July PCE and Sept 11 August CPI are sequential adjudicators.",
+      "tell": "Sept 11 August core CPI ≤+0.2% MoM = cut door reopens, cover front-end fade. ≥+0.4% = tariff passthrough live regardless of Canada pause, add TIPS/energy, press duration UW. Aug 28 July PCE = secondary read on trajectory."
+    },
+    {
+      "id": "hormuz-oil-stagflation-shock",
+      "label": "Hormuz / Middle East Energy Premium — Capped but Alive",
+      "first_seen": "2026-07-20",
+      "last_updated": "2026-08-19",
+      "status": "intact",
+      "stance": "WTI ~$85 — floor intact, ceiling hard at $90. Israel struck a Syrian airbase over explicit US objection; US-Netanyahu rift widening with Netanyahu priced out by year-end at 47.5%. Middle East regime tail quietly building. Small oil/energy convexity hedge maintained. Defense bid reinforced. Stagflation book not re-armed.",
+      "tell": "WTI sustained >$90 = geopolitical premium re-armed, add energy/gold/TIPS and revive stagflation book. WTI sustained <$80 = premium structurally dead, fade energy. Sept 11 August core CPI ≥+0.4% concurrent with elevated oil = stagflation scenario revived."
+    },
+    {
+      "id": "defense-restocking-supercycle",
+      "label": "Arsenal Depletion — Multi-Year Defense Restocking Mandate",
+      "first_seen": "2026-08-05",
+      "last_updated": "2026-08-19",
+      "status": "building",
+      "stance": "Highest-conviction OW, further reinforced. Israel-Syria escalation (over US objection), Korea drill cuts straining alliances, Ukraine political friction, and persistent Russia/Ukraine strikes all keep the replenishment mandate alive. OW XAR, LMT, RTX, NOC. Sept 30 FY27 funding cliff under near-certain divided government (Dem House 87.5%) is the supplemental vehicle.",
+      "tell": "Sept 30 defense supplemental introduced or passed = restocking thesis funded. Prime contractor (LMT, RTX, NOC) order-book guidance raised on next earnings = demand confirmed. Korea or Middle East de-escalation with binding replenishment commitment = thesis intact but timeline pulls forward."
+    },
+    {
+      "id": "ai-trade-bifurcation",
+      "label": "AI Trade Bifurcating — Moats vs. Vendor-Financed Spenders",
+      "first_seen": "2026-07-31",
+      "last_updated": "2026-08-19",
+      "status": "building",
+      "stance": "Barbell thesis intact. Long margin-defended moats (MSFT/META/AMZN where capex holds with gross margins intact) + memory/HBM; UW vendor-financed, margin-thin capex names. Unitree 500% Shanghai debut underscores robotics/compute demand for HBM enablers. META carries added litigation overhang from the social-media addiction trial. Aug 23–25 Hot Chips and late-Oct MSFT/AAPL capex-vs-margin prints are the moat test.",
+      "tell": "MSFT/META/AMZN late-Oct Q3: capex raised + gross margins intact = moat thesis holds; cuts or margin warnings = broader AI spending inflection. NVDA late-Nov guide + margin reaction = AI economics inflection signal. OpenAI IPO pricing ≥$1T = cohort multiple re-rating risk goes active."
+    },
+    {
+      "id": "yen-carry-unwind-vol-tail",
+      "label": "USD Weakness / Yen Carry Unwind Vol Tail",
+      "first_seen": "2026-08-03",
+      "last_updated": "2026-08-19",
+      "status": "building",
+      "stance": "Broad USD ticked just sub-119 — necessary but not sufficient confirmation; needs to hold there with EM outperforming SPX. Soft dollar is a four-way tailwind for gold/EM/commodities/multinationals. BoJ Sept 21–22 is the next hard carry-unwind trigger. Light equity-vol hedge maintained.",
+      "tell": "Sharp yen appreciation concurrent with MOVE/VIX spike = carry unwind underway, cut equity beta fast. USD broad sustained <119 with EEM/EWZ outperforming SPX = soft-dollar EM reflation confirmed. USDJPY stabilizing above 145 = intervention impact fading, vol hedge can be trimmed. BoJ Sept 21–22 = next hard scheduled trigger."
+    },
+    {
+      "id": "asset-euphoria-confidence-gap",
+      "label": "Asset Euphoria vs. Consumer Confidence Gap — Closing Bearishly",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-08-19",
+      "status": "inflecting",
+      "stance": "Gap closing the wrong way. July retail real-negative (–0.65% real MoM); Michigan at 49.5 — bounced from 44.8 May trough but historically depressed. Housing rolling over (Case-Shiller down three straight to 331.0); long-end steepening keeps mortgage rates sticky-high and affordability choked. Target +56% into a real-negative backdrop is a mean-reversion trap, not a turnaround to fund. Homebuilder and discretionary UW intact. Aug 28 July PCE income/outlays is the next corroborating gate.",
+      "tell": "Aug 28 July PCE income/outlays real-negative = income-squeeze read locked, deepen discretionary/homebuilder UW. A bounce rebuts the consumer-bearish tilt. Michigan below 44 = confidence-collapse confirmation. Sept 30 government shutdown materializing = fiscal drag accelerant."
+    }
+  ]
+}
