@@ -214,6 +214,12 @@ async def run_eval(models: list[str], num_runs: int):
         print(f"── {model_name} ──")
         # gpt-5-mini doesn't support temperature override; only set for models that do
         settings = {} if "gpt-5-mini" in model_name else {"temperature": 0}
+        # Local reasoning models spend the provider's default token budget on
+        # <think> and return no answer at all. Ollama's OpenAI-compatible
+        # endpoint silently discards `think`/`reasoning_effort`, so a bigger
+        # ceiling is the only available lever.
+        if model_name.startswith("ollama:"):
+            settings["max_tokens"] = 32000
         agent = Agent(
             model=model_name,
             output_type=list[RelevantPrediction],
