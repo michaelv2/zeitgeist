@@ -23,6 +23,7 @@ Usage:
 import argparse
 import asyncio
 import json
+import os
 import sys
 from datetime import date
 from pathlib import Path
@@ -33,11 +34,39 @@ from pydantic_ai import Agent
 from mako.lookup import TemplateLookup
 from dotenv import load_dotenv
 
+from ollama_native import NativeOllamaModel
+
 load_dotenv()
 
 FIXTURES_PATH = Path("eval/classifier_fixtures.json")
 LABELS_PATH = Path("eval/classifier_labels.json")
 RESULTS_DIR = Path("eval/results")
+
+OLLAMA_BASE_URL = os.environ.get("OLLAMA_BASE_URL", "http://localhost:11434")
+# "off"/"on" force reasoning; unset leaves the model default. Mirrors memoize's
+# MEMOIZE_LOCAL_THINK. Which setting is right is task-dependent: reasoning off is
+# far cheaper, but this classifier returns an empty selection without it.
+_THINK_RAW = os.environ.get("ZEITGEIST_LOCAL_THINK", "on")
+OLLAMA_THINK = None if _THINK_RAW == "" else _THINK_RAW.strip().lower() in ("on", "true", "1")
+
+
+def resolve_model(model_name: str):
+    """Map a model string to something Agent() accepts.
+
+    `ollama:` models get the native-API client, which is the only path where
+    reasoning can actually be turned off — pydantic-ai's built-in Ollama support
+    goes through the OpenAI-compatible endpoint, which discards `think` and
+    leaves qwen3.x models spending the whole token budget on `<think>` without
+    ever answering. Everything else passes through as a plain string for
+    pydantic-ai to infer.
+    """
+    if model_name.startswith("ollama:"):
+        return NativeOllamaModel(
+            model_name.split(":", 1)[1],
+            base_url=OLLAMA_BASE_URL,
+            think=OLLAMA_THINK,
+        )
+    return model_name
 
 templates = TemplateLookup(directories=["templates"])
 today = date.today()
@@ -214,14 +243,8 @@ async def run_eval(models: list[str], num_runs: int):
         print(f"── {model_name} ──")
         # gpt-5-mini doesn't support temperature override; only set for models that do
         settings = {} if "gpt-5-mini" in model_name else {"temperature": 0}
-        # Local reasoning models spend the provider's default token budget on
-        # <think> and return no answer at all. Ollama's OpenAI-compatible
-        # endpoint silently discards `think`/`reasoning_effort`, so a bigger
-        # ceiling is the only available lever.
-        if model_name.startswith("ollama:"):
-            settings["max_tokens"] = 32000
         agent = Agent(
-            model=model_name,
+            model=resolve_model(model_name),
             output_type=list[RelevantPrediction],
             system_prompt=templates.get_template("relevant_prediction_prompt.mako").render(today=today),
             retries=3,
@@ -366,7 +389,7 @@ async def compare_strategies(model: str, strategies: list[str], num_runs: int):
         system_prompt = templates.get_template(strategy["template"]).render(**template_kwargs)
 
         agent = Agent(
-            model=model,
+            model=resolve_model(model),
             output_type=list[RelevantPrediction],
             system_prompt=system_prompt,
             retries=3,
