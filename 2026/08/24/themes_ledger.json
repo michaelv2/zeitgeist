@@ -1,0 +1,77 @@
+{
+  "as_of": "2026-08-24",
+  "themes": [
+    {
+      "id": "fed-policy-error-curve-flattening",
+      "label": "Fed Boxed In — Hold Narrative; Term Premium Rebuilding at Long End",
+      "first_seen": "2026-06-18",
+      "last_updated": "2026-08-24",
+      "status": "inflecting",
+      "stance": "No-cut/leaning-hike base case intact. 2Y at 4.19 sits ~56bp above the 3.63% funds rate. Term premium paused not reversed — 10Y-2Y ~0.50. Treasury's doubled buybacks failed again to force a long-end rally; 30Y ~5.27% (El-Erian: 'structural'). Oil shock stacks an inflation leg onto term-premium risk. ZROZ UW intact. Cut-trade revival needs 2Y below ~3.75; nowhere close. Fed paralysis: labor argues cut, oil argues hold/hike.",
+      "tell": "2Y breaking below ~3.75 = cut trade genuinely reviving, cover the ZROZ fade. Sept 4 Aug payrolls negative + U-rate ≥4.2% = labor leg pulls front end down. Sept 11 Aug core CPI ≥+0.4% = oil/tariff passthrough live, adds inflation leg to duration UW. Mid-Sept FOMC hold = base case confirmed; any Powell dovish nod = monitor. Nov 3-4 FOMC + Treasury refunding = ZROZ catalyst."
+    },
+    {
+      "id": "labor-softening-cuts-repricing",
+      "label": "Labor Market Softening — Crack Not Collapse",
+      "first_seen": "2026-07-03",
+      "last_updated": "2026-08-24",
+      "status": "intact",
+      "stance": "July payrolls -23k MoM, U-rate 4.1% (down on slipping participation, not strength), continuing claims 1,799k — still below the ~1.85M stress threshold. Crack-not-collapse read unchanged. Oil shock adds stagflation complexity: labor argues cut, energy argues hold, leaving Fed paralyzed. Sept 4 Aug payrolls is the composite adjudicator.",
+      "tell": "Aug payrolls (Sept 4) negative/weak + U-rate ≥4.2% + claims >1.85M = crack widens, press front-end/gold. Firm >100k + U-rate ≤4.1% = higher-for-longer/hike pricing validated. Oct 2 Sept payrolls = secondary confirmation."
+    },
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory — Oil Shock Threatening Disinflation Window",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-08-24",
+      "status": "inflecting",
+      "stance": "Soft prints on file (core PCE +0.13% MoM June ~1.6% ann.; core CPI +0.22% MoM July ~2.6% ann.; headline CPI flat July) are backward-looking and predate WTI's ~12% rip and today's Iran 'economic D-Day' sanctions escalation. Disinflation window still open but about to collide with oil on Sept 11 Aug CPI. Canada-US tariff escalation keeps passthrough thesis live regime-wide. Adding TIPS ahead of Sept 11 as energy-led headline hedge.",
+      "tell": "Sept 11 Aug core CPI ≥+0.4% MoM = oil/tariff passthrough live, press energy+gold, add TIPS, hold duration UW. ≤+0.2% = disinflation survives the shock, cut door reopens. Aug 26 July PCE = secondary trajectory read."
+    },
+    {
+      "id": "hormuz-oil-stagflation-shock",
+      "label": "Hormuz / Iran Sanctions — Energy Premium Re-Arming Toward Stagflation",
+      "first_seen": "2026-07-20",
+      "last_updated": "2026-08-24",
+      "status": "building",
+      "stance": "WTI ~$86.48, stalled just below the $90 trigger. Iran 'economic D-Day' sanctions land today with Tehran threatening ship seizures — Hormuz back in play. Key cross-current: if China refuses sanctions compliance, a second leg through both oil AND USD opens. Supply-side shock landing on a slowing demand side is the worst stagflation-lite mix for the Fed. Energy/gold OW reinforced; TIPS add ahead of Sept 11. Full stagflation book deployment awaits sustained >$90.",
+      "tell": "WTI sustained >$90 = stagflation book fully armed, add energy/gold/TIPS, press duration UW. Supply carve-out or China compliance off-ramp = premium capped, fade energy. Sept 11 Aug core CPI ≥+0.4% concurrent with elevated oil = stagflation scenario fully active. China refusal of sanctions compliance = second oil/USD leg."
+    },
+    {
+      "id": "defense-restocking-supercycle",
+      "label": "Arsenal Depletion — Multi-Year Defense Restocking Mandate",
+      "first_seen": "2026-08-05",
+      "last_updated": "2026-08-24",
+      "status": "building",
+      "stance": "Highest-conviction OW, further reinforced. UK-Ukraine long-range missile blueprint transfer + Iran escalation add fresh acute catalysts atop the arsenal-depletion mandate. Zelenskyy ruling out wartime elections signals a protracted conflict. Divided government near-certain (Dem House 88.5%, Senate 50/50) makes Sept 30 FY27 funding cliff the supplemental vehicle. OW XAR, LMT, RTX, NOC.",
+      "tell": "Sept 30 defense supplemental introduced or passed = restocking thesis funded. Prime contractor (LMT, RTX, NOC) order-book guidance raised on next earnings = demand confirmed. Iran de-escalation or Hormuz reopening with binding replenishment commitment = thesis intact but tail risk reduced."
+    },
+    {
+      "id": "ai-trade-bifurcation",
+      "label": "AI Trade Bifurcating — Moats vs. Capex-Funded Spenders; IPO Supply Wall",
+      "first_seen": "2026-07-31",
+      "last_updated": "2026-08-24",
+      "status": "building",
+      "stance": "Barbell thesis intact: long margin-defended moats (MSFT/META/AMZN) + memory/HBM; UW vendor-financed/dilution-funded capex names. Alibaba's $10.2B placement after cutting buyback ~80% to fund AI is a live stress signal — capex funding is getting expensive and the market won't pay for it — but China-specific dynamics make it one data point, not cohort-wide confirmation. NVDA earnings this week is the actual systemic test. OpenAI IPO supply-wall overhang (>$750B priced as near-lock) remains a building risk on highest-multiple names.",
+      "tell": "NVDA guide + gross margin (this week): margins intact = moat thesis holds; capex-discipline or margin warning = broad AI spender rerating confirmed. MSFT/META/AMZN late-Oct Q3: capex raised + gross margins intact = moat holds; margin warnings = broader AI spending inflection. OpenAI IPO pricing ≥$1T = cohort multiple re-rating risk goes active."
+    },
+    {
+      "id": "yen-carry-unwind-vol-tail",
+      "label": "USD Weakness / Yen Carry Unwind Vol Tail",
+      "first_seen": "2026-08-03",
+      "last_updated": "2026-08-24",
+      "status": "building",
+      "stance": "Broad USD holding sub-119 (118.9) — necessary but not sufficient; needs EM outperforming SPX to confirm soft-dollar reflation. Soft dollar is a four-way tailwind for gold/EM/commodities/multinationals. Iran sanctions and China non-compliance risk add a USD wildcard in both directions. Light equity-vol/yen-carry hedge maintained. BoJ Sept 21-22 is the next hard carry-unwind trigger.",
+      "tell": "Sharp yen appreciation concurrent with MOVE/VIX spike = carry unwind underway, cut equity beta fast. USD broad sustained <119 with EEM/EWZ outperforming SPX = soft-dollar EM reflation confirmed. USDJPY stabilizing above 145 = intervention impact fading, vol hedge can be trimmed. BoJ Sept 21-22 = next hard scheduled trigger."
+    },
+    {
+      "id": "asset-euphoria-confidence-gap",
+      "label": "Consumer Squeeze — Wobble Confirmed, Collapse Rejected",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-08-24",
+      "status": "inflecting",
+      "stance": "Collapse framing dropped — Michigan bounced to 49.5 (sub-44 tell rejected); July real retail -0.65% MoM but remains above every prior month back to February with YoY clearly positive — a wobble, not a confirmed squeeze. Structural UW case rests on sticky long-end rates and rolling housing data (starts -12% MoM July, Case-Shiller down three straight, 4.69% 10Y). High fuel costs are a direct consumer headwind but not yet a spending collapse. Discretionary + homebuilder UW maintained; avoid staples as a defensive proxy.",
+      "tell": "Aug 26 July PCE income/outlays real-negative = income-squeeze locked, deepen discretionary/homebuilder UW. Michigan below 44 = confidence-collapse confirmation. Sept 15 Aug retail sales negative = consumer softening confirmed. A material bounce in either rebuts the bearish tilt. Sept 30 government shutdown = fiscal drag accelerant."
+    }
+  ]
+}
