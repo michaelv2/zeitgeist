@@ -1,0 +1,77 @@
+{
+  "as_of": "2026-09-09",
+  "themes": [
+    {
+      "id": "fed-policy-error-curve-flattening",
+      "label": "Fed Regime Change — Warsh Hawkish; Hike Tail Now Live",
+      "first_seen": "2026-06-18",
+      "last_updated": "2026-09-09",
+      "status": "inflecting",
+      "stance": "Hike tail stays live and is now reinforced by an oil shock layering onto already-grinding core. 2Y at 4.37%, 10Y at 4.78%, bear-steepening (10Y–2Y +0.41) on inflation/term-premium, not growth. Chicago FCI still easy (–0.558) — the Fed has no cover to cut into an oil spike. FOMC (Sept 22–23, note date shift from prior) is a hawkish-hold setup; the blackout (Sept 12–25) means Aug CPI/PPI prints, not Fed-speak, drive the front end. Duration UW (ZROZ) remains highest-conviction rates call.",
+      "tell": "Aug core CPI (Sept 11) ≥+0.4% MoM = press duration UW hard; ≤+0.2% = a relief rally to fade, not chase (predates Brent spike). 2Y sustained >4.30% = hike tail live (current); break <4.10% revives cut trade, cover some ZROZ. Sept 22–23 FOMC hawkish hold = press UW; dovish pivot = cover some ZROZ."
+    },
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory — Oil Passthrough Test Is Live",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-09-09",
+      "status": "inflecting",
+      "stance": "Core grinding, not cooling (Jun→Jul ~+0.22% MoM; core PCE +0.25%), and that predates the Brent spike to ~$96–$100. M2 re-accelerating ($23.11T→$23.22T, ~5.8% annualized). Canadian import bans (dairy, motorcycles, alcohol) add a fresh supply-side inflationary impulse. Critically, Aug CPI (Sept 11) largely predates the oil surge — a benign print is a fade opportunity, not a thesis-reversal; the real passthrough is a forward Sept/Oct impulse. Hold TIPZ. Sept 10 PPI is the lead-in input-cost signal.",
+      "tell": "Aug core CPI (Sept 11) ≥+0.4% MoM = passthrough arriving sooner than expected, press energy/gold/duration UW. ≤+0.2% = fade the rates relief rally — it predates crude spike. Sept PPI/CPI prints (Oct) = true passthrough test. Aug PCE (Sept 25) = Fed's preferred secondary confirmation."
+    },
+    {
+      "id": "hormuz-oil-stagflation-shock",
+      "label": "Hormuz / Iran — Open Military Exchange; Stagflation Leg Active",
+      "first_seen": "2026-07-20",
+      "last_updated": "2026-09-09",
+      "status": "building",
+      "stance": "Escalation went fully kinetic: US sank three Iranian tankers; Iran struck a US base in Jordan; Tehran declared a Hormuz 'restricted zone.' Brent ~$96 (WTI $91.48 per FRED) and approaching $100 as a key risk level. OPEC+ left October quotas unchanged — no supply offset. Israel diplomatic isolation deepening (UK at 'lowest ebb') adds regional risk premium. Status upgraded from inflecting to building — this is a genuine stagflation shock, not a headline. Cleanest expressions: refiners (VLO/MPC/PSX) on record diesel cracks, XLE, IAU. Fade any CPI-relief rally in rates — the real passthrough is a Sept/Oct impulse. Early-Oct OPEC+ ministerial is the open supply-response question.",
+      "tell": "Brent sustained above $100 with confirmed Hormuz transit restriction (tanker-routing data) = stagflation leg entrenched, press energy/gold. Iran ceasefire or formal Hormuz reopening with Brent falling through $90 = resolve acute leg, trim to structural energy sleeve only. Early-Oct OPEC+ ministerial supply increase = supply-side cap on the oil bid."
+    },
+    {
+      "id": "defense-restocking-supercycle",
+      "label": "Arsenal Depletion — Multi-Year Defense Restocking Mandate",
+      "first_seen": "2026-08-05",
+      "last_updated": "2026-09-09",
+      "status": "building",
+      "stance": "Highest-conviction OW equity sector. Active US–Iran kinetic exchange (tankers sunk, Jordan base struck) + Ukraine airspace war + deepening Israel isolation = arsenal-depletion mandate broadening across multiple theatres simultaneously. OW XAR, LMT, RTX, NOC. Sept 30 FY27 fiscal-year-end is a potential supplemental vehicle; divided-government gridlock (Dem House ~88%) is a timing risk, not a thesis killer. Multi-theatre escalation reinforces this is a durable multi-year call.",
+      "tell": "Sept 30 defense supplemental introduced or passed = restocking thesis funded near-term. Prime contractor (LMT, RTX, NOC) order-book guidance raised on late-Oct earnings = demand confirmed. Simultaneous binding ceasefire on both Ukraine AND Iran/Hormuz fronts = trim acute premium, but multi-year restocking thesis survives on global broadening."
+    },
+    {
+      "id": "ai-trade-bifurcation",
+      "label": "AI Trade Bifurcating — Moats vs. Capex Spenders; IPO Supply Wall",
+      "first_seen": "2026-07-31",
+      "last_updated": "2026-09-09",
+      "status": "building",
+      "stance": "Oracle Q1 FY27 (tonight) is the first concrete AI-backlog/capex read into a 4.78% 10Y — a live test of whether AI-capex demand can hold at this cost of capital. OpenAI IPO still priced near-certain >$500B (99.7%) — the supply wall is real. Anthropic safety-risk headlines feed the regulatory-overhang narrative on highest-multiple names. Apple's $2,000 foldable iPhone Duo is an ASP story, not a unit-growth catalyst; Huawei/Xiaomi China assault caps upside. Barbell: long margin-defended moats (MSFT, AMZN) and memory/HBM; UW capex-heavy/vendor-financed/dilution-funded cohort into 4.78% 10Y.",
+      "tell": "Oracle Q1 tonight: backlog/RPO raised + margins intact = AI-capex demand durable; margin warning = cut vendor-financed cohort harder. Late-Oct MSFT/AMZN/Alphabet/Meta earnings: capex raised + gross margins intact = moat holds. OpenAI IPO pricing ≥$1T = cohort multiple re-rating risk fully active. 10Y sustained above 5% = compression accelerates on longest-duration AI names."
+    },
+    {
+      "id": "yen-carry-unwind-vol-tail",
+      "label": "Yen Carry Unwind Vol Tail — Policy-Driven Yen Bid Changes Sign",
+      "first_seen": "2026-08-03",
+      "last_updated": "2026-09-09",
+      "status": "inflecting",
+      "stance": "Bessent's 'I am the House now' is a Treasury-engineered stronger yen to a 6-month high, even as the US 2Y holds 4.37% and differentials stay wide. A policy-driven yen bid against that carry spread is the quiet tail: a disorderly unwind is a stocks-and-bonds-down-together vol event. Prior USD-firming/EM-cut tilt is now wrong-footed — dropped. Brazil/EWZ retained as an oil-exporter EM winner distinct from broad EM beta. Yen/vol hedge stays live; do not chase broad USD-firming EM cuts.",
+      "tell": "USDJPY breaking below ~140 with concurrent MOVE/VIX spike = carry unwind underway, cut equity beta fast. USDJPY stabilizing above 145 = jawbone cosmetic, vol hedge can be trimmed. Broad USD index sustained >119 = soft-dollar EM condition breaks, revisit EWZ/EEM positioning."
+    },
+    {
+      "id": "labor-softening-cuts-repricing",
+      "label": "Labor Market Softening — Thesis Lost a Round",
+      "first_seen": "2026-07-03",
+      "last_updated": "2026-09-09",
+      "status": "inflecting",
+      "stance": "Aug payrolls +162k sharply reversed the four-month deceleration; U-rate steady at 4.1%; continuing claims 1,779k still below the ~1.85M stress threshold. Hike tail, not cut trade, is the live risk. No-landing labor tape for now — but one strong print does not confirm reversal. Early-Oct jobs report is the decisive confirm or refute.",
+      "tell": "Continuing claims sustained above 1.85M = crack re-widens, softening thesis revives. Early-Oct jobs report: second consecutive print >100k + U-rate ≤4.1% = softening thesis fades to resolved. Weak print reverting to flatline = crack-not-collapse reasserts."
+    },
+    {
+      "id": "asset-euphoria-confidence-gap",
+      "label": "Consumer Squeeze — Real-Income Squeeze, Intact",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-09-09",
+      "status": "intact",
+      "stance": "Real-income squeeze intact. July retail –0.58% MoM nominal vs. ~flat CPI = real-negative; Michigan 55.2 = income squeeze, not confidence collapse. Oil spike now acting as a direct cost-push tax on the low-end consumer, reinforcing the squeeze. Housing corroborates: starts –12% MoM to 1,239k, Case-Shiller flat. Sept 30 shutdown risk remains a fiscal-drag accelerant. Stay UW discretionary/homebuilders. Aug retail (~Sept 16) is the confirm of a second consecutive real-negative print.",
+      "tell": "Aug retail sales (~Sept 16) real-negative MoM = income squeeze confirmed, deepen discretionary/homebuilder UW. Real bounce keeps the call tentative. Michigan below 50 on a subsequent read = sentiment deteriorating alongside income, accelerates thesis. Sept 30 shutdown = fiscal drag accelerant compressing timeline."
+    }
+  ]
+}
