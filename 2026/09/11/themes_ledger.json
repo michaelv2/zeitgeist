@@ -1,0 +1,77 @@
+{
+  "as_of": "2026-09-11",
+  "themes": [
+    {
+      "id": "fed-policy-error-curve-flattening",
+      "label": "Fed Regime Change — Warsh Hawkish; Hike Tail Now Live",
+      "first_seen": "2026-06-18",
+      "last_updated": "2026-09-11",
+      "status": "building",
+      "stance": "Hike tail is building, not merely live. 2Y at 4.43% sits ~80bp above the 3.63% funds rate — front end pricing tightening, not cuts. Bear-steepening continues (10Y–2Y +0.40) on inflation/term premium, not growth. FOMC moved to Sept 15–16 (memo update vs. prior Sept 22–23). Aug CPI (Sept 11) largely predates the oil spike — a soft print is a fade, not a thesis reversal. Blackout means CPI/PPI prints, not Fed-speak, drive the front end into the meeting. Duration UW (ZROZ) remains highest-conviction rates call.",
+      "tell": "Aug core CPI ≥+0.3% MoM = cements hike, press duration UW hard. ≤+0.2% = relief rally to fade, not chase. FOMC Sept 15–16 hike or hawkish-hold with hike guidance = press ZROZ UW; any genuine dovish tilt = cover some ZROZ. 2Y break below 4.10% = cut trade revives, cover duration UW."
+    },
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory — Oil Passthrough Test Is Live",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-09-11",
+      "status": "building",
+      "stance": "Core not cooling (+0.22% MoM Jun→Jul; core PCE +0.25%) and that predates the oil spike. M2 re-accelerating (+0.44% MoM, ~5.4% annualized). Aug CPI (Sept 11) predates crude surge — a benign print is a tactical fade opportunity; real passthrough is a forward Sept/Oct impulse. Two active choke points (Hormuz + Red Sea) now layer a second independent cost-push leg. Upgraded from inflecting to building given the structural reinforcement. Hold TIPZ.",
+      "tell": "Aug core CPI ≥+0.3% MoM = passthrough arriving sooner than expected, press energy/gold/duration UW. ≤+0.2% = fade the rates relief rally. Sept/Oct CPI prints = true passthrough test. Aug PCE (Sept 30) = Fed's preferred secondary confirmation."
+    },
+    {
+      "id": "hormuz-oil-stagflation-shock",
+      "label": "Dual Choke Point Oil Shock — Hormuz + Red Sea; Stagflation Leg Entrenched",
+      "first_seen": "2026-07-20",
+      "last_updated": "2026-09-11",
+      "status": "building",
+      "stance": "Escalation now has two independent supply-risk legs: Hormuz restricted zone (US sank Iranian tankers, Iran struck Jordan base) AND Houthis seizing Yemen's full Red Sea coastline. WTI $97 and climbing; diesel >$6/gal record. OPEC+ holding October quotas — no supply offset. This is simultaneously the inflation impulse, the consumer tax, and the bond-market accelerant. Structurally bid: refiners (VLO/MPC/PSX) on record diesel cracks, XLE, IAU. Upgraded label to reflect dual choke-point structure.",
+      "tell": "WTI/Brent sustained above $100 with confirmed dual Red Sea + Hormuz disruption (tanker-routing data) = stagflation leg entrenched, press energy/gold. Brent break below $85 with confirmed de-escalation on both fronts = trim to structural sleeve only. Early-Oct OPEC+ ministerial supply increase = supply-side cap on oil bid."
+    },
+    {
+      "id": "defense-restocking-supercycle",
+      "label": "Arsenal Depletion — Multi-Year Defense Restocking Mandate",
+      "first_seen": "2026-08-05",
+      "last_updated": "2026-09-11",
+      "status": "building",
+      "stance": "Intact and reinforced. Multi-theatre depletion now spans Iran/Hormuz, Ukraine drone war, and Red Sea (Houthi advance). OW XAR, LMT, RTX, NOC. Sept 30 FY27 fiscal year-end is a potential supplemental vehicle; divided-government gridlock (Dem House ~86.5%) is a timing risk, not a thesis killer. Multi-theatre escalation with no ceasefire in sight keeps this the top OW equity sector.",
+      "tell": "Sept 30 defense supplemental introduced or passed = restocking thesis funded near-term. Prime contractor (LMT, RTX, NOC) order-book guidance raised on late-Oct earnings = demand confirmed. Simultaneous binding ceasefire across Iran/Hormuz, Ukraine, AND Red Sea = trim acute premium; multi-year restocking thesis survives on global broadening."
+    },
+    {
+      "id": "ai-trade-bifurcation",
+      "label": "AI Trade Bifurcating — Moats vs. Capex Spenders; Discount-Rate Squeeze Live",
+      "first_seen": "2026-07-31",
+      "last_updated": "2026-09-11",
+      "status": "building",
+      "stance": "10Y approaching 5% makes the discount-rate squeeze on long-duration AI/growth names live and acute. Barbell intact: long margin-defended moats (MSFT, AMZN) and memory/HBM; UW capex-heavy/vendor-financed/dilution-funded cohort. OpenAI IPO supply wall (>$500B near-certain) = real unpriced overhang on highest-multiple cohort. Micron (Sept 30) is the next concrete AI-demand read at a 5% cost of capital, replacing Oracle as the near-term tell.",
+      "tell": "10Y sustained above 5% = long-duration AI multiple compression accelerates, trim capex cohort harder. Micron (Sept 30): strong HBM demand + guidance raised = AI-capex demand durable at 5% cost of capital; margin warning = cut vendor-financed cohort harder. Late-Oct MSFT/AMZN/Alphabet/Meta earnings: capex raised + gross margins intact = moat holds. OpenAI IPO pricing ≥$1T = cohort multiple re-rating risk fully active."
+    },
+    {
+      "id": "yen-carry-unwind-vol-tail",
+      "label": "Yen Carry Unwind Vol Tail — Policy-Driven Yen Bid Changes Sign",
+      "first_seen": "2026-08-03",
+      "last_updated": "2026-09-11",
+      "status": "inflecting",
+      "stance": "Bessent-engineered yen bid persists even as the global bond selloff broadens and USD broad index softens (118.1). Soft dollar is net positive for gold and oil-exporter EM (EWZ/Petrobras). Yen/vol hedge stays live — a disorderly carry unwind remains a stocks-and-bonds-down-together event. Do not chase broad EM beta; retain EWZ as an oil-exporter + soft-dollar + Brazil-election call distinct from broad EM.",
+      "tell": "USDJPY breaking below ~140 with concurrent MOVE/VIX spike = carry unwind underway, cut equity beta fast. USDJPY stabilizing above 145 = jawbone cosmetic, vol hedge can be trimmed. Broad USD index sustained >119 = soft-dollar EM condition breaks, revisit EWZ/EEM positioning."
+    },
+    {
+      "id": "labor-softening-cuts-repricing",
+      "label": "Labor Market Softening — Thesis on the Ropes",
+      "first_seen": "2026-07-03",
+      "last_updated": "2026-09-11",
+      "status": "fading",
+      "stance": "Aug payrolls +162k decisively reversed the four-month deceleration; U-rate steady at 4.1%; continuing claims 1,774k — well below the ~1.85M stress threshold. The memo explicitly downgrades this to 'on the ropes.' Hike tail, not cut trade, is the live risk. One strong print does not confirm reversal, but a second consecutive strong print at Oct 2 would bury the thesis.",
+      "tell": "Oct 2 Sept payrolls: second consecutive print >100k with U-rate ≤4.1% = softening thesis fades to resolved; drop from ledger. Continuing claims sustained above 1.85M = crack re-widens, softening thesis revives. Weak Oct 2 print reverting to flatline = crack-not-collapse reasserts, upgrade back to inflecting."
+    },
+    {
+      "id": "asset-euphoria-confidence-gap",
+      "label": "Consumer Squeeze — Real-Income Squeeze + Oil Tax",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-09-11",
+      "status": "building",
+      "stance": "Real-income squeeze intact and now compounded by a direct oil/diesel cost-push tax on the low-end consumer. July retail –0.58% MoM nominal vs. ~flat CPI = real-negative (first such read). Michigan 55.2 (off 44.8 May low) = squeeze, not collapse. Housing corroborates: starts –12% MoM to 1,239k, Case-Shiller flat. Diesel >$6/gal is a direct freight/food/consumer levy — the squeeze is intensifying, not stabilizing. Upgraded from intact to building. Stay UW discretionary/homebuilders.",
+      "tell": "Aug retail sales (~Sept 16) real-negative MoM = second consecutive confirm, deepen discretionary/homebuilder UW. Real bounce keeps the call tentative. Michigan below 50 on a subsequent read = sentiment deteriorating alongside income, accelerates thesis. Sept 30 shutdown = fiscal-drag accelerant compressing timeline."
+    }
+  ]
+}
