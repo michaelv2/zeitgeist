@@ -57,7 +57,6 @@ def compute_structural_metrics(report: str) -> dict:
     bullet_lines = [l for l in non_empty if re.match(r"^\s*[-*]\s", l)]
 
     # Required elements
-    has_daily_memo = bool(re.search(r"Daily Memo", report))
     has_catalysts = bool(re.search(r"Upcoming Catalysts", report))
 
     # Catalysts at bottom: check if it's in the last 30% of the report
@@ -73,7 +72,6 @@ def compute_structural_metrics(report: str) -> dict:
         "h2_sections": len(h2_headers),
         "bullet_lines": len(bullet_lines),
         "bullet_density": len(bullet_lines) / max(len(non_empty), 1),
-        "has_daily_memo_title": has_daily_memo,
         "has_catalysts_section": has_catalysts,
         "catalysts_at_bottom": catalysts_at_bottom,
         "h2_header_names": [h.lstrip("#").strip() for h in h2_headers],
@@ -177,8 +175,7 @@ async def run_eval(models: list[str], num_runs: int, fixture_path: Path | None):
         print(f"  {short:>20}", end="")
     print()
 
-    metric_keys = ["word_count", "bullet_density", "has_daily_memo_title",
-                   "has_catalysts_section", "catalysts_at_bottom"]
+    metric_keys = ["word_count", "bullet_density", "has_catalysts_section", "catalysts_at_bottom"]
     for key in metric_keys:
         print(f"  {key:<28}", end="")
         for model in models:
@@ -395,8 +392,6 @@ def print_report(results_path: Path | None):
             m = run["metrics"]
             print(f"  Run {i+1}: {m['word_count']} words, {m['section_count']} sections, "
                   f"{m['bullet_lines']} bullets, {run['elapsed_seconds']}s")
-            if not m["has_daily_memo_title"]:
-                print("    ⚠ Missing 'Daily Memo' title")
             if not m["has_catalysts_section"]:
                 print("    ⚠ Missing 'Upcoming Catalysts' section")
             if not m["catalysts_at_bottom"]:

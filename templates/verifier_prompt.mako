@@ -12,6 +12,7 @@ You receive a JSON object: "memo" (the finished memo to review), "upcoming_catal
 When "prior_themes" is present, the memo may reference themes the desk was tracking in recent passes. For each such theme:
   - Check: does the evidence actually support the memo's directionality claim about it? An "inflection" the memo advances when the data only shows continuation should be flagged; a "break" the memo ignores when the ledger status would have caught should be flagged.
   - Check: if the memo carries a theme forward, is there new evidence justifying that continuity? A theme that's fading and the memo continues as "intact" is a form of inertia bias — flag it.
+  - Check: is a carried theme being re-asserted on old evidence? When the memo's only support for a theme is evidence already in its prior stance (no new datapoint, print, or headline today), the memo may hold the theme but must not present it as advancing, newly confirmed, or live. Flag it; the fix keeps the call and says nothing new arrived today. A theme the memo advances on genuinely new evidence is fine.
   - Hold the same HIGH bar as the other checks: only flag claims the ledger status actively contradicts or that would change category (e.g. inflecting → fading) against the data; do not flag "continuing" a theme whose evidence truly supports the continuation.
   - If "prior_themes" is absent or empty, skip this check.
 </ledger_check>
@@ -20,7 +21,7 @@ When "prior_themes" is present, the memo may reference themes the desk was track
 
 <what_to_flag>
 Read the memo adversarially. Flag:
-  - OVERSTATEMENT / false precision: a structural or directional conclusion drawn from a single noisy datapoint (e.g. one month's MoM print); a confident call the cited evidence doesn't carry; a fine distinction presented as decisive that doesn't change the call.
+  - OVERSTATEMENT / false precision: a structural or directional conclusion drawn from a single noisy datapoint (e.g. one month's MoM print); a confident call the cited evidence doesn't carry; a fine distinction presented as decisive that doesn't change the call; an item described by the verdict of the thesis it's filed under rather than by what actually happened — a theme's label (e.g. "cracking") is the thesis, not evidence, so calling a routine refinancing "distress" because it sits under a credit-stress theme is over-reach.
   - SELF-CONTRADICTION: a claim that conflicts with something the memo asserts elsewhere — e.g. deflating spending by a "headline" figure the memo separately calls a reversible energy distortion, then reading the result as a structural break.
   - UNGROUNDED / FABRICATED: a number, causal mechanism, or historical analogy not supported by the data; a cause-and-effect chain stated as established fact that is really a guess.
   - CHERRY-PICKED FRAMING: a striking read built on the one measure or timeframe that supports it while ignoring the trend or the contradicting cut — e.g. leading with a negative MoM while the YoY / multi-month trend is positive.

@@ -68,7 +68,8 @@ Consolidate all events into a single 'Upcoming Catalysts' section AT THE VERY BO
   - Skip generic items without concrete timelines or dates; sort soonest to furthest out
   - For each, a short phrase on how it may impact me; avoid empty guidance like 'watch for regulatory/geopolitical risks'
   - Title this section just 'Upcoming Catalysts' — don't mention sorting or anything else
-Use the title: Daily Memo (${today.strftime('%d-%b-%Y')})
+Do not write a title — it is added automatically. If you open with a one-line bottom line before Key Themes, write it as a plain paragraph, not a heading.
+Return only the memo itself — no notes about your own process or tool use (e.g. whether you fetched FRED data).
 Things to avoid:
   - Generic guidance ('review this quarterly', 'keep an eye on') and broad/vague statements — be succinct and specific
   - Ground every claim. Use only the numbers, metrics, quotes, and sources actually provided — never fabricate or illustrate them. Same rule for CAUSAL MECHANISMS and HISTORICAL PRECEDENTS: don't assert a transmission channel ("X is forcing Y"), a regime analogy ("this rhymes with 2018"), or a cause→effect link unless it's in the inputs or a well-established, real relationship — and when a mechanism is your inference, not established fact, label it as such.

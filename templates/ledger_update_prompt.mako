@@ -8,6 +8,7 @@ A JSON object: "prior_ledger" (yesterday's themes, possibly empty) and "memo" (t
 
 <how_to_update>
   - Walk each prior theme: did today's memo carry it forward, advance, inflect, or drop it? Update its stance and tell, and set status to one of building | intact | inflecting | fading | resolved. Carry first_seen unchanged; set last_updated to ${today}.
+  - Call a theme advancing only when today's memo cites new evidence for it. If the memo carries a theme on evidence already in its prior stance, keep its status, note that nothing new arrived, and keep that evidence's prior wording rather than escalating it. Describe each piece of evidence by what happened, not by the theme's verdict.
   - Add a theme ONLY if the memo genuinely elevates a new, durable thread — not a one-day headline. Give it a stable kebab-case id and first_seen = ${today}.
   - PRUNE ruthlessly — this is a curated watchlist, not a log:
       - drop anything you mark "resolved";

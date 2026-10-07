@@ -4,6 +4,7 @@ from dataclasses import dataclass, field
 import json
 from pathlib import Path
 import os
+import re
 import logging as log
 
 import polars as pl
@@ -389,6 +390,12 @@ def load_ledger() -> list[dict]:
         log.warning(f"Could not read themes ledger {snaps[-1]}; starting fresh: {e}")
         return []
 
+def with_title(report: str) -> str:
+    """Pin the memo title in code rather than trusting the model to write it (it drifted between h1/h2 and was
+    occasionally dropped). Strips a title the model wrote anyway so it isn't doubled."""
+    body = re.sub(r"\A\s*#{1,6}\s*Daily Memo\b[^\n]*\n", "", report)
+    return f"# Daily Memo ({today.strftime('%d-%b-%Y')})\n\n{body.lstrip()}"
+
 async def get_events() -> pl.DataFrame:
     res = await events_agent.run()
     return pl.DataFrame(res.output)
@@ -520,10 +527,10 @@ async def main():
     output_file = output_dir / "index.html"
     log.info(f"Writing to {output_file} ...")
     output_dir.mkdir(parents=True, exist_ok=True)
-    html = templates.get_template("index.html.mako").render(today=today, report=report)
+    html = templates.get_template("index.html.mako").render(today=today, report=with_title(report))
     output_file.write_text(html, encoding="utf-8")
     if comparison_report:
-        comparison_html = templates.get_template("index.html.mako").render(today=today, report=comparison_report)
+        comparison_html = templates.get_template("index.html.mako").render(today=today, report=with_title(comparison_report))
         (output_dir / "index2.html").write_text(comparison_html, encoding="utf-8")
         log.info(f"Wrote comparison report to {output_dir / 'index2.html'}")
     redirect = f'<meta http-equiv="refresh" content="0;url={today.strftime("%Y/%m/%d/")}"><a href="{today.strftime("%Y/%m/%d/")}">Latest report</a>'

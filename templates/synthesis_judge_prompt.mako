@@ -13,7 +13,6 @@ Score each report on the following criteria (1-5 scale):
    - 5: Specific, directional insights tied to instruments or positions
 
 3. **Prompt compliance**: The reports were generated with these rules:
-   - Title must be "Daily Memo (DD-Mon-YYYY)"
    - Structure: broad (macro) → narrow (sectors) → individual names
    - "Upcoming Catalysts" section must be AT THE BOTTOM, sorted by date
    - Must NOT include generic advice like "review quarterly" or "keep an eye on"
