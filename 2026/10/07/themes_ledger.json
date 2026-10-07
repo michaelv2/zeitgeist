@@ -1,0 +1,77 @@
+{
+  "as_of": "2026-10-07",
+  "themes": [
+    {
+      "id": "fed-policy-error-curve-flattening",
+      "label": "Fed Regime Change — Hiking Leg Paused; Bear-Steepening Structural, Term-Premium Dominant",
+      "first_seen": "2026-06-18",
+      "last_updated": "2026-10-07",
+      "status": "inflecting",
+      "stance": "Pause durability — not renewed hiking — is now the front-end debate. 2Y at 4.84% (~96bp over 3.88% effective funds) signals a durable pause, not cuts; equities pricing soft-landing cuts remain ahead of the front end. 10Y broke to a fresh cycle high at 5.31% through weak payrolls (+29k), confirming the long end is supply/term-premium driven, not cycle-driven. Steepener (long 2Y / short 30Y) remains the expression; 10Y–2Y widened to 0.48. Oct 14 CPI is the next arbiter on whether the pause holds or a renewed-hike debate opens.",
+      "tell": "Oct 14 CPI ≥0.3% MoM + 10Y sustaining >5.3% = stagflation box tightens, steepener confirmed. Sub-0.2% core MoM flips the pause-durable debate, challenges front-end. 2Y break below 4.50% = hiking-leg thesis fully resolved. FOMC Nov 4–5 balance-sheet/QT language = supply-side signal for long end."
+    },
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory — Services Sticky; Stagflationary Box Risk Rising",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-10-07",
+      "status": "building",
+      "stance": "Stagflation box intact and advancing. Aug core CPI +0.29% MoM, headline +0.40%, core PCE +0.25% — services-led, oil pullback irrelevant to sticky core. Soft Sept payrolls (+29k, 4.2% U-rate) means growth is cooling while core re-firms, keeping the Fed boxed. Honest caveat: 3-month annualized core running ~2%, distorted by Jun dip — Oct 14 CPI is the referee. TIPZ remains cleanest expression; don't fade TIPS on cheaper crude.",
+      "tell": "Oct 14 CPI ≥0.3% MoM = full stagflation box confirmed, press steepener + TIPS longs. Two consecutive sub-0.2% MoM prints = thesis inflects lower, genuine Fed easing window opens. Oct 29–30 Sept PCE cross-check on tightness of the box."
+    },
+    {
+      "id": "term-premium-fiscal-supply-rout",
+      "label": "Term Premium / Fiscal Supply Rout — Structural, Independent of Cycle",
+      "first_seen": "2026-09-25",
+      "last_updated": "2026-10-07",
+      "status": "building",
+      "stance": "Strongest signal yet: 10Y broke to a new cycle high at 5.31% through a +29k payroll print, with 10Y–2Y widening to 0.48 and 10Y–3M at 1.06. A long end that can't rally on weak jobs is definitively fiscal-supply/term-premium driven. Full-Dem Congress base case (House 92.5%, Senate ~64.5%) vs. GOP WH = fiscal brinkmanship structurally supportive of term premium from Jan 2027. Chicago Fed FCI loosening to -0.548 even as long rates rise confirms financial conditions are decoupling from the long end — the supply dynamic is dominating.",
+      "tell": "10Y sustaining >5.3% on soft Oct 14 CPI = term premium dominant, press steepener. Early-Nov Treasury Quarterly Refunding: tailing 30Y auction = supply-side confirmation. Strong 30Y auction (tail <0bp) or credible US fiscal consolidation = first real challenge to thesis. 10Y–2Y breaking back below 0.25 = regime challenged."
+    },
+    {
+      "id": "equity-rate-reconciliation",
+      "label": "Equity–Rate Reconciliation — Record Highs vs. 5.3% Long End; ERP Compressed to Zero",
+      "first_seen": "2026-10-07",
+      "last_updated": "2026-10-07",
+      "status": "building",
+      "stance": "New durable thread: S&P/Nasdaq at record highs with 10Y at 5.31% — equity risk premium compressed toward zero on a narrow, mega-cap-led rally. The multiple is levitating on a rate structure that has historically capped long-duration equities. Reconciliation catalyst is mega-cap tech earnings Oct 22–30: capex raised + gross margins intact validates the multiple; capex cuts or margin warnings collapses the narrow rally. This is not a one-day headline — the tension between record equities and a fresh-cycle-high long rate is the defining setup into month-end.",
+      "tell": "MSFT/AMZN/Alphabet Oct 22–30: capex raised + gross margins intact = multiple defensible, barbell holds. Margin warnings or capex cuts = AI de-rate confirmed, press short leg on buildout cohort. 10Y sustained above 5.3% into earnings week without a margin beat = compression snaps."
+    },
+    {
+      "id": "hormuz-oil-stagflation-shock",
+      "label": "Iran Escalation / Oil Impulse — Partially Easing; Two-Way Risk, Not Structural Fade",
+      "first_seen": "2026-07-20",
+      "last_updated": "2026-10-07",
+      "status": "inflecting",
+      "stance": "Oil impulse still off its highs despite fresh multi-theatre escalation (Houthi strikes on Aden, two Saudi airports, and an Aramco refinery). WTI ~$96 — supply glut absorbing headlines that would have spiked crude in prior regimes. Trump–Putin call and Iran rhetoric are live geopolitical risks; oil not responding confirms the supply buffer. Trim acute XLE beta; retain refiner sleeve (VLO, PSX, MPC) for hurricane/diesel optionality (Tropical Storm Isaias, Gulf refining risk). Core inflation thesis stands independently.",
+      "tell": "WTI re-sustained above $100 on confirmed supply disruption (Hormuz closure or major Aramco damage) = re-press energy and inflation impulse. WTI sustained below $90 with confirmed de-escalation = trim to structural sleeve and reduce inflation-via-oil thesis. Tropical Storm Isaias becoming major Gulf hurricane = refiner disruption, press VLO/PSX/MPC. OPEC+ late-Nov meeting = next supply lever."
+    },
+    {
+      "id": "defense-restocking-supercycle",
+      "label": "Arsenal Depletion — Multi-Year Defense Restocking, Multi-Theatre and Broadening",
+      "first_seen": "2026-08-05",
+      "last_updated": "2026-10-07",
+      "status": "building",
+      "stance": "Intact and accelerating. Simultaneous escalation: Houthi strikes on Saudi airports/Aramco refinery, Russia/Putin brinkmanship and Siberia/plague scare, Iran threat rhetoric. Full-Dem Congress base case makes defense appropriations a bipartisan floor from Jan 2027 regardless of WH party. OW XAR, LMT, RTX, NOC. Late-Oct prime contractor earnings are the near-term order-book confirmation catalyst.",
+      "tell": "Prime contractor (LMT, RTX, NOC) order-book guidance raised on late-Oct earnings = demand confirmed, add. Binding simultaneous ceasefire across Iran/Hormuz, Ukraine, AND Red Sea = trim acute premium; multi-year thesis survives on global broadening. Defense supplemental vote in Oct = near-term funding signal."
+    },
+    {
+      "id": "ai-trade-bifurcation",
+      "label": "AI Trade Bifurcating — Vendor/Debt Financing Cracking; Moats vs. Buildout",
+      "first_seen": "2026-07-31",
+      "last_updated": "2026-10-07",
+      "status": "building",
+      "stance": "Crack thesis advancing with a new dimension: Anthropic–Google Workspace integration is a direct commoditization signal at the application layer — the layer the infrastructure spend is meant to monetize. Combined with Broadcom-Anthropic circular vendor financing ($60B) and prior Oracle force-majeure/Blue Owl delay, the debt-funded buildout cohort faces simultaneous discount-rate and credit headwinds alongside application-layer commoditization. OpenAI 95% priced to not IPO in 2026 removes a near-term liquidity drain (mildly supportive) but doesn't resolve structural financing crack. Barbell: hold margin-defended moats (MSFT, AMZN), cautious on buildout names. Oct 22–30 mega-cap earnings are the decisive test.",
+      "tell": "MSFT/AMZN Oct 22–30: capex raised + gross margins intact = moats hold, maintain barbell. Margin warnings or capex cuts = AI de-rating confirmed, press short leg on buildout cohort. Third major AI-financing headline or AI-credit spreads widening = cut buildout cohort hard. NVDA guide-down = cohort de-rating confirmed."
+    },
+    {
+      "id": "consumer-real-income-squeeze",
+      "label": "Consumer Squeeze — Stagflationary Pressure Reasserting; Real Retail the Deciding Tell",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-10-07",
+      "status": "inflecting",
+      "stance": "Squeeze thesis under pressure from real spending data but not resolved. Aug retail +1.13% MoM nominal (~+0.7% real) is the second data point against the income-squeeze thesis even as Michigan sentiment sits at 51.7 and Sept payrolls printed +29k. Labor is cooling (not cracking) — continuing claims improved to 1.70M, JOLTS still 7.08M — which keeps the Fed boxed without triggering a recession valve. Homebuilder UW stays clean independently: 10Y >5.3% keeps mortgage rates punitive. Hold discretionary UW pending next real retail print (~Oct 16 for Sept retail).",
+      "tell": "Sept retail (~Oct 16): second consecutive real-positive = resolve squeeze thesis, cover discretionary UW. Real-negative reversal = squeeze reasserts under stagflationary conditions, deepen UW. Oct 27 Conference Board Consumer Confidence: cross-check sentiment vs. real spending; watch for public-health (measles/flu) drag signal."
+    }
+  ]
+}
