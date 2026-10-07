@@ -4,7 +4,9 @@
    (confirms the hook + the anchoring guard wording).
 2. Feeds a crafted prior ledger + the latest local memo to the ledger update pass and
    prints before -> after, so you can eyeball carry-forward, status changes, and pruning.
-   The crafted ledger seeds a stale theme (>5 days) and a 'resolved' one to verify the prune.
+   The crafted ledger (dated relative to today) checks that last_updated moves only on new
+   evidence, and that a stale (> LEDGER_STALE_DAYS) and a 'resolved' theme are dropped and
+   listed in the memo footer.
 
 Usage:
     uv run python validate_ledger.py [memo.html|memo.md]
@@ -15,6 +17,7 @@ import html as htmlmod
 import json
 import re
 import sys
+from datetime import timedelta
 from pathlib import Path
 
 import zeitgeist as zg
@@ -33,23 +36,27 @@ def latest_memo() -> Path | None:
     return reports[-1] if reports else None
 
 
-# A crafted prior ledger to exercise carry / inflect / add / prune.
-# Stale theme (>5 days) and 'resolved' should be dropped relative to today's run.
+# A crafted prior ledger to exercise carry / last_updated / prune, dated relative to today.
+def _ago(days: int) -> str:
+    return (zg.today - timedelta(days=days)).isoformat()
+
 PRIOR_LEDGER = [
-    {"id": "ai-capex-durability", "label": "AI capex durability",
-     "first_seen": "2026-06-02", "last_updated": "2026-06-10", "status": "intact",
-     "stance": "Hyperscaler capex guides still rising; no demand crack in the data yet.",
-     "tell": "A cut to any megacap cloud capex guide, or cloud-revenue decel below ~25% YoY."},
-    {"id": "breadth-deterioration", "label": "Narrowing market breadth",
-     "first_seen": "2026-06-05", "last_updated": "2026-06-10", "status": "building",
-     "stance": "Index gains carried by <10 names; equal-weight lagging cap-weight several sessions.",
-     "tell": "RSP/SPY turning up = breadth repair; a new index high on negative breadth = confirmation."},
+    # The memo cites new rates data for this one -> last_updated should move to today.
+    {"id": "term-premium-fiscal-supply-rout", "label": "Term premium / fiscal supply rout",
+     "first_seen": _ago(12), "last_updated": _ago(5), "status": "building",
+     "stance": "Long end is fiscal-supply/term-premium driven, not cycle driven; 10Y holding >5%.",
+     "tell": "10Y-2Y sustaining above 0.40 with 10Y >5% = regime deepening; a strong 30Y auction = challenged."},
+    # The memo says nothing about this one -> last_updated should stay put (or it is dropped with a reason).
+    {"id": "el-nino-soft-commodity-risk", "label": "El Nino soft-commodity risk",
+     "first_seen": _ago(20), "last_updated": _ago(5), "status": "building",
+     "stance": "A developing El Nino threatens cocoa/coffee/sugar supply; food-inflation tail risk.",
+     "tell": "NOAA declaring El Nino conditions, or cocoa futures making new highs."},
     {"id": "stale-example-theme", "label": "Stale theme (should prune)",
-     "first_seen": "2026-05-20", "last_updated": "2026-06-03", "status": "fading",
-     "stance": "Last reinforced 8 days ago; included to confirm the ~5-run prune drops it.",
+     "first_seen": _ago(60), "last_updated": _ago(zg.LEDGER_STALE_DAYS + 9), "status": "fading",
+     "stance": f"No new evidence for {zg.LEDGER_STALE_DAYS + 9} days; included to confirm the staleness prune drops it.",
      "tell": "n/a - prune check."},
     {"id": "resolved-example-theme", "label": "Resolved theme (should drop)",
-     "first_seen": "2026-05-28", "last_updated": "2026-06-09", "status": "resolved",
+     "first_seen": _ago(20), "last_updated": _ago(2), "status": "resolved",
      "stance": "Played out; included to confirm 'resolved' is dropped.",
      "tell": "n/a - prune check."},
 ]
@@ -83,15 +90,24 @@ async def main():
     show(PRIOR_LEDGER)
     print(f"\n=== running ledger update on {memo_path} ({len(memo.split())} words) ===")
     ledger_input = json.dumps({"prior_ledger": PRIOR_LEDGER, "memo": memo})
-    new_ledger = (await zg.ledger_agent.run(ledger_input)).output
+    new_ledger = zg.prune_ledger(PRIOR_LEDGER, (await zg.ledger_agent.run(ledger_input)).output)
     print(f"\n=== updated ledger (as_of {new_ledger.as_of}, {len(new_ledger.themes)} themes) ===")
     show([t.model_dump() for t in new_ledger.themes])
+    print("\n=== memo footer ===" + (zg.dropped_themes_md(new_ledger, PRIOR_LEDGER) or "\n(no themes dropped)"))
 
-    kept = {t.id for t in new_ledger.themes}
-    print("\n=== prune check ===")
-    print(f"  stale-example-theme dropped:    {'stale-example-theme' not in kept}")
-    print(f"  resolved-example-theme dropped: {'resolved-example-theme' not in kept}")
-
+    kept = {t.id: t for t in new_ledger.themes}
+    dropped = {d.id for d in new_ledger.dropped}
+    prior_upd = {t["id"]: t["last_updated"] for t in PRIOR_LEDGER}
+    quiet = kept.get("el-nino-soft-commodity-risk")
+    active = kept.get("term-premium-fiscal-supply-rout")
+    print("\n=== checks ===")
+    print(f"  stale theme dropped:                 {'stale-example-theme' in dropped}")
+    print(f"  resolved theme dropped:              {'resolved-example-theme' in dropped}")
+    print(f"  quiet theme's date not bumped:       {quiet is None or quiet.last_updated == prior_upd[quiet.id]}"
+          f" ({'dropped' if quiet is None else quiet.last_updated})")
+    print(f"  active theme's date moved to today:  {active is not None and active.last_updated == zg.today.isoformat()}"
+          f" ({'dropped' if active is None else active.last_updated})")
+    print(f"  every left-out prior theme listed:   {set(prior_upd) - set(kept) == dropped}")
 
 if __name__ == "__main__":
     asyncio.run(main())

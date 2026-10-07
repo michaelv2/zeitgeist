@@ -1,5 +1,5 @@
 import asyncio
-from datetime import date
+from datetime import date, timedelta
 from dataclasses import dataclass, field
 import json
 from pathlib import Path
@@ -57,6 +57,7 @@ GMAIL_USER = os.getenv("GMAIL_USER")
 GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD")
 NUM_FRED_DATAPOINTS = 10
 LEDGER_NAME = "themes_ledger.json"  # themes-ledger snapshot, co-located with each day's report under .reports/
+LEDGER_STALE_DAYS = 21  # drop a ledger theme after this many days with no new evidence (enforced in prune_ledger)
 
 FRED_CODES = {
     "CPIAUCSL": "CPI (Headline)",
@@ -336,14 +337,19 @@ class LedgerTheme(BaseModel):
     id: str = Field(description="stable kebab-case slug for cross-day matching, e.g. 'ai-capex-durability'")
     label: str = Field(description="short human-readable name")
     first_seen: str = Field(description="YYYY-MM-DD the theme entered the ledger")
-    last_updated: str = Field(description="YYYY-MM-DD it was last reinforced")
+    last_updated: str = Field(description="YYYY-MM-DD it was last reinforced by new evidence")
     status: str = Field(description="building | intact | inflecting | fading | resolved")
     stance: str = Field(description="one-line current read")
     tell: str = Field(description="forward signal that would confirm or refute it")
 
+class DroppedTheme(BaseModel):
+    id: str = Field(description="id of the prior theme being dropped")
+    reason: str = Field(description="a few words on why, e.g. 'resolved: tell tripped' or 'displaced at cap by <id>'")
+
 class ThemesLedger(BaseModel):
     as_of: str = Field(description="YYYY-MM-DD of this update")
     themes: list[LedgerTheme] = Field(description="curated watchlist; at most ~8 active themes")
+    dropped: list[DroppedTheme] = Field(default_factory=list, description="every prior theme left out of themes, with why")
 
 # Flag pass: re-reads the finished memo adversarially (with FRED grounding) and flags over-reach.
 verifier_agent = Agent(
@@ -370,7 +376,7 @@ revise_agent = Agent(
 ledger_agent = Agent(
     model=LEDGER_MODEL,
     output_type=ThemesLedger,
-    system_prompt=templates.get_template("ledger_update_prompt.mako").render(today=today),
+    system_prompt=templates.get_template("ledger_update_prompt.mako").render(today=today, stale_days=LEDGER_STALE_DAYS),
     retries=RETRIES,
     model_settings={"max_tokens": 8192, "timeout": 300},
 )
@@ -389,6 +395,36 @@ def load_ledger() -> list[dict]:
     except Exception as e:
         log.warning(f"Could not read themes ledger {snaps[-1]}; starting fresh: {e}")
         return []
+
+def prune_ledger(prior: list[dict], ledger: ThemesLedger) -> ThemesLedger:
+    """Drop themes with no new evidence in LEDGER_STALE_DAYS (the model only decides whether a theme was
+    reinforced; the cutoff is enforced here) and record every prior theme that left the ledger, with why."""
+    cutoff = today - timedelta(days=LEDGER_STALE_DAYS)
+    kept, stale = [], {}
+    for t in ledger.themes:
+        try:
+            last = date.fromisoformat(t.last_updated)
+        except ValueError:
+            log.warning(f"Ledger theme {t.id} has unparseable last_updated {t.last_updated!r}; keeping it")
+            last = today
+        if last < cutoff:
+            stale[t.id] = f"no new evidence since {t.last_updated} ({LEDGER_STALE_DAYS}+ days)"
+        else:
+            kept.append(t)
+    reasons = {d.id: d.reason for d in ledger.dropped} | stale
+    kept_ids = {t.id for t in kept}
+    dropped = [DroppedTheme(id=p["id"], reason=reasons.get(p["id"], "dropped by the ledger update"))
+               for p in prior if p["id"] not in kept_ids]
+    return ledger.model_copy(update={"themes": kept, "dropped": dropped})
+
+def dropped_themes_md(ledger: ThemesLedger | None, prior: list[dict]) -> str:
+    """Markdown footer listing the themes dropped from the ledger today ('' if none)."""
+    if not ledger or not ledger.dropped:
+        return ""
+    by_id = {p["id"]: p for p in prior}
+    lines = [f"- **{by_id[d.id].get('label', d.id)}** (tracked since {by_id[d.id].get('first_seen', '?')}): {d.reason}"
+             for d in ledger.dropped]
+    return "\n\n## Themes Dropped\n\n" + "\n".join(lines) + "\n"
 
 def with_title(report: str) -> str:
     """Pin the memo title in code rather than trusting the model to write it (it drifted between h1/h2 and was
@@ -486,15 +522,17 @@ async def main():
         except Exception as e:
             log.error(f"Verifier/revise step failed; shipping unrevised draft: {e}")
 
+    new_ledger = None
     if ENABLE_LEDGER:
         try:
             ledger_input = json.dumps({"prior_ledger": prior_themes, "memo": report})
-            new_ledger = (await ledger_agent.run(ledger_input)).output
+            new_ledger = prune_ledger(prior_themes, (await ledger_agent.run(ledger_input)).output)
             ledger_path = Path(f".reports/{today.strftime('%Y/%m/%d')}") / LEDGER_NAME
             ledger_path.parent.mkdir(parents=True, exist_ok=True)
             ledger_path.write_text(new_ledger.model_dump_json(indent=2))
             log.info(f"Themes ledger updated ({ledger_path}): {len(new_ledger.themes)} active "
-                     f"{[f'{t.label}:{t.status}' for t in new_ledger.themes]}")
+                     f"{[f'{t.label}:{t.status}' for t in new_ledger.themes]}; "
+                     f"dropped {[f'{d.id} ({d.reason})' for d in new_ledger.dropped]}")
         except Exception as e:
             log.error(f"Ledger update failed; prior ledger retained: {e}")
 
@@ -527,7 +565,7 @@ async def main():
     output_file = output_dir / "index.html"
     log.info(f"Writing to {output_file} ...")
     output_dir.mkdir(parents=True, exist_ok=True)
-    html = templates.get_template("index.html.mako").render(today=today, report=with_title(report))
+    html = templates.get_template("index.html.mako").render(today=today, report=with_title(report) + dropped_themes_md(new_ledger, prior_themes))
     output_file.write_text(html, encoding="utf-8")
     if comparison_report:
         comparison_html = templates.get_template("index.html.mako").render(today=today, report=with_title(comparison_report))
