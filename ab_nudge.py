@@ -23,7 +23,7 @@ load_dotenv()
 
 DEFAULT_ANCHOR = "Weigh a single high-frequency print against the trend"
 DEFAULT_EXTRACT = r"(?:retail|real spend|real income|consumer (?:crack|spend|squeez|fragil|demand)|income squeeze|stagflation)"
-MODEL = "anthropic:claude-opus-4-8"
+MODEL = "anthropic:claude-opus-5-5"
 SETTINGS = {"max_tokens": 32768, "timeout": 600,
             "anthropic_thinking": {"type": "adaptive"}, "anthropic_effort": "high"}
 

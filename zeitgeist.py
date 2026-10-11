@@ -38,9 +38,9 @@ MAX_FRED_TOOL_CALLS = 8  # per-synthesis cap on on-demand FRED fetches (bounds c
 
 CLASSIFYING_MODEL = "anthropic:claude-haiku-4-5-20251001"
 EVENTS_MODEL = "openai-responses:gpt-5.1-2025-11-13"  # Responses API: required for native web_search in pydantic-ai 1.x
-SYNTHESIS_MODEL = "anthropic:claude-opus-4-8"  # Opus 4.8 single-pass deep synthesis (adaptive thinking + effort)
+SYNTHESIS_MODEL = "anthropic:claude-opus-5-5"  # Opus 5.5 single-pass deep synthesis (adaptive thinking + effort)
 CITATION_MODEL = "anthropic:claude-sonnet-4-6"  # mechanical link-insertion; cheaper than the synthesis model
-VERIFIER_MODEL = "anthropic:claude-opus-4-8"  # adversarial flag pass; needs strong reasoning to catch over-reach
+VERIFIER_MODEL = "anthropic:claude-opus-5-5"  # adversarial flag pass; needs strong reasoning to catch over-reach
 REVISE_MODEL = "anthropic:claude-sonnet-4-6"  # applies the flagged fixes; targeted edits, cheaper than Opus
 LEDGER_MODEL = "anthropic:claude-sonnet-4-6"  # maintains the rolling themes ledger; mechanical extract + prune
 COMPARISON_MODEL = None  # Parallel A/B disabled; set a model string (e.g. "openai-chat:gpt-4.1-2025-04-14") to re-enable index2.html

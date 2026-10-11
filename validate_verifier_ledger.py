@@ -24,7 +24,8 @@ attached) a crafted memo + prior ledger per scenario:
       circular-financing structure, and the deal is proceeding. Carried
       evidence escalated -> verifier should FLAG.
     - term-premium-fiscal-supply-rout. Memo advances it on genuinely new
-      evidence (10Y held >5% through the Oct 2 +29k payrolls print) -> HOLD.
+      evidence (10Y held >5% through the Oct 2 +29k payrolls print), sized to
+      what that session can carry -> HOLD.
 
 PASS = each scenario's over-claim flagged AND its supported claim NOT flagged.
 One Opus call per scenario.
@@ -97,11 +98,14 @@ CARRY_PRIOR = [
 # Trimmed from the shipped 10/05 memo. The term-premium bullets cite new data
 # (the Oct 2 payrolls print, after the 10/02 memo ran) -> HOLD. Their rates are
 # corrected to FRED: the shipped memo quoted Oct 1 levels as the post-print move
-# (a real error, but not what this case tests). The AI line cites nothing new
-# and restates the deal as "cracks" -> FLAG.
+# (a real error, but not what this case tests). The payroll-day read is sized to
+# what the curve did (2Y rose ~as much as 10Y, so one session can't isolate term
+# premium) and the call rests on the multi-week move; an earlier version pinned
+# the driver on that one session, which Opus 5.5 rightly flagged every draw.
+# The AI line cites nothing new and restates the deal as "cracks" -> FLAG.
 CARRY_MEMO = """\
 ## Key Themes
-- **The long end failed to rally on a soft payroll print — consistent with the term-premium read.** Sept payrolls came in at just +29k (released Oct 2), yet the 10Y edged up to 5.28% that day (from 5.24%) and 10Y–2Y held 0.45. A weak labor print that doesn't pull long yields down reads as a fiscal-supply/term-premium driver rather than a cycle one. Stay structurally UW long duration (ZROZ).
+- **The long end failed to rally on a soft payroll print — consistent with the term-premium read.** Sept payrolls came in at just +29k (released Oct 2), yet the 10Y edged up to 5.28% that day (from 5.24%). The 2Y rose about as much (10Y–2Y 0.46 → 0.45), so the session alone doesn't single out term premium; the call rests on the multi-week move — 10Y above 5% every session since Sep 23 and 10Y–2Y up from 0.26 to 0.45. Stay structurally UW long duration (ZROZ).
 
 ## Macro
 #### Rates & Fed — long end structurally heavy

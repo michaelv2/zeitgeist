@@ -1,6 +1,6 @@
 """Prototype: exercise the bounded FRED tool on a synthesis fixture.
 
-Runs the real synthesizing_agent (Opus 4.8) against a saved fixture with the
+Runs the real synthesizing_agent (Opus 5.5) against a saved fixture with the
 FRED tool enabled, then prints which series it fetched on-demand and the memo.
 
 Usage: uv run python prototype_fred_tool.py [path/to/fixture.json]

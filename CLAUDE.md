@@ -71,7 +71,7 @@ The application uses these specialized pydantic-ai agents:
    - Template: `templates/events_prompt.mako`
 
 3. **Synthesizing Agent** (`synthesizing_agent`)
-   - Model: `claude-opus-4-8` (Opus 4.8, single-pass deep synthesis) with **adaptive thinking + high effort**
+   - Model: `claude-opus-5-5` (Opus 5.5, single-pass deep synthesis) with **adaptive thinking + high effort**
    - Consolidates all inputs into one coherent memo, reasoning through cross-cutting tensions/confounders and **resolving them into a decisive call** rather than listing both sides
    - Opens with a **Key Themes** lede at the very top: at most 2-3 variant-perception bullets surfacing what may NOT be priced in or what a headline reading would miss (risk-reversals, narrative shifts, thematic inflections); genuine leaps flag a concrete confirm/refute tell
    - Surfaces the disambiguating datapoints as an integrated **Key Tells** block in the Positioning Summary (the forward "what would change this view" tells) — replaces the earlier separate two-pass "Cross-Currents" red-team
@@ -83,7 +83,7 @@ The application uses these specialized pydantic-ai agents:
    - Template: `templates/synthesizing_prompt.mako`
 
 4. **Verifier + Revise** (`verifier_agent` → `revise_agent`) — a flag-then-revise quality gate, gated by `ENABLE_VERIFIER`
-   - **Verifier** (`VERIFIER_MODEL` = Opus 4.8, adaptive thinking): re-reads the finished memo adversarially for OVER-reach — overstatement, self-contradiction, ungrounded claims, cherry-picked framing, and stale/ungrounded catalysts. Has the same bounded FRED tool to ground numeric claims, and is given the Upcoming Catalysts list to flag timing pegs that aren't actually upcoming. When the ledger is enabled it also receives the **prior themes** and runs a ledger check — flagging an inflection the evidence doesn't carry (or the inertia cases: a faded theme carried forward as `intact`, or a carried theme re-asserted as advancing/live with nothing new today), held to the same HIGH bar. Returns structured `Finding`s (or none)
+   - **Verifier** (`VERIFIER_MODEL` = Opus 5.5, adaptive thinking): re-reads the finished memo adversarially for OVER-reach — overstatement, self-contradiction, ungrounded claims, cherry-picked framing, and stale/ungrounded catalysts. Has the same bounded FRED tool to ground numeric claims, and is given the Upcoming Catalysts list to flag timing pegs that aren't actually upcoming. When the ledger is enabled it also receives the **prior themes** and runs a ledger check — flagging an inflection the evidence doesn't carry (or the inertia cases: a faded theme carried forward as `intact`, or a carried theme re-asserted as advancing/live with nothing new today), held to the same HIGH bar. Returns structured `Finding`s (or none)
    - **Revise** (`REVISE_MODEL` = Sonnet): applies each fix and propagates it to every sibling sentence that restates the corrected claim, touching nothing else
    - Catches over-reach the single-pass synthesis commits to but can't self-critique mid-generation; a failure is logged and the unrevised draft ships
    - Templates: `templates/verifier_prompt.mako`, `templates/revise_prompt.mako`
@@ -110,7 +110,7 @@ Batched through Relevant Prediction Agent → tagged_predictions
                     ┌─ tagged_predictions
                     ├─ Events Agent → upcoming catalysts
 Synthesizing Agent ─┤─ GNews → news headlines       (+ bounded FRED tool, on demand)
-(Opus 4.8)          ├─ FRED API → macro data points
+(Opus 5.5)          ├─ FRED API → macro data points
                     └─ prior themes ledger (re-tested against today's data)
         ↓
 Verifier → Revise  (flag over-reach: FRED-grounded + catalyst-checked → apply & propagate fixes)
@@ -146,7 +146,7 @@ At the top of `zeitgeist.py`:
 - `QUICK_TEST`: Set to `True` in dev mode to limit data fetching
 - `BATCH_SIZE`: Number of predictions per LLM batch (100)
 - `BATCH_REQUEST_DELAY_SECONDS`: Delay between batches (5s) to avoid rate limits
-- `CLASSIFYING_MODEL`, `EVENTS_MODEL`, `SYNTHESIS_MODEL` (Opus 4.8), `CITATION_MODEL`, `VERIFIER_MODEL` (Opus 4.8), `REVISE_MODEL` (Sonnet), `LEDGER_MODEL` (Sonnet), `COMPARISON_MODEL`: model selection per agent (mix of Anthropic + OpenAI)
+- `CLASSIFYING_MODEL`, `EVENTS_MODEL`, `SYNTHESIS_MODEL` (Opus 5.5), `CITATION_MODEL`, `VERIFIER_MODEL` (Opus 5.5), `REVISE_MODEL` (Sonnet), `LEDGER_MODEL` (Sonnet), `COMPARISON_MODEL`: model selection per agent (mix of Anthropic + OpenAI)
 - `ENABLE_FRED_TOOL`, `ENABLE_VERIFIER`, `ENABLE_LEDGER`, `ENABLE_CITATIONS`, `ENABLE_EMAIL_BRIEFING`: feature flags for the optional pipeline stages
 - `MAX_FRED_TOOL_CALLS`: per-run cap on on-demand FRED fetches, shared by the synthesis and verifier tools (8)
 - Synthesis (and the verifier) run adaptive thinking + `anthropic_effort: "high"` (set in `model_settings`)

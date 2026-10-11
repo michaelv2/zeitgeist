@@ -423,7 +423,7 @@ def main():
     run_parser = sub.add_parser("run", help="Generate reports from multiple models")
     run_parser.add_argument(
         "--models", nargs="+",
-        default=["anthropic:claude-opus-4-8", "openai-chat:gpt-4.1-2025-04-14", "anthropic:claude-sonnet-4-6"],
+        default=["anthropic:claude-opus-5-5", "openai-chat:gpt-4.1-2025-04-14", "anthropic:claude-sonnet-4-6"],
     )
     run_parser.add_argument("--runs", type=int, default=3)
     run_parser.add_argument("--fixture", type=Path, default=None)
