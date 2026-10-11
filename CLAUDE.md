@@ -149,7 +149,7 @@ At the top of `zeitgeist.py`:
 - `CLASSIFYING_MODEL`, `EVENTS_MODEL`, `SYNTHESIS_MODEL` (Opus 5.5), `CITATION_MODEL`, `VERIFIER_MODEL` (Opus 5.5), `REVISE_MODEL` (Sonnet), `LEDGER_MODEL` (Sonnet), `COMPARISON_MODEL`: model selection per agent (mix of Anthropic + OpenAI)
 - `ENABLE_FRED_TOOL`, `ENABLE_VERIFIER`, `ENABLE_LEDGER`, `ENABLE_CITATIONS`, `ENABLE_EMAIL_BRIEFING`: feature flags for the optional pipeline stages
 - `MAX_FRED_TOOL_CALLS`: per-run cap on on-demand FRED fetches, shared by the synthesis and verifier tools (8)
-- Synthesis (and the verifier) run adaptive thinking + `anthropic_effort: "high"` (set in `model_settings`)
+- Synthesis (and the verifier) run adaptive thinking + `anthropic_effort: "high"` (set in `model_settings`), plus `anthropic_cache: True` (automatic prompt caching): each FRED tool round re-sends the full prompt prefix, which then bills as a cache read at 0.1x (~17% off a run's Opus cost when tools are used; ~+9% on a synthesis that makes no tool call)
 - `FRED_CODES`: Dict mapping FRED series codes to human-readable names (includes both headline and core CPI/PCE so real-spending reads aren't core-only)
 - `NUM_FRED_DATAPOINTS`: How many recent datapoints to fetch per FRED series (10)
 - `LEDGER_NAME`: filename of the per-day themes-ledger snapshot under `.reports/YYYY/MM/DD/` (the rolling multi-day state fed back into synthesis)

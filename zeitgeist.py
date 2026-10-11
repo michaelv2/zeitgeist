@@ -286,7 +286,8 @@ synthesizing_agent = Agent(
     system_prompt=templates.get_template("synthesizing_prompt.mako").render(today=today, fred_tool=ENABLE_FRED_TOOL, ledger=ENABLE_LEDGER),
     retries=RETRIES,
     model_settings={"max_tokens": 32768, "timeout": 600,
-                    "anthropic_thinking": {"type": "adaptive"}, "anthropic_effort": "high"},
+                    "anthropic_thinking": {"type": "adaptive"}, "anthropic_effort": "high",
+                    "anthropic_cache": True},  # each FRED tool round re-sends the ~38k-token prefix; cached reads bill at 0.1x
 )
 
 def register_fred_tools(agent: Agent):
@@ -359,7 +360,8 @@ verifier_agent = Agent(
     system_prompt=templates.get_template("verifier_prompt.mako").render(today=today, ledger=ENABLE_LEDGER),
     retries=RETRIES,
     model_settings={"max_tokens": 32768, "timeout": 600,
-                    "anthropic_thinking": {"type": "adaptive"}, "anthropic_effort": "high"},
+                    "anthropic_thinking": {"type": "adaptive"}, "anthropic_effort": "high",
+                    "anthropic_cache": True},  # same: tool rounds re-send the memo + prompt prefix
 )
 register_fred_tools(verifier_agent)
 
