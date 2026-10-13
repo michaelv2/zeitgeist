@@ -150,6 +150,7 @@ At the top of `zeitgeist.py`:
 - `CLASSIFYING_MODEL`, `EVENTS_MODEL`, `SYNTHESIS_MODEL` (Opus 5.5), `CITATION_MODEL`, `VERIFIER_MODEL` (Opus 5.5), `REVISE_MODEL` (Sonnet), `LEDGER_MODEL` (Sonnet), `COMPARISON_MODEL`: model selection per agent (mix of Anthropic + OpenAI)
 - `ENABLE_FRED_TOOL`, `ENABLE_VERIFIER`, `ENABLE_LEDGER`, `ENABLE_CITATIONS`, `ENABLE_EMAIL_BRIEFING`: feature flags for the optional pipeline stages
 - `MAX_FRED_TOOL_CALLS`: per-run cap on on-demand FRED fetches, shared by the synthesis and verifier tools (8)
+- `FRED_CONTEXT_YEARS`: lookback for the significance `context` block `fred_series` returns (10)
 - Synthesis (and the verifier) run adaptive thinking + `anthropic_effort: "high"` (set in `model_settings`), plus `anthropic_cache: True` (automatic prompt caching): each FRED tool round re-sends the full prompt prefix, which then bills as a cache read at 0.1x (~17% off a run's Opus cost when tools are used; ~+9% on a synthesis that makes no tool call)
 - `FRED_CODES`: Dict mapping FRED series codes to human-readable names (includes both headline and core CPI/PCE so real-spending reads aren't core-only)
 - `NUM_FRED_DATAPOINTS`: How many recent datapoints to fetch per FRED series (10)
@@ -175,6 +176,8 @@ Gated by `ENABLE_LEDGER`. A compact, curated watchlist (≤8 themes) of the macr
 
 ### Bounded FRED Tool
 `register_fred_tools()` attaches `fred_search`/`fred_series` to both the synthesizing and verifier agents (shared `FredToolkit` deps: a `Fred` client, a fetch budget, and a provenance log). It lets an agent fetch an additional series on demand to *compute* a figure rather than estimate it; fetched series are appended to the citation sources. Capped at `MAX_FRED_TOOL_CALLS`; degrades gracefully (and the daily still runs) if `FRED_API_KEY` is absent.
+
+`fred_series` also returns a significance **`context`** block (`_history_context()`, computed from the full history the fetch already downloads — no extra API calls): the latest reading's percentile/median/range over the last `FRED_CONTEXT_YEARS` (10), and its latest 1m/3m moves (3m/12m for quarterly series) vs the typical absolute move. Trending series (≥80% of YoY changes one sign, all-positive values — CPI, payrolls, M2, home prices) are described by their YoY % change, since their level sits near the top of its range by construction. The stats are keyed by the span they actually cover — `last_10y`, or e.g. `last_3y` plus a `short_history` warning when FRED's history is shorter (ICE BofA spreads, which FRED carries for only ~3 years) — so every figure quoted from a short window carries its span (an earlier separate `note` was ignored by the verifier). The verifier uses it to judge a move's size and a level's extremity rather than characterizing them from memory; a context failure is logged and the fetch still returns.
 
 ### Citation System
 The citation agent receives the full report and a list of sources (title + URL). It must insert citations inline without fabricating sources. The citation step is wrapped in try/except, so a failure is logged and the report falls back to the uncited version.

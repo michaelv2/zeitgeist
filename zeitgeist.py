@@ -56,6 +56,7 @@ FRED_API_KEY=os.getenv("FRED_API_KEY")
 GMAIL_USER = os.getenv("GMAIL_USER")
 GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD")
 NUM_FRED_DATAPOINTS = 10
+FRED_CONTEXT_YEARS = 10  # lookback for the significance context (percentile, typical move) fred_series returns
 LEDGER_NAME = "themes_ledger.json"  # themes-ledger snapshot, co-located with each day's report under .reports/
 LEDGER_STALE_DAYS = 21  # drop a ledger theme after this many days with no new evidence (enforced in prune_ledger)
 
@@ -268,6 +269,45 @@ def _fred_search(client, query: str, top_k: int = 8) -> str:
     ]
     return json.dumps({"query": query, "results": rows})
 
+def _history_context(s, years: int = FRED_CONTEXT_YEARS) -> dict | None:
+    """Where a series' latest reading sits in its last `years` of history, and how its latest moves compare with
+    typical moves — so an agent can judge a move's significance, not just its direction. Trending series (price
+    indexes, payrolls, money stock) sit near the top of their level range by construction, so they are described by
+    their YoY % change and their moves as % changes."""
+    import pandas as pd
+
+    s = s.dropna()
+    if len(s) < 8 or (s.index[-1] - s.index[0]).days < 400:
+        return None
+    end = s.index[-1]
+    start = end - pd.DateOffset(years=years)
+    sig = lambda v: float(f"{v:.4g}")
+    lag = lambda off: pd.Series(s.reindex(s.index - off, method="ffill").values, index=s.index)  # value `off` earlier
+
+    yoy_diff = (s - lag(pd.DateOffset(years=1)))[s.index >= start].dropna()
+    trending = bool((s > 0).all()) and max((yoy_diff > 0).mean(), (yoy_diff < 0).mean()) >= 0.8
+    x = ((s / lag(pd.DateOffset(years=1)) - 1) * 100).dropna() if trending else s
+    xw = x[x.index >= start]
+    latest = xw.iloc[-1]
+    stats = {"window": f"{xw.index[0].date()}..{end.date()}",
+             "latest": sig(latest), "percentile": round((xw < latest).mean() * 100),
+             "median": sig(xw.median()), "min": sig(xw.min()), "max": sig(xw.max()), "moves": {}}
+    step_days = float(pd.Series(s.index).diff().dt.days.median())
+    for m in ((1, 3) if step_days <= 35 else (3, 12)):
+        prev = lag(pd.DateOffset(months=m))
+        chg = ((s / prev - 1) * 100 if trending else s - prev)[s.index >= start].dropna()
+        stats["moves"][f"{m}m"] = {"latest": sig(chg.iloc[-1]), "typical_abs": sig(chg.abs().median()),
+                                   "latest_abs_percentile": round((chg.abs() < abs(chg.iloc[-1])).mean() * 100)}
+    # Key the stats by the span they actually cover: a short history (e.g. ICE BofA spreads, ~3y on FRED) then
+    # reads "last_3y" on every figure quoted from it, rather than relying on a separate note the model can skip.
+    span = years if s.index[0] <= start else max(1, round((end - s.index[0]).days / 365.25))
+    ctx = {"basis": "yoy_pct_change" if trending else "level", "move_units": "pct_change" if trending else "change",
+           f"last_{span}y": stats}
+    if span < years:
+        ctx["short_history"] = (f"FRED carries only ~{span}y of this series, so its percentiles describe that window, "
+                                f"not the long run — cite them as 'of the last {span} years' and treat them as weak evidence")
+    return ctx
+
 def _fred_series(client, series_id: str, n: int = NUM_FRED_DATAPOINTS):
     series_id = series_id.strip().upper()
     info = client.get_series_info(series_id)
@@ -277,6 +317,11 @@ def _fred_series(client, series_id: str, n: int = NUM_FRED_DATAPOINTS):
     url = f"https://fred.stlouisfed.org/series/{series_id}"
     payload = {"series_id": series_id, "title": title, "units": str(info.get("units", "")),
                "frequency": str(info.get("frequency", "")), "observations": obs, "url": url}
+    try:
+        if ctx := _history_context(s):
+            payload["context"] = ctx
+    except Exception as e:  # context is a nice-to-have; never fail the fetch over it
+        log.warning(f"FRED history context failed for {series_id}: {e}")
     return json.dumps(payload), {"title": f"{title} (FRED {series_id})", "url": url}
 
 synthesizing_agent = Agent(
@@ -308,7 +353,7 @@ def register_fred_tools(agent: Agent):
 
     @agent.tool
     async def fred_series(ctx: RunContext[FredToolkit], series_id: str) -> str:
-        """Fetch the most recent observations for a specific FRED series id (e.g. 'CPIAUCSL'), with metadata and source URL — for grounding a calculation in real data rather than estimating it."""
+        """Fetch the most recent observations for a specific FRED series id (e.g. 'CPIAUCSL'), with metadata and source URL — for grounding a calculation in real data rather than estimating it. Also returns a 'context' block for judging significance, with its stats under 'last_10y' — or 'last_Ny' when FRED's history is shorter (cite those as 'of the last N years'; weak evidence): where the latest reading sits in that window ('percentile' = share of readings below it, plus median/min/max; on the YoY % change when 'basis' is yoy_pct_change, for trending series like price indexes), and 'moves' comparing the latest 1m/3m change with the typical absolute change ('latest_abs_percentile' = share of past moves smaller than it)."""
         tk = ctx.deps
         if tk.client is None:
             return "FRED tool unavailable (no FRED_API_KEY configured); proceed with the data already provided."
