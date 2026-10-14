@@ -89,6 +89,48 @@ assert not(IS_PROD and QUICK_TEST), "QUICK_TEST must be False in GitHub Actions"
 
 ########################################################################################################
 
+# Per-run token usage and estimated cost, logged per agent call and totalled at the end of the run.
+# USD per million tokens (input, output, cache-read multiplier) as of 2026-10 — update when models or prices
+# change. Cache writes bill 1.25x input (5-minute TTL). Unpriced models (e.g. the OpenAI events agent) log tokens only.
+MODEL_PRICES = {
+    "claude-opus-5-5": (4.00, 20.00, 0.05),
+    "claude-sonnet-4-6": (3.00, 15.00, 0.10),
+    "claude-haiku-4-5-20251001": (1.00, 5.00, 0.10),
+}
+run_costs: dict[str, float] = {}  # model -> estimated USD so far this run
+unpriced_models: set[str] = set()
+
+def log_usage(stage: str, model: str, result) -> None:
+    """Log one agent run's tokens (split into uncached / cache-write / cache-read input) and estimated cost.
+    pydantic-ai's input_tokens includes cached tokens, so the uncached part is the remainder. Never raises: it is
+    called inside the pipeline's error handlers, where a logging failure would otherwise discard a real result."""
+    try:
+        _log_usage(stage, model, result)
+    except Exception as e:
+        log.warning(f"Usage logging failed for {stage}: {e}")
+
+def _log_usage(stage: str, model: str, result) -> None:
+    u = result.usage()
+    model = model.split(":", 1)[-1]
+    uncached = u.input_tokens - u.cache_write_tokens - u.cache_read_tokens
+    k = lambda n: f"{n / 1000:.1f}k"
+    line = (f"Usage {stage} ({model}): {u.requests} request(s) | input {k(uncached)} uncached, "
+            f"{k(u.cache_write_tokens)} cache-write, {k(u.cache_read_tokens)} cache-read | output {k(u.output_tokens)}")
+    if price := MODEL_PRICES.get(model):
+        inp, out, read_mult = price
+        cost = (uncached * inp + u.cache_write_tokens * inp * 1.25 + u.cache_read_tokens * inp * read_mult
+                + u.output_tokens * out) / 1e6
+        run_costs[model] = run_costs.get(model, 0.0) + cost
+        line += f" | ~${cost:.3f}"
+    else:
+        unpriced_models.add(model)
+    log.info(line)
+
+def log_run_cost() -> None:
+    by_model = ", ".join(f"{m} ${c:.2f}" for m, c in sorted(run_costs.items(), key=lambda x: -x[1]))
+    unpriced = f"; not priced: {', '.join(sorted(unpriced_models))}" if unpriced_models else ""
+    log.info(f"Run cost estimate: ~${sum(run_costs.values()):.2f} ({by_model}){unpriced}")
+
 async def sleep_if_rate_limit(response: httpx.Response) -> bool:
     if response.status_code != 429:
         return False
@@ -216,6 +258,7 @@ async def tag_predictions(predictions: pl.DataFrame) -> pl.DataFrame:
         log.info(f"Submitting batch {i} ...")
         try:
             result = await relevant_prediction_agent.run(batch.write_json())
+            log_usage(f"classifier batch {i}", CLASSIFYING_MODEL, result)
             log.info(f"Completed batch {i}")
             if result.output:
                 return pl.DataFrame(result.output)
@@ -481,6 +524,7 @@ def with_title(report: str) -> str:
 
 async def get_events() -> pl.DataFrame:
     res = await events_agent.run()
+    log_usage("events", EVENTS_MODEL, res)
     return pl.DataFrame(res.output)
 
 def get_email_briefing() -> str | None:
@@ -545,11 +589,13 @@ async def main():
     report = synthesis_results[0].output if not isinstance(synthesis_results[0], Exception) else None
     if report is None:
         raise synthesis_results[0]
+    log_usage("synthesis", SYNTHESIS_MODEL, synthesis_results[0])
     if fred_toolkit.fetched:
         log.info(f"FRED tool fetched {len(fred_toolkit.fetched)} on-demand series: {[f['title'] for f in fred_toolkit.fetched]}")
     comparison_report = None
     if COMPARISON_MODEL and len(synthesis_results) > 1 and not isinstance(synthesis_results[1], Exception):
         comparison_report = synthesis_results[1].output
+        log_usage("comparison", COMPARISON_MODEL, synthesis_results[1])
     elif COMPARISON_MODEL and len(synthesis_results) > 1 and isinstance(synthesis_results[1], Exception):
         log.error(f"Comparison model failed: {synthesis_results[1]}")
 
@@ -558,11 +604,15 @@ async def main():
             verify_toolkit = FredToolkit(client=Fred(api_key=FRED_API_KEY) if FRED_API_KEY else None)
             verifier_input = json.dumps({"memo": report, "upcoming_catalysts": report_input["upcoming_catalysts"],
                                          **({"prior_themes": prior_themes} if prior_themes else {})})
-            findings = (await verifier_agent.run(verifier_input, deps=verify_toolkit)).output.findings
+            verdict = await verifier_agent.run(verifier_input, deps=verify_toolkit)
+            log_usage("verifier", VERIFIER_MODEL, verdict)
+            findings = verdict.output.findings
             if findings:
                 log.info(f"Verifier flagged {len(findings)} claim(s): {[f.issue for f in findings]}")
                 revise_input = json.dumps({"memo": report, "findings": [f.model_dump() for f in findings]})
-                revised = (await revise_agent.run(revise_input)).output
+                revision = await revise_agent.run(revise_input)
+                log_usage("revise", REVISE_MODEL, revision)
+                revised = revision.output
                 report = revised.removesuffix("```").removeprefix("```md").removeprefix("```markdown").removeprefix("```")
             else:
                 log.info("Verifier found no over-reach; shipping draft unchanged.")
@@ -573,7 +623,9 @@ async def main():
     if ENABLE_LEDGER:
         try:
             ledger_input = json.dumps({"prior_ledger": prior_themes, "memo": report})
-            new_ledger = prune_ledger(prior_themes, (await ledger_agent.run(ledger_input)).output)
+            ledger_result = await ledger_agent.run(ledger_input)
+            log_usage("ledger", LEDGER_MODEL, ledger_result)
+            new_ledger = prune_ledger(prior_themes, ledger_result.output)
             ledger_path = Path(f".reports/{today.strftime('%Y/%m/%d')}") / LEDGER_NAME
             ledger_path.parent.mkdir(parents=True, exist_ok=True)
             ledger_path.write_text(new_ledger.model_dump_json(indent=2))
@@ -604,6 +656,7 @@ async def main():
         )
         try:
             result = await citation_agent.run(citations.write_json())
+            log_usage("citations", CITATION_MODEL, result)
             report = result.output.removesuffix("```").removeprefix("```md").removeprefix("```markdown").removeprefix("```")
         except Exception as e:
             log.error(f"Failed to insert citations: {e}")
@@ -620,6 +673,7 @@ async def main():
         log.info(f"Wrote comparison report to {output_dir / 'index2.html'}")
     redirect = f'<meta http-equiv="refresh" content="0;url={today.strftime("%Y/%m/%d/")}"><a href="{today.strftime("%Y/%m/%d/")}">Latest report</a>'
     Path(".reports/index.html").write_text(redirect, encoding="utf-8")
+    log_run_cost()
     log.info("Done!")
     if IS_DEV:
         import webbrowser

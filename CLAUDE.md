@@ -152,6 +152,7 @@ At the top of `zeitgeist.py`:
 - `ENABLE_FRED_TOOL`, `ENABLE_VERIFIER`, `ENABLE_LEDGER`, `ENABLE_CITATIONS`, `ENABLE_EMAIL_BRIEFING`: feature flags for the optional pipeline stages
 - `MAX_FRED_TOOL_CALLS`: per-run cap on on-demand FRED fetches, shared by the synthesis and verifier tools (8)
 - `FRED_CONTEXT_YEARS`: lookback for the significance `context` block `fred_series` returns (10)
+- `MODEL_PRICES`: USD per MTok (input, output, cache-read multiplier) per model, used by `log_usage()` to log each agent call's tokens (uncached / cache-write / cache-read input, output) and estimated cost, plus a `Run cost estimate` total at the end of the run (in the cron log). Update it when a model or price changes; unpriced models log tokens only
 - Synthesis (and the verifier) run adaptive thinking + `anthropic_effort: "high"` (set in `model_settings`), plus `anthropic_cache: True` (automatic prompt caching): each FRED tool round re-sends the full prompt prefix, which then bills as a cache read at 0.1x (~17% off a run's Opus cost when tools are used; ~+9% on a synthesis that makes no tool call)
 - `FRED_CODES`: Dict mapping FRED series codes to human-readable names (includes both headline and core CPI/PCE so real-spending reads aren't core-only)
 - `NUM_FRED_DATAPOINTS`: How many recent datapoints to fetch per FRED series (10)
