@@ -1,0 +1,83 @@
+{
+  "as_of": "2026-10-16",
+  "themes": [
+    {
+      "id": "fed-policy-error-curve-flattening",
+      "label": "Fed Regime Change — Front End Overpricing Hikes; 2Y the Edge",
+      "first_seen": "2026-06-18",
+      "last_updated": "2026-10-16",
+      "status": "inflecting",
+      "stance": "Oct 28 hike fully priced; December partly priced (3M bill 4.28%, +17bp in a month, 40bp over fed funds 3.88%). 2Y at 4.82% is 94bp over funds — up to four hikes at zero term premium, fewer with positive term premium — still a demanding path into a 51k/month labor market. Neither stop-loss triggered (core CPI +0.335% MoM, below ≥0.35% bar; 2Y not above 4.90%), so long 2Y held. Oct 28 hike plus pause language = 2Y long pays; hike with December open and 3M bill holding >4.3% = cycle longer than 2Y call assumes, position near stop.",
+      "tell": "Oct 28 FOMC: hike + pause language = 2Y long pays. Hike + open December guidance with 3M bill holding >4.3% = stop-loss territory. Oct 29 core PCE ≤0.20% = add duration; ≥0.30% = December odds rise, 2Y position under pressure."
+    },
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory — Re-acceleration Confirmed; PCE the Decisive Gauge",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-10-16",
+      "status": "inflecting",
+      "stance": "Core CPI re-accelerated three consecutive months: +0.22% July, +0.29% August, +0.335% September — roughly 3.4% annualized over three months. September missed the ≤0.25% cooling bar but stayed just below the ≥0.35% stagflation bar. Headline CPI +0.65% MoM in September. PPI +6.3% YoY, largest gain since 2022, driven by energy. Soft summer is over; Oct 29 Sept core PCE (inference: likely firm given CPI/PPI) lands after the Fed decides on Oct 28.",
+      "tell": "Oct 29 Sept core PCE ≥0.30% = re-acceleration confirmed, December hike odds rise. Oct 29 core PCE ≤0.20% = Fed overtightened, add duration. Nov 10 Oct CPI: fourth straight month of core acceleration ≥0.30% locks in December."
+    },
+    {
+      "id": "breakeven-inflation-mispricing",
+      "label": "Breakeven / TIPS Mispricing — Market Treating Oil Shock as Transitory",
+      "first_seen": "2026-10-16",
+      "last_updated": "2026-10-16",
+      "status": "building",
+      "stance": "10Y breakeven at 2.32% (down 6bp on the month) while headline CPI runs ~4.6% annualized over three months and WTI closes above $100 two days running. PPI +6.3% YoY. Market is pricing oil as transitory despite the Fed hiking in September on it. New position: short-duration TIPS (STIP/VTIP) over nominal T-bills, paired with 2Y long as a hedge — oil above $100 hurts 2Y but pays TIPS, lower oil does the reverse.",
+      "tell": "10Y breakeven rising above ~2.45% with WTI over $100 = TIPS call working. Breakeven falling below 2.25% with oil still above $100 = market fully trusts Fed, cut TIPS. Oct 29 Sept core PCE firm = supports mispricing thesis."
+    },
+    {
+      "id": "term-premium-fiscal-supply-rout",
+      "label": "Term Premium / Fiscal Supply Rout — Structural, Independent of Cycle",
+      "first_seen": "2026-09-25",
+      "last_updated": "2026-10-16",
+      "status": "inflecting",
+      "stance": "Long end rallied (10Y fell to 5.19% from 5.31% high) on a growth-scare trade even as 2Y rose — 10Y real yield ~2.84% (5.19% nominal minus 2.35% breakeven). Fiscal/term-premium rout paused, not dead: Congress likely gridlocked post-Nov 3 (Democratic sweep 62.5%), no deficit consolidation. Supply overhang unresolved; avoid ZROZ. Long-end move driven by growth fears, not supply relief.",
+      "tell": "10Y sustaining >5.3% on soft Oct 29 PCE = term premium re-dominant. Nov 5 30Y auction: tail >0bp = supply-side confirmation. Strong 30Y auction (tail <0bp) or credible fiscal consolidation = first real challenge to theme."
+    },
+    {
+      "id": "equity-rate-reconciliation",
+      "label": "Equity–Rate Reconciliation — Records vs. 5.2% Long End; Credit Widening",
+      "first_seen": "2026-10-07",
+      "last_updated": "2026-10-16",
+      "status": "inflecting",
+      "stance": "HY spreads back at Oct 1 high of 3.25% (3M bill 40bp over funds), up 54bp in a month — larger than 91% of monthly moves in last 3 years; now 76th percentile of the last 3-year window. NFCI tightened further (-0.499 from -0.549), but financial conditions remain loose (below zero). Stocks near records remain the outlier vs. credit. HYG puts held; underweight high-beta stocks. De-risk trigger at 3.5% not yet reached.",
+      "tell": "HY spreads above 3.5% = de-risk equity beta. Mega-cap tech margin warnings Oct 27–30 = ERP snap risk highest. Spreads back below 3.0% = credit-led tightening thesis killed."
+    },
+    {
+      "id": "ai-trade-bifurcation",
+      "label": "AI Trade Bifurcating — Physical Scarcity vs. Borrowed-Money Builders",
+      "first_seen": "2026-07-31",
+      "last_updated": "2026-10-14",
+      "status": "building",
+      "stance": "No new evidence today beyond prior ASML guidance raise (already recorded Oct 14). Barbell intact: OW cash-rich hyperscalers (MSFT, AMZN, GOOGL) + scarce tool suppliers (ASML, AMAT, LRCX, KLAC); UW borrowed-money builders (CRWV, IREN, ORCL) and MU as borrowing costs rise with every priced hike. Ballroom-donor list (NVDA, MSFT, AMZN, CSCO) adds minor regulatory overhang under likely Democratic House. OpenAI IPO probability 3.6% in 2026 — no liquidity event for circular-financing chain.",
+      "tell": "MSFT/AMZN/GOOGL earnings Oct 27–30: capex raised + gross margins intact = moats hold. Margin warnings or capex cuts = AI de-rating confirmed. Oct 29 GDP equipment and software investment stalling = build-out de-rate. NVDA guide-down = cohort de-rating."
+    },
+    {
+      "id": "hormuz-oil-stagflation-shock",
+      "label": "Gulf Escalation / Oil Impulse — WTI Above $100; Breakevens Lagging",
+      "first_seen": "2026-07-20",
+      "last_updated": "2026-10-16",
+      "status": "inflecting",
+      "stance": "WTI closed above $100 two consecutive days ($101.91 high). Houthis hit Yemen's presidential palace in Aden and are escalating against Saudi infrastructure. Gulf oil shock tell has half-triggered: WTI >$100 confirmed, but no confirmed hit on Saudi production or processing sites. Breakevens at 2.32% treating oil as transitory even as headline CPI runs ~4.6% annualized. Energy hedge (XLE/XOP) held; adding inflation leg via TIPS rather than more crude. Upstream sleeve pays when rate-sensitive book loses.",
+      "tell": "Confirmed hit on Saudi production or processing sites with WTI holding above $100 = re-press energy and inflation impulse, cut duration. WTI sustained below $90 with confirmed de-escalation = trim to structural sleeve. OPEC+ Nov 30 meeting = next supply lever."
+    },
+    {
+      "id": "defense-restocking-supercycle",
+      "label": "Arsenal Depletion — Multi-Year Defense Restocking, Multi-Theatre and Broadening",
+      "first_seen": "2026-08-05",
+      "last_updated": "2026-10-16",
+      "status": "building",
+      "stance": "White House order limiting Starshield satellite access for Ukraine reported by Reuters — US support less reliable, strengthening European self-arming imperative. European defense plan to proceed 'with or without US forces' reinforced. Three active theatres of demand: Ukraine, Gulf (interceptors), European self-funding. Democratic sweep (62.5%) = gridlock keeps defense appropriations bipartisan floor from Jan 2027. Senators pushing Starshield investigation adds to European EUAD thesis. Portfolio: XAR, LMT, RTX, NOC, EUAD.",
+      "tell": "Prime contractor (LMT, RTX, NOC) earnings order-book guidance raised = demand confirmed, add. European defense budget announcements above 2.5% GDP = EUAD accelerator. Binding simultaneous ceasefire across Ukraine, Iran/Hormuz AND Red Sea/Saudi = trim acute premium."
+    }
+  ],
+  "dropped": [
+    {
+      "id": "consumer-real-income-squeeze",
+      "reason": "displaced at cap by breakeven-inflation-mispricing; Sept retail +0.1% real left thesis unresolved, not reasserting — Oct 29 real consumption tell now subsumed into core-inflation-trajectory and fed-policy-error-curve-flattening watches"
+    }
+  ]
+}
