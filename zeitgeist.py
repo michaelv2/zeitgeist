@@ -18,7 +18,7 @@ from dotenv import load_dotenv
 
 ########################################## Setup Configs #################################################
 
-IS_PROD = "GITHUB_ACTIONS" in os.environ
+IS_PROD = "GITHUB_ACTIONS" in os.environ or "ZEITGEIST_PROD" in os.environ  # run_cron.sh sets ZEITGEIST_PROD
 IS_DEV = not IS_PROD
 
 QUICK_TEST = IS_DEV # If True, run quickly on first few predictions; useful for smoke-testing
@@ -28,6 +28,7 @@ ENABLE_EMAIL_BRIEFING = True
 ENABLE_FRED_TOOL = True  # give synthesis a bounded FRED search/fetch tool to ground claims on demand
 ENABLE_VERIFIER = True  # post-synthesis flag-then-revise pass to catch over-reach before shipping
 ENABLE_LEDGER = True  # rolling multi-day themes ledger fed back into synthesis (phase 1: local-first)
+ENABLE_SLACK = True  # write a Slack summary (Key Themes + tilts + link) for run_cron.sh to post after the push
 
 BATCH_REQUEST_DELAY_SECONDS = 5
 RATE_LIMIT_WAIT_SECONDS = 10
@@ -59,6 +60,8 @@ NUM_FRED_DATAPOINTS = 10
 FRED_CONTEXT_YEARS = 10  # lookback for the significance context (percentile, typical move) fred_series returns
 LEDGER_NAME = "themes_ledger.json"  # themes-ledger snapshot, co-located with each day's report under .reports/
 LEDGER_STALE_DAYS = 21  # drop a ledger theme after this many days with no new evidence (enforced in prune_ledger)
+REPORTS_URL = "https://michaelv2.github.io/zeitgeist/"  # GitHub Pages root the .reports/ worktree publishes to
+SLACK_PAYLOAD = Path(".slack_payload.json")  # Slack summary run_cron.sh posts after the push (gitignored)
 
 FRED_CODES = {
     "CPIAUCSL": "CPI (Headline)",
@@ -85,7 +88,7 @@ FRED_CODES = {
 }
 
 assert "OPENAI_API_KEY" in os.environ, "No OPENAI_API_KEY found; Either add to .env file or run `export OPENAI_API_KEY=???`"
-assert not(IS_PROD and QUICK_TEST), "QUICK_TEST must be False in GitHub Actions"
+assert not(IS_PROD and QUICK_TEST), "QUICK_TEST must be False in prod (GitHub Actions or run_cron.sh)"
 
 ########################################################################################################
 
@@ -673,6 +676,15 @@ async def main():
         log.info(f"Wrote comparison report to {output_dir / 'index2.html'}")
     redirect = f'<meta http-equiv="refresh" content="0;url={today.strftime("%Y/%m/%d/")}"><a href="{today.strftime("%Y/%m/%d/")}">Latest report</a>'
     Path(".reports/index.html").write_text(redirect, encoding="utf-8")
+    SLACK_PAYLOAD.unlink(missing_ok=True)  # never leave a stale summary behind for run_cron.sh to post
+    if ENABLE_SLACK:
+        from slack_digest import build_payload
+        try:
+            payload = build_payload(report, today, f"{REPORTS_URL}{today.strftime('%Y/%m/%d/')}")
+            SLACK_PAYLOAD.write_text(json.dumps(payload), encoding="utf-8")
+            log.info(f"Wrote Slack summary to {SLACK_PAYLOAD} ...")
+        except Exception as e:
+            log.error(f"Failed to build Slack summary: {e}")
     log_run_cost()
     log.info("Done!")
     if IS_DEV:

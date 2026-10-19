@@ -14,8 +14,9 @@ Zeitgeist is a Python application that generates daily investment macro reports 
 7. Verifying the finished draft for over-reach and revising it before it ships
 8. Updating a rolling multi-day **themes ledger** (carry/inflect/prune) that feeds back into the next day's synthesis
 9. Adding citations and rendering to HTML
+10. Posting a Slack summary (Key Themes + Positioning Summary tilts + link to the full memo)
 
-The application runs daily via a **local cron** (`run_cron.sh`) and publishes reports to GitHub Pages. The `.reports/` directory is a git worktree checked out to the `gh-pages` branch; the cron runs the script, then commits and pushes `.reports/` to publish.
+The application runs daily via a **local cron** (`run_cron.sh`) and publishes reports to GitHub Pages. The `.reports/` directory is a git worktree checked out to the `gh-pages` branch; the cron runs the script, then commits and pushes `.reports/` to publish, then posts the Slack summary.
 
 ## Development Commands
 
@@ -31,7 +32,7 @@ This will:
 - Open the report in your browser (dev mode only)
 
 ### Quick smoke test
-The script automatically runs in "quick test" mode when `GITHUB_ACTIONS` is not set. This limits data fetching to first few batches for faster iteration during development.
+The script automatically runs in "quick test" mode when neither `GITHUB_ACTIONS` nor `ZEITGEIST_PROD` is set (`run_cron.sh` sets `ZEITGEIST_PROD=1`, so the daily is a full run). This limits data fetching to first few batches for faster iteration during development.
 
 ### Validation / eval harnesses
 - `ab_nudge.py`: controlled A/B of a single synthesis-prompt line (`--anchor`/`--extract`) on a fixture — strips the line for the "old" arm, runs N draws per arm, diffs a chosen passage
@@ -46,6 +47,7 @@ The script automatically runs in "quick test" mode when `GITHUB_ACTIONS` is not 
 - `OPENAI_API_KEY` (required) - For the events agent (gpt-5.1 via the Responses API)
 - `ANTHROPIC_API_KEY` (required) - For classifier (Haiku), synthesis (Opus), and citations (Sonnet)
 - `FRED_API_KEY` (optional) - For economic data; script continues without it
+- `SLACK_WEBHOOK_URL` (optional) - Incoming webhook `run_cron.sh` posts the memo summary to; the post is skipped without it
 
 Create a `.env` file with these keys for local development.
 
@@ -145,11 +147,13 @@ Citation Agent → final markdown report → HTML (via Mako template)
 ### Configuration Constants
 
 At the top of `zeitgeist.py`:
-- `QUICK_TEST`: Set to `True` in dev mode to limit data fetching
+- `QUICK_TEST`: `True` in dev mode to limit data fetching (~200 markets per source); `IS_PROD` (set by `GITHUB_ACTIONS` or `ZEITGEIST_PROD`) turns it off
 - `BATCH_SIZE`: Number of predictions per LLM batch (100)
 - `BATCH_REQUEST_DELAY_SECONDS`: Delay between batches (5s) to avoid rate limits
 - `CLASSIFYING_MODEL`, `EVENTS_MODEL`, `SYNTHESIS_MODEL` (Opus 5.5), `CITATION_MODEL`, `VERIFIER_MODEL` (Opus 5.5), `REVISE_MODEL` (Sonnet), `LEDGER_MODEL` (Sonnet), `COMPARISON_MODEL`: model selection per agent (mix of Anthropic + OpenAI)
-- `ENABLE_FRED_TOOL`, `ENABLE_VERIFIER`, `ENABLE_LEDGER`, `ENABLE_CITATIONS`, `ENABLE_EMAIL_BRIEFING`: feature flags for the optional pipeline stages
+- `ENABLE_FRED_TOOL`, `ENABLE_VERIFIER`, `ENABLE_LEDGER`, `ENABLE_CITATIONS`, `ENABLE_EMAIL_BRIEFING`, `ENABLE_SLACK`: feature flags for the optional pipeline stages
+- `REPORTS_URL`: the GitHub Pages root the `.reports/` worktree publishes to (used for the Slack summary's link)
+- `SLACK_PAYLOAD`: where the run writes the Slack summary (`.slack_payload.json`, gitignored) for `run_cron.sh` to post
 - `MAX_FRED_TOOL_CALLS`: per-run cap on on-demand FRED fetches, shared by the synthesis and verifier tools (8)
 - `FRED_CONTEXT_YEARS`: lookback for the significance `context` block `fred_series` returns (10)
 - `MODEL_PRICES`: USD per MTok (input, output, cache-read multiplier) per model, used by `log_usage()` to log each agent call's tokens (uncached / cache-write / cache-read input, output) and estimated cost, plus a `Run cost estimate` total at the end of the run (in the cron log). Update it when a model or price changes; unpriced models log tokens only
@@ -162,9 +166,10 @@ At the top of `zeitgeist.py`:
 ### Daily run (local cron)
 
 The daily report runs from a **local cron job** (not GitHub Actions) via `run_cron.sh`:
-- Sources secrets from `~/.bashrc_env`, then runs `uv run python zeitgeist.py`
+- Sources secrets from `~/.bashrc_env`, sets `ZEITGEIST_PROD=1` (a full run, not the quick test), then runs `uv run python zeitgeist.py`
 - Writes the report into `.reports/YYYY/MM/DD/index.html`
 - `.reports/` is a git **worktree** on the `gh-pages` branch; the script `git add -A && commit && push`es it, which publishes to GitHub Pages (<https://michaelv2.github.io/zeitgeist/>)
+- After the push, posts the run's `.slack_payload.json` to `SLACK_WEBHOOK_URL` (built by `slack_digest.py`: Key Themes, the Positioning Summary tilts without the Key Tells, and a link to the full memo), then deletes it. A failed post is logged and doesn't fail the run; the run deletes any stale payload before writing, so an old summary is never re-sent
 
 (A `.github/workflows/daily_report.yml` exists but is **not** the active mechanism — kept as a dormant/manual-dispatch fallback.)
 
