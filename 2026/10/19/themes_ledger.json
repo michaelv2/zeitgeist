@@ -1,0 +1,78 @@
+{
+  "as_of": "2026-10-19",
+  "themes": [
+    {
+      "id": "fed-policy-error-curve-flattening",
+      "label": "Fed Regime Change — Front End Overpricing Hikes; 2Y the Edge",
+      "first_seen": "2026-06-18",
+      "last_updated": "2026-10-19",
+      "status": "inflecting",
+      "stance": "Oct 28 hike still widely expected; 2Y at 4.77% is ~89bp over funds (down from 4.84% Oct 5, stop at 4.90% never hit). 3M bill at 4.28%. Position cut to half size: labor argument weakened (unemployment falling to 4.2%, openings rising to 7.08M despite 51k/month payrolls implies worker shortage, not weak demand), but core PCE running ~2.0% annualized May-Aug softness depends on two weak summer months. Half-size 2Y long awaits Oct 28 FOMC guidance and Nov 6 payrolls confirmation.",
+      "tell": "Oct 28 FOMC: hike + pause language = 2Y long pays, restore size. Hike + December open with 3M bill >4.3% = exit. Nov 6: unemployment at or below 4.2% on sub-75k payrolls = worker-shortage confirmed, rebuild. Unemployment at 4.4% or higher = slack is real, original thesis back on."
+    },
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory — Re-acceleration Confirmed; PCE the Decisive Gauge",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-10-19",
+      "status": "inflecting",
+      "stance": "Core CPI re-accelerated three consecutive months (+0.22% July, +0.29% August, +0.335% September, ~3.4% annualized). Headline CPI +0.65% MoM in September (~4.6% annualized over 3 months). Core PCE softer (~2.0% annualized May-Aug) but depends on two weak summer months; YoY at 3.0%, August +0.25%. CPI/PCE gap is the critical unresolved question. Oct 29 Sept core PCE lands after the Fed decides.",
+      "tell": "Oct 29 Sept core PCE at 0.30% or more closes the gap, re-acceleration confirmed, December hike odds rise, favor TIPS. 0.20% or less confirms soft summer holds, add duration. Nov 10 Oct CPI: fourth straight month at 0.30%+ locks in December."
+    },
+    {
+      "id": "breakeven-inflation-mispricing",
+      "label": "Breakeven / TIPS Mispricing — Market Treating Oil Shock as Transitory",
+      "first_seen": "2026-10-16",
+      "last_updated": "2026-10-19",
+      "status": "building",
+      "stance": "10Y breakeven at 2.35% (above 10-year median, 75th percentile) after a +13bp rise over 3 months, but flat this month despite headline inflation running ~4.6% annualized, a tight labor market (deportations shrinking workforce ~400-500k), and a live oil tail (Iran risk, Houthi pressure on Saudi Arabia, Russian refining hits). Not cheap on history but arguably insufficient given the tail risks. Position: overweight short TIPS (STIP/VTIP) over T-bills, paired with half-size 2Y long as hedge.",
+      "tell": "10Y breakeven rising above ~2.45% with WTI over $100 = TIPS call working. Breakeven falling below 2.25% despite oil/labor tail = market fully trusts Fed, cut TIPS. Oct 29 Sept core PCE firm = supports mispricing thesis."
+    },
+    {
+      "id": "term-premium-fiscal-supply-rout",
+      "label": "Term Premium / Fiscal Supply Rout — Structural, Independent of Cycle",
+      "first_seen": "2026-09-25",
+      "last_updated": "2026-10-19",
+      "status": "inflecting",
+      "stance": "10Y fell 21bp (5.31% to 5.10%) since Oct 5 while breakevens barely moved (2.36% to 2.35%) — the rally is in real yields, cause unclear (flight to safety or shrinking term premium). 10Y-2Y curve flattened 16bp in seven sessions to 0.35%, still positive. Fiscal/supply-rout theme weakening rather than intact: long-end move cuts against it. Democratic sweep (62.5%) = gridlock, no deficit consolidation, supply overhang unresolved. Avoid ZROZ.",
+      "tell": "10Y sustaining above 5.3% on soft Oct 29 PCE = term premium re-dominant. Nov 5 30Y auction tail above 0bp = supply-side confirmation. Strong 30Y auction (tail below 0bp) or credible fiscal consolidation = first real challenge to theme."
+    },
+    {
+      "id": "equity-rate-reconciliation",
+      "label": "Equity-Rate Reconciliation — Records vs. Widening Credit; HYG Puts Held",
+      "first_seen": "2026-10-07",
+      "last_updated": "2026-10-19",
+      "status": "inflecting",
+      "stance": "HY spreads at 3.23% (74th percentile of last 3 years), widened 47bp in a month — larger than 89% of monthly moves in that window. Financial conditions tightening but still loose (NFCI -0.499 from -0.549). Stocks buying the dip (Nasdaq futures positive after Friday selloff) while credit diverges. De-risk trigger at HY 3.5% not yet reached. Keep HYG puts; underweight high-beta equities.",
+      "tell": "HY spreads above 3.5% = de-risk equity beta. Mega-cap tech margin warnings Oct 27-30 = ERP snap risk highest. Spreads back below 3.0% = credit-led tightening thesis killed."
+    },
+    {
+      "id": "ai-trade-bifurcation",
+      "label": "AI Trade Bifurcating — Physical Scarcity vs. Borrowed-Money Builders",
+      "first_seen": "2026-07-31",
+      "last_updated": "2026-10-19",
+      "status": "building",
+      "stance": "Anthropic IPO now 73.5% likely before 2027 — a large AI share sale landing as AI stocks sell off and credit widens, pulling money from high-multiple pure plays and forcing a public price on AMZN and GOOGL Anthropic stakes (positive read-through for those names). China Q3 GDP +4.5% on AI-related exports confirms demand across Asian supply chain (TSM). Barbell intact: OW cash-rich hyperscalers (MSFT, AMZN, GOOGL) + scarce tool suppliers (ASML, AMAT, LRCX, KLAC); UW debt-funded builders (CRWV, IREN, ORCL) and MU as borrowing costs rise.",
+      "tell": "MSFT/AMZN/GOOGL earnings Oct 27-30: capex raised + gross margins intact = moats hold. Margin warnings or capex cuts = AI de-rating confirmed. Oct 29 GDP equipment and software investment stalling = build-out de-rate. Anthropic IPO filing = direct pressure on high-multiple pure plays."
+    },
+    {
+      "id": "hormuz-oil-stagflation-shock",
+      "label": "Gulf Escalation / Oil Impulse — Iran Tail Added; Russian Refining Hit",
+      "first_seen": "2026-07-20",
+      "last_updated": "2026-10-19",
+      "status": "inflecting",
+      "stance": "Oil dipped today after Trump waived Russia sanctions before they took effect, but Ukraine launched 1,000+ drones burning oil facilities near St Petersburg — hitting fuel products (refiners) more than crude. Iran tail added: reported Israeli election (date unconfirmed) plus Trump pledge to finish the job against Iran if Netanyahu loses (Netanyahu next PM 28.5%, US invades Iran before 2027 15.5%). Houthis exposing Saudi air-defense gaps. Downside for crude looks limited; upside tail growing. Hold XLE/XOP; add refiners (VLO, MPC); don't add crude outright on today's dip.",
+      "tell": "Netanyahu loses and WTI holds above $100 after vote = press energy and TIPS hard. WTI sustained below $90 with confirmed de-escalation = trim to structural sleeve. Confirmed hit on Saudi production or processing = re-press energy and cut duration. OPEC+ Nov 30 = next supply lever."
+    },
+    {
+      "id": "defense-restocking-supercycle",
+      "label": "Arsenal Depletion — Multi-Year Defense Restocking, Multi-Theatre and Broadening",
+      "first_seen": "2026-08-05",
+      "last_updated": "2026-10-19",
+      "status": "building",
+      "stance": "Saudi air-defense gaps exposed by Houthi strikes add interceptor demand and reinforce European self-arming imperative. US tilt toward Moscow (sanctions waiver, Trump-Xi-Russia summit idea, Trump/Zelenskyy rift) pushes Europe to arm independently — supports EUAD. Three active demand theatres: Ukraine, Gulf (interceptors), European self-funding. Democratic sweep (62.5%) = bipartisan defense appropriations floor from Jan 2027. Portfolio: XAR, LMT, RTX, NOC, EUAD; OW air defense (RTX, LMT) on Saudi gap thesis.",
+      "tell": "Prime contractor (LMT, RTX, NOC) earnings order-book guidance raised = demand confirmed, add. European defense budget announcements above 2.5% GDP = EUAD accelerator. Binding simultaneous ceasefire across Ukraine, Iran/Hormuz AND Red Sea/Saudi = trim acute premium."
+    }
+  ],
+  "dropped": []
+}
