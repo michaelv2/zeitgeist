@@ -1,0 +1,78 @@
+{
+  "as_of": "2026-10-21",
+  "themes": [
+    {
+      "id": "fed-policy-error-curve-flattening",
+      "label": "Fed Regime Change — Front End Overpricing Hikes; 2Y the Edge",
+      "first_seen": "2026-06-18",
+      "last_updated": "2026-10-21",
+      "status": "inflecting",
+      "stance": "2Y at 4.77% is ~89bp over effective funds (~3.88%) and ~64bp above where funds would sit if the widely expected year-end 4.25% ceiling arrives. 3M bill at 4.29%, right at the 4.3% exit line. Oct hike fully priced plus part of December; 2Y pricing hikes deep into 2027. Position remains half size: labor market is tight (unemployment 4.2%, jobless claims 1.71M, openings 7.08M) but core PCE still soft (~2.0% annualized May-Aug). Oct 28 FOMC guidance and Nov 6 payrolls are the next size decisions.",
+      "tell": "Oct 28 FOMC: hike + pause language = restore 2Y to full size. Hike + December open with 3M bill above 4.3% = exit. Nov 6: unemployment at or below 4.2% on sub-75k payrolls = worker-shortage confirmed, rebuild. Unemployment at 4.4% or higher = slack is real, support original thesis."
+    },
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory — Re-acceleration Confirmed; PCE the Decisive Gauge",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-10-21",
+      "status": "inflecting",
+      "stance": "Core CPI re-accelerated three consecutive months (+0.22% July, +0.29% August, +0.335% September, ~3.4% annualized). Headline CPI 3.7% YoY, 4.6% annualized over three months. Core PCE softer (+0.13%, +0.13%, +0.25% June-August, ~2.0% annualized). CPI-PCE gap still open. Oct 29 Q3 GDP advance effectively reveals Sept core PCE: Q3 core PCE at or above ~2.4% annualized implies Sept at or above ~0.33% (gap closes); at or below ~2.2% implies Sept at or below ~0.20% (summer softness holds). Fed decides Oct 28 before seeing that print.",
+      "tell": "Oct 29 Q3 core PCE at or above ~2.4% annualized = gap closes, December hike live, add TIPS. At or below ~2.2% = add duration. Nov 13 Oct CPI: fourth straight month at 0.30%+ locks in December hike."
+    },
+    {
+      "id": "breakeven-inflation-mispricing",
+      "label": "Breakeven / TIPS Mispricing — Market Treating Oil Shock as Transitory",
+      "first_seen": "2026-10-16",
+      "last_updated": "2026-10-21",
+      "status": "building",
+      "stance": "10Y breakeven at 2.35% (75th percentile of last decade, above 2.22% median), moved only 2bp in a month — quieter than 87% of monthly observations — despite WTI at ~$102 (96th percentile), headline CPI at 4.6% annualized over three months, and M2 growing ~6.4% annualized. 5Y breakeven at 2.39% (70th percentile), up 8bp in a month. Breakevens above median but not keeping pace with oil and headline inflation. Position: overweight short TIPS (STIP/VTIP) over T-bills, paired with half-size 2Y long as hedge.",
+      "tell": "5Y or 10Y breakeven rising above ~2.45% with WTI over $100 = TIPS call working. Breakeven falling below 2.25% despite oil/labor tail = market fully trusts Fed, cut TIPS. Oct 29 firm core PCE supports thesis."
+    },
+    {
+      "id": "term-premium-fiscal-supply-rout",
+      "label": "Term Premium / Fiscal Supply Rout — Structural, Independent of Cycle",
+      "first_seen": "2026-09-25",
+      "last_updated": "2026-10-21",
+      "status": "inflecting",
+      "stance": "10Y fell to 5.15% (from 5.27% prior), a real-yield rally with breakevens flat at 2.35% — 10Y real yield ~2.80%. Long-end move continues to cut against the fiscal/supply-rout thesis; cause of rally remains unclear (flight to safety from widening credit or shrinking term premium). 10Y-2Y curve flattened 18bp over two weeks to 0.33%. Democratic sweep at 64.5% implies gridlock with no deficit consolidation and supply overhang unresolved. November Treasury quarterly refunding is the next explicit supply test. Avoid ZROZ.",
+      "tell": "10Y sustaining above 5.3% on soft Oct 29 PCE = term premium re-dominant. November refunding: larger long-dated issuance or auction tail above 0bp = supply-side confirmation. Strong auction (tail below 0bp) or credible fiscal consolidation = first real challenge to theme."
+    },
+    {
+      "id": "equity-rate-reconciliation",
+      "label": "Equity-Rate Reconciliation — Records vs. Widening Credit; HYG Puts Held",
+      "first_seen": "2026-10-07",
+      "last_updated": "2026-10-21",
+      "status": "inflecting",
+      "stance": "HY spreads at 3.29%, up 61bp in a month — larger than 94% of monthly moves in the last 3 years, now at the 80th percentile. Yield curve flattened 18bp over two weeks (10Y-2Y from 0.51 to 0.33). NFCI at -0.50 (10-year median) — financial conditions have tightened from loose but are not yet restrictive. Growth data firm so widening doesn't look default-driven yet. S&P prediction markets still center December close at 7,000-8,000 with only ~9% odds of a dip to 6,200 — stocks are the mispriced leg. De-risk trigger at 3.5% not yet reached. Keep HYG puts; underweight high-beta equities.",
+      "tell": "HY spreads above 3.5% = de-risk equity beta further. Mega-cap tech margin warnings Oct 27-30 = ERP snap risk highest. Spreads back below 3.0% = credit-tightening thesis killed."
+    },
+    {
+      "id": "ai-trade-bifurcation",
+      "label": "AI Trade Bifurcating — Physical Scarcity vs. Borrowed-Money Builders",
+      "first_seen": "2026-07-31",
+      "last_updated": "2026-10-21",
+      "status": "building",
+      "stance": "SpaceX swung to profit on AI-business revenue — AI monetization spreading beyond hyperscalers. Anthropic IPO odds before 2027 rose to 78% (from 73.5%): a large AI share sale landing as credit widens would pull money from high-multiple pure plays and force a public price on AMZN/GOOGL Anthropic stakes. Tesla/SpaceX merger special committees formed (combined value ~$3.6tn per FT) — a watch item for QQQ concentration risk, not a trade yet. Barbell intact: OW cash-rich hyperscalers (MSFT, AMZN, GOOGL) + scarce tool suppliers (ASML, AMAT, LRCX, KLAC); UW debt-funded builders (CRWV, IREN, ORCL).",
+      "tell": "MSFT/AMZN/GOOGL earnings Oct 27-30: capex raised + gross margins intact = moats hold. Margin warnings or capex cuts = AI de-rating confirmed. Oct 29 GDP equipment/software investment stalling = build-out de-rate. Anthropic IPO filing = direct pressure on high-multiple pure plays."
+    },
+    {
+      "id": "hormuz-oil-stagflation-shock",
+      "label": "Gulf Escalation / Oil Impulse — Iran Tail; Russian Refining Hit",
+      "first_seen": "2026-07-20",
+      "last_updated": "2026-10-21",
+      "status": "inflecting",
+      "stance": "WTI at ~$102 (96th percentile of last decade). Witkoff peace proposal to Putin after Zelensky meeting; prediction markets give a deal before 2027 only 8.5% — US-Ukraine rift fading. Peace deal is the main near-term risk to diesel prices and would unwind refiner premium (Ukrainian drone strikes on Russian refining) first. Netanyahu 41.5% out by year-end; Eisenkot 51.5% next PM. US Iran invasion before 2027 at 15.5%. Oil upside tail intact; downside limited. Hold XLE/XOP; keep refiners (VLO, MPC) smaller than upstream on peace-deal risk.",
+      "tell": "WTI sustained below $90 with confirmed de-escalation = trim to structural sleeve. Confirmed hit on Saudi production or processing = re-press energy and cut duration. Netanyahu out + WTI holds above $100 = press energy and TIPS hard. OPEC+ next meeting = supply lever."
+    },
+    {
+      "id": "defense-restocking-supercycle",
+      "label": "Arsenal Depletion — Multi-Year Defense Restocking, Multi-Theatre and Broadening",
+      "first_seen": "2026-08-05",
+      "last_updated": "2026-10-21",
+      "status": "building",
+      "stance": "Intelligence sharing with Ukraine restored — does not reverse European self-arming imperative. Europe weighing powers for utilities to shoot down drones, widening the counter-drone addressable market. NATO-Russia military clash by year-end at 26.5%. Democratic sweep at 64.5% implies bipartisan defense appropriations floor from Jan 2027 with Senate control of Fed/cabinet confirmations. Three active demand theatres: Ukraine, Gulf (interceptors/air defense), European self-funding. Portfolio: XAR, LMT, RTX, NOC, EUAD; OW air defense on Saudi gap thesis.",
+      "tell": "Prime contractor (LMT, RTX, NOC) earnings order-book guidance raised = demand confirmed, add. European defense budget announcements above 2.5% GDP = EUAD accelerator. Binding simultaneous ceasefire across Ukraine, Iran/Hormuz AND Red Sea/Saudi = trim acute premium."
+    }
+  ],
+  "dropped": []
+}
