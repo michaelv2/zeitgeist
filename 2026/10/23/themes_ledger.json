@@ -1,0 +1,78 @@
+{
+  "as_of": "2026-10-23",
+  "themes": [
+    {
+      "id": "fed-policy-error-curve-flattening",
+      "label": "Fed Regime Change - Front End Overpricing Hikes; 2Y the Edge",
+      "first_seen": "2026-06-18",
+      "last_updated": "2026-10-23",
+      "status": "inflecting",
+      "stance": "2Y fell ~13bp to ~4.7% on a safe-haven rally, now ~80bp over effective funds (~3.88%) and ~55bp above year-end 4.25% ceiling midpoint (68.5% odds); 4.5%+ ceiling odds only 8.3%. The long-end rally stripped 2027 hikes from the curve but left the Oct 28 hike fully priced. 3M bill held at ~4.25%, near the 4.3% exit line. Labor market supply-constrained: unemployment fell to 4.2% from 4.4% in December on payrolls averaging +51k/month; openings 7.08M. Position: half-size 2Y long into Oct 28 FOMC.",
+      "tell": "Oct 28 FOMC: hike + pause language = restore 2Y to full size. Hike + December open with 3M bill above 4.3% = exit. Nov 6: unemployment at or below 4.2% on weak payrolls = supply-constrained confirmed, rebuild. 4.4%+ = slack real, add duration. Oct 30 Sept core PCE at or above 0.33% = cut 2Y; at or below 0.20% = add 2-5Y duration."
+    },
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory - Re-acceleration Confirmed; PCE the Decisive Gauge",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-10-23",
+      "status": "inflecting",
+      "stance": "Core CPI re-accelerated three consecutive months (+0.22% July, +0.29% August, +0.335% September, ~3.4% annualized); headline CPI +0.65% in September alone. Core PCE softer: Dec-Aug annualizes to ~3.2%, but last three summer months at ~2.0%. The CPI-PCE gap remains open. Oct 30 September core PCE is the swing factor: at or above 0.33% closes the gap and makes December hike live; at or below 0.20% sustains summer softness. October CPI (Nov 10) will carry another energy hit at $114 oil.",
+      "tell": "Oct 30 Sept core PCE at or above 0.33% = gap closes, December hike live, add TIPS. At or below 0.20% = add duration. Nov 10 Oct CPI: fourth straight month at 0.30%+ locks in December hike."
+    },
+    {
+      "id": "breakeven-inflation-mispricing",
+      "label": "Breakeven / TIPS Mispricing - Front-End Tell Has Tripped; Long End Anchored",
+      "first_seen": "2026-10-16",
+      "last_updated": "2026-10-23",
+      "status": "inflecting",
+      "stance": "5Y breakeven jumped to 2.45% (76th percentile) with WTI at $114 - the prior tell (5Y above ~2.45% with oil over $100) has tripped, but only at the front end. 10Y breakeven fell to 2.32% (67th percentile, flat on the month). 5y5y forward fell 15bp to 2.19% at the 10-year median: market reads oil shock as front-loaded. Position: overweight short TIPS (STIP/VTIP) over T-bills; avoid long TIPS (TIPZ/LTPZ) as long-dated expectations are anchored.",
+      "tell": "10Y breakeven rising back above 2.40% with oil over $100 = add long TIPS. 5Y breakeven falling below 2.35% = oil shock fading, trim STIP. Oct 30 firm Sept core PCE supports front-end TIPS thesis."
+    },
+    {
+      "id": "term-premium-fiscal-supply-rout",
+      "label": "Term Premium / Fiscal Supply Rout - Structural, Independent of Cycle",
+      "first_seen": "2026-09-25",
+      "last_updated": "2026-10-23",
+      "status": "inflecting",
+      "stance": "10Y fell below 5% (biggest yield drop since March 2023 banking crisis) on a safe-haven AI-selloff bid; real yields fell from ~2.76% to ~2.67% with breakevens flat. Long-end rally again cuts against the fiscal/supply-rout thesis; 10Y-2Y spread at 0.31. Democratic sweep odds rose to 66.5% (House 92.5%) - gridlock favored, no fiscal consolidation. Republican Senate hold (31.5%) would revive tax cuts and add supply pressure. Government shutdown near-certain (~96% by Jan 31), implying data blackout and T-bill quirks around December/January FOMC. Early-November Treasury refunding is the explicit supply test. Avoid ZROZ; use 2-5Y (SHY/IEI) if duration hedge needed.",
+      "tell": "Treasury refunding: more long-dated issuance or auction tail above 0bp = supply-side re-dominant, fade long-end rally. Strong auction reception (tail below 0bp) or Republican Senate hold reviving tax-cut talk = first real challenge. 10Y sustaining above 5.3% on soft Oct 30 PCE = term premium re-dominant."
+    },
+    {
+      "id": "equity-rate-reconciliation",
+      "label": "Equity-Rate Reconciliation - Records vs. Widening Credit; HYG Puts Held",
+      "first_seen": "2026-10-07",
+      "last_updated": "2026-10-23",
+      "status": "inflecting",
+      "stance": "HY spreads at 3.27% on Oct 21, up 61bp in a month (larger than 94% of monthly moves, 80th percentile) - Oct 22 tech rout not yet in the data and likely widened further. NFCI tightened from -0.55 to -0.50 over nine weeks, still loose but moving every week. 10Y-2Y curve at 0.31. Recession odds at 6.5% - tape reads stagflation, not slump. De-risk trigger at 3.5% not yet reached. Keep HYG puts; underweight high-beta equities and consumer discretionary/airlines.",
+      "tell": "HY spreads above 3.5% = de-risk equity beta further. Mega-cap tech margin warnings Oct 27-30 = ERP snap risk highest. Spreads back below 3.0% = credit-tightening thesis killed."
+    },
+    {
+      "id": "ai-trade-bifurcation",
+      "label": "AI Trade Bifurcating - Physical Scarcity vs. Borrowed-Money Builders",
+      "first_seen": "2026-07-31",
+      "last_updated": "2026-10-23",
+      "status": "building",
+      "stance": "Tech rout driven by AI-selloff treated as growth scare (10Y below 5% on safe-haven bid). Wider HY spreads and rising borrowing costs hit debt-funded builders (CRWV, IREN, ORCL) first. Anthropic IPO odds rose to 85.5% from 78% - supply overhang for high-multiple AI names growing. AAPL Duo launched globally with strong reviews, a hardware catalyst independent of AI capex. Markets give NVDA 62% to be largest company Dec 31, AAPL 34% - AI de-rating narrows gap before NVDA mid-Nov earnings. Barbell intact: OW cash-rich hyperscalers (MSFT, AMZN, GOOGL) + scarce tool suppliers (ASML, AMAT, LRCX, KLAC); UW debt-funded builders; add AAPL vs NVDA.",
+      "tell": "MSFT/AMZN/GOOGL earnings Oct 27-30: capex raised + gross margins intact = moats hold. Margin warnings or capex cuts = AI de-rating confirmed. Oct 29 GDP equipment/software investment stalling = build-out de-rate. Anthropic IPO filing = direct pressure on high-multiple pure plays. NVDA mid-Nov earnings = AI de-rating catalyst."
+    },
+    {
+      "id": "hormuz-oil-stagflation-shock",
+      "label": "Gulf Escalation / Oil Impulse - Iran Tail; Russian Refining Hit",
+      "first_seen": "2026-07-20",
+      "last_updated": "2026-10-23",
+      "status": "building",
+      "stance": "WTI hit $114, a five-month high and above the prior 96th-percentile reading of $102, first time at that level since May. October CPI (Nov 10) will carry an additional energy hit. Netanyahu out by year-end at 40.5%; US Iran invasion before 2027 at 16.5% (up from 15.5%). Ukraine peace deal at 9.5% (down from 8.5%) - refiners remain more exposed to peace-deal downside than producers. Stagflation reading (6.5% recession odds) consistent with oil impulse without demand collapse. Hold XLE/XOP; keep refiners (VLO, MPC) smaller than upstream.",
+      "tell": "WTI sustained below $90 with confirmed de-escalation = trim to structural sleeve. Confirmed hit on Saudi production or processing = re-press energy and cut duration. Netanyahu out + WTI holds above $100 = press energy and TIPS hard. OPEC+ next meeting = supply lever."
+    },
+    {
+      "id": "defense-restocking-supercycle",
+      "label": "Arsenal Depletion - Multi-Year Defense Restocking, Multi-Theatre and Broadening",
+      "first_seen": "2026-08-05",
+      "last_updated": "2026-10-23",
+      "status": "building",
+      "stance": "NATO-Russia military clash by year-end jumped to 34.5% from 26.5% at last update (+8 points). Trump asked Musk to lift Starshield restrictions for Ukraine but limits remain; Ukrainians report drone failures on outages and CNBC notes near-zero alternatives exist - widening Europe's procurement imperative for independent space and air-defense capacity. Democratic sweep at 66.5% implies bipartisan defense appropriations floor from Jan 2027 with Democratic Senate controlling Fed/cabinet confirmations. Adding to XAR, EUAD, RTX, LMT on clash-odds jump and Starlink dependency gap.",
+      "tell": "Prime contractor (LMT, RTX, NOC) earnings order-book guidance raised = demand confirmed, add. European defense budget announcements above 2.5% GDP = EUAD accelerator. Binding simultaneous ceasefire across Ukraine, Iran/Hormuz AND Red Sea/Saudi = trim acute premium. Starlink restrictions formally lifted = reduce satellite-alternatives urgency."
+    }
+  ],
+  "dropped": []
+}
