@@ -1,0 +1,78 @@
+{
+  "as_of": "2026-10-26",
+  "themes": [
+    {
+      "id": "fed-policy-error-curve-flattening",
+      "label": "Fed Regime Change - Front End Overpricing Hikes; 2Y the Edge",
+      "first_seen": "2026-06-18",
+      "last_updated": "2026-10-26",
+      "status": "inflecting",
+      "stance": "2Y fell another 16bp on Oct 22 to 4.65% (91st percentile), now ~50bp above the 4.125% midpoint of the 71%-favored 4.25% year-end ceiling (7.9% odds of 4.5%+). Effective funds rose to 3.75% in September, consistent with a September hike. Markets price no cuts in 2026 (96% odds). Real consumer demand stalled in September (+0.1% real retail sales after +0.5% real Q3); Michigan sentiment at 48.1; housing starts -15% since June. FOMC now calendared for Nov 4-5. Holding half-size 2Y long; Oct 29 core PCE sets the size.",
+      "tell": "Oct 29 core PCE at or above 0.33% = exit 2Y and add STIP. At or below 0.20% = move to full size, add 2-5Y (IEI). Nov 4-5 FOMC: hike + pause language = restore full size. Hike + December open with 3M bill above 4.3% = exit. Nov 6 unemployment at or below 4.2% on weak payrolls = supply-constrained confirmed, rebuild."
+    },
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory - Re-acceleration Confirmed; PCE the Decisive Gauge",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-10-26",
+      "status": "inflecting",
+      "stance": "Core CPI re-accelerated three consecutive months (+0.22% July, +0.29% August, +0.335% September, ~3.4% annualized); headline CPI +0.65% in September. Core PCE softer: June-August annualizes to ~2.0%, August alone +0.25%. Oct 29 September core PCE is the swing factor. Breakevens confirm a front-loaded shock: 5Y at 2.48% (79th percentile, +14bp in a month), 10Y flat at 2.34%, 5y5y ~2.2%. Nov 12 October CPI will carry another energy hit with WTI elevated.",
+      "tell": "Oct 29 Sept core PCE at or above 0.33% = CPI-PCE gap closes, December hike live, exit 2Y and add STIP. At or below 0.20% = add duration. Nov 12 Oct CPI: fourth straight 0.30%+ core print locks in December hike."
+    },
+    {
+      "id": "breakeven-inflation-mispricing",
+      "label": "Breakeven / TIPS Mispricing - Front-End Tell Has Tripped; Long End Anchored",
+      "first_seen": "2026-10-16",
+      "last_updated": "2026-10-26",
+      "status": "building",
+      "stance": "5Y breakeven rose further to 2.48% (79th percentile, +14bp in a month) with WTI at $108; 10Y flat at 2.34%. The 5Y-10Y breakeven curve is now inverted (2.48% vs 2.34%), with 5y5y at ~2.2% — market reads oil shock as front-loaded, not a spiral. Overweight short TIPS (STIP/VTIP) over T-bills; avoid long TIPS (TIPZ/LTPZ). Nov 12 October CPI carries the next energy hit.",
+      "tell": "10Y breakeven rising back above 2.40% with oil over $100 = add long TIPS. 5Y breakeven falling below 2.35% = oil shock fading, trim STIP. Oct 29 firm Sept core PCE supports front-end TIPS thesis."
+    },
+    {
+      "id": "term-premium-fiscal-supply-rout",
+      "label": "Term Premium / Fiscal Supply Rout - Structural, Independent of Cycle",
+      "first_seen": "2026-09-25",
+      "last_updated": "2026-10-23",
+      "status": "inflecting",
+      "stance": "No new evidence today. 10Y at 4.96%, 10Y-2Y at +0.31. Long-end rally continues to cut against the supply-rout thesis. Democratic sweep (Senate 64.5%, House 91.5%) implies gridlock, no fiscal consolidation, no tax cuts (4.8% odds). Shutdown near-certain by Jan 31 (~96%), implying data blackout around year-end policy. Early-November Treasury refunding remains the explicit supply test. Avoid ZROZ; use 2-5Y (SHY/IEI) if duration hedge needed.",
+      "tell": "Treasury refunding (early Nov): more long-dated issuance or auction tail above 0bp = supply-side re-dominant, fade long-end rally. Strong auction reception (tail below 0bp) = first real challenge to thesis. 10Y sustaining above 5.3% on soft Oct 29 PCE = term premium re-dominant. Republican Senate hold reviving tax-cut talk = supply pressure returns."
+    },
+    {
+      "id": "equity-rate-reconciliation",
+      "label": "Equity-Rate Reconciliation - Records vs. Widening Credit; HYG Puts Held",
+      "first_seen": "2026-10-07",
+      "last_updated": "2026-10-26",
+      "status": "inflecting",
+      "stance": "HY spreads widened to 3.40% (72bp in a month, larger than 96% of monthly moves, 85th percentile), now 10bp from the 3.5% de-risk trigger. Equity futures are rallying on 'AI storm abates' even as credit sells off. NFCI tightened 10 straight weeks to -0.50, still loose but directionally unchanged. 10Y-2Y at +0.31. Recession odds at 6.5% — tape reads stagflation, not slump. Keep HYG puts; underweight high-beta equities. De-risk trigger at 3.5% imminent.",
+      "tell": "HY spreads above 3.50% = de-risk equity beta further, press HYG puts. Back below 3.00% = credit-tightening thesis killed, re-add beta. Mega-cap tech margin warnings Oct 27-30 = ERP snap risk highest."
+    },
+    {
+      "id": "ai-trade-bifurcation",
+      "label": "AI Trade Bifurcating - Physical Scarcity vs. Borrowed-Money Builders",
+      "first_seen": "2026-07-31",
+      "last_updated": "2026-10-26",
+      "status": "building",
+      "stance": "Musk warned 200+ neoclouds face 'guppy-level death'; SpaceX closed $40B of GPU financing — both point to compute demand moving to large-balance-sheet buyers away from leveraged intermediaries. Neocloud stocks (CRWV, NBIS, IREN) fell on consolidation warning. Anthropic IPO odds slipped to 82% from 85.5% after Elvis rights lawsuit. AAPL Duo 'crackgate' (screen cracking) turns the hardware catalyst two-sided; AAPL vs NVDA pair closed. NVDA at 63.5% vs AAPL 34.3% to be largest company year-end. Barbell: OW cash-rich hyperscalers (MSFT, AMZN, GOOGL) + scarce tool suppliers (ASML, AMAT, LRCX, KLAC); UW debt-funded builders and QCOM (Exynos 2700 ~20% faster than Snapdragon, threatening Galaxy S27 share).",
+      "tell": "MSFT/AMZN/GOOGL earnings: capex raised + gross margins intact = moats hold. Capex cuts = de-rate chip-equipment names too. Anthropic IPO filing = direct pressure on high-multiple pure plays. NVDA mid-Nov earnings: neocloud customer exposure and guide = AI de-rating test."
+    },
+    {
+      "id": "hormuz-oil-stagflation-shock",
+      "label": "Gulf Escalation / Oil Impulse - Iran Tail; Saudi Infrastructure Under Fire",
+      "first_seen": "2026-07-20",
+      "last_updated": "2026-10-26",
+      "status": "building",
+      "stance": "WTI at $108 (98th percentile of last 10 years), easing from $114 high on Qatari mediation headlines. Houthis claim strikes on Saudi oil pumping stations on the East-West pipeline — Saudi Arabia's main Hormuz bypass — directly threatening the backstop to a Hormuz disruption. US invasion of Iran odds rose to 18.5% (from 16.5%); Trump signals a decision is near ('deal or finish it off'). Netanyahu's election adds a swing factor (40.5% out by year-end). Hold XLE/XOP through mediation dips; keep refiners (VLO, MPC) smaller than upstream. Add only on confirmed East-West pipeline outage.",
+      "tell": "Confirmed East-West pipeline outage = press energy and cut duration. Qatar-brokered deal with WTI sustained below $90 = trim energy to core sleeve. Netanyahu out + WTI holds above $100 = press energy and TIPS hard. Nov 12 Oct CPI: energy pass-through."
+    },
+    {
+      "id": "defense-restocking-supercycle",
+      "label": "Arsenal Depletion - Multi-Year Defense Restocking, Multi-Theatre and Broadening",
+      "first_seen": "2026-08-05",
+      "last_updated": "2026-10-26",
+      "status": "inflecting",
+      "stance": "NATO-Russia military clash odds fell sharply to 17.5% from 34.5% — the acute catalyst has reversed. However, Musk confirmed SpaceX itself restricted Ukraine's Starlink access; WSJ reports US allies are 'racing to escape SpaceX's orbit,' widening Europe's procurement imperative for independent space and air-defense capacity. Ukraine peace-deal odds at 8.5%. Structural case intact via ally procurement diversification, but stop adding to XAR, EUAD, RTX, LMT until clash odds or order-book data re-establish momentum.",
+      "tell": "Prime contractor (LMT, RTX, NOC) earnings order-book guidance raised = demand confirmed, re-add. European defense budget announcements above 2.5% GDP = EUAD accelerator. Starlink restrictions formally lifted = reduce satellite-alternatives urgency. Binding simultaneous ceasefire across Ukraine, Iran/Hormuz AND Red Sea = trim acute premium."
+    }
+  ],
+  "dropped": []
+}
