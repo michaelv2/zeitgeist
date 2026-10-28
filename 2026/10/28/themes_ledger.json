@@ -1,0 +1,78 @@
+{
+  "as_of": "2026-10-28",
+  "themes": [
+    {
+      "id": "fed-policy-error-curve-flattening",
+      "label": "Fed Regime Change - Front End Overpricing Hikes; 2Y the Edge",
+      "first_seen": "2026-06-18",
+      "last_updated": "2026-10-28",
+      "status": "inflecting",
+      "stance": "FOMC decision landed today (correcting prior Nov 4-5 date). 2Y fell another 14bp in two weeks to 4.68%, now ~55bp above the midpoint of the 71%-favored 4.25% year-end ceiling (7.8% odds of 4.5%+). Effective funds rose from 3.63% to 3.75% in September confirming a mid-September hike. Real retail sales roughly flat in September after solid Q3; starts at 1.221M (16th percentile); Michigan sentiment 48.1. Payrolls only ~51k/month over last three months, read as supply-constrained, not demand-driven. Holding half-size 2Y long; Oct 29 core PCE decides size.",
+      "tell": "Oct 29 core PCE at or above 0.33% = exit 2Y and add STIP. At or below 0.20% = move to full size, add IEI. FOMC today: hike + pause language = restore full size; hike + December explicitly open = exit. Nov 6 payrolls: unemployment at or below 4.2% on weak payrolls = supply-constrained confirmed, rebuild."
+    },
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory - Re-acceleration Confirmed; PCE the Decisive Gauge",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-10-28",
+      "status": "inflecting",
+      "stance": "Core CPI re-accelerated three consecutive months (+0.22% July, +0.29% August, +0.335% September, ~3.4% annualized); headline CPI +0.65% in September. Core PCE softer: June-August annualizes to ~2.0%, August alone +0.25%. Oct 29 September core PCE is the swing print — either the CPI-PCE gap closes or the hawks' case weakens. 5Y breakeven eased slightly to 2.45% (76th percentile, off 2.48% peak); 10Y at 2.35%. Curve still inverted, market still reads shock as front-loaded.",
+      "tell": "Oct 29 Sept core PCE at or above 0.33% = CPI-PCE gap closes, December hike live, exit 2Y and add STIP. At or below 0.20% = add duration. Nov 12 Oct CPI: fourth straight 0.30%+ core print locks in December hike."
+    },
+    {
+      "id": "breakeven-inflation-mispricing",
+      "label": "Breakeven / TIPS Mispricing - Front-End Tell Has Tripped; Long End Anchored",
+      "first_seen": "2026-10-16",
+      "last_updated": "2026-10-28",
+      "status": "building",
+      "stance": "5Y breakeven eased slightly to 2.45% (76th percentile, off 2.48% peak) with WTI at ~$108; 10Y at 2.35%. The 5Y-10Y breakeven curve remains inverted — market reads oil shock as front-loaded, not a spiral. Post-midterm strike window (Nov 3+) means the next oil spike also lands in front-end inflation. Overweight STIP/VTIP over T-bills; avoid TIPZ/LTPZ.",
+      "tell": "10Y breakeven rising back above 2.40% with oil over $100 = add long TIPS. 5Y breakeven falling below 2.35% = oil shock fading, trim STIP. Oct 29 firm Sept core PCE supports front-end TIPS thesis. Nov 12 Oct CPI carries energy pass-through."
+    },
+    {
+      "id": "term-premium-fiscal-supply-rout",
+      "label": "Term Premium / Fiscal Supply Rout - Structural, Independent of Cycle",
+      "first_seen": "2026-09-25",
+      "last_updated": "2026-10-23",
+      "status": "inflecting",
+      "stance": "No new evidence today. 10Y at 5.00% (fell 21bp in two weeks); 10Y-2Y at +0.29. Long-end rally continues to put supply-rout thesis on back foot — explicitly shelved pending refunding. Democratic sweep (Senate 66.5%, House 91.5%) implies gridlock, no fiscal consolidation; shutdown by Jan 31 near-certain (~92%). Early-November Treasury refunding remains the explicit supply test. Avoid ZROZ; use SHY/IEI if duration hedge needed.",
+      "tell": "Treasury refunding (early Nov): more long-dated issuance or auction tail above 0bp = supply-side re-dominant, fade long-end rally. Strong reception (tail below 0bp) = first real challenge to thesis. 10Y sustaining above 5.3% on soft Oct 29 PCE = term premium re-dominant."
+    },
+    {
+      "id": "equity-rate-reconciliation",
+      "label": "Equity-Rate Reconciliation - Records vs. Widening Credit; HYG Puts Held",
+      "first_seen": "2026-10-07",
+      "last_updated": "2026-10-28",
+      "status": "inflecting",
+      "stance": "HY spreads eased to 3.30% from 3.40% peak — the 3.50% de-risk trigger was never hit. Spreads still widened 37bp in a month (larger than 83% of monthly moves, vs. 3.02% 3-year median). Real 10Y yield ~2.65% is a heavy discount-rate headwind for long-duration equities. AI debt fears eased on 5x-oversubscribed Meta tranche, but Meta chose equity over debt for ~$100B, shifting capex burden to shareholders. GOOGL/MSFT/AMZN earnings tonight/tomorrow test whether the dilution theme is broad. Keep HYG puts as Iran/stagflation hedge; don't press.",
+      "tell": "HY spreads above 3.50% = de-risk equity beta, press HYG puts. Back below 3.00% = credit-tightening thesis killed, re-add beta. GOOGL/MSFT/AMZN: capex raised alongside issuance or slower buybacks = dilution theme confirmed. Capex fully funded from free cash flow = undercuts it."
+    },
+    {
+      "id": "ai-trade-bifurcation",
+      "label": "AI Trade Bifurcating - Physical Scarcity vs. Borrowed-Money Builders",
+      "first_seen": "2026-07-31",
+      "last_updated": "2026-10-28",
+      "status": "building",
+      "stance": "Meta's $25B tranche was 5x oversubscribed but funded ~$100B capex via equity, not cash flow — weakening the cash-rich hyperscaler leg. SK Hynix profit rose 7x with a $45B payout, confirming suppliers are being paid in cash while buyers issue shares. Anthropic IPO filing disclosed security breaches and a training halt; Sen. Warren demanding answers; Amazon is the largest beneficiary. NVDA now at 68.5% vs AAPL 29% to be largest company year-end. Barbell: OW memory (MU) and chip equipment (ASML, AMAT, LRCX, KLAC) plus AMZN; UW META and leveraged neoclouds (CRWV, NBIS, IREN).",
+      "tell": "GOOGL/MSFT tonight and AMZN tomorrow: capex raised plus buybacks cut or issuance flagged = dilution theme confirmed, trim hyperscaler leg. Capex raised fully from free cash flow = move back toward neutral on hyperscalers. NVDA Nov 17: neocloud customer revenue exposure = AI de-rating test."
+    },
+    {
+      "id": "hormuz-oil-stagflation-shock",
+      "label": "Gulf Escalation / Oil Impulse - Iran Tail; Post-Midterm Strike Window",
+      "first_seen": "2026-07-20",
+      "last_updated": "2026-10-28",
+      "status": "building",
+      "stance": "WTI at ~$108 (98th percentile). WSJ reports US warned Gulf allies of a short, intense renewal of Iran strikes after Nov 3 midterms; Trump says anything is possible. US invasion odds hold at 18.5%. Netanyahu out-by-year-end odds fell sharply to 16% from 40.5% (exit polls show neck-and-neck vote, markets give Netanyahu 45.5% as next PM) — hawkish continuity is now the base case. IAEA says Iran hasn't repaired struck nuclear sites. East-West pipeline (Saudi Hormuz bypass) already hit in prior Houthi strikes. Hold XLE/XOP through Nov 3-6 window; keep refiners smaller than upstream. Underweight airlines and cruise lines.",
+      "tell": "Confirmed East-West pipeline outage post-Nov 3 = press energy and cut duration. Qatar-brokered deal with WTI sustained below $90 = trim energy to core sleeve. Nov 12 Oct CPI: energy pass-through magnitude. Invasion launched = press energy and STIP hard, underweight credit."
+    },
+    {
+      "id": "defense-restocking-supercycle",
+      "label": "Arsenal Depletion - Multi-Year Defense Restocking, Multi-Theatre and Broadening",
+      "first_seen": "2026-08-05",
+      "last_updated": "2026-10-26",
+      "status": "inflecting",
+      "stance": "No new evidence today. NATO-Russia clash odds fell further to 15.5% from 17.5% — acute catalyst continues to reverse. Structural case rests on ally procurement diversification away from SpaceX/US dependence and a potential Iran munitions burn. Hold XAR/RTX/LMT; don't add without order-book confirmation.",
+      "tell": "Prime contractor (LMT, RTX, NOC) earnings order-book guidance raised = demand confirmed, re-add. A renewed Iran campaign burning precision munitions = re-evaluate size. Binding simultaneous ceasefire across Ukraine, Iran/Hormuz AND Red Sea = trim acute premium."
+    }
+  ],
+  "dropped": []
+}
