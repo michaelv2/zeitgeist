@@ -1,0 +1,74 @@
+{
+  "as_of": "2026-10-30",
+  "themes": [
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory - PCE Narrowed Gap; December Hike Base Case",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-10-30",
+      "status": "inflecting",
+      "stance": "Sept core PCE rose 0.32%, narrowing the CPI-PCE trend gap: PCE ~2.9% annualized over three months vs. CPI ~3.4%. Monthly gap has effectively closed. Core CPI re-accelerated three consecutive months (0.22%, 0.29%, 0.335%). M2 up 4.9% since December (~6.5% annualized). Prediction markets give 97% odds of no cut in 2026; December hike to 4.25% is 71% base case. No Fed backstop for tech selloff. Theme inflects from 'PCE is the swing print' to 'December hike live and hike path fairly priced.'",
+      "tell": "Nov 12 Oct CPI: second straight core print of 0.30%+ (three-month run-rate holding ~3.4%) = December hike locked, add STIP. At 0.20% or below = front-end duration back on. Dec FOMC: hike with explicitly open-ended language = multiples have no floor."
+    },
+    {
+      "id": "breakeven-inflation-mispricing",
+      "label": "Breakeven / TIPS Mispricing - Front-End Thesis Intact; 5Y Breakeven Rising",
+      "first_seen": "2026-10-16",
+      "last_updated": "2026-10-30",
+      "status": "building",
+      "stance": "5Y breakeven rose to 2.47% (up 13bp in a month, 78th percentile); 10Y flat at 2.35%. The 5Y-10Y breakeven curve remains inverted (~12bp), confirming market still reads oil shock as front-loaded. At ~3% core PCE run-rate with oil $103-110, 5Y breakeven at 2.47% is still below realized inflation — front-end TIPS (STIP/VTIP) remain the better tool over T-bills and long TIPS. Overweight STIP/VTIP; avoid TIPZ/LTPZ.",
+      "tell": "10Y breakeven rising back above 2.40% with oil above $100 = add long TIPS. 5Y breakeven falling below 2.35% = oil shock fading, trim STIP. Nov 12 Oct CPI: energy pass-through magnitude drives STIP sizing."
+    },
+    {
+      "id": "term-premium-fiscal-supply-rout",
+      "label": "Term Premium / Fiscal Supply Rout - Shelved; 10Y Short of Re-Activation Level",
+      "first_seen": "2026-09-25",
+      "last_updated": "2026-10-23",
+      "status": "fading",
+      "stance": "No new evidence today. 10Y at 5.05%, re-steepened to +0.37 on 10Y-2Y but well short of the 5.3% level that would revive the supply-rout thesis. Democratic sweep (~70% priced) implies no fiscal consolidation; shutdown by Jan 31 near-certain. Early-November Treasury refunding is the explicit supply test. Thesis stays shelved. Avoid ZROZ; use SHY/IEI if duration hedge needed.",
+      "tell": "Treasury refunding (early Nov): more long-dated issuance or auction tail above 0bp = supply-side re-dominant, fade long-end rally. 10Y sustaining above 5.3% on soft Nov 12 CPI = term premium re-dominant. Strong auction reception (tail below 0bp) = first real challenge to thesis."
+    },
+    {
+      "id": "equity-rate-reconciliation",
+      "label": "Equity-Rate Reconciliation - No Fed Backstop; Tech De-rating Grinding On",
+      "first_seen": "2026-10-07",
+      "last_updated": "2026-10-30",
+      "status": "inflecting",
+      "stance": "Alphabet lost ~$500B in its worst day ever; Intel fell 21%; Amazon added to AI-spending worries. Real 10Y yield ~2.7% (99th percentile) is a heavy discount-rate headwind for long-duration growth stocks. HY spreads were 3.14% and VIX 16.9 before the crash — hedge still cheap; adding modestly to HYG puts. The 3.50% de-risk trigger not yet hit. No Fed rescue: 97% odds of no cut in 2026. Underweight GOOGL/META/AMZN; overweight AAPL vs. NVDA on low-capex positioning.",
+      "tell": "HY spreads above 3.50% = de-risk equity beta, press HYG puts. Below 3.00% = selloff contained, trim hedge. Dec hike odds with 2Y below 4.50% = market pricing rescue, no-backstop call wrong. Nov 12 CPI: third 0.30%+ core print = multiples have no floor."
+    },
+    {
+      "id": "ai-trade-bifurcation",
+      "label": "AI Trade Bifurcating - Capex Now Punished; Suppliers Paid Last to Be Cut",
+      "first_seen": "2026-07-31",
+      "last_updated": "2026-10-30",
+      "status": "inflecting",
+      "stance": "Market reaction to GOOGL/AMZN earnings confirms capex is now punished, not rewarded. NVDA largest-company year-end odds fell sharply to 52% from 68.5%; AAPL rose to 44.6%. SK Hynix profit up 7x confirms memory scarcity on budgets already committed. Intel's 21% drop on PC weakness signals AI demand may be crowding out other supply. China spy headline on NVDA executive adds headline risk into earnings. Barbell now: OW MU; cut chip equipment (AMAT, LRCX, KLAC, ASML) to neutral on 2027 capex-cut risk; OW AAPL vs. NVDA; UW hyperscalers (GOOGL, META, AMZN) and borrowing-funded neoclouds (CRWV, NBIS, IREN).",
+      "tell": "NVDA earnings (date TBC): neocloud customer revenue exposure and 2027 capex guidance = AI supplier de-rating test. Memory pricing and MU guidance: deterioration = trim MU. Hyperscalers' 2027 spending guidance (Q4 calls): cuts confirmed = chip equipment stays neutral or worse."
+    },
+    {
+      "id": "hormuz-oil-stagflation-shock",
+      "label": "Gulf Escalation / Oil Impulse - Two Supply Channels Reopened; Refiners Raised",
+      "first_seen": "2026-07-20",
+      "last_updated": "2026-10-30",
+      "status": "building",
+      "stance": "WTI at ~$103-110 (98th percentile). Trump downplaying Iran peace talks; US warned allies of strikes after Nov 3 midterms; US invasion odds at 17.5%. Netanyahu stays as caretaker after election deadlock (out-by-year-end odds 20.5%). Separately, Ukraine resumed Russian refinery strikes despite Trump's pause — Russian refinery outages tighten diesel/refined products, favoring US refiners. Two oil supply channels now open simultaneously. Raised refiners (VLO, MPC) to parity with upstream. Hold XLE/XOP through Nov 3-6 window; underweight airlines and cruise lines.",
+      "tell": "Confirmed East-West pipeline outage or Iran strike post-Nov 3 = press energy and cut duration hard. Qatar-brokered deal with WTI sustained below $90 = trim energy to core sleeve. Nov 12 Oct CPI: energy pass-through magnitude. Crack spreads widening on Russian outages = add refiners further."
+    },
+    {
+      "id": "defense-restocking-supercycle",
+      "label": "Arsenal Depletion - Multi-Year Defense Restocking; NATO-Russia Odds Rising Again",
+      "first_seen": "2026-08-05",
+      "last_updated": "2026-10-30",
+      "status": "inflecting",
+      "stance": "NATO-Russia clash odds rose to 18.5% from 15.5% — reversing the prior decline — as Ukraine resumed Russian refinery strikes. Lame-duck NDAA passage supports XAR/LMT/RTX into year-end. Structural case intact: ally procurement diversification and Iran munitions burn risk. Hold XAR/RTX/LMT; don't add without order-book confirmation from prime contractor earnings.",
+      "tell": "Prime contractor (LMT, RTX, NOC) earnings order-book guidance raised = demand confirmed, re-add. NDAA passage in lame duck = confirms defense spending floor. Binding simultaneous ceasefire across Ukraine, Iran/Hormuz AND Red Sea = trim acute premium."
+    }
+  ],
+  "dropped": [
+    {
+      "id": "fed-policy-error-curve-flattening",
+      "reason": "resolved: 2Y long exited after Sept core PCE narrowed CPI-PCE gap; trade thesis closed"
+    }
+  ]
+}
