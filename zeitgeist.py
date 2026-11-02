@@ -28,7 +28,7 @@ ENABLE_EMAIL_BRIEFING = True
 ENABLE_FRED_TOOL = True  # give synthesis a bounded FRED search/fetch tool to ground claims on demand
 ENABLE_VERIFIER = True  # post-synthesis flag-then-revise pass to catch over-reach before shipping
 ENABLE_LEDGER = True  # rolling multi-day themes ledger fed back into synthesis (phase 1: local-first)
-ENABLE_SLACK = True  # write a Slack summary (Key Themes + tilts + link) for run_cron.sh to post after the push
+ENABLE_SLACK = True  # write a Slack summary (Key Themes + link) for run_cron.sh to post after the push
 
 BATCH_REQUEST_DELAY_SECONDS = 5
 RATE_LIMIT_WAIT_SECONDS = 10

@@ -14,7 +14,7 @@ Zeitgeist is a Python application that generates daily investment macro reports 
 7. Verifying the finished draft for over-reach and revising it before it ships
 8. Updating a rolling multi-day **themes ledger** (carry/inflect/prune) that feeds back into the next day's synthesis
 9. Adding citations and rendering to HTML
-10. Posting a Slack summary (Key Themes + Positioning Summary tilts + link to the full memo)
+10. Posting a Slack summary (Key Themes + link to the full memo)
 
 The application runs daily via a **local cron** (`run_cron.sh`) and publishes reports to GitHub Pages. The `.reports/` directory is a git worktree checked out to the `gh-pages` branch; the cron runs the script, then commits and pushes `.reports/` to publish, then posts the Slack summary.
 
@@ -76,11 +76,11 @@ The application uses these specialized pydantic-ai agents:
    - Model: `claude-opus-5-5` (Opus 5.5, single-pass deep synthesis) with **adaptive thinking + high effort**
    - Consolidates all inputs into one coherent memo, reasoning through cross-cutting tensions/confounders and **resolving them into a decisive call** rather than listing both sides
    - Opens with a **Key Themes** lede at the very top: at most 2-3 variant-perception bullets surfacing what may NOT be priced in or what a headline reading would miss (risk-reversals, narrative shifts, thematic inflections); genuine leaps flag a concrete confirm/refute tell
-   - Surfaces the disambiguating datapoints as an integrated **Key Tells** block in the Positioning Summary (the forward "what would change this view" tells) — replaces the earlier separate two-pass "Cross-Currents" red-team
+   - Writes **no Positioning Summary** (removed 2026-11-02, taking its **Key Tells** block with it): each call stays with the story it comes from, and forward tells live in the Key Themes bullets
    - **Calibrates confidence to evidence** (decisive ≠ certain): grounds every claim in the provided inputs (no fabricated numbers, mechanisms, or historical precedents), separates what the data shows from inference vs. speculation, and labels genuine leaps with what would confirm or refute them
    - **Sizes a move before making it a story**: a streak or direction ("up six weeks running") is not significance — a move must be large against the series' usual swings, or sit at/cross a level that matters (an index's zero line, a spread's usual range, a threshold), before it carries a claim or a Key Themes slot; reference levels are stated qualitatively unless the number is in the inputs
    - **Lands every material story on a tradeable implication**: a concrete expression (name/sector or cross-asset leg) plus a catalyst — but only one confirmably still upcoming in the events inputs, never a stale/assumed peg
-   - **Gives every position call its edge, not just its data**: why the call should pay — what the market is pricing now (from an observable in the inputs: a breakeven, the 2Y vs the funds path, a spread, a prediction-market probability) and why the read differs, or what the instrument captures that the obvious alternative doesn't. With no pricing observable it says so and argues from mechanism/asymmetry, labeled as inference — never an invented consensus; a call with no statable edge becomes a watch item. Positioning Summary tilts are one line each, with a short "because" clause
+   - **Gives every position call its edge, not just its data**: why the call should pay — what the market is pricing now (from an observable in the inputs: a breakeven, the 2Y vs the funds path, a spread, a prediction-market probability) and why the read differs, or what the instrument captures that the obvious alternative doesn't. With no pricing observable it says so and argues from mechanism/asymmetry, labeled as inference — never an invented consensus; a call with no statable edge becomes a watch item
    - Has a **bounded FRED tool** (`fred_search`/`fred_series`, capped at `MAX_FRED_TOOL_CALLS`) to fetch an additional series on demand and *compute* a figure rather than estimate it; fetched series flow into the citation sources. Gated by `ENABLE_FRED_TOOL`
    - When the themes ledger is enabled, also receives the **prior days' themes** (with their forward tells) and re-tests each against today's data — confirming, advancing, inflecting, or dropping it — rather than continuing a prior call by inertia. Gated by `ENABLE_LEDGER`
    - Writes **claim-first and structured**: lead with the takeaway, subordinate the evidence; one claim per bullet; compress words, not logic
@@ -137,7 +137,7 @@ Citation Agent → final markdown report → HTML (via Mako template)
 - `about_me.mako`: Shared context about the investor persona (US equities, macro focus)
 - `relevant_prediction_prompt.mako`: Filters prediction markets for investment relevance
 - `events_prompt.mako`: Instructs agent to find upcoming catalysts via web search
-- `synthesizing_prompt.mako`: Main report generation — single-pass synthesis that resolves tensions into a decisive call, opens with a "Key Themes" variant-perception lede, applies a confidence-calibration discipline + claim-first writing rules, lands every story on a tradeable/grounded-catalyst implication, and surfaces forward tells via the integrated "Key Tells" block. A `fred_tool` flag conditionally renders the bounded-FRED-tool instructions; a `ledger` flag conditionally renders the prior-themes re-test instructions
+- `synthesizing_prompt.mako`: Main report generation — single-pass synthesis that resolves tensions into a decisive call, opens with a "Key Themes" variant-perception lede, applies a confidence-calibration discipline + claim-first writing rules, lands every story on a tradeable/grounded-catalyst implication. A `fred_tool` flag conditionally renders the bounded-FRED-tool instructions; a `ledger` flag conditionally renders the prior-themes re-test instructions
 - `verifier_prompt.mako`: Adversarial over-reach review of the finished draft (flag pass) — sees `{memo, upcoming_catalysts}` with FRED grounding; returns structured findings
 - `revise_prompt.mako`: Applies the verifier's fixes (revise pass), propagating each correction to sibling claims while touching nothing else
 - `ledger_update_prompt.mako`: Maintains the rolling themes ledger (update pass) — reads `{prior_ledger, memo}` and returns the carried/inflected/pruned `ThemesLedger`
@@ -169,7 +169,7 @@ The daily report runs from a **local cron job** (not GitHub Actions) via `run_cr
 - Sources secrets from `~/.bashrc_env`, sets `ZEITGEIST_PROD=1` (a full run, not the quick test), then runs `uv run python zeitgeist.py`
 - Writes the report into `.reports/YYYY/MM/DD/index.html`
 - `.reports/` is a git **worktree** on the `gh-pages` branch; the script `git add -A && commit && push`es it, which publishes to GitHub Pages (<https://michaelv2.github.io/zeitgeist/>)
-- After the push, posts the run's `.slack_payload.json` to `SLACK_WEBHOOK_URL` (built by `slack_digest.py`: Key Themes, the Positioning Summary tilts without the Key Tells, and a link to the full memo), then deletes it. A failed post is logged and doesn't fail the run; the run deletes any stale payload before writing, so an old summary is never re-sent
+- After the push, posts the run's `.slack_payload.json` to `SLACK_WEBHOOK_URL` (built by `slack_digest.py`: Key Themes and a link to the full memo), then deletes it. A failed post is logged and doesn't fail the run; the run deletes any stale payload before writing, so an old summary is never re-sent
 
 (A `.github/workflows/daily_report.yml` exists but is **not** the active mechanism — kept as a dormant/manual-dispatch fallback.)
 

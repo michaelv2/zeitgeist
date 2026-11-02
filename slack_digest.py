@@ -1,5 +1,4 @@
-"""Build the Slack summary of a finished memo: its Key Themes and Positioning Summary tilts, plus a link to the
-full report.
+"""Build the Slack summary of a finished memo: its Key Themes, plus a link to the full report.
 
 zeitgeist.py writes the payload to disk; run_cron.sh posts it to SLACK_WEBHOOK_URL only after the push, so the
 link is live when the message lands.
@@ -19,18 +18,6 @@ def section(md: str, heading: str) -> str | None:
     """Body of the memo's `## heading` section, or None if the memo has no such heading."""
     m = re.search(rf"^#{{1,6}}[ *]*{re.escape(heading)}\b[^\n]*\n(.*?)(?=^#{{1,6}}\s|\Z)", md, re.M | re.S)
     return m.group(1).strip() if m else None
-
-
-def leading_list(body: str) -> str:
-    """The section's opening bullet list, dropping whatever follows it (the Positioning Summary's Key Tells)."""
-    out, seen_bullet = [], False
-    for line in body.splitlines():
-        is_bullet = bool(re.match(r"\s*([-*+]|\d+\.)\s", line))
-        if seen_bullet and line.strip() and not is_bullet and not line[0].isspace():
-            break
-        seen_bullet = seen_bullet or is_bullet
-        out.append(line)
-    return "\n".join(out).strip()
 
 
 def _cells(row: str) -> list[str]:
@@ -87,14 +74,11 @@ def _section_blocks(title: str, text: str) -> list[dict]:
 
 
 def build_payload(report: str, day: date, url: str) -> dict:
-    """Slack webhook payload: a header, the Key Themes, the Positioning Summary tilts, and a link to the full memo.
-    A section the model didn't write is skipped rather than failing the summary."""
+    """Slack webhook payload: a header, the Key Themes, and a link to the full memo.
+    If the model didn't write Key Themes, the summary is just the header and the link."""
     title = f"Zeitgeist Daily Memo ({day.strftime('%d-%b-%Y')})"
     blocks = [{"type": "header", "text": {"type": "plain_text", "text": title}}]
     if themes := section(report, "Key Themes"):
         blocks += _section_blocks("Key Themes", to_mrkdwn(themes))
-    if positioning := section(report, "Positioning Summary"):
-        blocks += [{"type": "divider"}] if len(blocks) > 1 else []
-        blocks += _section_blocks("Positioning Summary", to_mrkdwn(leading_list(positioning)))
     blocks.append({"type": "section", "text": {"type": "mrkdwn", "text": f"<{url}|Read the full memo →>"}})
     return {"text": f"{title}: {url}", "blocks": blocks, "unfurl_links": False, "unfurl_media": False}

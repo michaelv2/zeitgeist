@@ -5,7 +5,7 @@ Run: uv run python -m pytest test_slack_digest.py -v
 
 from datetime import date
 
-from slack_digest import SECTION_LIMIT, build_payload, leading_list, section, to_mrkdwn
+from slack_digest import SECTION_LIMIT, build_payload, section, to_mrkdwn
 
 MEMO = """# Daily Memo (16-Oct-2026)
 
@@ -51,14 +51,6 @@ class TestSections:
     def test_tolerates_heading_drift(self):
         assert section("### **Key Themes:**\n\n- a\n\n## Next\n", "Key Themes") == "- a"
 
-    def test_leading_list_drops_key_tells(self):
-        tilts = leading_list(section(MEMO, "Positioning Summary"))
-        assert "Long the 2Y" in tilts and "This pairs with the 2Y long" in tilts
-        assert "Key Tells" not in tilts and "Oct 28 FOMC" not in tilts
-
-    def test_leading_list_keeps_preamble(self):
-        assert leading_list("Intro line.\n\n- a\n- b\n\nAfter.") == "Intro line.\n\n- a\n- b"
-
 
 class TestMrkdwn:
     def test_bold_italic_and_links(self):
@@ -90,9 +82,12 @@ class TestPayload:
         payload = build_payload(MEMO, date(2026, 10, 16), self.URL)
         text = text_of(payload)
         assert payload["blocks"][0]["text"]["text"] == "Zeitgeist Daily Memo (16-Oct-2026)"
-        assert "*Key Themes*" in text and "*Positioning Summary*" in text
+        assert "*Key Themes*" in text
         assert "<https://fred.stlouisfed.org/series/T10Y3M|10Y–3M spread>" in text
-        assert "Key Tells" not in text and "should not appear" not in text and "Upcoming" not in text
+        assert "should not appear" not in text and "Upcoming" not in text
+        # a stray positioning section (older memos, or the model ignoring the prompt) is never posted
+        assert "Positioning Summary" not in text and "Long the 2Y" not in text and "Key Tells" not in text
+        assert [b["type"] for b in payload["blocks"]] == ["header", "section", "section"]
         assert payload["blocks"][-1]["text"]["text"] == f"<{self.URL}|Read the full memo →>"
         assert self.URL in payload["text"]
 
@@ -101,8 +96,8 @@ class TestPayload:
         assert [b["type"] for b in payload["blocks"]] == ["header", "section"]
 
     def test_long_section_splits_under_limit(self):
-        bullets = "\n".join(f"- **Tilt {i}** because " + "x" * 200 for i in range(40))
-        payload = build_payload(f"## Positioning Summary\n\n{bullets}\n", date(2026, 10, 16), self.URL)
+        bullets = "\n".join(f"- **Theme {i}** because " + "x" * 200 for i in range(40))
+        payload = build_payload(f"## Key Themes\n\n{bullets}\n", date(2026, 10, 16), self.URL)
         sections = [b for b in payload["blocks"] if b["type"] == "section"]
         assert len(sections) > 2
         assert all(len(b["text"]["text"]) <= SECTION_LIMIT for b in sections)
