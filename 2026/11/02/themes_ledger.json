@@ -1,0 +1,78 @@
+{
+  "as_of": "2026-11-02",
+  "themes": [
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory - December Hike ~64% Priced; Data Still Supports It",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-10-30",
+      "status": "inflecting",
+      "stance": "Sept core PCE rose 0.32%, narrowing the CPI-PCE trend gap: PCE ~2.9% annualized over three months vs. CPI ~3.4%. Monthly gap has effectively closed. Core CPI re-accelerated three consecutive months (0.22%, 0.29%, 0.335%). M2 up 4.9% since December (~6.5% annualized). December hike odds slipped modestly from 71% to 64% as 2Y fell 20bp on haven demand — but the 2Y is still ~85bp above effective funds and the data supports the hike. No Fed backstop for tech selloff remains operative. October jobs report this week is the next test: judge by unemployment rate, not payrolls headline.",
+      "tell": "Nov 12 Oct CPI: second straight core print of 0.30%+ = December hike locked, add STIP. At 0.20% or below = front-end duration back on. Oct jobs (this week): unemployment at 4.4%+ = hike off, buy 2Y; at 4.2% or lower with weak payrolls = labor-supply read confirmed, hike stays on."
+    },
+    {
+      "id": "breakeven-inflation-mispricing",
+      "label": "Breakeven / TIPS Mispricing - Front-End Thesis Intact; 5Y Breakeven Steady",
+      "first_seen": "2026-10-16",
+      "last_updated": "2026-10-30",
+      "status": "intact",
+      "stance": "5Y breakeven at 2.46% (77th percentile), fractionally down from 2.47%; 10Y at 2.34%. The 5Y-10Y breakeven curve remains inverted (~12bp), confirming market still reads oil shock as front-loaded. At ~2.9% core PCE run-rate with oil above $100, 5Y breakeven is still below realized inflation — front-end TIPS (STIP/VTIP) held as protection against no Iran deal, not a trade to add to. Overweight STIP/VTIP; avoid TIPZ/LTPZ/ZROZ. A signed Iran deal would hit the 5-year breakeven first.",
+      "tell": "10Y breakeven rising back above 2.40% with oil above $100 = add long TIPS. 5Y breakeven falling below 2.35% = oil shock fading, trim STIP. Nov 12 Oct CPI: energy pass-through magnitude drives STIP sizing."
+    },
+    {
+      "id": "term-premium-fiscal-supply-rout",
+      "label": "Term Premium / Fiscal Supply Rout - Shelved; 10Y Short of Re-Activation Level",
+      "first_seen": "2026-09-25",
+      "last_updated": "2026-10-23",
+      "status": "fading",
+      "stance": "No new evidence today. 10Y at 4.98%, re-steepened to +0.38 on 10Y-2Y but well short of the 5.3% level that would revive the supply-rout thesis. Democratic sweep (~72% priced) implies no fiscal consolidation; shutdown by Jan 31 near-certain (~94.9%). Case for long bonds remains shelved. Avoid ZROZ; use SHY/IEI if duration hedge needed.",
+      "tell": "Treasury refunding (early Nov): more long-dated issuance or auction tail above 0bp = supply-side re-dominant, fade long-end rally. 10Y sustaining above 5.3% on soft Nov 12 CPI = term premium re-dominant. Strong auction reception (tail below 0bp) = first real challenge to thesis."
+    },
+    {
+      "id": "equity-rate-reconciliation",
+      "label": "Equity-Rate Reconciliation - No Fed Backstop; Index Vol Mispriced Into Stacked Binaries",
+      "first_seen": "2026-10-07",
+      "last_updated": "2026-11-02",
+      "status": "inflecting",
+      "stance": "VIX was 17.2 on Oct 29 (10-year median, 52nd percentile) despite the ~$5T October AI selloff and stacked catalysts (midterms, Iran strike window, jobs, CPI). HY spreads widened to 3.26% from 3.14%. Real 10Y yield ~2.64% remains a heavy discount-rate headwind for long-duration growth. Adding SPY/QQQ put spreads this week while vol is near median; hold HYG puts below the 3.50% de-risk trigger. The 2Y rally (20bp) reflects haven demand plus a modest step-down in hike odds (71% to 64%), not a Fed pivot. No-backstop call intact.",
+      "tell": "HY spreads above 3.50% = de-risk equity beta, press HYG puts. Below 3.00% = selloff contained, trim hedge. 2Y below 4.50% = market pricing Fed rescue, no-backstop call wrong. Nov 12 CPI: third 0.30%+ core print = multiples have no floor."
+    },
+    {
+      "id": "ai-trade-bifurcation",
+      "label": "AI Trade Bifurcating - Capex Punished; NVDA Odds Partially Recovering",
+      "first_seen": "2026-07-31",
+      "last_updated": "2026-10-30",
+      "status": "inflecting",
+      "stance": "Market reaction to GOOGL/AMZN earnings confirmed capex is punished. NVDA largest-company year-end odds partially recovered to 57% vs. AAPL at 40.8%, so no adds to AAPL overweight. SK Hynix profit up 7x confirms memory scarcity on committed budgets. Intel fell 21% on PC weakness. Barbell: OW MU; chip equipment (AMAT, LRCX, KLAC, ASML) at neutral on 2027 capex-cut risk; OW AAPL vs. NVDA (no adds); UW hyperscalers (GOOGL, META, AMZN) and debt-funded neoclouds (CRWV, NBIS, IREN).",
+      "tell": "NVDA earnings: neocloud customer revenue exposure and 2027 capex guidance = AI supplier de-rating test. Memory pricing and MU guidance deterioration = trim MU. Hyperscalers 2027 spending guidance (Q4 calls): cuts confirmed = chip equipment stays neutral or worse."
+    },
+    {
+      "id": "hormuz-oil-stagflation-shock",
+      "label": "Gulf Escalation / Oil Impulse - Doha Talks Stalled; US Strike Window Opens Post-Nov 3",
+      "first_seen": "2026-07-20",
+      "last_updated": "2026-11-02",
+      "status": "building",
+      "stance": "WTI above $100 (96th percentile) despite retreating from $110 high on circulating Doha draft deal. Iran's negotiators have left and both sides still threatening to resume fighting. US warned allies of strikes after Nov 3; US invasion odds at 16.5%. Oil carrying a large risk premium, not pricing a signed deal. Ukrainian refinery strikes on Russia continue as a separate supply channel. Holding XLE/VLO/MPC into post-Nov 3 window; underweight airlines and cruise lines.",
+      "tell": "Confirmed strike or collapsed Iran talks post-Nov 3 = press energy and cut duration hard. Signed deal with WTI sustained below $90 = trim energy to core sleeve and STIP. Crack spreads widening on Russian refinery outages = add refiners further."
+    },
+    {
+      "id": "defense-restocking-supercycle",
+      "label": "Arsenal Depletion - Defense Restocking; NATO-Russia Odds Reversed Lower",
+      "first_seen": "2026-08-05",
+      "last_updated": "2026-10-30",
+      "status": "fading",
+      "stance": "NATO-Russia clash odds fell sharply to 12.5% from 18.5%, reversing the prior memo's inflection. Ukraine peace deal only 7.5%. Lame-duck NDAA still supports a structural floor for XAR/LMT/RTX, but acute geopolitical premium is fading. Hold core defense with no adds pending order-book confirmation from prime contractor earnings.",
+      "tell": "Prime contractor (LMT, RTX, NOC) earnings order-book guidance raised = demand confirmed, re-add. NATO-Russia clash odds rising back above 18% = re-evaluate adds. Binding simultaneous ceasefire across Ukraine, Iran/Hormuz AND Red Sea = trim remaining premium."
+    },
+    {
+      "id": "euro-positioning-squeeze",
+      "label": "Euro Positioning Squeeze - 11-Year Extreme Shorts vs. ECB Hold",
+      "first_seen": "2026-11-02",
+      "last_updated": "2026-11-02",
+      "status": "building",
+      "stance": "CFTC speculative euro shorts are at an 11-year extreme. ECB is widely expected to hold (2026 cut odds 2.5%) and eurozone inflation likely at or above 3.1% (74.5%). Broad dollar flat at 121.3. Positioning that one-sided creates a tactical squeeze risk. Tactical long euro via FXE has a positioning edge.",
+      "tell": "CFTC data showing euro shorts reducing materially = squeeze underway, ride FXE. Eurozone CPI at or above 3.1% with ECB holding = adds to squeeze case. Dollar index breaking above 122 = dollar momentum overrides positioning, exit FXE."
+    }
+  ],
+  "dropped": []
+}
