@@ -1,0 +1,83 @@
+{
+  "as_of": "2026-11-04",
+  "themes": [
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory - December Hike ~75% Priced; Data Re-Accelerating",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-11-04",
+      "status": "inflecting",
+      "stance": "December hike odds rose to ~75% from 64%. Sept core CPI +0.335% (third straight faster print); core CPI ~3.4% annualized over three months, core PCE ~2.9%. Continuing claims at 1.70M (low of recent window); job openings 7.52M. The 2Y fell 22bp to 4.59% on gridlock/haven demand — still ~70bp above effective funds, pricing December plus more in 2027. No Fed pivot read. Nov 6 unemployment rate is the binary: 4.4%+ takes the hike off; 4.2% or lower keeps it on regardless of payroll headline.",
+      "tell": "Nov 6 Oct jobs: unemployment at 4.4%+ = hike off, buy 2Y; at 4.2% or lower = hike on. Nov 10 Oct CPI: second straight core print of 0.30%+ = December hike locked; headline at 0.2% or less = trim STIP."
+    },
+    {
+      "id": "breakeven-inflation-mispricing",
+      "label": "Breakeven / TIPS Mispricing - 5Y Breakeven Dipped; Trim Trigger Now CPI-Based",
+      "first_seen": "2026-10-16",
+      "last_updated": "2026-11-04",
+      "status": "inflecting",
+      "stance": "5Y breakeven slipped to 2.39% from 2.46% — a small move (smaller than 92% of past one-month moves). Short TIPS still earn realized CPI running ~4% annualized against a 2.39% breakeven; that accrual drives the return. Trim trigger updated: trim STIP on a soft October headline CPI print (0.2% or less), not on the 2.35% breakeven level. Still avoid long TIPS (TIPZ) and long zeros (ZROZ).",
+      "tell": "Nov 10 Oct CPI headline at 0.2% or less = trim STIP. 5Y breakeven rising above 2.46% with oil above $100 = consider adding. 10Y breakeven rising above 2.40% = add long TIPS."
+    },
+    {
+      "id": "term-premium-fiscal-supply-rout",
+      "label": "Term Premium / Fiscal Supply Rout - Democratic Sweep Shelves View Further",
+      "first_seen": "2026-09-25",
+      "last_updated": "2026-11-04",
+      "status": "fading",
+      "stance": "Democratic sweep removes the tax-cut route to larger deficits; 10Y fell to 4.91% from 5.13% and market gives only 11% odds to 10Y at 5.5%. Corporate and capital-gains tax cuts priced at 9% and 11% respectively. Long-bond short thesis shelved further; bear flattening now the base case. Duration, if held, belongs in 7-10Y (IEF). Early-November Treasury refunding is the last live test.",
+      "tell": "Treasury refunding (early Nov): longer issuance or auction tail above 0bp = supply-side re-dominant. 10Y sustaining above 5.3% on soft Nov 10 CPI = term premium re-dominant. Strong auction reception (tail below 0bp) = final challenge to thesis, consider resolving."
+    },
+    {
+      "id": "equity-rate-reconciliation",
+      "label": "Equity-Rate Reconciliation - No Fed Backstop; HY Spread 7bp from De-Risk Trigger",
+      "first_seen": "2026-10-07",
+      "last_updated": "2026-11-04",
+      "status": "inflecting",
+      "stance": "VIX jumped to 21.2 (73rd percentile) from 17.2. HY spread hit 3.43%, up 33bp in a month and 7bp from the 3.50% de-risk trigger. SPY/QQQ put spreads bought near VIX 17 are working — no adds at VIX 21; hold through Nov 10 CPI. Real 10Y yield ~2.62% remains a heavy discount-rate headwind. 2Y rally reflects gridlock/haven demand, not a Fed pivot. No-backstop call intact.",
+      "tell": "HY spreads above 3.50% = de-risk equity beta, press HYG puts. Below 3.00% = selloff contained, trim hedge. 2Y below 4.50% = market pricing Fed rescue, no-backstop call wrong. Nov 10 CPI third 0.30%+ core print = multiples have no floor."
+    },
+    {
+      "id": "ai-trade-bifurcation",
+      "label": "AI Trade Bifurcating - Political Channel Added; NVDA vs. AAPL Pair Losing",
+      "first_seen": "2026-07-31",
+      "last_updated": "2026-11-04",
+      "status": "inflecting",
+      "stance": "NVDA year-end largest-company odds rose to 61.5%; AAPL fell to 36.6% — AAPL vs. NVDA pair is losing, close if NVDA guidance goes up or NVDA does not flag power/permits as constraints. Texas governor flip (Hinojosa) adds a political channel: permit tightening raises value of already-powered incumbent capacity (EQIX, DLR) and hurts new-build neoclouds (CRWV, IREN). Underweight hyperscalers and debt-funded neoclouds; OW MU; chip equipment at neutral on 2027 capex-cut risk.",
+      "tell": "NVDA Nov 17 earnings: power or permit cited as bottleneck = confirm data-center landlord trade; guidance up = close AAPL/NVDA pair. Texas bill language on data-center moratorium = size EQIX/DLR vs. CRWV/IREN. Hyperscalers 2027 capex guidance cuts confirmed = chip equipment stays neutral or worse."
+    },
+    {
+      "id": "hormuz-oil-stagflation-shock",
+      "label": "Gulf Escalation / Oil Impulse - US Invasion Odds Eased; Risk Premium Intact",
+      "first_seen": "2026-07-20",
+      "last_updated": "2026-11-04",
+      "status": "building",
+      "stance": "US invasion odds slipped to 14.5% from 16.5%. WTI at ~$103 against a $110 peak — oil still carries a large risk premium, not pricing a signed deal. Doha talks stalled; Iranian negotiators absent. Hold XLE/VLO/MPC; underweight airlines and cruise lines. Ukrainian refinery strikes on Russia continue as a separate supply channel.",
+      "tell": "Confirmed strike or collapsed Iran talks = press energy and cut duration hard. Signed deal with WTI sustained below $90 = trim energy to core sleeve and STIP. Crack spreads widening on Russian refinery outages = add refiners further."
+    },
+    {
+      "id": "dc-permitting-power-politics",
+      "label": "State Permitting / Power Politics - Texas Data-Center Risk Elevates Incumbent Capacity Value",
+      "first_seen": "2026-11-04",
+      "last_updated": "2026-11-04",
+      "status": "building",
+      "stance": "Democratic Texas governor flip (Hinojosa) and Democrats campaigning on data-center restrictions create a live permitting-tightening channel at the state level. Federal legislation is effectively dead (Trump veto; corporate tax cut 9%, cap-gains cut 11%). Market sold all AI/data-center names as one basket; inference is that limits on new builds raise the value of already-powered running capacity. Long incumbent data-center landlords (EQIX, DLR) vs. neoclouds with Texas build pipelines (CRWV, IREN); underweight Texas-grid-dependent power producers (VST, NRG). CEG (PJM region) is a cleaner power exposure. Starter position pending confirmation.",
+      "tell": "NVDA (Nov 17) or hyperscalers citing power or site limits as bottleneck = size up EQIX/DLR trade. Texas bill language on data-center moratorium = confirms thesis. Moratorium talk fades without bill language = kill trade."
+    },
+    {
+      "id": "euro-positioning-squeeze",
+      "label": "Euro Positioning Squeeze - Eurozone Inflation Odds Raised; Hold FXE",
+      "first_seen": "2026-11-02",
+      "last_updated": "2026-11-04",
+      "status": "building",
+      "stance": "Odds that eurozone inflation reaches 3.1%+ rose to 87% from 74.5%. ECB cut odds are 3.4% (up from 2.5%). Broad dollar at 121.7, below the 122 exit level. CFTC speculative euro shorts remain at 11-year extreme — positioning squeeze risk intact. Hold FXE.",
+      "tell": "CFTC data showing euro shorts reducing materially = squeeze underway, ride FXE. Dollar index breaking above 122 = dollar momentum overrides positioning, exit FXE. Eurozone CPI at or above 3.1% with ECB holding = adds to squeeze case."
+    }
+  ],
+  "dropped": [
+    {
+      "id": "defense-restocking-supercycle",
+      "reason": "fading further: Democratic appropriations control removes reconciliation route; memo directs trim to benchmark; displaced at cap by dc-permitting-power-politics"
+    }
+  ]
+}
