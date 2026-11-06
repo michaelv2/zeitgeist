@@ -1,0 +1,78 @@
+{
+  "as_of": "2026-11-06",
+  "themes": [
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory - December Hike ~68% Priced; Data Still Hot",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-11-06",
+      "status": "inflecting",
+      "stance": "December hike odds eased to ~68% from ~75% on the AI/tech rout and front-end rally. Core CPI still running 3.4% annualized over three months; core PCE ~2.9%; headline CPI ~4.6% YoY. Unemployment 4.2%, job openings 7.52M, continuing claims 1.72M. Memo argues the wealth shock is not a labor shock and hike still happens. 2Y estimated ~4.50–4.52% — right at the no-backstop test level. Oct jobs report moved to Dec 4; Nov 10 CPI is now the next binary. Democratic Senate blocking dovish Fed nominees seen as making the hawkish path more credible.",
+      "tell": "Nov 10 Oct CPI: core at 0.30%+ = December hike strong base case, sell 2Y rally, hold STIP. Headline at 0.2% or less = trim STIP. Dec 4 Oct jobs: unemployment 4.4%+ = hike off; 4.2% or lower = hike on."
+    },
+    {
+      "id": "breakeven-inflation-mispricing",
+      "label": "Breakeven / TIPS Mispricing - 5Y Breakeven Dropped to 2.26%; Add STIP",
+      "first_seen": "2026-10-16",
+      "last_updated": "2026-11-06",
+      "status": "inflecting",
+      "stance": "5Y breakeven fell 20bp in four sessions to 2.26% — roughly the 10-year median — driven by risk-off growth scare and WTI dropping from ~$107 to ~$99. That is ~1.5pt below headline CPI YoY and ~1.1pt below 3-month core. Short TIPS accrue realized CPI regardless of growth scare. Memo says add STIP at this entry; trim only if Oct headline CPI prints 0.2% or less. Still avoid long TIPS (TIPZ) and long zeros (ZROZ).",
+      "tell": "Nov 10 Oct CPI headline at 0.2% or less = trim STIP. 5Y breakeven recovering above 2.46% with oil above $100 = consider adding further. 10Y breakeven rising above 2.40% = evaluate long TIPS."
+    },
+    {
+      "id": "term-premium-fiscal-supply-rout",
+      "label": "Term Premium / Fiscal Supply Rout - Thesis Closed; Duration in 7-10Y",
+      "first_seen": "2026-09-25",
+      "last_updated": "2026-11-06",
+      "status": "resolved",
+      "stance": "Memo explicitly closes the long-bond short thesis: 10Y at 4.90%, market gives 5.5% 10Y only 4.6% odds. Curve steepened slightly (10s/2s +38bp). Democratic sweep cements fiscal gridlock (corporate tax cut 8%, cap-gains 9.5%). If duration is held, hold in 7–10Y (IEF), not long zeros (ZROZ). No further active monitoring needed.",
+      "tell": "Resolved. No forward tell required."
+    },
+    {
+      "id": "equity-rate-reconciliation",
+      "label": "Equity-Rate Reconciliation - Tech Rout Hits; HY 3.32% Pre-Rout, 3.50% Trigger Intact",
+      "first_seen": "2026-10-07",
+      "last_updated": "2026-11-06",
+      "status": "inflecting",
+      "stance": "Nov 4 HY spread was 3.32% (tightened on election relief); VIX fell to 16.6 — but memo flags these readings predate the Nov 5 rout (Nasdaq -5%, Dow -1,800pts). 3.50% HY trigger and no-Fed-put call remain intact. Hedging plan: take profits on half QQQ put spreads into volatility spike; hold SPY puts through Nov 10 CPI. 2Y at ~4.50–4.52% is right at the no-backstop test — a close clearly below 4.50% that holds through CPI would invalidate the no-Fed-put call.",
+      "tell": "HY spreads above 3.50% = de-risk equity beta, press HYG puts. 2Y closing and holding clearly below 4.50% through Nov 10 CPI = no-backstop call wrong. Nov 10 CPI core 0.30%+ = multiples have no floor."
+    },
+    {
+      "id": "ai-trade-bifurcation",
+      "label": "AI Trade Bifurcating - AAPL/NVDA Pair Flipped; Political Channel Active",
+      "first_seen": "2026-07-31",
+      "last_updated": "2026-11-06",
+      "status": "inflecting",
+      "stance": "AAPL year-end largest-company odds jumped to 63% from 37%; NVDA fell to 36.5% from 61.5% — pair flipped from losing to winning on indiscriminate chip rout. Memo says book half the pair now; close the rest if AAPL odds fall back below 50% or NVDA earnings timing serves as a reliable trigger (Nov 17). Federal data-center ban cannot pass (veto-proof majority not achievable; AI safety law before 2027 at 8.5%). Real channels are state permitting, state utility rate cases, congressional oversight — all hurt new builds, raise scarcity value of already-powered capacity. Underweight hyperscalers and debt-funded neoclouds; OW MU; chip equipment at neutral.",
+      "tell": "NVDA Nov 17 earnings: power or permit cited as bottleneck = confirm data-center landlord trade; AAPL odds fall below 50% = close remaining pair. Hyperscalers 2027 capex guidance cuts confirmed = chip equipment stays neutral or worse. Must-pass appropriations moratorium language = federal risk re-escalates."
+    },
+    {
+      "id": "hormuz-oil-stagflation-shock",
+      "label": "Gulf Escalation / Oil Impulse - Invasion Odds at 11.5%; Risk Premium Leaking",
+      "first_seen": "2026-07-20",
+      "last_updated": "2026-11-06",
+      "status": "inflecting",
+      "stance": "US invasion odds fell further to 11.5% from 14.5%. WTI dropped from ~$107 to ~$99 (below $100). Memo says oil risk premium is leaking out but not gone. Hold core XLE, VLO, MPC; do not add. Trim to core sleeve only if a deal is signed and WTI holds below $90. Ukrainian refinery strikes on Russia continue as a separate supply channel.",
+      "tell": "Confirmed strike or collapsed Iran talks = press energy and cut duration hard. Signed deal with WTI sustaining below $90 = trim energy to core sleeve and STIP. Crack spreads widening on Russian refinery outages = add refiners further."
+    },
+    {
+      "id": "dc-permitting-power-politics",
+      "label": "State Permitting / Power Politics - Federal Ban Ruled Out; State Channels Active",
+      "first_seen": "2026-11-04",
+      "last_updated": "2026-11-06",
+      "status": "building",
+      "stance": "Memo clarifies the federal ban cannot become law (House ~250 seats, far short of 290 to override veto; AI safety law before 2027 at 8.5%). Real risk channels are state permitting, state utility rate cases, and congressional oversight — all slow new builds and raise scarcity value of already-powered capacity. Indiscriminate selloff sold powered landlords alongside debt-funded neoclouds; holds starter long EQIX/DLR vs. short CRWV/IREN. Underweight VST, NRG (Texas-grid power producers); CEG (PJM) is cleaner power exposure. Size up only on Texas bill language or hyperscaler/chipmaker citing power/site limits as bottleneck. Kill trade if moratorium talk fades without state bill language.",
+      "tell": "Texas bill language on data-center moratorium = confirms thesis, size up. NVDA (Nov 17) or hyperscalers citing power or site limits = size up EQIX/DLR trade. Moratorium talk fades without state bill language = kill trade."
+    },
+    {
+      "id": "euro-positioning-squeeze",
+      "label": "Euro Positioning Squeeze - Hold FXE; France Risk a New Negative",
+      "first_seen": "2026-11-02",
+      "last_updated": "2026-11-06",
+      "status": "inflecting",
+      "stance": "Eurozone inflation 3.1%+ odds at 87%; ECB cut odds 3.3%. CFTC speculative euro shorts at 11-year extreme — positioning squeeze risk intact. Broad dollar at 121.67, below the 122 exit level. New negative: France's largest protests in years over cost of living and Le Pen at 44.5% odds for 2027 presidency add a euro political headwind. Hold FXE with tighter leash; exit on a dollar index break above 122.",
+      "tell": "CFTC data showing euro shorts reducing materially = squeeze underway, ride FXE. Dollar index breaking above 122 = exit FXE. Eurozone CPI at or above 3.1% with ECB holding = adds to squeeze case. Le Pen odds rising above 50% = reassess euro long."
+    }
+  ],
+  "dropped": []
+}
