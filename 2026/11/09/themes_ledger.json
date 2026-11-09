@@ -1,0 +1,83 @@
+{
+  "as_of": "2026-11-09",
+  "themes": [
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory - December Hike ~75% Priced; CPI Binary Tomorrow",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-11-09",
+      "status": "building",
+      "stance": "December hike odds firmed to ~75% (year-end upper bound 4.25% at 75.5%) after October jobs tripped the hawkish tell: unemployment 4.1% (below the 4.2% threshold), payrolls +165k, 3-month average 137k vs 78k YTD. Core CPI still 3.4% annualized over three months; core PCE ~2.9%; headline CPI ~4.2% annualized YTD. 2Y at 4.46%, below the 4.50% no-backstop test — interpreted as market pricing hike-then-cuts, not a hike-off signal unless it holds through tomorrow's CPI. Nov 10 CPI core ≥0.30% = 2Y should snap back above 4.50%; core ≤0.20% = hike odds slide toward coin flip.",
+      "tell": "Nov 10 Oct CPI core ≥0.30% = December hike locked, 2Y above 4.50%, keep SPY puts; core ≤0.20% = hike odds fall, trim STIP. Dec 4 jobs (if released): unemployment 4.4%+ = hike off. Dec 15-16 FOMC dots: 2027 path decides whether 2Y reversal bet pays."
+    },
+    {
+      "id": "breakeven-inflation-mispricing",
+      "label": "Breakeven / TIPS Mispricing - 5Y Breakeven at 2.29%; Trim Rule Tightened",
+      "first_seen": "2026-10-16",
+      "last_updated": "2026-11-09",
+      "status": "inflecting",
+      "stance": "5Y breakeven fell further to 2.29% (from 2.26% prior read), near its 10-year median of 2.21%, tracking gasoline down 31¢ in a month (top-decile monthly drop). Core CPI is 3.4% annualized — breakeven sits ~1.1pt below 3-month core. China PPI rose 5.7% YoY (4-year high), suggesting the goods-deflation export that helped US core is reversing. Memo tightened the trim rule: soft headline is now expected noise; trim STIP only on core ≤0.20%. Still avoid long TIPS (TIPZ) and long zeros (ZROZ).",
+      "tell": "Nov 10 Oct CPI core ≤0.20% = trim STIP. Core goods firming in Oct and Nov CPI = confirms China PPI pass-through hypothesis. 5Y breakeven recovering above 2.46% with oil above $100 = consider adding further."
+    },
+    {
+      "id": "equity-rate-reconciliation",
+      "label": "Equity-Rate Reconciliation - HY at 3.48%; One Day from Trigger",
+      "first_seen": "2026-10-07",
+      "last_updated": "2026-11-09",
+      "status": "inflecting",
+      "stance": "HY spreads widened to 3.48% on Nov 5, +34bp in six sessions and +73bp over three months — a move bigger than 92% of comparable 3-month windows in three years. That is 2bp short of the 3.50% trigger. 2Y closed at 4.46%, below the 4.50% no-backstop test; if it holds there through Nov 10 CPI, the no-Fed-put call is wrong. Hike odds at 75% and widening spreads moving together is the adverse combination. Hold SPY puts through CPI; act on beta cut and HYG puts only on a daily HY close ≥3.50%. 3-year HY high is 4.61%.",
+      "tell": "HY daily close ≥3.50% = execute beta cut, add HYG puts. 2Y closing and holding clearly below 4.50% through Nov 10 CPI = no-Fed-put call wrong. HY back below 3.30% with hike odds unchanged = refutes theme. Nov 10 core CPI ≥0.30% = multiples have no floor."
+    },
+    {
+      "id": "ai-trade-bifurcation",
+      "label": "AI Trade Bifurcating - AAPL/NVDA Pair Closed; Governance Overhang on NVDA",
+      "first_seen": "2026-07-31",
+      "last_updated": "2026-11-09",
+      "status": "inflecting",
+      "stance": "Memo closes the long AAPL / short NVDA pair: odds moved from 37/61 to 74/25.5 — edge exhausted. NVDA fell 5% on scrutiny of Jensen Huang's ties to an alleged Chinese spy (NYT/Rubio; board statement issued). New risks: Democratic House oversight and 16.5% odds government takes a stake. New Apple CEO Ternus pushes more ambitious AI strategy, threatening Apple's no-heavy-capex premium. Anthropic IPO (87% odds before 2027, 97.5% odds of $600B+ day-one cap) creates new share supply drag on AI megacaps; within hyperscaler underweight, prefer AMZN and GOOGL (Anthropic stakes get valuation mark-up) over MSFT and META.",
+      "tell": "NVDA Nov 17 earnings: power or permit cited as bottleneck = confirm data-center landlord trade. Government stake odds rising above 25% or new concrete oversight action = re-establish NVDA short. Anthropic IPO filing = supply drag on AI megacaps activates. AAPL odds fall below 50% = reassess Apple premium thesis."
+    },
+    {
+      "id": "hormuz-oil-stagflation-shock",
+      "label": "Gulf Escalation / Oil Impulse - Invasion Odds 11.5%; WTI Below $100",
+      "first_seen": "2026-07-20",
+      "last_updated": "2026-11-06",
+      "status": "fading",
+      "stance": "US invasion odds unchanged at 11.5%. WTI slipped further to $99.64, below $100. Risk premium leaking but not gone. Hold core XLE, VLO, MPC; do not add. Trim to core sleeve only if a deal is signed and WTI holds below $90. Ukrainian refinery strikes on Russia remain a live secondary supply risk. No new evidence today; status moves to fading given WTI sub-$100 and unchanged odds.",
+      "tell": "Confirmed strike or collapsed Iran talks = press energy and cut duration. Signed deal with WTI sustaining below $90 = trim energy to core sleeve and STIP. Crack spreads widening on Russian refinery outages = add refiners."
+    },
+    {
+      "id": "dc-permitting-power-politics",
+      "label": "State Permitting / Power Politics - Data-Center Landlord Trade Intact; NVDA Catalyst Nov 17",
+      "first_seen": "2026-11-04",
+      "last_updated": "2026-11-06",
+      "status": "building",
+      "stance": "Federal ban cannot pass (House ~250 seats, far short of 290 to override veto). Real risk channels remain state permitting, utility rate cases, congressional oversight — all slow new builds and raise scarcity value of powered capacity. Hold long EQIX/DLR vs short CRWV/IREN. Size up only if NVDA (Nov 17) or hyperscalers cite power or site limits as a bottleneck, or on Texas bill language. No new state-level evidence today.",
+      "tell": "NVDA Nov 17 earnings citing power or site limits = size up EQIX/DLR. Texas bill language on data-center moratorium = confirms thesis. Moratorium talk fades without state bill language = kill trade."
+    },
+    {
+      "id": "euro-positioning-squeeze",
+      "label": "Euro Positioning Squeeze - Le Pen Odds Rising; Eurozone Inflation Odds Eased",
+      "first_seen": "2026-11-02",
+      "last_updated": "2026-11-09",
+      "status": "inflecting",
+      "stance": "Le Pen 2027 presidency odds rose to 45.95% from 44.5%. Eurozone inflation ≥3.1% odds eased to 80.45% from 87% — a weakening of one of the two squeeze supports. Broad dollar level and CFTC short positioning not updated in today's memo. Memo says hold FXE on a tight leash; exit if dollar index breaks above 122 or Le Pen tops 50%.",
+      "tell": "Dollar index breaking above 122 = exit FXE. Le Pen odds rising above 50% = reassess euro long. CFTC data showing euro shorts reducing materially = squeeze underway, ride FXE. Eurozone CPI at or above 3.1% with ECB holding = adds to squeeze case."
+    },
+    {
+      "id": "anthropic-ipo-ai-supply",
+      "label": "Anthropic IPO - New AI Share Supply; AMZN/GOOGL Get Valuation Mark-Up",
+      "first_seen": "2026-11-09",
+      "last_updated": "2026-11-09",
+      "status": "building",
+      "stance": "Markets price 87% odds of an Anthropic IPO before 2027, with 97.5% odds of a $600B+ day-one market cap. A listing of that size would arrive into a tape already under pressure from NVDA's governance story. Supply drag inference: fund dollars rotate from existing AI megacaps into Anthropic. Existing owners Amazon and Alphabet receive a valuation mark-up on their stakes; Microsoft's OpenAI stake stays illiquid (OpenAI IPO in 2026 at 1.55% odds). Within hyperscaler underweight, prefer AMZN and GOOGL over MSFT and META.",
+      "tell": "Anthropic IPO filing or S-1 registration = supply drag on AI megacaps activates; monitor NVDA/MSFT relative performance. OpenAI IPO odds rising above 10% = reassess MSFT illiquidity discount. Amazon/Alphabet guidance citing Anthropic stake mark-up = confirms valuation thesis."
+    }
+  ],
+  "dropped": [
+    {
+      "id": "term-premium-fiscal-supply-rout",
+      "reason": "resolved: explicitly closed in prior ledger; no active monitoring needed"
+    }
+  ]
+}
