@@ -1,0 +1,83 @@
+{
+  "as_of": "2026-11-16",
+  "themes": [
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory - December Hike Locked; 2027 Path Now the Question",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-11-16",
+      "status": "building",
+      "stance": "December hike now priced at 88% (up from 84%), and the 2Y yield rose 30bp in two weeks to 4.86%, pricing the December hike plus roughly three more in 2027. Core PCE is running ~2.9% annualized over three and six months, 3.1% YoY — not cooling. October core CPI 0.30% MoM confirmed stickiness; falling oil will cool the Dec 10 headline but not the core trend. Labor remains firm: October payrolls 165k, 3-month avg ~137k, unemployment 4.1%, job openings 7.52M. The 2027 hike path is the operative question.",
+      "tell": "Dec 10 November CPI core ≤0.20% = 2027 hike path reprices lower, trim STIP. Dec 15-16 FOMC median 2027 dot above 4.50% = confirms extended tightening cycle. Dec 4 November payrolls: unemployment 4.4%+ = December hike odds soften, theme collapses. Nov 18 FOMC minutes flagging 2027 path above 4.5% = real yields grind higher, tests TIPS call."
+    },
+    {
+      "id": "real-yield-tips-rotation",
+      "label": "Real Yield Surge - TIPS Over Nominals; Breakevens Complacent vs Core PCE",
+      "first_seen": "2026-11-16",
+      "last_updated": "2026-11-16",
+      "status": "building",
+      "stance": "10Y real yield hit 2.86%, near the 10-year high of 2.95%, up 20bp in two sessions and 44bp over three months (larger than ~80% of decade readings). The 5Y breakeven is 2.30% (58th percentile of decade), well below the 3.7% 3-month annualized core CPI pace and the 2.9–3.1% core PCE trend — the market is pricing Fed victory the data doesn't yet support. TIPS beat nominals if core stays hot (breakevens widen); outright TIPS gain if hikes get priced out (real yields fall). IEF-add-at-5% call from prior week replaced: plain Treasuries only win if inflation cools. Avoid ZROZ; size outright exposure to risk of real yields grinding higher with flat breakevens.",
+      "tell": "Dec 10 November CPI core above 0.30% with breakevens falling = TIPS call breaks, exit. 5Y breakeven recovering above 2.46% = confirms mispricing thesis. Real yields breaking above 2.95% decade high with breakevens flat = size down outright TIPS, hold TIPS vs IEF pair only."
+    },
+    {
+      "id": "breakeven-inflation-mispricing",
+      "label": "Breakeven / TIPS Mispricing - 5Y Breakeven 2.30%; Gap to Core Persists",
+      "first_seen": "2026-10-16",
+      "last_updated": "2026-11-16",
+      "status": "inflecting",
+      "stance": "5Y breakeven edged up to 2.30% (from 2.25%) even as the 10Y real yield spiked to 2.86%. Gap to 3-month annualized core (3.7%) and core PCE (~2.9–3.1%) remains wide. WTI fell 17% in two weeks to $89.62 — oil decline will cool headline CPI on Dec 10 but does not address the core trend. The original thesis (breakevens too low vs. core) is intact and now overlapping with the new real-yield-tips-rotation theme. Hold STIP; adding TIP/SCHP is the main new call. Avoid ZROZ.",
+      "tell": "Dec 10 November CPI core ≤0.20% = trim STIP. Core goods firming in Nov/Dec CPI = confirms China PPI pass-through. 5Y breakeven recovering above 2.46% with oil stabilizing = consider adding. Real yields breaking decade high with breakevens flat = exit outright TIPS, hold TIPS vs IEF only."
+    },
+    {
+      "id": "equity-rate-reconciliation",
+      "label": "Equity-Rate Reconciliation - HY Tightened to 3.20%; SPY Puts Closed",
+      "first_seen": "2026-10-07",
+      "last_updated": "2026-11-16",
+      "status": "inflecting",
+      "stance": "HY spreads tightened to 3.20% from 3.48% on Nov 5, tripping the 3.30% close-puts trigger even as real yields spiked 20bp in two sessions. SPY puts closed. Credit is not confirming stress this week despite higher real rates. Recession odds price at only 2.45%; >2.5% GDP year at 50%. Credit stress is now expressed through relative positions in rate-sensitive long-duration assets: REITs, homebuilders, expensive AI stocks.",
+      "tell": "HY daily close ≥3.50% = re-examine beta cut and hedges. HY falling below 3.00% with real yields still near highs = credit divergence from rates, reassess thesis entirely. Dec 15-16 FOMC hike delivered with HY holding wide = credit stress thesis revived."
+    },
+    {
+      "id": "ai-trade-bifurcation",
+      "label": "AI Trade Bifurcating - NVDA Now Governance/Revenue-Quality Story; AVGO Pair On",
+      "first_seen": "2026-07-31",
+      "last_updated": "2026-11-16",
+      "status": "inflecting",
+      "stance": "Jensen Huang ousted as CEO; Treasury Secretary Bessent ordered Nvidia to explain $12bn of AI chip supply to China and publicly questioned whether it 'goosed' earnings. Prediction markets give Apple 91% odds of largest company at year-end (up from 73%) and NVDA 7.5% — market-cap leadership loss is priced, but revenue-quality risk from the Treasury inquiry is not. New pair: short NVDA / long AVGO, sized on the governance/China-revenue risk (regulatory clock, not earnings clock). Government stake odds only 5%. Exit if Huang reinstated with Treasury's acquiescence or earnings cleanly separates China revenue. Anthropic IPO (unconfirmed this week): prefer AMZN and GOOGL over MSFT and META within hyperscaler underweight.",
+      "tell": "NVDA earnings (date unconfirmed) cleanly separating China revenue with no Treasury follow-up = close short NVDA/long AVGO pair. Huang reinstated with Treasury acquiescence = exit pair. Government stake odds rising above 25% or restatement/clawback action = size up short. Apple odds fall below 50% largest-company = reassess Apple premium."
+    },
+    {
+      "id": "anthropic-ipo-ai-supply",
+      "label": "Anthropic IPO - $600B+ Day-One Cap at 98.85%; Supply Drag on AI Megacaps",
+      "first_seen": "2026-11-09",
+      "last_updated": "2026-11-16",
+      "status": "building",
+      "stance": "Anthropic IPO reported for this week but not on confirmed calendar; day-one market cap ≥$600B at 98.85% odds. Share-supply drag on AI megacaps intact. AMZN and GOOGL preferred within hyperscaler underweight (Anthropic stakes get valuation mark-up); MSFT OpenAI stake stays illiquid (OpenAI 2026 IPO ~1.3–1.9% odds). Position sized modestly given market awareness.",
+      "tell": "Anthropic first trade confirmed and AI megacaps (NVDA/MSFT/META) underperform AMZN/GOOGL on first-trade day = supply drag thesis activates. AMZN/GOOGL guidance citing Anthropic stake mark-up = confirms valuation thesis. Anthropic day-one cap below $400B = supply drag thesis overshoots, reassess. OpenAI IPO odds rising above 10% = reassess MSFT illiquidity discount."
+    },
+    {
+      "id": "dc-permitting-power-politics",
+      "label": "Data-Center Power Scarcity - Long EQIX/DLR vs Short CRWV/IREN; Nvidia Earnings the Trigger",
+      "first_seen": "2026-11-04",
+      "last_updated": "2026-11-11",
+      "status": "building",
+      "stance": "Pair unchanged: long EQIX/DLR vs short CRWV/IREN. CoreWeave beat and raised (+15%) hurt the short leg, but WSJ flagged the capital workaround works 'for now,' keeping funding-squeeze thesis alive. Higher real yields (10Y real at 2.86%) structurally disadvantage leveraged AI cloud operators. Democrats now hold both chambers, so federal ban cannot pass but state permitting, utility rate cases, and congressional oversight remain slow-build risks that raise scarcity value of powered capacity. Close pair if Nvidia earnings (unconfirmed date) do not name power or site limits as a bottleneck.",
+      "tell": "Nvidia earnings (unconfirmed) citing power or site limits = size up EQIX/DLR. Texas or other state data-center moratorium bill language = confirms thesis. Nvidia earnings with no power/site mention = close the pair. CoreWeave refinancing stress emerging = short leg recovers."
+    },
+    {
+      "id": "hormuz-oil-stagflation-shock",
+      "label": "Energy Fading - WTI at $89.62; IEA Surplus Outlook Drives Trim",
+      "first_seen": "2026-07-20",
+      "last_updated": "2026-11-16",
+      "status": "fading",
+      "stance": "WTI fell 17% in two weeks from $107.56 to $89.62, sitting just under $90 for two sessions. IEA November report points to coming supply surplus as Middle East exports recover; new tanker attacks barely moved prices. Iran invasion odds steady at 7.5%. Upstream (XLE) trimmed to core position on the IEA-surplus thesis — note the prior tell required a signed Iran deal AND WTI below $90; the trim was executed on the IEA thesis alone with only two sessions under $90, a thin confirmation base. Refiners (VLO, MPC) kept: cheaper crude feedstock is a tailwind. OPEC+ meets Nov 30. Russian refinery-strike risk and potential sanctions relief from Trump-Putin talks are secondary supply variables.",
+      "tell": "Signed Iran deal with WTI sustaining below $90 = confirms trim, theme approaches resolution. OPEC+ Nov 30 cut announcement pushing WTI above $110 = re-engage energy overweight. Confirmed strike or collapsed Iran talks = press energy, cut duration. Crack spreads widening on Russian refinery outages = add refiners."
+    }
+  ],
+  "dropped": [
+    {
+      "id": "divided-government-fiscal-cap",
+      "reason": "displaced at cap by real-yield-tips-rotation; fiscal-cap substance absorbed into core-inflation-trajectory and ai-trade-bifurcation stances (Democrats hold both chambers, oversight escalating, tax cuts dead at 9.1%/11%)"
+    }
+  ]
+}
