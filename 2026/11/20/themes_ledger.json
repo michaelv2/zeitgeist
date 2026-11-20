@@ -1,0 +1,83 @@
+{
+  "as_of": "2026-11-20",
+  "themes": [
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory - December Hike Locked; 2027 Path Now the Question",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-11-18",
+      "status": "inflecting",
+      "stance": "December hike priced at 98% odds of no cut and 91% to 4.25% upper bound by year-end — effectively locked. The operative question has shifted: memo argues the 2027 multi-hike path priced into the 2Y (4.80%, ~70bp above post-December funds rate) will get priced out as tightening already underway hits growth. No new inflation data since last update — core CPI 0.30% MoM Oct, 3.7% 3-month annualized, core PCE ~2.9%; labor firm (165k payrolls, 4.1% unemployment). Continuing claims rose to 1.763M but memo flags as noise (62nd-percentile move, 32nd-percentile level). 2s10s curve flattened to 27bp from 35bp. New 2s10s steepener trade put on (long 2Y, short 10Y duration-matched) to express the 2027 repricing call.",
+      "tell": "Dec 10 November core CPI ≥0.35% = steepener cut, 2027 hikes intact. Core ≤0.20% = press steepener, close TIP/IEF. Dec 15–16 FOMC 2027 median dot above 4.50% = extended tightening confirmed. Dec 4 November payrolls: unemployment 4.4%+ = December hike odds soften. Nov 27 October PCE core above 0.30% = firms 2027 hike path, hurts steepener."
+    },
+    {
+      "id": "equity-rate-reconciliation",
+      "label": "Equity-Rate Reconciliation - HY 3.47%; SPY/QQQ Puts Reopened",
+      "first_seen": "2026-10-07",
+      "last_updated": "2026-11-20",
+      "status": "inflecting",
+      "stance": "HY spreads are 3.47%, 3bp from the 3.50% trigger, back to the Nov 5 level after giving up early-November tightening (3.20%→3.47%). Memo reopened half of SPY/QQQ puts now — ahead of the trigger — with preference for QQQ as AI stress is concentrated there. Second half adds on a confirmed HY close ≥3.50%. Real yields 2.88% (10Y TIPS, 99th percentile). Anthropic's $1.8T debut-then-selloff and Asian markets heading for worst week since 2020 are the new stress vectors. Financial conditions still loose (Chicago Fed –0.478), leaving room for further adjustment. Nov 25 Q3 profits are the next confirmation gate.",
+      "tell": "HY daily close ≥3.50% = add remaining SPY/QQQ puts. Nov 25 Q3 profits weak plus HY at/above 3.50% = confirm full hedges. HY falling back below 3.20% while real yields hold = credit diverging from rates, reassess thesis entirely."
+    },
+    {
+      "id": "ai-trade-bifurcation",
+      "label": "AI Trade Selloff - China Chip Risk Confirmed; NVDA Short Maintained",
+      "first_seen": "2026-07-31",
+      "last_updated": "2026-11-20",
+      "status": "building",
+      "stance": "The prior exit condition for the NVDA/AVGO pair ('no China revenue follow-up') has failed: Rep. Mast confirmed Commerce approved 879k+ Nvidia/AMD AI chip sales to Chinese companies; NYT reports Nvidia was asked to sell to companies tied to China's military. These are new public disclosures arriving just as a 56-seat Democratic Senate takes over oversight — political risk falls specifically on NVDA and AMD. Half-size short NVDA / long AVGO pair maintained. AMZN/GOOGL preference over MSFT/META dropped: Anthropic stakes now tied to a falling ANT, edge gone. AAPL flagged as relative megacap safe haven (93% odds largest company Dec 31, low-capex AI optionality). Mid-March 2027 Nvidia GTC is the first reset opportunity.",
+      "tell": "Senate or Commerce follow-up action on China chip sales (export controls tightened, subpoena, or revenue restatement) = size up short. Government stake odds rising above 25% = size up short. Nvidia GTC March 2027 resets AI narrative with no policy action = close pair. HY closes ≥3.50% accelerating AI cohort selloff = hold pair through stress."
+    },
+    {
+      "id": "anthropic-ipo-ai-supply",
+      "label": "Anthropic IPO - Debuted $1.8T Then Sold Off; AI Valuation Test Now Live",
+      "first_seen": "2026-11-09",
+      "last_updated": "2026-11-20",
+      "status": "inflecting",
+      "stance": "Anthropic debuted at $1.8T — three times the $600B bar the market had priced — then sold off. SoftBank had its worst day in more than two years; Nasdaq futures extended losses premarket; Asian markets heading for worst week since 2020. The theme has shifted from supply-absorption question to AI valuation test. AMZN/GOOGL preference over MSFT/META dropped as Anthropic stakes are now a liability, not a mark-up. SpaceX IPO supply-drag thesis still intact pending a filing.",
+      "tell": "Anthropic stabilizes and reclaims $1.8T within two weeks = supply-absorption concern resolved, AI selloff was IPO-specific. Anthropic falls below $1T = AI valuation reset deepens, megacap underweight strengthens. SpaceX IPO filing confirmed = size up megacap underweight."
+    },
+    {
+      "id": "hormuz-oil-stagflation-shock",
+      "label": "Gulf Escalation & Energy - XLE Trimmed to Half; Surplus Winning vs. War Risk",
+      "first_seen": "2026-07-20",
+      "last_updated": "2026-11-20",
+      "status": "inflecting",
+      "stance": "Houthis struck Riyadh's tallest tower (Saudi wealth fund HQ). WTI printed $89.24–$89.53 on Nov 16–17 — Hormuz strikes and Riyadh attack have not lifted WTI above ~$90, indicating the supply surplus is winning over war risk. XLE trimmed back to half position from full; VLO and MPC retained on cheaper-feedstock tailwind. 5Y breakeven at 2.22% treating AI selloff as disinflationary despite headline CPI running >5% annualized. No Russian oil supply relief: Ukraine struck Kerch bridge again, peace deal priced ~4%.",
+      "tell": "WTI sustaining below $90 through further escalation = surplus dominant, consider exiting XLE entirely. Confirmed disruption to Hormuz shipping lanes or WTI above $110 = rebuild XLE to full. OPEC+ cut announcement = adds upside pressure."
+    },
+    {
+      "id": "real-yield-tips-rotation",
+      "label": "Real Yield / Curve Trades - Long TIP/Short IEF + New 2s10s Steepener",
+      "first_seen": "2026-11-16",
+      "last_updated": "2026-11-20",
+      "status": "inflecting",
+      "stance": "10Y real yield 2.88% (99th percentile of decade, high is 2.95%); 5Y breakeven fell further to 2.22%, exactly at decade median, down 16bp in a month — market treating AI selloff as disinflationary while headline CPI runs >5% annualized. Long TIP/short IEF held but slightly offside. New 2s10s steepener added (long 2Y, short 10Y duration-matched) to express view that 2027 hikes get priced out from front end. 2s10s at 27bp, flattened from 35bp. Avoid ZROZ. Outright TIPS re-entry only if breakevens fall below 2.10% while core stays hot.",
+      "tell": "Dec 10 November core CPI ≤0.20% = close TIP/IEF, press steepener. Core ≥0.35% = cut steepener. 5Y breakeven recovering above 2.46% = long TIP/short IEF strengthens. Real yields breaking above 2.95% decade high = reassess size. 2s10s flattening back below 20bp on flight-to-quality = steepener stop."
+    },
+    {
+      "id": "defense-war-spending",
+      "label": "Defense Overweight - War Strain + Supplemental Spending Likely; XAR Long",
+      "first_seen": "2026-11-18",
+      "last_updated": "2026-11-18",
+      "status": "intact",
+      "stance": "No new evidence today. Houthi campaign (Riyadh tower strike) and ongoing Iran war keep munitions demand elevated. Market gives 79% odds US strikes eight or more countries this year. 56-seat Democratic Senate shifts fight to war-cost oversight, not funding cuts; supplemental defense bill still likely. XAR overweight maintained. LHX has idiosyncratic headline risk from FAA ground-stop investigation but not large enough to change XAR view.",
+      "tell": "Supplemental defense spending bill introduced in Congress = confirms thesis, hold XAR. Gulf escalation de-escalates and US strikes fall below 4 countries = reassess overweight. XAR underperforming broader market 3 months after supplemental bill = exit."
+    },
+    {
+      "id": "front-end-2027-repricing",
+      "label": "2027 Hike Path Repricing - Steepener On; Consumer/Growth Cracks Accumulating",
+      "first_seen": "2026-11-20",
+      "last_updated": "2026-11-20",
+      "status": "building",
+      "stance": "2Y at 4.80% implies ~70bp above post-December-hike funds rate, pricing a multi-hike 2027. Memo argues this path cannot survive tightening already underway: October real retail sales dipped after strong three-month run, industrial production fell 0.4%, Michigan sentiment 48.1, AI selloff is now a wealth shock layered on top. 2s10s steepener put on (long 2Y, short 10Y). The curve at 27bp prices no growth damage. December hike still expected; 2027 repricing is the trade.",
+      "tell": "Nov 27 October PCE core above 0.30% = firms 2027 path, cuts steepener. Dec 10 core CPI ≤0.20% = press steepener aggressively. Dec 15 November retail sales second negative real print = confirms 2027 overpricing. Dec 15–16 FOMC 'one and wait' language = 2Y rallies, steepener pays."
+    }
+  ],
+  "dropped": [
+    {
+      "id": "breakeven-inflation-mispricing",
+      "reason": "subsumed: thesis fully absorbed into real-yield-tips-rotation and front-end-2027-repricing; no independent signal remaining"
+    }
+  ]
+}
