@@ -1,0 +1,78 @@
+{
+  "as_of": "2026-11-23",
+  "themes": [
+    {
+      "id": "equity-rate-reconciliation",
+      "label": "Equity-Rate Reconciliation - HY Trigger Fired; Full Puts Being Sized",
+      "first_seen": "2026-10-07",
+      "last_updated": "2026-11-23",
+      "status": "building",
+      "stance": "HY spread closed at 3.52% on Nov 19 — the 3.50% trigger fired. Spread is at the 92nd percentile of FRED's 3-year history and the 3-month widening (+79bp) is also a 92nd-percentile move. 10Y real yield unchanged at 2.88% (99th percentile), so discount-rate pressure on high-multiple stocks is unrelieved. S&P 500 fell 5.8% from 7,619 (Nov 11) to 7,176 (Nov 19) before Friday's rout; prediction markets put the most likely December close at 6,500–7,000 (34.5%). Memo directs adding second half of SPY/QQQ puts into the +3% Nasdaq bounce, weighted to QQQ.",
+      "tell": "HY falling back below 3.20% while real yields stay high = credit diverging from rates, reassess thesis. Nov 25 Q3 corporate profits weak with HY at/above 3.50% = confirm full equity hedges. HY widening to 4.00%+ = accelerate put sizing."
+    },
+    {
+      "id": "front-end-2027-repricing",
+      "label": "2027 Hike Path Repricing - Steepener On; 2Y Has Started to Move",
+      "first_seen": "2026-11-20",
+      "last_updated": "2026-11-23",
+      "status": "building",
+      "stance": "2Y has fallen 12bp from peak (4.88% to 4.76%), still embedding ~60bp of further hikes after December, down from ~70bp last week. 2s10s moved from 27bp to 29bp — curve has not yet priced growth damage. 10Y–3M spread compressed from 83bp to 60bp in a week. Steepener held; the edge is that 5% long yields, equity drawdown, and HY widening together are not yet reflected in the front end. December hike (~92% odds, 4.25% upper bound) still locked; pricing out the 2027 path is the active trade.",
+      "tell": "Nov 25 October core PCE above 0.30% = firms 2027 path, cuts steepener. Dec 10 core CPI ≤0.20% = press steepener aggressively. Dec 15–16 FOMC 'one and wait' language = 2Y rallies, steepener pays. 2s10s falling back below 20bp on flight-to-quality = steepener stop."
+    },
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory - December Hike Locked; 2027 Path Softening",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-11-18",
+      "status": "inflecting",
+      "stance": "No new inflation data since last update. December hike at ~92% odds for 4.25% upper bound — effectively locked. Last readings: core CPI +0.30% MoM Oct, 3.7% 3-month annualized; core PCE ~2.9%; labor firm (165k payrolls, 4.1% unemployment). Chicago Fed financial conditions still loose (−0.478), giving a Warsh-led Fed cover to hike once then stop. The question remains whether 2027 multi-hike path gets priced out as tightening hits growth.",
+      "tell": "Dec 10 November core CPI ≥0.35% = 2027 hikes intact, steepener at risk. Core ≤0.20% = press steepener, close TIP/IEF. Dec 15–16 FOMC 2027 median dot above 4.50% = extended tightening confirmed. Nov 25 October PCE core above 0.30% = firms 2027 hike path."
+    },
+    {
+      "id": "ai-trade-bifurcation",
+      "label": "AI Trade Selloff - China Chip Risk + Democratic Senate Subpoena Risk",
+      "first_seen": "2026-07-31",
+      "last_updated": "2026-11-23",
+      "status": "building",
+      "stance": "HY trigger at 3.52% has fired. Democratic Senate (56 seats) now makes the reported Commerce-approved chip sales to China (879k+ Nvidia/AMD units, NYT reports ties to Chinese military) a live subpoena risk specifically for NVDA, not AVGO. Half-size short NVDA / long AVGO maintained. AAPL confirmed as megacap relative safe haven (93.5% odds largest company Dec 31). AMZN/GOOGL preference dropped; Anthropic stakes now a liability. Mid-March 2027 Nvidia GTC is first narrative reset opportunity.",
+      "tell": "Senate or Commerce follow-up action on China chip sales (export controls, subpoena, or revenue restatement) = size up short. Nvidia GTC March 2027 with no policy action = close pair. HY closes ≥3.50% accelerating AI cohort selloff = hold pair through stress."
+    },
+    {
+      "id": "anthropic-ipo-ai-supply",
+      "label": "Anthropic IPO - AI Valuation Test Live; Selloff Extended Into Week Two",
+      "first_seen": "2026-11-09",
+      "last_updated": "2026-11-23",
+      "status": "inflecting",
+      "stance": "Anthropic debuted at $1.8T then sold off; Nasdaq 100 futures bounced +3% on Nov 23 after Friday's 'bloodbath.' The selloff has now coincided with HY trigger firing (3.52%) and S&P 500 down 5.8% from Nov 11 peak, suggesting the IPO-specific shock has become a broader AI valuation repricing. Prediction markets give 33% odds the AI bubble bursts in 2026. AMZN/GOOGL preference dropped; Anthropic stakes are now a liability for holders. SpaceX IPO supply-drag thesis still intact pending a filing.",
+      "tell": "Anthropic stabilizes and reclaims $1.8T within two weeks = supply-absorption concern resolved. Anthropic falls below $1T = AI valuation reset deepens, megacap underweight strengthens. SpaceX IPO filing confirmed = size up megacap underweight."
+    },
+    {
+      "id": "hormuz-oil-stagflation-shock",
+      "label": "Gulf Escalation & Oil - Netanyahu Window Adds Strike Risk; Surplus Still Dominant",
+      "first_seen": "2026-07-20",
+      "last_updated": "2026-11-23",
+      "status": "inflecting",
+      "stance": "WTI dropped ~$19 in a month to ~$89.5 even with Houthi strikes and Riyadh tower attack — surplus narrative is winning. 5Y breakeven fell further to 2.18% (79th-percentile move in a month), treating AI selloff as disinflationary despite headline CPI ~5.7% annualized. New catalyst: CBS/Axios report US and Israel weighing new Iran strikes; Haaretz says Netanyahu is pushing harder as Eisenkot (61% odds next PM, 41.5% odds Netanyahu out by year-end) nears power. Memo adds 1–2 month WTI/USO call spread as event hedge. XLE held at half size; VLO and MPC retained on cheap-feedstock tailwind.",
+      "tell": "WTI sustaining below $90 through further escalation = surplus dominant, consider exiting XLE entirely. Confirmed Hormuz disruption or WTI above $110 = rebuild XLE to full and size up call spread. Eisenkot takes office with no strike and reports of planning fade = remove call spread."
+    },
+    {
+      "id": "real-yield-tips-rotation",
+      "label": "Real Yield / Curve Trades - Long TIP/Short IEF Offside; Steepener Intact",
+      "first_seen": "2026-11-16",
+      "last_updated": "2026-11-23",
+      "status": "inflecting",
+      "stance": "10Y real yield 2.88% (99th percentile, decade high 2.95%); 5Y breakeven fell further to 2.18% (down 21bp in a month, 79th-percentile move) — market pricing AI-shock disinflation despite core CPI at 3.7% annualized and headline ~5.7%. Long TIP/short IEF held but offside. 2s10s steepener held, curve moved 27bp→29bp. ZROZ avoided (10Y at 5.04%, no fiscal consolidation under gridlock). Outright TIPS re-entry only if breakevens fall below 2.10% while core stays hot.",
+      "tell": "Dec 10 November core CPI ≤0.20% and breakeven below 2.10% = close TIP/IEF, press steepener. Core ≥0.35% = cut steepener. 5Y breakeven recovering above 2.46% = long TIP/short IEF strengthens. Real yields breaking above 2.95% decade high = reassess size. 2s10s falling below 20bp on flight-to-quality = steepener stop."
+    },
+    {
+      "id": "defense-war-spending",
+      "label": "Defense Overweight - Ukraine Spillover Adds Baltic/Shipping Risk; XAR Long",
+      "first_seen": "2026-11-18",
+      "last_updated": "2026-11-23",
+      "status": "intact",
+      "stance": "Ukraine drones struck a Russian warship in Benghazi, Libya and a cargo ship in the Gulf of Finland; Finland's PM says the war is 'spilling over.' This extends the munitions-demand and shipping-insurance thesis beyond the Gulf. 56-seat Democratic Senate shifts fight to war-cost oversight, not funding cuts; supplemental defense bill still likely. XAR overweight maintained. Prediction markets give 12% odds of a NATO–Russia clash by year-end.",
+      "tell": "Supplemental defense spending bill introduced in Congress = confirms thesis, hold XAR. Gulf and Ukraine escalation de-escalates simultaneously = reassess overweight. XAR underperforming broader market 3 months after supplemental bill = exit."
+    }
+  ],
+  "dropped": []
+}
