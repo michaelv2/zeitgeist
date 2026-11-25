@@ -1,0 +1,78 @@
+{
+  "as_of": "2026-11-25",
+  "themes": [
+    {
+      "id": "equity-rate-reconciliation",
+      "label": "Equity-Rate Reconciliation - Full Puts in Place; HY Overshoot to 3.76%",
+      "first_seen": "2026-10-07",
+      "last_updated": "2026-11-25",
+      "status": "building",
+      "stance": "HY spread overshot to 3.76% (94th percentile, 3-year) on Nov 20 before easing to 3.63% — well above the 3.50% trigger. Full-size SPY/QQQ puts are in place. New rule: if HY reaches 4.00%, take profits on a third of puts and roll strikes down. 10Y real yield eased to 2.79% (still 99th percentile), providing little discount-rate relief to long-duration equities. S&P 500 prediction markets price the most likely December close at 6,500–7,000 (27.5%); the 6,200 low is priced at 16.5%. Chicago Fed financial conditions still loose (−0.478), lagging credit signal.",
+      "tell": "HY falling back below 3.20% while real yields stay high = reassess full-hedge thesis. HY reaching 4.00% = take profits on one-third of puts, roll strikes down. Dec 23 Q3 corporate profits weak with HY at/above 3.50% = maintain full hedges."
+    },
+    {
+      "id": "front-end-2027-repricing",
+      "label": "2027 Hike Path Repricing - Front-End Rally; Steepener Intact",
+      "first_seen": "2026-11-20",
+      "last_updated": "2026-11-25",
+      "status": "building",
+      "stance": "2Y fell 25bp from peak (4.88% to 4.63%), now embedding ~50bp of further tightening after December — market pricing a disinflationary growth scare. 10Y fell 23bp (5.15% to 4.92%), so 2s10s held at 28–29bp; bull move at both ends, not yet a steepener. 10Y–3M compressed from 83bp to 55bp in under two weeks; at this pace a December hike into falling long yields could invert within weeks, reviving the recession narrative (prediction markets price recession at only 2.65% — but window is only 5 weeks). Edge: front end still prices hikes growth won't support; December hike (~92.6% odds, 4.25% upper bound) still locked.",
+      "tell": "Dec 4 unemployment ≥4.3% or payrolls <75k = confirms claims rise is real, December is last hike, steepener pays. Early-Dec core CPI ≤0.20% = press steepener aggressively. Mid-Dec FOMC 'one and wait' language = 2Y rallies, steepener pays. 2s10s falling below 20bp on flight-to-quality = steepener stop."
+    },
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory - December Hike Locked; PCE Print Due Nov 27",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-11-25",
+      "status": "inflecting",
+      "stance": "October core CPI +0.30% MoM (3.7% annualized over 3 months); core PCE ~0.32% in September (~2.9% annualized). December hike at ~92.6% odds for 4.25% upper bound — effectively locked. Breakevens (5Y at 2.11%) are tracking oil and an AI-shock growth scare, not core run-rates. Outside the US, Eurozone 2026 inflation at 3.1%+ priced at 92% odds. The question: does the Fed hold into weakening growth while core runs ~3.5%, or does hot data force 2027 hikes? Nov 27 core PCE is the next live data point.",
+      "tell": "Nov 27 core PCE ≥0.35% = firms 2027 hike path, cuts steepener, refutes front-end long. Nov 27 core PCE ≥0.25% with 5Y breakeven below 2.10% = add outright TIP. Early-Dec core CPI ≥0.35% = 2027 hikes intact, steepener at risk. Early-Dec core CPI ≤0.20% = press steepener, close TIP/IEF."
+    },
+    {
+      "id": "ai-trade-bifurcation",
+      "label": "AI Trade - China Enforcement Reached Diversion Chain; NVDA Short Full Size",
+      "first_seen": "2026-07-31",
+      "last_updated": "2026-11-25",
+      "status": "building",
+      "stance": "Tell tripped: Treasury sanctioned Megaspeed (Singapore), an Alibaba-owned firm was blacklisted, Reuters traced $270M of AI servers in China to firms linked to Alice Huang — enforcement has reached the China diversion chain. Trump's pardon comment raises temperature. No legal action against Nvidia itself yet, but sanctions/blacklistings are the export-controls follow-up the tell asked for. Short NVDA / long AVGO taken to full size. Additional overhang: 24.75% market-implied chance of a US government stake in NVDA (dilution/governance risk). Huang congressional testimony pending (reportedly next week). AVGO has no equivalent China-diversion exposure. AAPL relative safe haven (91.6% odds largest company Dec 31) but carries most China tail risk among megacaps.",
+      "tell": "Huang testimony: Fifth Amendment plea or new China-diversion detail = pair pays, hold. Smooth Huang session = short-squeeze risk, reduce. Nvidia GTC mid-March 2027 with no policy action = close pair. HY at 4.00%+ accelerating AI cohort selloff = hold pair through stress."
+    },
+    {
+      "id": "anthropic-ipo-ai-supply",
+      "label": "Anthropic / AI Valuation Supply Drag - SoftBank Warning; Private Marks Untested",
+      "first_seen": "2026-11-09",
+      "last_updated": "2026-11-25",
+      "status": "inflecting",
+      "stance": "Nov 23 Nasdaq bounce fizzled. SoftBank fell 15% — a warning on the private AI funding chain. OpenAI valued at $1T+ at 98.8% odds but only 1.25% chance of a 2026 listing, so private marks are untested. Anthropic's push to turn Claude apps into desktop software adds marginal pressure on application-layer software. Avoid ORCL into Dec 14 earnings (most debt-funded AI capex name, most exposed to HY at 94th percentile). SpaceX supply-drag thesis intact pending a filing (98.8% odds it ends 2026 with year's largest IPO market cap). AI bubble bursts in 2026 at 33% odds.",
+      "tell": "Oracle Dec 14 earnings with weak guidance or financing strain = AI selloff extends to private-market chain. Anthropic falls below $1T = AI valuation reset deepens. SpaceX IPO filing confirmed = size up megacap underweight. SoftBank stabilizes and recoups losses = private-chain warning fades."
+    },
+    {
+      "id": "hormuz-oil-stagflation-shock",
+      "label": "Gulf Escalation & Oil - Netanyahu Window Narrowing; Surplus Still Dominant",
+      "first_seen": "2026-07-20",
+      "last_updated": "2026-11-25",
+      "status": "inflecting",
+      "stance": "WTI ~$89.5; 5Y breakeven at 2.11% — market prices no supply shock despite ongoing Houthi strikes and Riyadh tower attack. Netanyahu-out odds rose to 52% (from 41.5%); Eisenkot next-PM odds at 68.75%. Strike window before power transfer narrows to ~5 weeks. Surplus narrative remains dominant. 1–2 month WTI/USO call spread held as cheap event hedge. XLE at half size; VLO and MPC retained for cheap-feedstock tailwind.",
+      "tell": "WTI sustaining below $90 through further escalation = surplus dominant, consider exiting XLE entirely. Confirmed Hormuz disruption or WTI above $110 = rebuild XLE to full, size up call spread. Eisenkot takes office with no strike and planning reports fade = remove call spread."
+    },
+    {
+      "id": "real-yield-tips-rotation",
+      "label": "Real Yield / Curve Trades - Breakevens at 2.11%; TIP/IEF Offside but Edge Growing",
+      "first_seen": "2026-11-16",
+      "last_updated": "2026-11-25",
+      "status": "inflecting",
+      "stance": "5Y breakeven fell to 2.11% (down 37bp in a month, 96th-percentile move over 10 years), one tick above the 2.10% outright-TIP re-entry threshold and below the 10-year median of 2.21%. 10Y real yield eased to 2.79% (still 99th percentile). Long TIP/short IEF is offside but the edge is now larger than when opened — breakevens tracking oil and AI-shock disinflation, not core CPI at 3.7% annualized. Add outright TIP if Nov 27 core PCE prints ≥0.25% while 5Y breakeven is below 2.10%. ZROZ avoided (10Y at 4.92%, no fiscal consolidation under gridlock; $41T federal debt before 2027 at 33.5% odds).",
+      "tell": "Early-Dec core CPI ≤0.20% and breakeven below 2.10% = close TIP/IEF, press steepener. Nov 27 core PCE ≥0.25% with breakeven below 2.10% = add outright TIP. 5Y breakeven recovering above 2.46% = long TIP/short IEF strengthens. Real yields breaking above 2.95% decade high = reassess size."
+    },
+    {
+      "id": "defense-war-spending",
+      "label": "Defense Overweight - XAR Long; Shutdown Risk Near-Term Noise",
+      "first_seen": "2026-11-18",
+      "last_updated": "2026-11-23",
+      "status": "intact",
+      "stance": "No new military escalation today. Ukraine drone strike on Russian warship in Benghazi and North Korea expelling a Swiss diplomat over sanctions are diplomatic extensions, not new military escalation. Near-term risk is a December government shutdown delaying contract payments, not funding cuts. 56-seat Democratic Senate shifts to war-cost oversight; supplemental defense bill still likely. XAR overweight maintained. NATO–Russia clash by year-end at 12% odds.",
+      "tell": "Supplemental defense spending bill introduced in Congress = confirms thesis, hold XAR. December shutdown extending past 2 weeks and delaying contract payments materially = reassess near-term. Gulf and Ukraine escalation de-escalate simultaneously = reassess overweight."
+    }
+  ],
+  "dropped": []
+}
