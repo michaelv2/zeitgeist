@@ -1,0 +1,78 @@
+{
+  "as_of": "2026-11-27",
+  "themes": [
+    {
+      "id": "equity-rate-reconciliation",
+      "label": "Equity-Rate Reconciliation - Full Puts in Place; HY at 3.72%",
+      "first_seen": "2026-10-07",
+      "last_updated": "2026-11-27",
+      "status": "building",
+      "stance": "HY spreads at 3.72% (Nov 24, 95th percentile 3-year), with the +103bp 3-month move larger than 95% of past 3-month moves. Full SPY/QQQ puts held through today's AI-led futures rally — credit has not confirmed the equity bounce. AI-bubble-burst odds fell to 15.7% (from prior), but equity/credit divergence remains wide. Chicago Fed financial conditions at -0.444, still loose but tightening slowly. Rule unchanged: HY at 4.00% = take profits on one-third of puts and roll strikes down.",
+      "tell": "HY falling back below 3.20% while real yields stay high = reassess full-hedge thesis. HY reaching 4.00% = take profits on one-third of puts, roll strikes down. Dec 23 Q3 corporate profits weak with HY at/above 3.50% = maintain full hedges."
+    },
+    {
+      "id": "front-end-2027-repricing",
+      "label": "2027 Hike Path Repricing - Steepener Cut to Half; Growth-Scare Leg Weakened",
+      "first_seen": "2026-11-20",
+      "last_updated": "2026-11-27",
+      "status": "inflecting",
+      "stance": "2s10s compressed to 24bp (Nov 25), 4bp from the 20bp stop, prompting a cut to half size. 10Y-3M collapsed from 83bp to 51bp in nine sessions. The growth-scare leg has weakened: the claims spike reversed (1.792M → 1.697M) and October payrolls were solid at +165k. December hike at 93.6% odds (4.25% upper bound) still locked. New labor-market tell added: low payrolls with unemployment ≤4.1% is a supply story, not dovish. Steepener rebuild only if Dec 4 unemployment ≥4.3%.",
+      "tell": "Dec 4 unemployment ≥4.3% = rebuild steepener to full. Unemployment ≤4.1% with payrolls low = supply story, steepener stays half. Mid-Dec FOMC hawkish 2027 signal = 2s10s through 20bp stop, close. Early-Dec core CPI ≤0.20% = press steepener aggressively."
+    },
+    {
+      "id": "core-inflation-trajectory",
+      "label": "Core Inflation Trajectory - December Hike Locked; PCE 0.29%; Soft Headline Risk",
+      "first_seen": "2026-06-12",
+      "last_updated": "2026-11-27",
+      "status": "inflecting",
+      "stance": "October core PCE +0.29% MoM (3.6% annualized); core CPI +0.30% MoM (3.7% annualized). December hike at 93.6% odds, 4.25% upper bound — settled. WTI fell ~11% (Nov 12–24, $92.30→$82.24), so November headline CPI will likely undershoot core, creating a false-disinflation risk on Dec 10. The 5Y breakeven at 2.13% is below the 10-year median of 2.21% — market is pricing inflation as tame against a core still running ~3.7%. Real policy rate is only ~+0.3% (effective fed funds 3.88% vs. core PCE ~3.6%). The open question is whether hot core forces 2027 hikes.",
+      "tell": "Dec 10 core CPI ≥0.30% = confirms TIP call, fade any duration rally from soft headline. Dec 10 core CPI ≤0.20% = close TIP/IEF, press steepener. Dec 23 Nov PCE: core ≥0.35% = firms 2027 hike path. 5Y breakeven closing below 2.10% = add outright TIP."
+    },
+    {
+      "id": "ai-trade-bifurcation",
+      "label": "AI Trade - NVDA Short / AVGO Long at Full Size; Stake Odds Rose to 28.4%",
+      "first_seen": "2026-07-31",
+      "last_updated": "2026-11-27",
+      "status": "building",
+      "stance": "US government stake-in-Nvidia odds rose to 28.4% (from 24.75%) — an unpriced dilution/governance overhang. Trump publicly attacked NYT's Nvidia reporting, adding political heat. Beijing's record chip-stock day (domestic import-substitution rally) reinforces structural impairment of Nvidia's China revenue. AVGO carries neither China-diversion nor stake-odds exposure. Pair held at full size despite squeeze risk on today's AI rally. Huang testimony: not yet scheduled; event rules unchanged.",
+      "tell": "Huang testimony scheduled — smooth session = reduce pair (squeeze risk). Fifth Amendment plea or new diversion detail = hold. Nvidia GTC mid-March 2027 with no policy action = close pair. HY at 4.00%+ accelerating AI cohort selloff = hold pair through stress."
+    },
+    {
+      "id": "anthropic-ipo-ai-supply",
+      "label": "Anthropic / AI Valuation Supply Drag - Bubble-Burst Odds Fell; ORCL Still Avoided",
+      "first_seen": "2026-11-09",
+      "last_updated": "2026-11-27",
+      "status": "inflecting",
+      "stance": "AI-bubble-burst odds fell to 15.7% (from 33%) as sentiment heals on today's rally. Stocks rallying premarket; market relaxing. ORCL still avoided: most debt-funded AI capex name, most exposed to HY near 95th percentile 3-year range. SpaceX supply-drag thesis intact pending a filing. SoftBank prior 15% drop remains a warning on the private AI funding chain, though no new deterioration today.",
+      "tell": "Oracle earnings (date unconfirmed): weak guidance or financing strain = AI selloff extends to private-market chain. Anthropic falls below $1T valuation = AI valuation reset deepens. SpaceX IPO filing confirmed = size up megacap underweight. AI bubble-burst odds recovering above 33% = theme rebuilds."
+    },
+    {
+      "id": "hormuz-oil-stagflation-shock",
+      "label": "Gulf Escalation & Oil - XLE Fully Exited; Surplus Dominant at $82 WTI",
+      "first_seen": "2026-07-20",
+      "last_updated": "2026-11-27",
+      "status": "inflecting",
+      "stance": "WTI fell ~11% to $82.24 (Nov 12–24) despite Iran's Kuwait drone strike (two Italians killed) and ongoing Houthi activity — surplus is dominating supply risk. Tell tripped on oil: remaining half of XLE exited. Netanyahu-out odds jumped to 73% (from 52%); Eisenkot next-PM at 79.8%. Strike window before government change is narrowing. WTI/USO call spread held to expiry as cheap tail hedge only (not rolling). VLO and MPC retained for cheap-feedstock refiner tailwind.",
+      "tell": "WTI sustaining below $82 through further escalation = surplus fully dominant, let call spread expire. Confirmed Hormuz disruption or WTI above $110 = rebuild XLE, size up call spread. Eisenkot takes office with no strike and planning reports fade = remove call spread."
+    },
+    {
+      "id": "real-yield-tips-rotation",
+      "label": "Real Yield / Curve Trades - TIP/IEF Held; Add Trigger Near at 2.13% Breakeven",
+      "first_seen": "2026-11-16",
+      "last_updated": "2026-11-27",
+      "status": "inflecting",
+      "stance": "5Y breakeven at 2.13% — above the 2.10% outright-TIP add trigger and below the 10-year median of 2.21%. October core PCE at 0.29% cleared the 0.25% bar but breakeven did not close below 2.10%, so the full add trigger has not fired. New rule: add outright TIP on any close below 2.10% before Dec 10 (oil-driven headline disinflation is the likely route). 10Y real yield at 2.79% (99th percentile). Long TIP / short IEF held. ZROZ avoided ($41T federal debt odds rose to 37.5%; heavy December supply).",
+      "tell": "5Y breakeven closing below 2.10% before Dec 10 = add outright TIP. Dec 10 core CPI ≤0.20% = close TIP/IEF, press steepener. 5Y breakeven recovering above 2.46% = long TIP/short IEF strengthens. Real yields breaking above 2.95% decade high = reassess size."
+    },
+    {
+      "id": "defense-war-spending",
+      "label": "Defense Overweight - XAR Long; European Security Burden Rising",
+      "first_seen": "2026-11-18",
+      "last_updated": "2026-11-27",
+      "status": "intact",
+      "stance": "Trump told Putin to 'pull back' aggression across Europe while the US delayed its troop-posture review in Europe — signals rising European security burden. EU budget summit cut short; France and Germany pushing to 'Le Pen-proof' EU budget and Ukraine funding before year-end. NATO–Russia clash priced at 11.5%. XAR overweight maintained. No new military escalation but structural demand for defense spending remains elevated.",
+      "tell": "Supplemental defense spending bill introduced in Congress = confirms thesis, hold XAR. December shutdown extending past 2 weeks and delaying contract payments materially = reassess near-term. Gulf and Ukraine simultaneously de-escalate = reassess overweight."
+    }
+  ],
+  "dropped": []
+}
